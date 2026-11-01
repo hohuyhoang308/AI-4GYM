@@ -17,6 +17,7 @@ class Settings:
     ollama_base_url: str = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434")
     chat_model: str = os.getenv("CHAT_MODEL", "qwen3:4b-instruct")
     embed_model: str = os.getenv("EMBED_MODEL", "qwen3-embedding:0.6b")
+    chat_context_turns: int = int(os.getenv("CHAT_CONTEXT_TURNS", "3"))
     database_host: str = os.getenv("DATABASE_HOST", "127.0.0.1")
     database_port: int = int(os.getenv("DATABASE_PORT", "3306"))
     database_name: str = os.getenv("DATABASE_NAME", "ai_4gym")
@@ -34,6 +35,8 @@ class Settings:
             raise ValueError("OLLAMA_BASE_URL phải trỏ tới Ollama trên máy local qua HTTP")
         if self.chat_model.endswith(":cloud") or self.embed_model.endswith(":cloud"):
             raise ValueError("Không hỗ trợ model Ollama cloud")
+        if not 1 <= self.chat_context_turns <= 10:
+            raise ValueError("CHAT_CONTEXT_TURNS phải nằm trong khoảng 1 đến 10")
 
 
 settings = Settings()

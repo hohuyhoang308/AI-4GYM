@@ -9,6 +9,7 @@ from sqlalchemy.orm import Session
 
 from app.api.routes.auth import optional_user
 from app.api.routes.conversations import owned_conversation
+from app.core.config import settings
 from app.db.models import ChatMessage, Conversation, User
 from app.db.session import get_db, utc_now
 from app.services.chat import ChatService
@@ -47,7 +48,7 @@ def chat(request: ChatRequest, user: User | None = Depends(optional_user), db: S
         if conversation:
             history_rows = list(reversed(db.scalars(
                 select(ChatMessage).where(ChatMessage.conversation_id == conversation_id)
-                .order_by(ChatMessage.created_at.desc()).limit(8)
+                .order_by(ChatMessage.created_at.desc()).limit(settings.chat_context_turns * 2)
             ).all()))
         history = [{"role": item.role, "text": item.content} for item in history_rows]
         result = chat_service().ask(message, conversation_id, history_override=history)

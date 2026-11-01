@@ -41,7 +41,7 @@ def in_scope(question: str, has_context: bool = False) -> bool:
         return True
     if normalized.strip() in known_questions():
         return True
-    return has_context and bool(re.search(r"\b(con|neu|vay|the|doi|sao|bao nhieu|ngay|tuan|nua)\b", normalized))
+    return has_context and bool(re.search(r"\b(con|neu|vay|the|doi|sao|bao nhieu|ngay|tuan|nua|no|bai nay|bai do|dong tac nay|tiep|dau tien)\b", normalized))
 
 
 def requested_days(question: str) -> int | None:

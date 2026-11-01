@@ -35,7 +35,11 @@ class AuthFlowTest(unittest.TestCase):
                 follow_up = first.post("/chat", json={"conversation_id": conversation_id, "message": "Còn 4 ngày thì sao?"})
                 self.assertEqual(follow_up.status_code, 200, follow_up.text)
                 self.assertIn("4 buổi/tuần", follow_up.json()["answer"])
-                self.assertEqual(len(first.get(f"/conversations/{conversation_id}").json()["messages"]), 4)
+                for days in (5, 6, 2):
+                    next_reply = first.post("/chat", json={"conversation_id": conversation_id, "message": f"Còn {days} ngày thì sao?"})
+                    self.assertEqual(next_reply.status_code, 200, next_reply.text)
+                    self.assertIn(f"{days} buổi/tuần", next_reply.json()["answer"])
+                self.assertEqual(len(first.get(f"/conversations/{conversation_id}").json()["messages"]), 10)
 
                 response = second.post("/auth/register", json={"display_name": "Người tập B", "email": second_email, "password": "test-password-456"})
                 self.assertEqual(response.status_code, 201, response.text)
