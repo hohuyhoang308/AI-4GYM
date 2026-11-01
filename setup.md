@@ -105,7 +105,7 @@ Vẫn trong `BE/`, khi MySQL và Ollama đều đã chạy:
 .\.venv\Scripts\python.exe -m app.scripts.ingest
 ```
 
-`init_db` tạo database `ai_4gym` và bảng tài khoản, phiên đăng nhập, hội thoại, tin nhắn. `ingest` đọc `data/raw/data.xlsx`, chuyển **toàn bộ 965 cặp hỏi đáp** sang `data/processed/qa.json`, thêm 10 bài tập trong `data/curated/exercises.json` và lập chỉ mục Chroma tại `data/index/chroma/` (975 tài liệu). Lần đầu có thể mất vài phút vì phải tạo embedding local.
+`init_db` tạo database `ai_4gym` và bảng tài khoản, phiên đăng nhập, hội thoại, tin nhắn. `ingest` đọc `data/raw/data.xlsx`, chuyển **toàn bộ 965 cặp hỏi đáp** sang `data/processed/qa.json`, rồi chia thành `data/processed/train.json` (**772 câu, 80%**) và `data/processed/test.json` (**193 câu, 20%**). Chroma chỉ lập chỉ mục 772 câu train và 10 bài tập trong `data/curated/exercises.json`, tổng cộng **782 tài liệu**. Tập test không nằm trong chỉ mục. Lần đầu có thể mất vài phút vì phải tạo embedding local.
 
 Nếu chỉ muốn xem JSON mà chưa tải model, dùng:
 
@@ -113,7 +113,7 @@ Nếu chỉ muốn xem JSON mà chưa tải model, dùng:
 .\.venv\Scripts\python.exe -m app.scripts.ingest --export-only
 ```
 
-Sau khi sửa Excel hoặc `exercises.json`, chạy lại `ingest` đầy đủ rồi khởi động lại backend để cập nhật dữ liệu truy xuất. **Không chỉnh `qa.json` rồi chạy `ingest`** vì lệnh này sẽ tạo lại JSON từ Excel.
+Lệnh `--export-only` cũng tạo lại `train.json`, `test.json` và `split_manifest.json` mà chưa cần Ollama. Cách chia cố định bằng seed `42` và giữ các câu hỏi trùng sau chuẩn hóa trong cùng một tập, giúp chạy lại ra cùng kết quả. Sau khi sửa Excel hoặc `exercises.json`, chạy lại `ingest` đầy đủ rồi khởi động lại backend để cập nhật dữ liệu truy xuất. **Không chỉnh các file JSON rồi chạy `ingest`** vì lệnh này sẽ tạo lại chúng từ Excel.
 
 ## 7. Chạy backend
 
@@ -125,7 +125,7 @@ Trong cửa sổ PowerShell đang ở `BE/`:
 
 Giữ cửa sổ này mở. Kiểm tra:
 
-- [http://127.0.0.1:8000/health](http://127.0.0.1:8000/health): `status` là `ready`, `database_running` là `true`, `indexed_documents` là `975`.
+- [http://127.0.0.1:8000/health](http://127.0.0.1:8000/health): `status` là `ready`, `database_running` là `true`, `indexed_documents` là `782`; `dataset_split` hiển thị số câu và tỷ lệ.
 - [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs): tài liệu và giao diện thử API.
 
 ## 8. Cài và chạy frontend
@@ -167,6 +167,10 @@ Không cần chạy lại `pip install`, `npm install`, `ollama pull` hoặc `in
 Tại `FE/`, chạy `npm run build`. Sau đó chỉ cần backend đang chạy; mở [http://127.0.0.1:8000](http://127.0.0.1:8000). Backend sẽ phục vụ các file trong `FE/dist`. Sau mỗi lần sửa frontend, build lại để thấy thay đổi tại cổng 8000. Khi phát triển, dùng Vite ở cổng 5173 sẽ tiện hơn.
 
 ## 10. Kiểm tra và xử lý lỗi thường gặp
+
+### Số liệu train/test để báo cáo
+
+Từ 965 cặp hỏi đáp: **772 câu (80%)** dùng làm corpus để lập chỉ mục RAG, **193 câu (20%)** nằm trong file test độc lập. Có 10 bài tập biên soạn thêm ngoài phép chia 965 câu; chúng luôn được lập chỉ mục. Đây là cách chia dữ liệu cho **truy xuất và đánh giá**, không phải huấn luyện lại trọng số của Ollama/Qwen. Có thể mở `BE/data/processed/test.json` để xem từng câu hỏi và câu trả lời tham chiếu. Chưa có kết quả độ chính xác mô hình từ phép chia này; cần chạy đánh giá và chấm câu trả lời trên tập test để báo cáo một tỷ lệ chính xác.
 
 Tại `BE/`:
 

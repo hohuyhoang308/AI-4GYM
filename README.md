@@ -48,6 +48,9 @@ AI-4GYM/
 │   ├── data/
 │   │   ├── raw/data.xlsx
 │   │   ├── processed/qa.json
+│   │   ├── processed/train.json
+│   │   ├── processed/test.json
+│   │   ├── processed/split_manifest.json
 │   │   ├── curated/exercises.json
 │   │   └── index/chroma/      # tạo local, không đưa lên Git
 │   ├── tests/
@@ -64,7 +67,18 @@ AI-4GYM/
 
 ## Dữ liệu
 
-`BE/data/raw/data.xlsx` có **965 cặp hỏi đáp**; `BE/data/processed/qa.json` là bản chuyển đổi đầy đủ sang JSON, có số thứ tự và dòng Excel. Excel không có cột nguồn riêng nên các mục này ghi nguồn `data.xlsx`. `BE/data/curated/exercises.json` bổ sung 10 bài tập có hướng dẫn và nguồn từ [ACE Exercise Library](https://www.acefitness.org/resources/everyone/exercise-library/experience/beginner/). Chroma lập chỉ mục tổng cộng 975 tài liệu.
+`BE/data/raw/data.xlsx` có **965 cặp hỏi đáp**; `BE/data/processed/qa.json` là bản chuyển đổi đầy đủ sang JSON, có số thứ tự và dòng Excel. Dữ liệu được chia cố định theo câu hỏi đã chuẩn hóa:
+
+| Tập dữ liệu | File | Số câu | Tỷ lệ | Cách dùng |
+| --- | --- | ---: | ---: | --- |
+| Train/corpus | `BE/data/processed/train.json` | 772 | 80% | Lập chỉ mục RAG trong Chroma |
+| Test | `BE/data/processed/test.json` | 193 | 20% | Giữ riêng để kiểm tra, không lập chỉ mục |
+
+`BE/data/processed/split_manifest.json` ghi seed, số lượng và tỷ lệ. Các câu hỏi trùng sau chuẩn hóa nằm cùng một tập. Thêm 10 bài tập có nguồn từ [ACE Exercise Library](https://www.acefitness.org/resources/everyone/exercise-library/experience/beginner/) vào corpus, nên Chroma có **782 tài liệu**. Excel không có cột nguồn riêng nên các mục hỏi đáp ghi nguồn `data.xlsx`.
+
+Phép chia ngăn câu hỏi trùng sau chuẩn hóa xuất hiện ở cả hai tập; các câu diễn đạt khác nhau nhưng cùng ý chưa được nhóm tự động.
+
+**Lưu ý cho báo cáo:** “80% train” ở đây là dữ liệu dùng để xây dựng kho truy xuất; dự án **không fine-tune/huấn luyện lại** model Qwen hay model embedding. RAG lấy tài liệu khi trả lời, theo [mô tả của LangChain](https://docs.langchain.com/oss/python/deepagents/retrieval). Tập test 20% chưa đồng nghĩa độ chính xác 20% hay bất kỳ chỉ số chất lượng nào.
 
 Chất lượng từng câu trả lời trong Excel chưa được xác minh thủ công. Chatbot hỗ trợ tham khảo khi tập luyện, không thay thế đánh giá chuyên môn khi có chấn thương hoặc bệnh lý.
 
