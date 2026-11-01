@@ -76,6 +76,8 @@ def load_evaluation_results(test_rows: list[dict], results_path: Path = DEFAULT_
         result = json.loads(line)
         if result.get("id") not in test_ids or result.get("test_sha256") != expected_hash or result.get("chat_model") != settings.chat_model or result.get("embed_model") != settings.embed_model or result.get("source_sha256") != expected_source_hash:
             raise ValueError(f"Kết quả đánh giá không khớp tập test/model ở dòng {line_number}")
+        if result.get("judge_score") is None:
+            continue
         if result.get("judge_score") not in (0, 1, 2):
             raise ValueError(f"Điểm chấm không hợp lệ ở dòng {line_number}")
         results[result["id"]] = result

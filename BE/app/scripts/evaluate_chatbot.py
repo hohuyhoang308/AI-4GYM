@@ -21,7 +21,7 @@ JUDGE_VERSION = 2
 JUDGE_PROMPT = """Bạn là người chấm độc lập cho câu hỏi Gym/Fitness. So sánh CÂU TRẢ LỜI CHATBOT với ĐÁP ÁN THAM CHIẾU cho đúng CÂU HỎI.
 Chỉ dùng đáp án tham chiếu làm chuẩn. Diễn đạt khác vẫn đúng. Để được 2 điểm, câu trả lời phải bao quát đầy đủ các ý chính mà câu hỏi yêu cầu, không mâu thuẫn và không chứa chỉ dẫn nguy hiểm. Nếu câu hỏi yêu cầu nhiều bài tập/cách làm mà chatbot chỉ nêu một, cho tối đa 1 điểm. Nếu đáp án tham chiếu nêu nhiều bước hoặc điều kiện quan trọng mà chatbot bỏ qua, cho tối đa 1 điểm.
 Cho điểm: 2 = đủ ý chính và đúng; 1 = đúng một phần nhưng thiếu ý quan trọng hoặc quá chung; 0 = sai, từ chối, không trả lời hoặc mâu thuẫn đáng kể. Chấm nghiêm khắc; không cho 2 chỉ vì có một ví dụ đúng.
-Trả về duy nhất JSON với khóa score (số nguyên 0, 1 hoặc 2) và reason (một câu tiếng Việt ngắn)."""
+Trả về duy nhất JSON với khóa score (số nguyên 0, 1 hoặc 2) và reason (tối đa 20 từ tiếng Việt)."""
 
 
 def token_f1(reference: str, prediction: str) -> float:
@@ -60,7 +60,7 @@ def make_judge() -> ChatOllama:
         base_url=settings.ollama_base_url,
         temperature=0,
         num_ctx=2048,
-        num_predict=140,
+        num_predict=220,
         format="json",
     )
 
@@ -129,6 +129,22 @@ def run(results_path: Path, limit: int | None = None) -> None:
                     if attempt == 2:
                         raise
                     time.sleep(3 * (attempt + 1))
+            checkpoint = {
+                "id": row["id"],
+                "test_sha256": test_hash,
+                "source_sha256": manifest["source_sha256"],
+                "chat_model": settings.chat_model,
+                "embed_model": settings.embed_model,
+                "answer": reply["answer"],
+                "sources": reply["sources"],
+                "refused": reply["refused"],
+                "judge_score": None,
+                "judge_version": None,
+                "seconds": round(time.monotonic() - start, 1),
+            }
+            with results_path.open("a", encoding="utf-8") as output:
+                output.write(json.dumps(checkpoint, ensure_ascii=False) + "\n")
+                output.flush()
         for attempt in range(3):
             try:
                 score, reason = grade(judge, row["question"], row["answer"], reply["answer"])
@@ -158,8 +174,7 @@ def run(results_path: Path, limit: int | None = None) -> None:
             output.flush()
         existing[row["id"]] = result
         print(f"[{position}/{len(selected)}] {row['id']}  judge={score}  {result['seconds']}s", flush=True)
-    if len(existing) == len(test_rows):
-        compact_results(results_path, test_rows, existing)
+    compact_results(results_path, [row for row in test_rows if row["id"] in existing], existing)
     export_report(results_path=results_path)
     print(f"Exported {len(existing)}/{len(test_rows)} test answers to Excel.", flush=True)
 

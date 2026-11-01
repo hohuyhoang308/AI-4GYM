@@ -87,6 +87,8 @@ Chất lượng từng câu trả lời trong Excel chưa được xác minh th�
 
 ### Báo cáo Excel
 
+[Hướng dẫn và trạng thái đánh giá hiện tại](reports/README.md): đã chạy 19/193 câu test; 174 câu còn lại có thể tiếp tục bằng lệnh bên dưới.
+
 [Mở báo cáo train/test](reports/AI-4GYM_train_test_report.xlsx) để xem tổng quan, danh sách 772 câu train, 193 câu test và kết quả chatbot trên từng câu test. Sheet `Danh gia Test` ghi câu trả lời thực tế, điểm Qwen local (0–2), lý do chấm, Token F1, ROUGE-L F1, nguồn RAG và thời gian trả lời. Điểm 2 là đạt, 1 là đúng một phần, 0 là sai hoặc từ chối. Tỷ lệ đạt tự động = số câu điểm 2 / số câu đã chạy; chỉ khi chạy đủ 193 câu mới là kết quả toàn bộ tập test. Có thêm cột `Duyệt tay (1/0)` để kiểm tra độc lập.
 
 **Cách chạy đánh giá đầy đủ** tại `BE/`:
