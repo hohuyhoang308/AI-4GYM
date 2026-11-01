@@ -1,0 +1,72 @@
+[
+  {
+    "id": "bodyweight-squat", "name": "Squat trọng lượng cơ thể", "aliases": ["squat", "bodyweight squat"],
+    "primary_muscles": ["chân", "mông"], "secondary_muscles": ["bụng"], "equipment": "Không cần dụng cụ",
+    "steps": ["Đứng hai chân hơi rộng hơn hông, mũi chân hơi xoay ra ngoài.", "Siết bụng, đẩy hông ra sau rồi gập hông và gối để hạ người có kiểm soát.", "Giữ gót chân trên sàn, gối hướng theo mũi chân, lưng ở tư thế tự nhiên.", "Đạp chân xuống sàn và đứng lên; thở ra khi đứng lên."],
+    "common_mistakes": ["Để gối sụp vào trong", "Nhấc gót chân", "Cong lưng hoặc cố hạ quá sâu khi chưa kiểm soát được tư thế"],
+    "source": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+  },
+  {
+    "id": "bent-knee-push-up", "name": "Chống đẩy quỳ gối", "aliases": ["push up", "chống đẩy", "hít đất"],
+    "primary_muscles": ["ngực"], "secondary_muscles": ["tay", "vai"], "equipment": "Không cần dụng cụ",
+    "steps": ["Quỳ trên thảm, đặt hai tay rộng bằng vai và vai ở trên cổ tay.", "Siết bụng để thân từ đầu đến gối thành một đường tương đối thẳng.", "Gập khuỷu tay, hạ ngực xuống từ từ.", "Đẩy tay để trở lại vị trí đầu, giữ thân ổn định."],
+    "common_mistakes": ["Võng lưng", "Đẩy mông quá cao", "Xòe khuỷu tay quá rộng"],
+    "source": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+  },
+  {
+    "id": "chest-press", "name": "Đẩy ngực với tạ đòn", "aliases": ["bench press", "chest press", "đẩy ngực"],
+    "primary_muscles": ["ngực"], "secondary_muscles": ["tay", "vai"], "equipment": "Ghế tập và tạ đòn",
+    "steps": ["Nằm trên ghế phẳng, hai chân đặt chắc trên sàn.", "Nắm thanh tạ hơi rộng hơn vai và đưa tạ khỏi giá đỡ.", "Hạ thanh tạ chậm, có kiểm soát về phía ngực.", "Đẩy tạ lên theo đường ổn định để về vị trí đầu."],
+    "common_mistakes": ["Hạ tạ quá nhanh", "Nhấc chân khỏi sàn", "Dùng mức tạ vượt khả năng kiểm soát"],
+    "source": "https://www.acefitness.org/resources/everyone/exercise-library/5/chest-press/"
+  },
+  {
+    "id": "seated-row", "name": "Kéo cáp ngồi", "aliases": ["seated row", "cable row", "kéo cáp"],
+    "primary_muscles": ["lưng"], "secondary_muscles": ["tay"], "equipment": "Máy kéo cáp",
+    "steps": ["Ngồi vững, đặt chân cố định, gối hơi gập và giữ lưng thẳng.", "Cầm tay nắm, nâng ngực và kéo khuỷu tay về sau sát thân.", "Dừng ngắn khi tay nắm gần bụng.", "Duỗi tay ra chậm để trở lại vị trí đầu."],
+    "common_mistakes": ["Giật người để kéo tạ", "Cong lưng", "Thả tạ về quá nhanh"],
+    "source": "https://www.acefitness.org/resources/everyone/exercise-library/48/seated-row/"
+  },
+  {
+    "id": "lat-pulldown", "name": "Kéo xô trước ngực", "aliases": ["lat pulldown", "kéo xô"],
+    "primary_muscles": ["lưng"], "secondary_muscles": ["tay"], "equipment": "Máy kéo xô",
+    "steps": ["Ngồi dưới máy, chỉnh đệm đùi để cố định chân, nắm thanh kéo.", "Siết bụng, giữ lưng ổn định và hơi ngả người ra sau.", "Kéo khuỷu tay xuống, đưa thanh về gần phần trên ngực.", "Thả thanh lên chậm, có kiểm soát."],
+    "common_mistakes": ["Ngả người quá nhiều để lấy đà", "Kéo thanh ra sau gáy", "Cong lưng dưới quá mức"],
+    "source": "https://www.acefitness.org/resources/everyone/exercise-library/158/seated-lat-pulldown/"
+  },
+  {
+    "id": "leg-press", "name": "Đạp chân trên máy", "aliases": ["leg press", "đạp chân"],
+    "primary_muscles": ["chân", "mông"], "secondary_muscles": [], "equipment": "Máy leg press",
+    "steps": ["Ngồi sát tựa lưng, đặt hai chân trên bàn đạp, gối gập khoảng 90 độ.", "Siết bụng và đẩy bàn đạp ra bằng chân, giữ gót chân tiếp xúc bàn đạp.", "Dừng trước khi khóa cứng gối.", "Hạ bàn đạp về chậm, giữ lưng và hông trên ghế."],
+    "common_mistakes": ["Khóa cứng gối", "Nhấc hông khỏi ghế", "Hạ quá sâu làm lưng dưới cong"],
+    "source": "https://www.acefitness.org/resources/everyone/exercise-library/154/seated-leg-press/"
+  },
+  {
+    "id": "glute-bridge", "name": "Nâng hông", "aliases": ["glute bridge", "bridge", "nâng mông"],
+    "primary_muscles": ["mông"], "secondary_muscles": ["bụng"], "equipment": "Không cần dụng cụ",
+    "steps": ["Nằm ngửa, gập gối, đặt hai chân rộng bằng hông trên sàn.", "Siết bụng và mông, đẩy hông lên trong khi giữ gót chân trên sàn.", "Dừng ở độ cao vừa phải, không ưỡn lưng dưới.", "Hạ hông xuống chậm để trở lại vị trí đầu."],
+    "common_mistakes": ["Ưỡn lưng dưới để nâng hông quá cao", "Không giữ bụng ổn định"],
+    "source": "https://www.acefitness.org/resources/everyone/exercise-library/49/glute-bridge/"
+  },
+  {
+    "id": "front-plank", "name": "Plank cẳng tay", "aliases": ["plank", "front plank"],
+    "primary_muscles": ["bụng"], "secondary_muscles": ["lưng", "vai"], "equipment": "Không cần dụng cụ",
+    "steps": ["Nằm sấp, đặt khuỷu tay dưới vai và chống cẳng tay trên sàn.", "Siết bụng và chân, nâng thân lên sao cho đầu, thân và chân thẳng hàng.", "Giữ tư thế trong thời gian phù hợp, tiếp tục thở đều.", "Hạ người xuống có kiểm soát."],
+    "common_mistakes": ["Võng lưng", "Đẩy mông quá cao", "Nín thở"],
+    "source": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+  },
+  {
+    "id": "bicep-curl", "name": "Cuốn tay trước với dây kháng lực", "aliases": ["bicep curl", "cuốn tay trước"],
+    "primary_muscles": ["tay"], "secondary_muscles": [], "equipment": "Dây kháng lực",
+    "steps": ["Đạp giữa dây kháng lực bằng một chân, hai tay cầm đầu dây, lòng bàn tay hướng lên.", "Giữ khuỷu tay gần hai bên sườn và gập khuỷu tay để đưa tay lên gần vai.", "Hạ tay xuống chậm, có kiểm soát."],
+    "common_mistakes": ["Đung đưa thân người", "Đưa khuỷu tay ra trước quá nhiều", "Thả dây bật nhanh"],
+    "source": "https://www.acefitness.org/resources/everyone/exercise-library/322/standing-bicep-curl/"
+  },
+  {
+    "id": "shoulder-press", "name": "Đẩy vai trên máy", "aliases": ["shoulder press", "đẩy vai"],
+    "primary_muscles": ["vai"], "secondary_muscles": ["tay"], "equipment": "Máy đẩy vai",
+    "steps": ["Ngồi tựa lưng, chỉnh tay nắm ngang vai hoặc hơi cao hơn vai, đặt chân chắc trên sàn.", "Siết bụng và đẩy tay nắm lên từ từ, giữ cổ tay thẳng.", "Dừng trước khi khóa cứng khuỷu tay.", "Hạ tay nắm xuống chậm về vị trí đầu."],
+    "common_mistakes": ["Ưỡn lưng dưới", "Khóa cứng khuỷu tay", "Thả tạ rơi nhanh"],
+    "source": "https://www.acefitness.org/resources/everyone/exercise-library/187/seated-machine-close-grip-shoulder-press/"
+  }
+]

@@ -1,0 +1,12 @@
+fastapi>=0.120,<1
+uvicorn[standard]>=0.38,<1
+openpyxl>=3.1,<4
+langchain>=1.0,<2
+langchain-chroma>=1.0,<2
+langchain-ollama>=1.0,<2
+chromadb>=1.5,<2
+python-dotenv>=1.0,<2
+sqlalchemy>=2.0,<3
+pymysql>=1.1,<2
+pwdlib[argon2]>=0.3,<1
+email-validator>=2,<3
