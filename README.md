@@ -43,7 +43,7 @@ AI-4GYM/
 │   │   ├── core/              # cấu hình
 │   │   ├── db/                # MySQL: model, session
 │   │   ├── services/          # RAG, dữ liệu, lịch tập, kiểm tra phạm vi
-│   │   ├── scripts/           # init_db và ingest
+│   │   ├── scripts/           # init_db, ingest và xuất báo cáo Excel
 │   │   └── main.py            # FastAPI và phục vụ FE/dist
 │   ├── data/
 │   │   ├── raw/data.xlsx
@@ -61,6 +61,8 @@ AI-4GYM/
 │   ├── src/lib/api.ts
 │   ├── src/App.tsx
 │   └── package.json
+├── reports/
+│   └── AI-4GYM_train_test_report.xlsx
 ├── setup.md
 └── README.md
 ```
@@ -81,6 +83,18 @@ Phép chia ngăn câu hỏi trùng sau chuẩn hóa xuất hiện ở cả hai t
 **Lưu ý cho báo cáo:** “80% train” ở đây là dữ liệu dùng để xây dựng kho truy xuất; dự án **không fine-tune/huấn luyện lại** model Qwen hay model embedding. RAG lấy tài liệu khi trả lời, theo [mô tả của LangChain](https://docs.langchain.com/oss/python/deepagents/retrieval). Tập test 20% chưa đồng nghĩa độ chính xác 20% hay bất kỳ chỉ số chất lượng nào.
 
 Chất lượng từng câu trả lời trong Excel chưa được xác minh thủ công. Chatbot hỗ trợ tham khảo khi tập luyện, không thay thế đánh giá chuyên môn khi có chấn thương hoặc bệnh lý.
+
+### Báo cáo Excel
+
+[Mở báo cáo train/test](reports/AI-4GYM_train_test_report.xlsx) để xem tổng quan, danh sách 772 câu train, 193 câu test và bảng chấm 193 câu test. Sheet `Danh gia Test` có cột để điền câu trả lời chatbot và đánh dấu `1` (đạt) hoặc `0` (không đạt). Tỷ lệ đạt ở sheet `Tong quan` chỉ hiện sau khi có câu được chấm; đây là tỷ lệ trên **các câu đã chấm**, không phải số đo đã được đánh giá sẵn.
+
+Để tạo lại file sau khi chạy `ingest` với dữ liệu mới, đứng tại `BE/` và chạy:
+
+```powershell
+.\.venv\Scripts\python.exe -m app.scripts.export_report
+```
+
+Lệnh kiểm tra dữ liệu gốc, phép chia train/test và chỉ mục Chroma trước khi xuất báo cáo. Nếu chỉ mục chưa có hoặc đã cũ, chạy `python -m app.scripts.ingest` trước.
 
 ## Kiểm tra
 

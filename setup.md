@@ -115,6 +115,16 @@ Nếu chỉ muốn xem JSON mà chưa tải model, dùng:
 
 Lệnh `--export-only` cũng tạo lại `train.json`, `test.json` và `split_manifest.json` mà chưa cần Ollama. Cách chia cố định bằng seed `42` và giữ các câu hỏi trùng sau chuẩn hóa trong cùng một tập, giúp chạy lại ra cùng kết quả. Sau khi sửa Excel hoặc `exercises.json`, chạy lại `ingest` đầy đủ rồi khởi động lại backend để cập nhật dữ liệu truy xuất. **Không chỉnh các file JSON rồi chạy `ingest`** vì lệnh này sẽ tạo lại chúng từ Excel.
 
+### Xuất báo cáo train/test ra Excel
+
+Sau khi `ingest` đầy đủ đã tạo chỉ mục Chroma, vẫn trong `BE/`, chạy:
+
+```powershell
+.\.venv\Scripts\python.exe -m app.scripts.export_report
+```
+
+File được tạo tại `../reports/AI-4GYM_train_test_report.xlsx`. Báo cáo gồm 4 sheet: `Tong quan` (số liệu 80/20 và kiểm tra dữ liệu), `Train 80` (772 câu), `Test 20` (193 câu) và `Danh gia Test` (bảng chấm 193 câu). Trong bảng chấm, điền câu trả lời chatbot vào cột D, nhập `1` nếu đạt hoặc `0` nếu không đạt vào cột E; tỷ lệ trên các câu đã chấm tự tính ở `Tong quan`. Nếu Excel chưa tính công thức ngay, mở file bằng Microsoft Excel hoặc LibreOffice Calc và cho phép tính lại công thức. Phép chia 80/20 không phải độ chính xác của chatbot; chưa có điểm đánh giá cho các ô chưa chấm.
+
 ## 7. Chạy backend
 
 Trong cửa sổ PowerShell đang ở `BE/`:
