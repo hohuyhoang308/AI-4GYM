@@ -1,0 +1,11 @@
+{
+  "seed": 42,
+  "split_method": "SHA-256 theo câu hỏi đã chuẩn hóa; câu hỏi trùng nằm cùng một tập",
+  "source": "data.xlsx",
+  "source_sha256": "83251e1948d686a13019d71b0750f566914533240752ef5f7b3327036f3a5313",
+  "total_rows": 965,
+  "train_rows": 772,
+  "test_rows": 193,
+  "train_percent": 80.0,
+  "test_percent": 20.0
+}

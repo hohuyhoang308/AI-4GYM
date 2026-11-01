@@ -26,6 +26,9 @@ class Settings:
     cookie_secure: bool = os.getenv("COOKIE_SECURE", "false").strip().lower() == "true"
     excel_path: Path = ROOT / "data" / "raw" / "data.xlsx"
     qa_json_path: Path = ROOT / "data" / "processed" / "qa.json"
+    train_json_path: Path = ROOT / "data" / "processed" / "train.json"
+    test_json_path: Path = ROOT / "data" / "processed" / "test.json"
+    split_manifest_path: Path = ROOT / "data" / "processed" / "split_manifest.json"
     exercise_path: Path = ROOT / "data" / "curated" / "exercises.json"
     chroma_path: Path = ROOT / "data" / "index" / "chroma"
 

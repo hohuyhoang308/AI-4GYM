@@ -1,0 +1,1739 @@
+[
+  {
+    "id": "qa-2",
+    "stt": 1,
+    "question": "Bạn có thể đề xuất các bài tập cơ bụng hiệu quả không?",
+    "answer": "Plank, gập bụng đạp xe và nâng chân là những bài tập hiệu quả cho nhóm cơ trung tâm. Nên đưa các bài tập này vào chương trình tập luyện và chú trọng kích hoạt nhóm cơ trung tâm trong các bài tập khác.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 2
+  },
+  {
+    "id": "qa-18",
+    "stt": 17,
+    "question": "Làm thế nào tôi có thể cải thiện tư thế của mình?",
+    "answer": "Tư thế tốt là yếu tố thiết yếu. Nên tăng cường nhóm cơ trung tâm thông qua các bài tập như plank và tư thế cây cầu (bridge). Nên chú ý đến tư thế khi ngồi và đứng của bạn. Có thể cân nhắc tập yoga hoặc pilates để nâng cao độ linh hoạt và khả năng căn chỉnh cơ thể.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 18
+  },
+  {
+    "id": "qa-20",
+    "stt": 19,
+    "question": "Làm thế nào để tôi tìm được sự cân bằng phù hợp giữa tập tim mạch (cardio) và tập sức mạnh trong quy trình rèn luyện của mình?",
+    "answer": "Sự cân bằng giữa cardio và tập sức mạnh phụ thuộc vào mục tiêu của bạn. Nên hướng tới tối thiểu 150 phút tập cardio cường độ vừa phải mỗi tuần cùng với 2-3 buổi tập sức mạnh. Nên điều chỉnh tỷ lệ này dựa trên việc bạn ưu tiên tăng cường sức bền hay phát triển cơ bắp.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 20
+  },
+  {
+    "id": "qa-22",
+    "stt": 21,
+    "question": "Có thể vừa tăng cơ vừa giảm cân được không?",
+    "answer": "Có, điều này là khả thi nhưng sẽ mang lại nhiều thách thức. Nên tập trung vào việc thâm hụt calo nhẹ, ưu tiên lượng protein nạp vào và kết hợp rèn luyện sức mạnh. Cần chấp nhận thực tế rằng tốc độ tăng cơ có thể sẽ chậm hơn trong các giai đoạn giảm cân.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 22
+  },
+  {
+    "id": "qa-23",
+    "stt": 22,
+    "question": "Tầm quan trọng của việc khởi động trước khi tập luyện là gì và làm thế nào để thực hiện việc này một cách hiệu quả?",
+    "answer": "Nên bắt đầu bằng các bài giãn cơ động và những chuyển động mô phỏng động tác của buổi tập nhằm tăng dần nhịp tim cũng như lưu lượng máu. Quá trình khởi động sẽ giúp giảm thiểu nguy cơ chấn thương và cải thiện hiệu suất tập luyện.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 23
+  },
+  {
+    "id": "qa-40",
+    "stt": 39,
+    "question": "Tôi đang cố gắng tăng cơ nhưng không thấy hiệu quả. Tôi đang làm sai điều gì?",
+    "answer": "Quá trình xây dựng cơ bắp đòi hỏi thời gian. Cần bảo đảm nạp đủ lượng protein, áp dụng nguyên tắc quá tải tiến triển (progressive overload) và ưu tiên sự nghỉ thực. Cân nhắc điều chỉnh lịch trình tập luyện để vượt qua các giai đoạn chững lại. Nên kiên trì để đạt được sự tiến bộ.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 40
+  },
+  {
+    "id": "qa-47",
+    "stt": 46,
+    "question": "Tập thể dục vào buổi sáng hay buổi tối thì tốt hơn?",
+    "answer": "Thời điểm tập luyện tốt nhất là khi bạn cảm thấy tràn đầy năng lượng nhất và có thể duy trì sự đều đặn. Việc tập luyện vào buổi sáng có thể thúc đẩy quá trình trao đổi chất, trong khi việc tập vào buổi tối có thể mang lại hiệu quả giảm căng thẳng. Nên chọn một thời điểm phù hợp với bạn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 47
+  },
+  {
+    "id": "qa-61",
+    "stt": 60,
+    "question": "Tại sao nên sử dụng thiết bị theo dõi hoạt động?",
+    "answer": "Bằng cách theo dõi số bước chân, bạn có thể xác định xem mình có đang đáp ứng các hướng dẫn về hoạt động thể chất hay không (150 phút hoạt động thể chất từ trung bình đến mạnh mỗi tuần). Thiết bị này cũng cho phép bạn theo dõi tiến độ của bất kỳ mục tiêu vận động cá nhân nào, cũng như xem lại sự tiến bộ của bản thân theo thời gian.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 61
+  },
+  {
+    "id": "qa-65",
+    "stt": 64,
+    "question": "Làm thế nào để tăng cơ bắp?",
+    "answer": "Việc xây dựng cơ bắp đòi hỏi cơ thể bạn phải tích lũy nhiều phân tử protein vào cơ bắp hơn mức lượng mất đi. Rèn luyện sức bền với tạ và đảm bảo chế độ dinh dưỡng hợp lý là những phương tiện chính để hoàn thành mục tiêu này.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 65
+  },
+  {
+    "id": "qa-73",
+    "stt": 72,
+    "question": "Tôi không có bất kỳ dụng cụ nào. Có những bài tập nào có thể thực hiện tại nhà?",
+    "answer": "Plank, hít đất, squat với ghế (chair squats), bước lên và bước xuống (step-ups và step-downs).",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 73
+  },
+  {
+    "id": "qa-76",
+    "stt": 75,
+    "question": "Tập luyện ngắt quãng (interval training) là gì?",
+    "answer": "Đó là một hình thức tập luyện bao gồm một chuỗi các bài tập cường độ cao được xen kẽ với các khoảng thời gian nghỉ ngơi hoặc phục hồi.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 76
+  },
+  {
+    "id": "qa-90",
+    "stt": 89,
+    "question": "Trẻ em và thanh thiếu niên nên vận động thể chất ở mức độ như thế nào?",
+    "answer": "Trẻ em và thanh thiếu niên từ 5-17 tuổi nên hướng tới mục tiêu ít nhất 60 phút hoạt động thể chất với cường độ từ trung bình đến mạnh mỗi ngày, bao gồm các hoạt động aerobic, các bài tập tăng cường cơ bắp và các bài tập củng cố xương khớp. Điều quan trọng là phải hạn chế lối sống ít vận động, đặc biệt là thời gian giải trí trước màn hình, và khuyến khích đa dạng hóa các hoạt động thể chất để thúc đẩy sức khỏe và tinh thần một cách tổng thể.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 90
+  },
+  {
+    "id": "qa-91",
+    "stt": 90,
+    "question": "Người trưởng thành nên vận động thể chất ở mức độ như thế nào?",
+    "answer": "Người trưởng thành từ 18-64 tuổi nên hướng tới mục tiêu từ 150-300 phút hoạt động thể chất aerobic cường độ vừa phải mỗi tuần, hoặc 75-150 phút hoạt động với cường độ mạnh, cùng với các bài tập tăng cường cơ bắp từ 2 ngày trở lên trong một tuần. Việc hạn chế tối đa lối sống ít vận động và đưa các hoạt động thể chất vào thói quen hàng ngày đóng vai trò quan trọng trong việc duy trì sức khỏe và thể trạng chung.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 91
+  },
+  {
+    "id": "qa-97",
+    "stt": 96,
+    "question": "Tôi mắc bệnh tiểu đường tuýp 2. Những loại hình tập thể dục nào có thể giúp tôi kiểm soát tình trạng của mình?",
+    "answer": "Đối với những người mắc bệnh tiểu đường tuýp 2, việc thường xuyên tham gia vào các bài tập aerobic như đi bộ, đạp xe hoặc bơi lội có thể giúp cải thiện khả năng kiểm soát lượng đường trong máu và giảm thiểu rủi ro biến chứng. Việc đưa các bài rèn luyện sức mạnh vào chương trình tập luyện của ngoài ra, có thể giúp nâng cao sức khỏe cơ bắp và chức năng trao đổi chất.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 97
+  },
+  {
+    "id": "qa-111",
+    "stt": 110,
+    "question": "Là một người sống sót sau ung thư, làm thế nào tôi có thể đưa hoạt động thể chất vào thói quen của mình để cải thiện sức khỏe?",
+    "answer": "Việc kết hợp hoạt động thể chất vào thói quen của bạn có thể mang lại lợi ích cho cả sức khỏe thể chất lẫn tinh thần. Nên cố gắng bao gồm ít nhất 150-300 phút hoạt động aerobic cường độ vừa phải mỗi tuần, chẳng hạn như bơi lội hoặc làm vườn. Thêm vào đó, nên tập trung vào các bài tập tăng cường cơ bắp từ 2 ngày trở lên trong mỗi tuần. Cần chú ý đến phản ứng của cơ thể mình và bắt đầu một cách chậm rãi, tăng dần cường độ cũng như thời lượng hoạt động khi bạn cảm thấy thoải mái.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 111
+  },
+  {
+    "id": "qa-115",
+    "stt": 114,
+    "question": "Người trưởng thành cần vận động thể chất bao nhiêu mỗi tuần?",
+    "answer": "Đối với người trưởng thành, khuyến nghị nên tham gia ít nhất 150 phút hoạt động thể chất cường độ vừa phải mỗi tuần. Ngoài ra, người trưởng thành nên kết hợp các hoạt động tăng cường cơ bắp từ 2 ngày trở lên mỗi tuần để thúc đẩy sức khỏe và thể trạng chung.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 115
+  },
+  {
+    "id": "qa-129",
+    "stt": 128,
+    "question": "Điều gì sẽ xảy ra nếu tôi tập thể dục nhiều hơn các hướng dẫn được khuyến nghị?",
+    "answer": "Bạn sẽ đạt được những lợi ích sức khỏe thậm chí còn lớn hơn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 129
+  },
+  {
+    "id": "qa-131",
+    "stt": 130,
+    "question": "Bạn có thể cung cấp cho tôi một kế hoạch tập luyện để tuân theo không?",
+    "answer": "Có thể áp dụng lịch tập sau: nghỉ vào Chủ Nhật và Thứ Năm; chạy bộ chậm 25 phút vào Thứ Hai và Thứ Bảy; kết hợp chạy bộ chậm 25 phút với tập tạ vào Thứ Tư; tập tạ vào Thứ Sáu. Lịch này tương ứng với 75 phút hoạt động aerobic cường độ mạnh và 2 ngày tăng cường cơ bắp mỗi tuần.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 131
+  },
+  {
+    "id": "qa-132",
+    "stt": 131,
+    "question": "Tôi đang tìm cách tăng mức độ hoạt động thể chất của mình, nhưng tôi không biết bắt đầu một quy trình như thế nào. Bạn có thể cho tôi một vài gợi ý tập luyện hàng ngày dễ thực hiện không?",
+    "answer": "Có thể áp dụng lịch tập sau: chạy bộ 15 phút vào Thứ Hai và Thứ Sáu; tập tạ vào Thứ Ba và Thứ Năm; đi bộ nhanh 30 phút vào Thứ Tư, Thứ Bảy và Chủ Nhật. Lịch này tương đương 150 phút hoạt động aerobic cường độ vừa và 2 ngày tăng cường cơ bắp mỗi tuần.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 132
+  },
+  {
+    "id": "qa-133",
+    "stt": 132,
+    "question": "Tôi đang tìm cách tăng mức độ hoạt động thể chất của mình, nhưng tôi không biết bắt đầu như thế nào. Tôi thích đi bộ hơn. Bạn có bất kỳ khuyến nghị nào không?",
+    "answer": "Nếu ưu tiên đi bộ, có thể đi bộ nhanh 30 phút vào Chủ Nhật, Thứ Hai, Thứ Ba, Thứ Năm và Thứ Sáu; tập tạ vào Thứ Tư và Thứ Sáu. Theo dữ liệu nguồn, lịch này đạt 150 phút hoạt động aerobic cường độ vừa và 2 ngày tăng cường cơ bắp mỗi tuần.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 133
+  },
+  {
+    "id": "qa-137",
+    "stt": 136,
+    "question": "Tôi có nên tham khảo ý kiến bác sĩ trước khi bắt đầu một chương trình hoạt động thể chất nếu tôi đã không vận động trong một khoảng thời gian dài không?",
+    "answer": "Có, nếu bạn đã không vận động trong một khoảng thời gian hoặc có những lo ngại về sức khỏe thể chất của mình, nên tham khảo ý kiến của bác sĩ trước khi bắt đầu một chương trình tập luyện mới.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 137
+  },
+  {
+    "id": "qa-148",
+    "stt": 147,
+    "question": "Nếu tôi bị hen suyễn, tôi nên cân nhắc loại hoạt động thể chất nào?",
+    "answer": "Đối với bệnh nhân hen suyễn, việc tham khảo ý kiến của chuyên gia y tế để xác định các hoạt động thể chất an toàn và hiệu quả là điều thiết yếu.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 148
+  },
+  {
+    "id": "qa-152",
+    "stt": 151,
+    "question": "Mức tiêu hao năng lượng của việc đi bộ so với chạy bộ như thế nào?",
+    "answer": "Đi bộ thường có mức tiêu hao năng lượng thấp hơn so với chạy bộ. Tuy nhiên, các hoạt động như đi bộ kiểu Bắc Âu (Nordic walking), đi bộ đường dài lên dốc hoặc sử dụng áo tạ (weighted vest) có thể làm tăng mức tiêu hao năng lượng lên gần bằng với chạy bộ.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 152
+  },
+  {
+    "id": "qa-154",
+    "stt": 153,
+    "question": "Làm thế nào để các chuỗi bài tập cử tạ có thể đóng góp vào việc tiêu hao năng lượng và cải thiện sức mạnh?",
+    "answer": "Nên lập kế hoạch trước. Biến hoạt động thể chất trở thành một phần thường xuyên trong lịch trình hàng ngày hoặc hàng tuần của bạn bằng cách ghi chú nó vào lịch.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 154
+  },
+  {
+    "id": "qa-156",
+    "stt": 155,
+    "question": "Tôi không có sự phối hợp tốt khi tập thể dục.",
+    "answer": "Nên lựa chọn các hoạt động ít đòi hỏi khả năng phối hợp, như đi bộ hoặc đạp xe. Các lớp tập trực tuyến tại nhà cũng phù hợp vì người tập có thể tự điều chỉnh nhịp độ.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 156
+  },
+  {
+    "id": "qa-160",
+    "stt": 159,
+    "question": "Tôi muốn bắt đầu tập luyện nhưng tôi không có đủ khả năng chi trả cho bất kỳ thiết bị nào.",
+    "answer": "Nên chọn những hoạt động đòi hỏi tối thiểu về cơ sở vật chất hoặc trang thiết bị, chẳng hạn như đi bộ, chạy bộ chậm, nhảy dây hoặc các bài tập rèn luyện bằng trọng lượng cơ thể (calisthenics).",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 160
+  },
+  {
+    "id": "qa-165",
+    "stt": 164,
+    "question": "Tôi thiếu năng lượng.",
+    "answer": "Nên sắp xếp lịch hoạt động thể chất vào những khoảng thời gian trong ngày hoặc trong tuần mà bạn cảm thấy tràn đầy năng lượng. Nên tự thuyết phục bản thân rằng nếu bạn cho nó một cơ hội, hoạt động thể chất sẽ làm tăng mức năng lượng của bạn, và sau đó nên thử thực hiện.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 165
+  },
+  {
+    "id": "qa-172",
+    "stt": 171,
+    "question": "Làm thế nào để tôi có thể duy trì sự năng động trong những kỳ nghỉ lễ?",
+    "answer": "Việc duy trì hoạt động trong kỳ nghỉ lễ có thể đòi hỏi một chút sáng tạo, nhưng có rất nhiều cách để đưa hoạt động thể chất vào thói quen của bạn. Điều này có thể bao gồm việc mặc ấm để đi dạo hoặc thậm chí là làm việc nhà. Yếu tố quan trọng là tìm ra những hoạt động mà bạn yêu thích và phù hợp với lối sống của bạn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 172
+  },
+  {
+    "id": "qa-174",
+    "stt": 173,
+    "question": "Các bài tập tim mạch có mang lại lợi ích cho sức khỏe của tim không?",
+    "answer": "Có, các bài tập tim mạch (cardiovascular) giúp cải thiện sức khỏe tim mạch bằng cách làm giảm huyết áp, duy trì sức khỏe của thành động mạch và thúc đẩy sự phát triển của các động mạch mới cung cấp máu cho tim.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 174
+  },
+  {
+    "id": "qa-178",
+    "stt": 177,
+    "question": "Người cao tuổi có cần tham khảo ý kiến bác sĩ trước khi bắt đầu một chương trình tập luyện không?",
+    "answer": "Hầu hết người cao tuổi có thể bắt đầu một chương trình tập luyện mà không cần tham khảo ý kiến bác sĩ, nhưng cũng có những ngoại lệ. Nếu bạn đang mắc các bệnh lý nghiêm trọng như tiểu đường, huyết áp cao, bệnh tim hoặc phổi, loãng xương hoặc các bệnh về thần kinh, điều quan trọng là phải nói chuyện với bác sĩ trước. Những người gặp vấn đề về khả năng vận động như giữ thăng bằng kém hoặc bị viêm khớp cũng nên tìm kiếm lời khuyên từ bác sĩ.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 178
+  },
+  {
+    "id": "qa-179",
+    "stt": 178,
+    "question": "Nếu khả năng vận động của tôi bị hạn chế thì sao?",
+    "answer": "Ngay cả khi khả năng tập thể dục của bạn bị hạn chế, vẫn có những bài tập an toàn và hiệu quả mà bạn có thể thực hiện. Các chuyên gia đã thiết kế ra những bài tập chuyên biệt dành cho người cao tuổi, ít tạo áp lực (low-impact) và thậm chí có thể được thực hiện từ tư thế ngồi nếu cần thiết.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 179
+  },
+  {
+    "id": "qa-181",
+    "stt": 180,
+    "question": "Có bài tập củng cố nhóm cơ trung tâm nào dành cho người cao tuổi có khả năng bị hạn chế không?",
+    "answer": "Có, các bài tập củng cố nhóm cơ trung tâm có thể được điều chỉnh cho phù hợp với người cao tuổi có khả năng vận động hạn chế. Ví dụ, thay vì tư thế plank tiêu chuẩn, bạn có thể thực hiện plank biến thể trong khi đứng và nghiêng người về phía trước, tựa khuỷu tay và cẳng tay lên bàn làm việc, mặt bàn hoặc bức tường trong khi vẫn giữ thẳng lưng.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 181
+  },
+  {
+    "id": "qa-203",
+    "stt": 202,
+    "question": "Các cơ lưng chính bao gồm những cơ nào?",
+    "answer": "Các cơ lưng chính bao gồm cơ thang (trapezius), cơ trám (rhomboid), cơ xô (latissimus dorsi) và cơ dựng cột sống (erector spinae).",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 203
+  },
+  {
+    "id": "qa-214",
+    "stt": 213,
+    "question": "Làm thế nào để thực hiện bài tập chèo thuyền gập người (bent-over row)?",
+    "answer": "Đứng với tạ ở tay trái, đặt ghế dài hoặc ghế tựa ở bên phải. Đặt tay và đầu gối phải lên ghế. Cánh tay trái buông thõng trực tiếp dưới vai trái. Ép chặt hai bả vai vào nhau, gập khuỷu tay để kéo tạ về phía xương sườn. Quay trở lại tư thế ban đầu. Lặp lại với cánh tay đối diện.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 214
+  },
+  {
+    "id": "qa-216",
+    "stt": 215,
+    "question": "Làm thế nào để thực hiện bài tập kéo cáp (pull-down)?",
+    "answer": "Bắt đầu bằng cách đứng thẳng với hai bàn chân rộng bằng vai. Cầm một sợi dây kháng lực (band) qua đầu với hai tay cách nhau từ 12 đến 18 inch. Hơi gập khuỷu tay và kéo hai tay xuống ngang vai, kéo giãn sợi dây. Từ từ đưa hai tay trở lại vị trí qua đầu, tạo lực kháng lại lực kéo của sợi dây.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 216
+  },
+  {
+    "id": "qa-222",
+    "stt": 221,
+    "question": "Tôi nên bắt đầu một kế hoạch đi bộ như thế nào?",
+    "answer": "Nên bắt đầu một cách chậm rãi và tăng dần thời gian đi bộ của bạn. Nếu bạn là người mới làm quen với việc tập thể dục, nên bắt đầu bằng những chuyến đi bộ ngắn và bổ sung thêm thời gian khi bạn cảm thấy khỏe hơn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 222
+  },
+  {
+    "id": "qa-225",
+    "stt": 224,
+    "question": "Tôi có thể củng cố độ chắc khỏe cho xương của mình không?",
+    "answer": "Xương cần được chăm sóc thường xuyên để duy trì độ chắc khỏe. Tập thể dục là một trong những yếu tố quan trọng đối với sức khỏe xương.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 225
+  },
+  {
+    "id": "qa-226",
+    "stt": 225,
+    "question": "Có những bài tập nào tốt cho xương?",
+    "answer": "Để tăng cường sức mạnh của xương, các bài tập nên bao gồm các yếu tố: kháng lực, chịu tải trọng lượng, tác động lực, tốc độ cao và thay đổi hướng đột ngột. Các bài tập kháng lực liên quan đến việc vận động chống lại lực cản như sử dụng tạ đơn hoặc trọng lượng cơ thể. Các hoạt động có yếu tố tác động (impact) như nhảy và chạy sẽ củng cố hệ xương chắc khỏe hơn nữa. Các bài tập có tốc độ cao, chẳng hạn như thể dục nhịp điệu (aerobics) nhịp độ nhanh, sẽ mang lại hiệu quả cao hơn so với những hoạt động diễn ra chậm rãi.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 226
+  },
+  {
+    "id": "qa-229",
+    "stt": 228,
+    "question": "Tôi có nên tập luyện nếu đang bị ốm không?",
+    "answer": "Việc tập luyện là có thể chấp nhận được nếu bạn bị cảm lạnh và các triệu chứng chỉ tập trung ở phần trên cổ (như sổ mũi), nhưng nên bỏ qua buổi tập nếu bạn bị sốt, mệt mỏi hoặc đau nhức cơ bắp. Nếu bạn định tập thể dục khi bị ốm, không nên đến phòng tập hay một cơ sở thể hình nào khác; nên ở nhà để không lây nhiễm cho người khác.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 229
+  },
+  {
+    "id": "qa-236",
+    "stt": 235,
+    "question": "Làm thế nào để ngăn ngừa những chấn thương thường gặp?",
+    "answer": "Để ngăn ngừa những chấn thương do tập thể dục, nên chọn những hoạt động ít tác động (low-impact) như đi bộ, bơi lội hoặc đạp xe trong nhà để làm giảm áp lực lên các khớp của bạn. Đi giày phù hợp, bắt đầu một cách chậm rãi và tăng dần cường độ. Luôn luôn khởi động và thả lỏng (cool down). Thay đổi đa dạng các hoạt động để tránh tình trạng quá tải. Kiểm tra tư thế kỹ thuật và bổ sung đủ nước.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 236
+  },
+  {
+    "id": "qa-247",
+    "stt": 246,
+    "question": "Ưu điểm chính của các bài tập cường độ cao là gì?",
+    "answer": "Ưu điểm chính là nó cho phép bạn thúc đẩy nền tảng thể lực tim mạch của mình nhanh hơn thông qua việc tập luyện với cường độ vất vả hơn thay vì tập lâu hơn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 247
+  },
+  {
+    "id": "qa-263",
+    "stt": 262,
+    "question": "Nên thực hiện những bài tập nào để nhóm cơ trung tâm khỏe hơn?",
+    "answer": "Một trong những bài tập tốt nhất là plank.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 263
+  },
+  {
+    "id": "qa-267",
+    "stt": 266,
+    "question": "Có những động tác nào giúp cột sống khỏe mạnh hơn?",
+    "answer": "Nên thử bài tập gập bụng một phần (curl up), plank nghiêng (side plank) và tư thế chó chim (bird dog).",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 267
+  },
+  {
+    "id": "qa-270",
+    "stt": 269,
+    "question": "Có những bài tập nhóm cơ trung tâm nào?",
+    "answer": "Một số bài tập nhóm cơ trung tâm bao gồm cuộn xương chậu (pelvic curl), nâng tay chân chéo nhau (diagonal opposite arm and leg raise) và gập gối trên bóng thăng bằng (knee tuck on stability ball).",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 270
+  },
+  {
+    "id": "qa-274",
+    "stt": 273,
+    "question": "Tập thể dục có giúp làm giảm nguy cơ mắc bệnh ung thư không?",
+    "answer": "Có.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 274
+  },
+  {
+    "id": "qa-278",
+    "stt": 277,
+    "question": "Tôi đang bị béo phì. Tôi nên tập những loại bài tập nào để giảm cân?",
+    "answer": "Nên lựa chọn từ việc chạy bộ chậm (jogging), leo núi, đi bộ, đi bộ nhanh (power walking), khiêu vũ và những phiên tập yoga kéo dài. Những hoạt động này có thể liên quan đến các chuyển động với cường độ cao hơn và do đó có thể tiêu hao nhiều năng lượng hơn. ngoài ra, có thể gắn bó với các bài tập truyền thống tại phòng tập.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 278
+  },
+  {
+    "id": "qa-279",
+    "stt": 278,
+    "question": "Là một người không có nhiều tính thể thao, tôi nên thử những bài tập nào?",
+    "answer": "Bất kể độ tuổi hay mức độ thể lực của bạn ra sao, những hoạt động sau đây là một trong số những bài tập tốt nhất mà bạn có thể thực hiện và sẽ giúp bạn có được vóc dáng cân đối: bơi lội, thái cực quyền, rèn luyện sức mạnh, đi bộ, và các bài tập kegel.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 279
+  },
+  {
+    "id": "qa-283",
+    "stt": 282,
+    "question": "Những lợi ích của các chương trình tập luyện cường độ thấp thường xuyên là gì?",
+    "answer": "Các chương trình tập luyện cường độ thấp thường xuyên mang lại một số lợi ích, bao gồm cải thiện thể lực tim - hô hấp, giảm mệt mỏi và đau nhức, tâm trạng tốt hơn, giảm nguy cơ té ngã và chấn thương, tăng cường khả năng vận động và giữ thăng bằng, cũng như chất lượng giấc ngủ tốt hơn. Những bài tập này rất dễ bắt đầu, dễ hoàn thành và phù hợp với nhiều nhóm tuổi cũng như các mức độ thể lực khác nhau.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 283
+  },
+  {
+    "id": "qa-285",
+    "stt": 284,
+    "question": "Tập thể dục cường độ thấp khác với tập thể dục cường độ cao như thế nào?",
+    "answer": "Tập thể dục cường độ thấp bao gồm các hoạt động thể chất ở mức độ vừa phải, nơi bạn có thể duy trì một cuộc trò chuyện mà không bị khó thở, trong khi tập thể dục cường độ cao thì đòi hỏi sự gắng sức nhiều hơn, với nhịp tim tăng nhanh gần tới mức tối đa, và việc nói nhiều hơn một vài từ mà không phải dừng lại để thở sẽ trở nên khó khăn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 285
+  },
+  {
+    "id": "qa-288",
+    "stt": 287,
+    "question": "Làm thế nào tôi có thể khiến việc tập thể dục trở nên thú vị hơn?",
+    "answer": "Bạn có thể làm cho việc tập thể dục trở nên thú vị hơn bằng cách tìm kiếm những hoạt động mà bạn thực sự yêu thích, chẳng hạn như khiêu vũ, đi bộ đường dài, chơi một môn thể thao hoặc tham gia các lớp thể dục nhóm. Thêm vào đó, việc tập luyện cùng bạn bè hoặc gia đình có thể khiến quá trình này trở nên vui vẻ và có nhiều động lực hơn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 288
+  },
+  {
+    "id": "qa-291",
+    "stt": 290,
+    "question": "Tập thể dục vào buổi sáng hay buổi tối thì tốt hơn?",
+    "answer": "Thời điểm tập thể dục tốt nhất phụ thuộc vào sở thích và lịch trình cá nhân của bạn. Một số người thích tập vào buổi sáng để khởi động ngày mới và tăng cường mức năng lượng, trong khi những người khác lại thấy thuận tiện hơn khi tập vào buổi tối để thư giãn và giải tỏa căng thẳng sau một ngày dài. Điều quan trọng nhất là phải tìm ra một khoảng thời gian phù hợp với bạn và phù hợp với thói quen sinh hoạt hàng ngày của bạn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 291
+  },
+  {
+    "id": "qa-293",
+    "stt": 292,
+    "question": "Tôi nên đợi bao lâu sau khi ăn để tập thể dục?",
+    "answer": "Theo khuyến nghị chung, nên đợi ít nhất 30 phút đến một giờ sau khi ăn một bữa ăn rồi mới tập thể dục để có thời gian cho việc tiêu hóa. Tập thể dục quá sớm sau khi ăn có thể dẫn đến sự khó chịu, chuột rút và suy giảm hiệu suất.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 293
+  },
+  {
+    "id": "qa-296",
+    "stt": 295,
+    "question": "Tôi có thể tập thể dục không nếu tôi có một lịch trình bận rộn?",
+    "answer": "Lịch trình bận rộn vẫn có thể kết hợp hoạt động thể chất. Có thể đi bộ ngắn trong giờ nghỉ trưa, thực hiện nhanh các bài tập sử dụng trọng lượng cơ thể tại nhà hoặc văn phòng, hoặc bố trí các buổi tập ngắn với cường độ phù hợp. Các khoảng vận động ngắn trong ngày vẫn đóng góp vào tổng mức hoạt động.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 296
+  },
+  {
+    "id": "qa-298",
+    "stt": 297,
+    "question": "Có những hoạt động ngoài trời thú vị nào mà tôi có thể thực hiện để giữ gìn sự năng động?",
+    "answer": "Những hoạt động ngoài trời thú vị để giữ gìn sự năng động bao gồm đi bộ đường dài, đạp xe, bơi lội, chèo thuyền kayak hoặc canoe, chơi các môn thể thao như bóng đá hoặc bóng rổ tại công viên địa phương, đi chạy bộ nhanh hoặc chạy bộ chậm (jog).",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 298
+  },
+  {
+    "id": "qa-302",
+    "stt": 301,
+    "question": "Làm thế nào để tôi có thể biến việc tập thể dục thành một thói quen?",
+    "answer": "Để biến việc tập thể dục thành một thói quen, nên bắt đầu bằng cách thiết lập những mục tiêu cụ thể và khả thi, lên lịch tập luyện vào quy trình sinh hoạt hàng ngày hoặc hàng tuần, tìm một người bạn cùng tập hoặc người đồng hành để duy trì động lực, tạo ra một môi trường hỗ trợ bằng cách bao quanh bản thân với những người luôn khuyến khích các mục tiêu thể hình của bạn, và tự thưởng cho chính mình khi bám sát kế hoạch đã đề ra.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 302
+  },
+  {
+    "id": "qa-305",
+    "stt": 304,
+    "question": "Làm thế nào tôi có thể duy trì sự năng động trong khi đi du lịch?",
+    "answer": "Để duy trì sự năng động khi đi du lịch, nên mang theo các dụng cụ tập luyện nhỏ gọn như dây kháng lực hoặc dây nhảy, chọn những nơi lưu trú có cơ sở vật chất dành cho thể thao hoặc có đường dẫn tới các công viên hay con đường mòn gần đó, khám phá khu vực xung quanh bằng cách đi bộ hoặc đạp xe, đi thang bộ thay vì thang máy, và chèn các bài tập bằng trọng lượng cơ thể như squat, lunge, hít đất vào thói quen hàng ngày của bạn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 305
+  },
+  {
+    "id": "qa-310",
+    "stt": 309,
+    "question": "Những lợi ích của hoạt động thể chất thường xuyên là gì?",
+    "answer": "Tập thể dục thường xuyên giúp cải thiện sức khỏe tim mạch, thúc đẩy tâm trạng, hỗ trợ duy trì mức cân nặng khỏe mạnh, và làm giảm nguy cơ mắc các bệnh mạn tính.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 310
+  },
+  {
+    "id": "qa-312",
+    "stt": 311,
+    "question": "Điều gì sẽ xảy ra nếu tôi không thích các bài tập thể dục truyền thống?",
+    "answer": "Hoạt động thể chất không nhất thiết phải có cấu trúc cố định. Khiêu vũ, làm vườn, đi bộ hay chơi đùa cùng thú cưng đều được tính là sự vận động.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 312
+  },
+  {
+    "id": "qa-316",
+    "stt": 315,
+    "question": "Có những cách nào để duy trì sự năng động trong các tháng mùa đông?",
+    "answer": "Việc duy trì sự năng động trong những tháng mùa đông có thể mang lại nhiều thách thức, nhưng vẫn có rất nhiều lựa chọn. Có thể cân nhắc các hoạt động như bơi lội trong nhà, đạp xe trong nhà, yoga, hoặc đăng ký tham gia một phòng tập. Nếu bạn thích các hoạt động ngoài trời, nên thử các môn thể thao mùa đông như trượt tuyết, trượt ván trên tuyết (snowboarding), trượt băng hoặc đi bộ trên tuyết (snowshoeing). Nên ăn mặc đủ ấm và mặc nhiều lớp để giữ được sự thoải mái trong thời tiết giá lạnh.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 316
+  },
+  {
+    "id": "qa-319",
+    "stt": 318,
+    "question": "Tập thể dục trong thời kỳ mang thai có an toàn không?",
+    "answer": "Trong hầu hết các trường hợp, việc tập thể dục trong thời kỳ mang thai là an toàn và mang lại lợi ích cho cả mẹ và bé. Tuy nhiên, điều thiết yếu là phải tham khảo ý kiến của chuyên gia y tế trước khi bắt đầu hoặc tiếp tục một chương trình tập luyện trong thai kỳ. Chuyên gia y tế của bạn có thể đề xuất các bài tập an toàn và những sự điều chỉnh phù hợp dựa trên tình trạng sức khỏe và tiến trình mang thai của bạn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 319
+  },
+  {
+    "id": "qa-321",
+    "stt": 320,
+    "question": "Tôi có thể thực hiện những loại bài tập nào tại nhà?",
+    "answer": "Bạn có thể thử các bài tập bằng trọng lượng cơ thể như squat, lunge, hít đất và plank. Các bài tập yoga và khiêu vũ cũng là những lựa chọn phù hợp.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 321
+  },
+  {
+    "id": "qa-326",
+    "stt": 325,
+    "question": "Có những bài tập đơn giản nào mà tôi có thể thực hiện tại nhà không cần dụng cụ?",
+    "answer": "Có rất nhiều bài tập bạn có thể thực hiện tại nhà mà không cần bất kỳ dụng cụ nào. Các bài tập bằng trọng lượng cơ thể như squat, lunge, hít đất, gập bụng (sit-ups) và các biến thể của plank đều là những lựa chọn phù hợp. Ngoài ra, có thể thực hiện các bài rèn luyện ngắt quãng cường độ cao (HIIT), các chuỗi động tác yoga (yoga flows) hoặc các bài tập khiêu vũ để làm tăng nhịp tim và xây dựng sức mạnh.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 326
+  },
+  {
+    "id": "qa-327",
+    "stt": 326,
+    "question": "Làm thế nào tôi có thể gia tăng động lực để tập thể dục thường xuyên?",
+    "answer": "Để gia tăng động lực tập luyện đều đặn, nên thiết lập các mục tiêu cụ thể và khả thi, tìm kiếm những hoạt động mà bạn yêu thích và luôn mong chờ, thiết lập một quy trình phù hợp với lịch trình của bạn, theo dõi sự tiến bộ để duy trì tinh thần trách nhiệm, tự thưởng cho bản thân khi đạt được các cột mốc, và bao quanh bản thân với những người có tư duy hỗ trợ luôn sẵn sàng khích lệ hành trình thể hình của bạn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 327
+  },
+  {
+    "id": "qa-329",
+    "stt": 328,
+    "question": "tập luyện kháng lực khác với rèn luyện sức mạnh (strength training) như thế nào?",
+    "answer": "Mặc dù tập luyện sức bền và rèn luyện sức mạnh có những điểm tương đồng, rèn luyện sức mạnh thường liên quan đến việc nâng các mức tạ nặng hơn nhằm mục đích chuyên biệt là xây dựng sức mạnh cơ bắp. Tập luyện sức bền bao hàm một phạm vi bài tập rộng lớn hơn, sử dụng trọng lượng cơ thể hoặc các lực cản bên ngoài nhằm cải thiện sức bền, sức mạnh và sự ổn định.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 329
+  },
+  {
+    "id": "qa-331",
+    "stt": 330,
+    "question": "Vai trò của các bài tập tim mạch (cardiovascular) là gì?",
+    "answer": "Tập thể dục tim mạch (cardio) giúp cải thiện sức khỏe của tim, tiêu hao năng lượng và nâng cao sức bền. Các hoạt động như chạy bộ, đạp xe và bơi lội đều thuộc vào danh mục này.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 331
+  },
+  {
+    "id": "qa-334",
+    "stt": 333,
+    "question": "Tôi có thể tập thể dục khi bị đau khớp không?",
+    "answer": "Cần tham khảo ý kiến của chuyên gia y tế. Các bài tập ít tác động (low-impact) như bơi lội hoặc đạp xe có thể sẽ phù hợp cho tình trạng đau khớp.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 334
+  },
+  {
+    "id": "qa-335",
+    "stt": 334,
+    "question": "Làm thế nào tôi có thể khiến các hoạt động thể chất trở nên thú vị đối với trẻ em?",
+    "answer": "Có thể tổ chức các buổi đi bộ cùng gia đình, trò chơi vận động, hoặc cho trẻ tham gia lớp thể thao và khiêu vũ. Nên ưu tiên các hoạt động tạo hứng thú cho trẻ.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 335
+  },
+  {
+    "id": "qa-339",
+    "stt": 338,
+    "question": "Tôi có thể tập thể dục khi có quỹ thời gian eo hẹp không?",
+    "answer": "Các buổi tập ngắn với cường độ cao, chẳng hạn HIIT, vẫn có thể mang lại hiệu quả. Ngay cả 10 phút vận động cũng có lợi hơn không vận động.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 339
+  },
+  {
+    "id": "qa-342",
+    "stt": 341,
+    "question": "Làm thế nào tôi có thể vượt qua tình trạng chững lại (plateaus) trong tập luyện?",
+    "answer": "Để vượt qua giai đoạn chững lại, nên thay đổi lịch trình tập luyện của bạn, tăng cường độ, hoặc thử sức với những hoạt động mới. Sự chững lại là điều bình thường - nên tiếp tục thử thách bản thân mình.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 342
+  },
+  {
+    "id": "qa-344",
+    "stt": 343,
+    "question": "Tôi có thể tập thể dục với không gian hạn chế không?",
+    "answer": "Các bài tập sử dụng trọng lượng cơ thể như squat, chùng chân và plank chỉ cần không gian nhỏ. Có thể điều chỉnh bài tập theo diện tích hiện có.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 344
+  },
+  {
+    "id": "qa-346",
+    "stt": 345,
+    "question": "Làm thế nào tôi có thể chèn việc tập thể dục vào một lịch trình bận rộn?",
+    "answer": "Để chèn việc tập thể dục vào một lịch trình bận rộn, nên ưu tiên hoạt động thể chất bằng cách lên lịch cho nó giống như bất kỳ cuộc hẹn nào khác, chia nhỏ các buổi tập thành những khoảng thời gian ngắn hơn trong suốt cả ngày, làm việc đa nhiệm bằng cách kết hợp tập thể dục với các hoạt động khác như xem TV hoặc nghe podcast, và lựa chọn các bài tập hiệu quả giúp tối đa hóa thời gian và công sức, chẳng hạn như HIIT hoặc tập luyện xoay vòng (circuit training).",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 346
+  },
+  {
+    "id": "qa-349",
+    "stt": 348,
+    "question": "Có bài tập nào tôi có thể thực hiện để cải thiện khả năng giữ thăng bằng không?",
+    "answer": "Có, có một số bài tập bạn có thể thực hiện để cải thiện thăng bằng, chẳng hạn như các bài tập giữ thăng bằng trên một chân, đứng trên một chân nhắm mắt, đi bộ nối gót (heel to toe walking), các tư thế yoga như tư thế cái cây (tree pose) hoặc tư thế chiến binh III (warrior III), và các bài tập với ván thăng bằng (balance board) hoặc bóng thăng bằng. Thực hành các bài tập thăng bằng thường xuyên có thể giúp ngăn ngừa té ngã, đồng thời nâng cao sự ổn định và khả năng phối hợp của cơ thể.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 349
+  },
+  {
+    "id": "qa-351",
+    "stt": 350,
+    "question": "Làm thế nào tôi có thể duy trì động lực trong những khoảng thời gian đầy thử thách?",
+    "answer": "Nên đặt ra những mục tiêu thực tế, tìm kiếm một người bạn đồng hành để duy trì tinh thần trách nhiệm, và tập trung vào những tác động tích cực của việc tập thể dục đối với sức khỏe tinh thần cũng như thể chất của bạn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 351
+  },
+  {
+    "id": "qa-352",
+    "stt": 351,
+    "question": "Cách tốt nhất để kết hợp việc rèn luyện sức mạnh là gì?",
+    "answer": "Nên đưa vào các bài tập đa khớp (compound exercises) như squat, deadlift và đẩy ngực (bench press). Hướng tới mục tiêu 2-3 buổi tập sức mạnh mỗi tuần.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 352
+  },
+  {
+    "id": "qa-362",
+    "stt": 361,
+    "question": "Tôi có thể tiếp tục tập thể dục nếu bị đau khớp hoặc viêm khớp không?",
+    "answer": "Có, bạn vẫn có thể tập thể dục nếu bị đau khớp hoặc viêm khớp, nhưng điều thiết yếu là phải chọn những hoạt động nhẹ nhàng cho các khớp và không làm trầm trọng thêm cơn đau. Bơi lội, thể dục nhịp điệu dưới nước, đạp xe, thái cực quyền và yoga là những lựa chọn phù hợp để cải thiện độ linh hoạt, sức mạnh và biên độ vận động trong khi làm giảm thiểu tối đa áp lực lên các khớp.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 362
+  },
+  {
+    "id": "qa-363",
+    "stt": 362,
+    "question": "Quá trình hydrat hóa (cung cấp nước) đóng vai trò gì trong hoạt động thể chất?",
+    "answer": "Việc cung cấp nước đóng vai trò then chốt trong hoạt động thể chất bằng cách điều hòa nhiệt độ cơ thể, duy trì sự cân bằng điện giải, và hỗ trợ hiệu suất cũng như quá trình phục hồi tổng thể. Nên uống nước trước, trong và sau khi tập thể dục để bổ sung đủ nước, đồng thời chú ý đến các dấu hiệu mất nước như khát, khô miệng, mệt mỏi và nước tiểu có màu sẫm.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 363
+  },
+  {
+    "id": "qa-371",
+    "stt": 370,
+    "question": "Tôi có thể tập thể dục trong thời gian nhịn ăn (ví dụ: tháng Ramadan) không?",
+    "answer": "Cần tham khảo ý kiến bác sĩ của bạn. Việc tập luyện ở mức độ nhẹ đến vừa phải thường là an toàn trong thời gian nhịn ăn, nhưng cần chú ý đến phản ứng của cơ thể bạn và đảm bảo cung cấp đủ lượng nước.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 371
+  },
+  {
+    "id": "qa-372",
+    "stt": 371,
+    "question": "Làm thế nào tôi có thể tìm ra một chương trình tập luyện phù hợp với mình?",
+    "answer": "Nên thực hiện nhiều hoạt động khác nhau (ví dụ: chạy bộ, bơi lội, khiêu vũ) và tìm ra thứ mà bạn yêu thích. Sự kiên trì là yếu tố quyết định.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 372
+  },
+  {
+    "id": "qa-394",
+    "stt": 393,
+    "question": "Làm thế nào tôi có thể duy trì một chế độ ăn uống lành mạnh trong khi đang tập luyện cho một sự kiện?",
+    "answer": "Để duy trì một chế độ ăn lành mạnh khi tập luyện cho một sự kiện, nên tập trung vào các thực phẩm giàu dưỡng chất như trái cây, rau xanh, ngũ cốc nguyên hạt, nguồn protein ít chất béo và chất béo lành mạnh. Lên kế hoạch cho các bữa ăn chính và đồ ăn nhẹ để đảm bảo việc cung cấp năng lượng đầy đủ trước và sau khi tập luyện, bổ sung đủ nước với nước lọc cùng các thức uống giàu chất điện giải, đồng thời lắng nghe những tín hiệu đói và no từ cơ thể để hỗ trợ cho quá trình huấn luyện và phục hồi.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 394
+  },
+  {
+    "id": "qa-395",
+    "stt": 394,
+    "question": "Làm thế nào tôi có thể khiến việc tập thể dục trở nên thú vị hơn?",
+    "answer": "Có một số cách để làm cho việc tập luyện trở nên thú vị hơn, chẳng hạn như nghe nhạc hoặc podcast trong lúc tập, thử sức với những hoạt động hoặc lớp học mới để giữ sự mới mẻ, tập thể dục ngoài trời để tận hưởng thiên nhiên và không khí trong lành, thiết lập những mục tiêu khả thi và ghi nhận sự tiến bộ, tập thể dục cùng bạn bè hoặc gia đình để có được sự tương tác và tinh thần trách nhiệm, cũng như tự thưởng cho bản thân vì đã kiên trì theo đuổi lịch trình tập luyện của mình.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 395
+  },
+  {
+    "id": "qa-397",
+    "stt": 396,
+    "question": "Làm thế nào tôi có thể thay đổi thói quen tập luyện để ngăn ngừa sự nhàm chán?",
+    "answer": "Để ngăn ngừa sự nhàm chán và giữ cho lịch trình tập luyện của bạn luôn mới mẻ, nên thử kết hợp nhiều loại hình bài tập khác nhau như cardio, tập sức mạnh, các bài tập về độ linh hoạt và các hoạt động giải trí. Nên trải nghiệm những dụng cụ, hình thức rèn luyện hoặc các lớp thể dục mới, đặt ra các thử thách hàng tuần hoặc hàng tháng để duy trì động lực, đồng thời thường xuyên đánh giá và điều chỉnh các mục tiêu cũng như thói quen của bạn để liên tục thử thách bản thân.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 397
+  },
+  {
+    "id": "qa-398",
+    "stt": 397,
+    "question": "Một số ý tưởng tập thể dục nhóm thú vị dành cho bạn bè hoặc gia đình là gì?",
+    "answer": "Một số ý tưởng tập thể dục nhóm thú vị cho bạn bè hoặc gia đình bao gồm các lớp thể hình nhóm như khiêu vũ, yoga hoặc boot camp, các hoạt động ngoài trời như đi bộ đường dài, đạp xe, hoặc cùng nhau chơi các môn thể thao, các thử thách thể hình hoặc vượt chướng ngại vật ở sân sau, các giải chạy thân thiện với gia đình hoặc những sự kiện từ thiện, hay việc tạo ra một chuỗi bài tập tại nhà với các trạm khác nhau để mọi người luân phiên thay đổi.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 398
+  },
+  {
+    "id": "qa-403",
+    "stt": 402,
+    "question": "Những lợi ích của việc kết hợp rèn luyện sức mạnh vào lịch trình tập thể dục của tôi là gì?",
+    "answer": "Việc kết hợp rèn luyện sức mạnh vào thói quen tập luyện mang lại một số lợi ích, bao gồm gia tăng khối lượng cơ bắp và sức mạnh, cải thiện mật độ xương và sức khỏe khớp, thúc đẩy quá trình trao đổi chất và tiêu hao năng lượng, cải thiện tư thế và sự thăng bằng, giảm rủi ro chấn thương, và nâng cao năng lực hoạt động chức năng cho các hoạt động thường ngày cũng như hiệu suất thể thao.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 403
+  },
+  {
+    "id": "qa-407",
+    "stt": 406,
+    "question": "Một số ví dụ về các bài tập độ linh hoạt là gì?",
+    "answer": "Các ví dụ về bài tập cải thiện độ linh hoạt bao gồm giãn cơ tĩnh, giãn cơ động, yoga, pilates, lăn cơ bằng con lăn (foam rolling) và các bài tập tăng khả năng vận động (mobility drills). Nên tập trung tác động vào các nhóm cơ và khớp chính bằng những động tác giãn cơ được giữ trong 15-30 giây mà không nhún nảy (bouncing), đồng thời hướng tới việc đưa những bài tập về độ linh hoạt vào quy trình khởi động và thả lỏng của bạn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 407
+  },
+  {
+    "id": "qa-410",
+    "stt": 409,
+    "question": "Có những bài tập đơn giản nào tôi có thể thực hiện tại nhà không?",
+    "answer": "Có rất nhiều bài tập đơn giản bạn có thể thực hiện tại nhà, chẳng hạn như squat bằng trọng lượng cơ thể, lunge, hít đất, gập bụng (sit-ups) và giữ tư thế plank. Ngoài ra, có thể thực hiện các quy trình yoga hoặc giãn cơ để cải thiện độ linh hoạt và thư giãn. Bắt đầu với chỉ vài lần lặp lại hoặc vài phút, và tăng dần lên khi bạn đã xây dựng được sức mạnh cùng sự tự tin.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 410
+  },
+  {
+    "id": "qa-416",
+    "stt": 415,
+    "question": "Tôi thường cảm thấy tự ti khi tập thể dục. Làm thế nào tôi có thể vượt qua điều này?",
+    "answer": "Cảm giác tự ti khi mới tập luyện là phổ biến. Nên tập trung vào tiến bộ cá nhân thay vì so sánh với người khác. Có thể tập tại nhà hoặc ở nơi ít đông người trong giai đoạn đầu, đồng thời tìm sự hỗ trợ từ bạn bè hoặc người thân.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 416
+  },
+  {
+    "id": "qa-432",
+    "stt": 431,
+    "question": "Tôi không nhận thấy sự tiến bộ như mong đợi từ các buổi tập của mình. Tôi đang làm sai điều gì?",
+    "answer": "Nếu bạn không nhận thấy được sự tiến bộ như kỳ vọng, có lẽ đã đến lúc đánh giá lại lịch trình của mình. Nên kiểm tra xem bạn có đang thử thách bản thân đủ mức trong các buổi tập bằng cách tăng cường độ hoặc thử các bài tập mới hay không. Nên rằng bạn đang có đủ thời gian nghỉ ngơi và phục hồi giữa các buổi tập. Cân nhắc việc theo dõi quá trình rèn luyện và dinh dưỡng của bản thân để xác định những điểm cần cải thiện.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 432
+  },
+  {
+    "id": "qa-450",
+    "stt": 449,
+    "question": "Tôi lo lắng rằng mình sẽ khiến bản thân phải xấu hổ nếu cố gắng tập thể dục ở nơi công cộng. Tôi nên làm gì?",
+    "answer": "Việc cảm thấy tự ti khi tập thể dục ở nơi công cộng là điều dễ hiểu, nhưng một điều thiết yếu cần ghi nhớ là mọi người đều phải có một khởi đầu. Nên tập trung vào hành trình và những mục tiêu của riêng bạn, thay vì lo lắng về những gì người khác có thể nghĩ. Nên lựa chọn các hoạt động và không gian nơi mà bạn cảm thấy thoải mái và được hỗ trợ, cho dù đó là đi bộ trong công viên hay tham gia một lớp thể dục thân thiện dành cho người mới.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 450
+  },
+  {
+    "id": "qa-454",
+    "stt": 453,
+    "question": "Làm thế nào để tôi thực hiện tư thế cái cây trong yoga?",
+    "answer": "Đứng thẳng, dồn trọng lượng cơ thể sang chân phải đồng thời kéo đầu gối trái về phía ngực. Xoay đầu gối sang một bên, áp lòng bàn chân trái vào bắp chân phải. Chắp hai tay lại với nhau qua đầu và giữ nguyên trong 5-10 nhịp thở.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 454
+  },
+  {
+    "id": "qa-459",
+    "stt": 458,
+    "question": "Tôi muốn bắt đầu chạy bộ (jogging), nhưng tôi không chắc phải bắt đầu từ đâu. Bạn có lời khuyên nào không?",
+    "answer": "Nên bắt đầu bằng việc đầu tư vào một đôi giày chạy bộ tốt có khả năng cung cấp sự hỗ trợ và đệm lót để làm giảm rủi ro chấn thương. Luân phiên giữa các khoảng thời gian chạy bộ chậm và đi bộ nhằm xây dựng sức bền một cách từ từ. bổ sung đủ nước, giãn cơ sau khi chạy và bố trí các ngày nghỉ ngơi vào lịch trình để cho phép cơ thể bạn phục hồi.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 459
+  },
+  {
+    "id": "qa-466",
+    "stt": 465,
+    "question": "Tại sao việc đưa rèn luyện sức mạnh vào một chương trình tập thể dục lại quan trọng?",
+    "answer": "Rèn luyện sức mạnh rất quan trọng đối với việc xây dựng khối lượng cơ bắp, tăng cường trao đổi chất, và cải thiện sức mạnh cũng như chức năng tổng thể. Việc này nên được thực hiện ít nhất hai hoặc ba lần một tuần bằng cách sử dụng dây kháng lực, tạ, hoặc các bài tập bằng trọng lượng cơ thể.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 466
+  },
+  {
+    "id": "qa-467",
+    "stt": 466,
+    "question": "Tập thể dục ảnh hưởng đến quá trình trao đổi chất như thế nào?",
+    "answer": "Tập thể dục thúc đẩy quá trình trao đổi chất thông qua việc làm tăng khối lượng cơ bắp, thứ vốn tiêu hao nhiều năng lượng hơn so với chất béo, ngay cả trong trạng thái nghỉ ngơi. Ngoài ra, các bài tập aerobic giúp tiêu hao năng lượng trong suốt buổi tập và có thể dẫn đến trạng thái tiêu hao năng lượng tăng cao sau khi đã tập xong.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 467
+  },
+  {
+    "id": "qa-470",
+    "stt": 469,
+    "question": "Làm thế nào tôi có thể duy trì tư thế chuẩn trong các buổi tập?",
+    "answer": "Có thể duy trì tư thế đúng bằng cách giữ cột sống ở vị trí trung lập và kéo dài, thả lỏng vai, đồng thời bắt đầu chuyển động từ hông. Những nguyên tắc này giúp giảm căng thẳng cho vùng lưng.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 470
+  },
+  {
+    "id": "qa-476",
+    "stt": 475,
+    "question": "Tôi nên nâng tạ nhanh hay chậm?",
+    "answer": "Trong ngôn ngữ của việc rèn luyện sức mạnh, tốc độ lặp lại có nghĩa là nhịp độ (tempo), hay việc bạn nâng một mức tạ hoặc lực cản nhanh đến mức nào. Khi bạn thực hiện một bài tập với các số lần lặp lại (reps) chậm, cơ bắp của bạn sẽ trải qua một khoảng thời gian chịu áp lực (time under tension) lớn hơn so với khi bạn thực hiện các lần lặp lại nhanh. Điều này có thể dẫn đến sự gia tăng kích thước cơ bắp lớn hơn so với việc nâng tạ nhanh.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 476
+  },
+  {
+    "id": "qa-480",
+    "stt": 479,
+    "question": "Việc tiếp nhận chăm sóc y tế đối với một chấn thương có cần thiết không?",
+    "answer": "Việc tiếp nhận chăm sóc y tế sau chấn thương rất quan trọng vì giúp chẩn đoán, điều trị và phục hồi chức năng đúng cách, phòng ngừa biến chứng và hỗ trợ quá trình lành thương.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 480
+  },
+  {
+    "id": "qa-495",
+    "stt": 494,
+    "question": "Các bài tập hít đất mang lại lợi ích cho cơ thể như thế nào?",
+    "answer": "Hít đất chủ yếu tác động lên cơ tam đầu (tay sau) và cơ ngực, đồng thời cũng kích hoạt cơ delta (cơ vai) và các cơ bụng. Chúng giúp tăng cường sức mạnh cho phần thân trên và sự ổn định của nhóm cơ trung tâm.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 495
+  },
+  {
+    "id": "qa-496",
+    "stt": 495,
+    "question": "Có những lưu ý nào cần cân nhắc trước khi bắt đầu một chương trình tập thể dục không?",
+    "answer": "Nếu hiện tại bạn không tập thể dục, đã qua một độ tuổi nhất định, hoặc đang mắc một bệnh lý y khoa, nên tham khảo ý kiến của bác sĩ trước khi bắt đầu bất kỳ một chương trình tập luyện mới nào để đảm bảo sự an toàn và để xác định những hoạt động cần tránh.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 496
+  },
+  {
+    "id": "qa-497",
+    "stt": 496,
+    "question": "Các bước để thực hiện một bài plank nghiêng (side plank) là gì?",
+    "answer": "Nằm nghiêng với một khuỷu tay gập vuông góc nằm trực tiếp dưới vai của bạn. Sử dụng các cơ ở vùng thân mình để nâng hông lên tạo thành một tư thế plank nghiêng.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 497
+  },
+  {
+    "id": "qa-498",
+    "stt": 497,
+    "question": "Bài tập nào sử dụng nhiều nhóm cơ nhất?",
+    "answer": "Đó là bài tập burpee, một bài tập tương tự như sự kết hợp giữa squat và hít đất cùng với một cú nhảy ở cuối động tác. Nhờ những yếu tố này, nó mang đậm tính aerobic đồng thời sử dụng hầu như mọi nhóm cơ trên cơ thể. Đây là một bài tập xuất sắc đến mức nó được đưa vào rất nhiều chương trình huấn luyện của quân đội, cảnh sát và các lực lượng phản ứng khẩn cấp.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 498
+  },
+  {
+    "id": "qa-506",
+    "stt": 505,
+    "question": "Nghe nhạc có giúp ích trong lúc tập thể dục không?",
+    "answer": "Có. Âm nhạc có thể giúp bạn giữ nhịp độ, cải thiện tâm trạng và tạo động lực cho bạn, nó đánh lạc hướng bạn theo một cách tích cực và khiến bạn tập luyện hăng say hơn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 506
+  },
+  {
+    "id": "qa-509",
+    "stt": 508,
+    "question": "Những lợi ích của bài tập burpee là gì?",
+    "answer": "Burpee là bài tập toàn thân kích hoạt các nhóm cơ chính đồng thời mang lại những lợi ích cho hệ tim mạch. Chúng giúp xây dựng sức mạnh, sức bền và sự nhanh nhẹn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 509
+  },
+  {
+    "id": "qa-512",
+    "stt": 511,
+    "question": "Các buổi tập của tôi nên kéo dài bao lâu?",
+    "answer": "Một buổi tập 20 phút có thể mang lại hiệu quả ngang bằng với một buổi tập đổ mồ hôi kéo dài một giờ đồng hồ. Nhìn chung, nên đạt được ít nhất 150 phút tập thể dục mỗi tuần.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 512
+  },
+  {
+    "id": "qa-517",
+    "stt": 516,
+    "question": "Loại hình bài tập nào tốt nhất cho việc giảm cân?",
+    "answer": "Các bài tập hỗ trợ giảm cân gồm HIIT, rèn luyện sức mạnh, chạy bộ, CrossFit, boot camp, quyền anh, nhảy dây và Tabata. Những bài tập này có thể tiêu hao nhiều năng lượng trong thời gian ngắn. Cường độ cần phù hợp với thể trạng và khả năng tập luyện.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 517
+  },
+  {
+    "id": "qa-520",
+    "stt": 519,
+    "question": "Tôi nên làm gì nếu các bài tập quá sức so với tôi?",
+    "answer": "Trong giai đoạn đầu, người tập có thể gặp khó khăn khi hoàn thành buổi tập hoặc cần nghỉ lâu hơn giữa các bài. Sau vài tuần, sức mạnh và sức bền thường tăng dần, giúp hoàn thành buổi tập thuận lợi hơn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 520
+  },
+  {
+    "id": "qa-526",
+    "stt": 525,
+    "question": "Làm thế nào để xây dựng cơ bắp?",
+    "answer": "Để xây dựng cơ bắp, nên tập trung vào việc nâng tạ hoặc thực hiện các bài tập bằng trọng lượng cơ thể (bodyweight exercises).",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 526
+  },
+  {
+    "id": "qa-532",
+    "stt": 531,
+    "question": "Tôi nên tập luyện trong bao lâu?",
+    "answer": "Một điểm khởi đầu phù hợp là hướng tới mục tiêu tối thiểu 30 phút hoạt động thể chất ở mức độ vừa phải mỗi ngày. Các khuyến nghị về thời lượng tập luyện lý tưởng sẽ thay đổi tùy thuộc vào những kết quả mong muốn, ví dụ như giảm cân. Trừ khi bạn đang muốn trở thành một vận động viên thể hình hoặc tập luyện cho một sự kiện thể thao cụ thể, thời lượng 30-45 phút cho mỗi buổi tập là đủ đối với hầu hết mọi người.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 532
+  },
+  {
+    "id": "qa-533",
+    "stt": 532,
+    "question": "Các bước để thực hiện một bài plank nghiêng (side plank) là gì?",
+    "answer": "Nằm nghiêng với một khuỷu tay gập vuông góc nằm trực tiếp dưới vai của bạn. Sử dụng các cơ ở vùng thân mình để nâng hông lên tạo thành một tư thế plank nghiêng.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 533
+  },
+  {
+    "id": "qa-542",
+    "stt": 541,
+    "question": "Tôi nên tập cardio vào lúc bắt đầu hay lúc kết thúc buổi tập tại phòng tập?",
+    "answer": "Lời khuyên là nên tập cardio vào lúc bắt đầu buổi tập nếu bạn đang cố gắng xây dựng sức bền, hoặc tập nó vào lúc kết thúc nếu mục tiêu của bạn là xây dựng cơ bắp.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 542
+  },
+  {
+    "id": "qa-560",
+    "stt": 559,
+    "question": "Một lần lặp lại (repetition/rep) là gì?",
+    "answer": "Một lần lặp lại (rep) là một chuyển động bài tập được thực hiện hoàn chỉnh.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 560
+  },
+  {
+    "id": "qa-565",
+    "stt": 564,
+    "question": "Tập tạ có an toàn cho người mới bắt đầu không?",
+    "answer": "Tập tạ, hay còn gọi là rèn luyện sức bền hoặc sức mạnh, giúp xây dựng các khối cơ bắp săn chắc và khỏe mạnh, củng cố xương khớp và có thể giúp duy trì trạng thái trao đổi chất khỏe mạnh, nghĩa là bạn sẽ tiêu hao nhiều năng lượng hơn ngay cả khi đang nghỉ ngơi. Nếu trước đây bạn chưa từng nâng tạ, có thể cân nhắc việc khởi đầu với sự trợ giúp từ một huấn luyện viên cá nhân có chứng chỉ. Họ sẽ có thể hướng dẫn bạn tư thế chính xác đối với từng bài tập cụ thể và thiết lập một chương trình tập luyện sức mạnh được tùy chỉnh theo nhu cầu của bạn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 565
+  },
+  {
+    "id": "qa-570",
+    "stt": 569,
+    "question": "Tại sao lại có sự khác biệt về số hiệp, số lần lặp lại (reps) và thời gian nghỉ trong một kế hoạch tập luyện?",
+    "answer": "Số lượng hiệp, số rep và thời gian nghỉ trong mỗi kế hoạch rèn luyện phụ thuộc vào việc nó đang tập trung vào xây dựng sức mạnh, sức mạnh bộc phát (power), sức bền hay phì đại cơ bắp (hypertrophy).",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 570
+  },
+  {
+    "id": "qa-571",
+    "stt": 570,
+    "question": "Tôi có cần phải tập luyện đến ngưỡng thất bại (to failure) để nhận thấy được kết quả không?",
+    "answer": "Tập luyện đến ngưỡng thất bại trong khi vẫn giữ được tư thế chính xác đồng nghĩa với việc bạn đang thử thách bản thân đủ mức và đó là một chiến lược hiệu quả để tăng cơ. Tuy nhiên, việc liên tục tập đến ngưỡng thất bại có thể dẫn đến tập luyện quá độ, làm cản trở sự phục hồi hoặc dẫn đến chấn thương nếu bạn không sử dụng kỹ thuật chính xác.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 571
+  },
+  {
+    "id": "qa-574",
+    "stt": 573,
+    "question": "Hoạt động tim mạch có phải là bài tập quan trọng nhất cho việc giảm cân không?",
+    "answer": "Một chương trình tập luyện kháng lực tốt mới là phần quan trọng nhất của bất kỳ chương trình giảm cân nào. Tập thể dục tim mạch sẽ giúp bạn tiêu hao năng lượng trong suốt phiên tập kéo dài 30-60 phút đó và nó luôn nên được đưa vào lịch trình để giữ cho tim cũng như phổi khỏe mạnh. Rèn luyện sức mạnh giúp bạn tiêu hao năng lượng trong buổi tập và lên đến 38 giờ sau đó.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 574
+  },
+  {
+    "id": "qa-578",
+    "stt": 577,
+    "question": "Những lợi ích của việc tập thể dục thường xuyên là gì?",
+    "answer": "Tập thể dục thường xuyên mang lại vô số lợi ích, bao gồm cải thiện sức khỏe tim mạch, gia tăng mức năng lượng, thúc đẩy tâm trạng, kiểm soát cân nặng và giảm thiểu rủi ro mắc các bệnh mạn tính.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 578
+  },
+  {
+    "id": "qa-579",
+    "stt": 578,
+    "question": "Bài tập vặn mình kiểu Nga (russian twist) là gì?",
+    "answer": "Vặn mình kiểu Nga là một bài tập nhóm cơ trung tâm, trong đó bạn vặn xoắn thân mình từ bên này sang bên kia trong khi đang ngồi với tư thế hơi ngả người ra sau và hai bàn chân được nhấc lên khỏi mặt đất.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 579
+  },
+  {
+    "id": "qa-583",
+    "stt": 582,
+    "question": "Làm thế nào để tôi không cảm thấy nhàm chán với thói quen tập luyện của mình?",
+    "answer": "Sự đa dạng là yếu tố quan trọng để ngăn ngừa sự nhàm chán. Nên trải nghiệm các hoạt động mới, thay đổi lịch trình rèn luyện, và khám phá những lớp học hoặc những bài tập khác nhau. Đặt mục tiêu thực hiện một bài tập hoặc hoạt động mới vào mỗi tháng.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 583
+  },
+  {
+    "id": "qa-584",
+    "stt": 583,
+    "question": "Làm thế nào tôi có thể vượt qua tình trạng chững lại (plateaus) trong thể hình?",
+    "answer": "Sự chững lại là điều bình thường. Để vượt qua chúng, nên điều chỉnh cường độ buổi tập của bạn, thử sức với các bài tập mới, tăng khối lượng tạ, hoặc điều chỉnh thói quen rèn luyện. Nên thường xuyên làm mới các bài tập để thử thách cơ thể bạn theo những cách thức mới mẻ.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 584
+  },
+  {
+    "id": "qa-585",
+    "stt": 584,
+    "question": "Tôi nên ăn gì trước và sau khi tập luyện?",
+    "answer": "Trước khi tập, nên tiêu thụ một bữa ăn nhỏ, cân bằng với carbohydrate và protein. Sau khi tập, nên chọn một sự kết hợp giữa protein và carbohydrate để hỗ trợ phục hồi. Nên lắng nghe những tín hiệu báo đói của cơ thể và tiếp thêm nhiên liệu một cách phù hợp.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 585
+  },
+  {
+    "id": "qa-587",
+    "stt": 586,
+    "question": "Làm thế nào để tôi phòng ngừa việc tập luyện quá sức?",
+    "answer": "Tập luyện quá sức có thể dẫn đến sự kiệt sức và chấn thương. Nên dành đủ những ngày nghỉ ngơi và ưu tiên cho giấc ngủ cùng sự phục hồi. Nên chú ý đến những dấu hiệu mệt mỏi, đau hay sự suy giảm hiệu suất, và điều chỉnh lịch trình của bạn cho phù hợp.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 587
+  },
+  {
+    "id": "qa-591",
+    "stt": 590,
+    "question": "Làm thế nào tôi có thể đo lường sự tiến bộ của bản thân vượt ra khỏi những con số trên chiếc cân?",
+    "answer": "Bên cạnh cân nặng, nên theo dõi các số đo cơ thể, chụp ảnh tiến độ, ghi chú lại sự cải thiện về sức mạnh và độ bền, cũng như theo dõi xem quần áo vừa vặn như thế nào. Tạo một cuốn sổ nhật ký thể hình để ghi chép lại những thành tựu và cột mốc quan trọng của bạn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 591
+  },
+  {
+    "id": "qa-592",
+    "stt": 591,
+    "question": "Tôi có thể tập thể dục trong kỳ kinh nguyệt không?",
+    "answer": "Có, bạn hoàn toàn có thể tập thể dục trong kỳ kinh nguyệt. Các bài tập nhẹ nhàng như yoga, đi bộ và bơi lội có thể giúp làm giảm bớt sự khó chịu. Cần chú ý đến phản ứng của cơ thể mình và điều chỉnh các bài tập dựa trên cảm nhận của bản thân.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 592
+  },
+  {
+    "id": "qa-594",
+    "stt": 593,
+    "question": "Làm thế nào để tôi có thể tạo ra một chương trình tập luyện cân bằng?",
+    "answer": "Một chương trình tập luyện cân bằng bao gồm các bài tập tim mạch, rèn luyện sức mạnh, các bài tập về độ linh hoạt, và những ngày nghỉ ngơi. Chỉ định những ngày riêng biệt cho các loại hình tập luyện khác nhau để đảm bảo sự đa dạng.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 594
+  },
+  {
+    "id": "qa-600",
+    "stt": 599,
+    "question": "Những lợi ích của việc rèn luyện phì đại cơ bắp (hypertrophy training) là gì?",
+    "answer": "Việc rèn luyện phì đại cơ bắp dẫn đến sự tăng cơ, đặc biệt là ở những khu vực là mục tiêu của các buổi tập. Phương pháp này thường được các vận động viên thể hình và các vận động viên thể thao sử dụng để gia tăng sức mạnh cũng như khối lượng cơ bắp một cách nhanh chóng.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 600
+  },
+  {
+    "id": "qa-601",
+    "stt": 600,
+    "question": "Tôi nên cân nhắc điều gì khi lựa chọn giữa rèn luyện sức mạnh (strength training) và rèn luyện phì đại cơ bắp (hypertrophy training)?",
+    "answer": "Khi lựa chọn giữa rèn luyện sức mạnh và rèn luyện phì đại cơ bắp, có thể cân nhắc các mục tiêu, sở thích của bạn và những khuynh hướng bẩm sinh của cơ thể đối với sự phát triển cơ bắp. Cả hai lựa chọn này đều giúp cải thiện sức khỏe tổng thể, do đó điều thiết yếu là phải chọn lựa phương pháp phù hợp với các mục tiêu thể hình và sở thích cá nhân của bạn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 601
+  },
+  {
+    "id": "qa-617",
+    "stt": 616,
+    "question": "Tôi tập thể dục mỗi ngày nhưng vẫn chật vật với số cân nặng mà tôi muốn giảm. Bạn có lời khuyên nào không?",
+    "answer": "Việc giảm cân là kết quả của sự thâm hụt calo, trong đó lượng calo tiêu thụ lớn hơn lượng calo tiêu thụ. Việc cắt giảm vài trăm calo mỗi ngày từ chế độ ăn của bạn sẽ hỗ trợ cho quá trình giảm cân. Tiêu thụ nhiều trái cây, rau quả hơn và giảm bớt các thực phẩm hoặc đồ uống đậm đặc calo cũng sẽ giúp ích.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 617
+  },
+  {
+    "id": "qa-622",
+    "stt": 621,
+    "question": "Tôi không có quá nhiều mỡ và cơ bắp. Cách tốt nhất để tăng cơ bắp là gì?",
+    "answer": "Để tăng cường khối lượng cơ bắp của bạn, hai điều kiện phải được đáp ứng. Bạn phải tham gia vào các hoạt động rèn luyện sức mạnh nhắm đến các nhóm cơ chính trên cơ thể: hông, chân và thân mình (torso). Thứ hai, bạn phải gia tăng lượng calo mà mình tiêu thụ. Một mục tiêu tốt là tăng cân không quá khoảng một pound (khoảng 0.45 kg) mỗi tuần.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 622
+  },
+  {
+    "id": "qa-624",
+    "stt": 623,
+    "question": "Bạn có thể giải thích tư thế chuẩn cho bài tập máy đạp đùi (leg presses) không?",
+    "answer": "Nên điều chỉnh phần tựa lưng của ghế ngồi sao cho góc giữa phần đùi và cẳng chân của bạn đạt khoảng 90 độ.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 624
+  },
+  {
+    "id": "qa-628",
+    "stt": 627,
+    "question": "Nếu tôi thực hiện chuỗi bài tập 1 (circuit 1) ba lần, thì ba lần đó vẫn được coi là chuỗi 1, hay nó là chuỗi 1, 2 và 3, và tôi nên nghỉ ngơi giữa các hiệp (sets) hay giữa các chuỗi bài tập (circuits)?",
+    "answer": "Cấu trúc của các bài tập trong một chuỗi cũng sẽ quyết định thời gian phục hồi giữa các hiệp và các chuỗi. Việc thực hiện các bài tập liên quan đến những nhóm cơ lớn trên cơ thể sẽ đòi hỏi khắt khe hơn nhiều so với những bài tập sử dụng các nhóm cơ nhỏ. Cần lưu ý rằng sự nghỉ ngơi luôn đóng vai trò thiết yếu.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 628
+  },
+  {
+    "id": "qa-629",
+    "stt": 628,
+    "question": "Những thay đổi nào xảy ra trong cơ thể trong quá trình khởi động?",
+    "answer": "Trong quá trình khởi động, cơ thể trải qua sự gia tăng về nhiệt độ, cải thiện quá trình lưu thông máu đến các cơ bắp, tăng cường khả năng giải phóng oxy trong máu, giúp các cơ co thắt dễ dàng hơn, nới lỏng các khớp xương và tạo ra sự kết nối giữa não bộ với cơ thể.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 629
+  },
+  {
+    "id": "qa-630",
+    "stt": 629,
+    "question": "Có những loại hình bài tập khởi động nào?",
+    "answer": "Các bài tập khởi động có thể được phân loại thành chủ động (active) hoặc thụ động (passive). Khởi động chủ động bao gồm các chuyển động thể chất, trong khi khởi động thụ động làm tăng nhiệt độ cơ thể thông qua các tác nhân bên ngoài. Việc giãn cơ cũng rất phổ biến trong các quy trình khởi động và có thể là giãn cơ tĩnh hoặc động.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 630
+  },
+  {
+    "id": "qa-631",
+    "stt": 630,
+    "question": "Tôi tập thể dục năm ngày một tuần. 10 phút giãn cơ, 10 phút đạp xe, 10 phút tập tạ tay và lưng. Đây có phải là một buổi tập tốt không?",
+    "answer": "Chỉ tập tạ cho tay và lưng đồng nghĩa với việc bạn đang không giải quyết một số nhóm cơ chính, bao gồm hông, chân, ngực, vai và phần giữa của cơ thể (mid-section). Để buổi tập này, hay bất kỳ buổi tập nào khác, mang lại hiệu quả tốt, nó phải tạo ra những thử thách với mức độ tăng dần theo thời gian.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 631
+  },
+  {
+    "id": "qa-641",
+    "stt": 640,
+    "question": "Tôi nên tập rèn luyện sức mạnh, tập cardio, hay tập cả hai?",
+    "answer": "Hai đến ba buổi rèn luyện sức mạnh mỗi tuần có thể mang lại những lợi ích to lớn về sức khỏe. Nghiên cứu chỉ ra rằng nó cũng có thể thúc đẩy sức khỏe tim mạch và mang đến tác động tích cực đối với sức khỏe tinh thần của bạn. Việc thường xuyên làm tăng nhịp tim và lưu lượng máu bằng cách đưa cardio vào lịch trình cũng có thể thúc đẩy sức khỏe cho tim, não, da và phổi.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 641
+  },
+  {
+    "id": "qa-647",
+    "stt": 646,
+    "question": "Những lợi ích của việc sử dụng dây kháng lực là gì?",
+    "answer": "Việc sử dụng dây kháng lực giúp xây dựng sức mạnh cơ bắp, cải thiện tư thế, gia tăng lưu thông máu, nâng cao khả năng giữ thăng bằng, thúc đẩy tâm trạng, và làm tăng cường sự chắc khỏe của xương. Chúng rất linh hoạt, có thể tác động vào bất kỳ bộ phận nào trên cơ thể, hỗ trợ cho quá trình giảm cân và cải thiện biên độ vận động.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 647
+  },
+  {
+    "id": "qa-652",
+    "stt": 651,
+    "question": "Tôi nên tập những bài tập bụng nào để loại bỏ đi lớp mỡ bụng của mình?",
+    "answer": "Cách duy nhất để làm giảm mỡ bụng là tập luyện toàn thân, và đặc biệt là tác động vào các nhóm cơ lớn. Các cơ bụng là những cơ rất nhỏ và chỉ tập riêng chúng sẽ không thể mang lại cho bạn một vòng bụng phẳng.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 652
+  },
+  {
+    "id": "qa-656",
+    "stt": 655,
+    "question": "Đạp xe trong nhà (spinning) có làm thon gọn đôi chân không?",
+    "answer": "Có, nếu sử dụng lực cản vừa phải. Lực cản quá cao có tác dụng tương tự tập tạ nặng và có thể làm tăng kích thước cơ. Nếu mục tiêu là cải thiện độ săn chắc, nên dùng lực cản nhẹ hơn và thực hiện nhiều lần lặp lại.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 656
+  },
+  {
+    "id": "qa-658",
+    "stt": 657,
+    "question": "Tôi đã chạm ngưỡng chững lại (plateau). Tại sao điều này lại xảy ra?",
+    "answer": "Sự chững lại đôi khi cũng là một lời nhắc nhở hữu ích để bạn thay đổi lịch trình tập luyện của mình. Cần bảo đảm rằng bạn đang nạp đủ năng lượng cho lối sống của mình, cung cấp đủ lượng nước và kết hợp một sự cân bằng giữa protein, chất béo lành mạnh, các loại rau lá xanh, các loại củ quả chứa tinh bột, và trái cây. Ngoài ra, chức năng nội tiết tố cũng có thể làm ảnh hưởng hoặc làm đình trệ sự tiến bộ của bạn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 658
+  },
+  {
+    "id": "qa-660",
+    "stt": 659,
+    "question": "Dinh dưỡng hay tập luyện thì quan trọng hơn?",
+    "answer": "Tôi cho rằng dinh dưỡng có lẽ quan trọng hơn tập luyện đối với sức khỏe tổng thể, đặc biệt là vì bạn có thể vô tình vận động nhưng không thể vô tình có được một chế độ dinh dưỡng nền tảng tốt. Tập thể dục mang lại tác động to lớn đến giấc ngủ, chức năng nội tiết tố, chức năng miễn dịch, sức khỏe xương khớp, sức khỏe tim mạch và quá trình trao đổi chất. Tôi không thích phải đưa ra lựa chọn và tôi sẽ khuyên nên tập trung vào cả hai.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 660
+  },
+  {
+    "id": "qa-667",
+    "stt": 666,
+    "question": "Tôi nên thực hiện bao nhiêu hiệp (sets) và bao nhiêu lần lặp lại (repetitions) cho các bài tập bụng?",
+    "answer": "Nên hướng tới 2-3 hiệp, mỗi hiệp từ 10-15 lần lặp lại cho mỗi bài tập cơ bụng. Nên tập trung vào chất lượng hơn là số lượng và đảm bảo siết chặt các nhóm cơ trung tâm (core) trong mỗi lần lặp lại.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 667
+  },
+  {
+    "id": "qa-670",
+    "stt": 669,
+    "question": "Tôi không phải là một người thích dậy sớm. Nhưng nếu tôi trì hoãn việc tập luyện cho đến cuối ngày, tôi sẽ không làm điều đó. Làm thế nào để tôi có thể hoàn thành buổi tập của mình?",
+    "answer": "Nên tập trung vào cảm giác sau khi bạn đã tập xong. Nó sẽ đánh thức bạn, tiếp thêm cho bạn năng lượng để tiếp tục phần còn lại của ngày, và bạn sẽ giải quyết xong được một nhiệm vụ cần làm. Bất kể buổi sáng có thể tồi tệ đến mức nào, nên tập trung vào lượng hormone hạnh phúc (endorphins) có được sau buổi tập.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 670
+  },
+  {
+    "id": "qa-685",
+    "stt": 684,
+    "question": "Nhịp tim ở mức 170 trong khi chạy bộ có phải là điều tồi tệ không?",
+    "answer": "Nhịp tim 170 nhịp/phút (bpm) nằm ở giới hạn trên đối với những người ở độ tuổi 20. Nếu bạn lớn tuổi hơn mức này, nhịp tim 170 bpm có thể chỉ ra rằng bạn đang gắng sức quá mức. Mặc dù vậy, tốt nhất là nên trao đổi với một chuyên gia y tế về mức nhịp tim lý tưởng đối với bản thân. Tùy thuộc vào các mục tiêu của mình, bạn có thể sẽ dành thời gian tập luyện trong những vùng nhịp tim khác nhau.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 685
+  },
+  {
+    "id": "qa-686",
+    "stt": 685,
+    "question": "Nhịp tim 175 khi chạy bộ có phải là điều nguy hiểm không?",
+    "answer": "Nhịp tim 175 nhịp/phút (bpm) là một con số tương đối cao đối với người ở bất kỳ độ tuổi nào. Tốt nhất là nên giảm nhịp độ (pace) chạy của mình xuống cho đến khi bạn đạt được mức nhịp tim mục tiêu lý tưởng của bản thân.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 686
+  },
+  {
+    "id": "qa-689",
+    "stt": 688,
+    "question": "Nên ăn gì sau một buổi tập?",
+    "answer": "Tiêu thụ những thực phẩm có chứa carbohydrate và protein có thể giúp hỗ trợ cơ bắp của bạn sau khi tập thể dục. Các chuyên gia khuyến cáo nên ăn trong một khoảng thời gian ngắn sau khi tập để nhận được nhiều lợi ích nhất. Việc bổ sung đúng các dưỡng chất sau khi vận động có thể giúp bạn tái tạo các protein cơ bắp và phục hồi các kho dự trữ glycogen. Nó cũng hỗ trợ kích thích sự phát triển của các cơ bắp mới.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 689
+  },
+  {
+    "id": "qa-691",
+    "stt": 690,
+    "question": "Những lợi ích của việc sử dụng con lăn giãn cơ (foam rolling) là gì?",
+    "answer": "Sử dụng con lăn giãn cơ (foam rolling) là một kỹ thuật tự giải phóng mạc cơ (self-myofascial release technique). Nó có thể giúp làm giảm sự co thắt, đau nhức và tình trạng viêm nhiễm ở cơ bắp, đồng thời gia tăng biên độ vận động của các khớp. Lăn cơ có thể là một công cụ hữu hiệu để thêm vào các quy trình khởi động hoặc thả lỏng, cả trước và sau khi tập thể dục.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 691
+  },
+  {
+    "id": "qa-699",
+    "stt": 698,
+    "question": "Việc rèn luyện các bài tập bùng nổ có xây dựng cơ bắp không?",
+    "answer": "Nói tóm lại là có. Việc cải thiện sức mạnh bùng nổ đòi hỏi một sự kết hợp giữa rèn luyện sức mạnh, rèn luyện tốc độ và rèn luyện sức mạnh bộc phát (power). Khi bạn đã thông thạo cả ba yếu tố này, bạn có thể tối đa hóa khả năng bùng nổ của mình, và kết quả là bạn sẽ trở nên khỏe mạnh hơn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 699
+  },
+  {
+    "id": "qa-700",
+    "stt": 699,
+    "question": "Những bài tập bùng nổ nào là tốt nhất để gia tăng tốc độ?",
+    "answer": "Chạy nước rút (sprints), các bài tập đẩy xe tạ (sled-work) và các bài tập rèn luyện sự nhanh nhẹn (agility exercise) như chạy con thoi (shuttle runs) là tốt nhất để gia tăng tốc độ.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 700
+  },
+  {
+    "id": "qa-701",
+    "stt": 700,
+    "question": "Những bài tập bùng nổ nào là tốt nhất để gia tăng sức mạnh bộc phát (power)?",
+    "answer": "Nhảy lên bục (box jumps), hít đất bật nảy (plyo pushups), vung tạ chuông (kettlebell swings), đẩy tạ đẩy (push-presses) và squat là những chuyển động hiệu quả để gia tăng sức mạnh bộc phát.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 701
+  },
+  {
+    "id": "qa-705",
+    "stt": 704,
+    "question": "Những lợi ích của việc tập thể dục đối với sức khỏe tinh thần là gì?",
+    "answer": "Tập thể dục có thể giúp điều hòa các hormone căng thẳng và kích hoạt sự giải phóng của các chất dẫn truyền thần kinh giúp cải thiện tâm trạng. Khi được kết hợp với các phương pháp điều trị khác, việc tập thể dục có thể giúp giảm thiểu các triệu chứng của một số tình trạng sức khỏe tâm thần, bao gồm bệnh trầm cảm và chứng rối loạn tăng động giảm chú ý (ADHD).",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 705
+  },
+  {
+    "id": "qa-708",
+    "stt": 707,
+    "question": "5 thành phần của thể lực (fitness) là gì?",
+    "answer": "Năm thành phần của thể lực bao gồm sức bền tim mạch, sức mạnh cơ bắp, sức bền cơ bắp, độ linh hoạt và thành phần cơ thể. Sức bền tim mạch là khả năng bạn thực hiện một bài tập aerobic, chẳng hạn như đi bộ hoặc chạy, trong một khoảng thời gian nhất định. Sức bền cơ bắp là khả năng bạn có thể duy trì chuyển động đó tốt đến mức nào trước khi trở nên mệt mỏi. độ linh hoạt đề cập đến khả năng di chuyển các khớp xương của bạn qua một biên độ vận động. Thành phần cơ thể mô tả tỷ lệ giữa lượng mỡ và cơ bắp trong vóc dáng của bạn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 708
+  },
+  {
+    "id": "qa-721",
+    "stt": 720,
+    "question": "Làm thế nào để bạn thực hiện bài tập nhảy dang tay chân?",
+    "answer": "Để thực hiện bài tập nhảy dang tay chân đúng cách, nên bắt đầu ở tư thế đứng với hai bàn chân chụm lại và hai tay buông thõng hai bên. Nhảy tách hai bàn chân sang hai bên đồng thời vung tay lên trên đỉnh đầu, sau đó quay trở lại tư thế ban đầu. Lặp lại với số lần quy định, duy trì tư thế và kỹ thuật chính xác trong suốt quá trình tập.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 721
+  },
+  {
+    "id": "qa-726",
+    "stt": 725,
+    "question": "Bài tập chèo thuyền với thanh tạ đòn (barbell row) là gì?",
+    "answer": "Barbell row là một bài tập nâng tạ cho phần thân trên tác động vào vùng lưng và vai.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 726
+  },
+  {
+    "id": "qa-727",
+    "stt": 726,
+    "question": "Một số bài tập tốt cho cơ bắp tay trước (biceps) là gì?",
+    "answer": "Một số bài tập tốt cho cơ bắp tay trước là cuốn tạ cáp (cable curl), cuốn tạ đòn (barbell curl), cuốn tạ đòn EZ (EZ curl), hít xà đơn với lòng bàn tay hướng vào trong (chin up), cuốn tạ trên ghế dốc (incline curl) và cuốn tạ cô lập tay trước (preacher curl).",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 727
+  },
+  {
+    "id": "qa-738",
+    "stt": 737,
+    "question": "Tôi đã ngừng tập tạ một thời gian, làm thế nào để tôi bắt đầu lại?",
+    "answer": "Nếu bạn quay trở lại với nó sau một thời gian dài, nên chuẩn bị tinh thần rằng các mức tạ của bạn có thể đã giảm xuống - thậm chí là giảm rất nhiều. Nếu khoảng thời gian nghỉ của bạn là ngắn, bạn có thể dễ dàng bắt đầu lại từ chính nơi bạn đã dừng bước.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 738
+  },
+  {
+    "id": "qa-740",
+    "stt": 739,
+    "question": "Tôi nên tập toàn thân (full-body) hay tập chia theo từng bộ phận cơ thể (body-part split)?",
+    "answer": "Những người mới bắt đầu làm quen với việc tập tạ được phân loại dựa trên việc họ có thể phục hồi nhanh như thế nào sau khi tập thể dục. Sự gia tăng sức mạnh ở những người mới bắt đầu được tối ưu hóa bằng cách tập luyện ba lần một tuần. Khi một người đã có nhiều kinh nghiệm và khả năng hơn, lịch tập chia làm hai ngày (two-day split) được đề xuất là một thiết lập tối ưu.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 740
+  },
+  {
+    "id": "qa-741",
+    "stt": 740,
+    "question": "Những lợi ích của việc thực hiện bài tập barbell rows là gì?",
+    "answer": "Barbell rows giúp xây dựng sức mạnh cơ bắp ở vùng lưng và vai, cải thiện sức mạnh vùng thân mình (trunk) và sự ổn định của cột sống, đồng thời nâng cao khả năng thực hiện chuyển động gập hông (hip hinge). Thêm vào đó, chúng có thể đóng góp vào hiệu suất thể thao tổng thể và các chuyển động chức năng trong sinh hoạt hàng ngày.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 741
+  },
+  {
+    "id": "qa-745",
+    "stt": 744,
+    "question": "Nếu tôi tập cả cardio và tập luyện kháng lực, tôi nên tập cái nào trước?",
+    "answer": "Đối với các mục đích về sức khỏe và thể lực nói chung, thứ tự thực hiện không thực sự quan trọng. Hình thức mà bạn chọn tập trước sẽ khiến bạn bị mệt mỏi và do đó làm suy giảm hiệu suất khi thực hiện hình thức thứ hai. Nếu bạn không có ưu tiên tập luyện nào và/hoặc thích cả hai như nhau, thông thường bạn được khuyên là nên tập tạ trước.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 745
+  },
+  {
+    "id": "qa-750",
+    "stt": 749,
+    "question": "Một số lỗi sai phổ biến cần tránh khi thực hiện bài tập đẩy ngực ghế dốc lên (incline bench press) là gì?",
+    "answer": "Một số lỗi sai thường gặp cần tránh trong lúc thực hiện bài tập incline bench press bao gồm việc không khóa tạ một cách an toàn, phân bổ mức tạ không đều trên thanh tạ đòn, vị trí đặt chân không phù hợp và để cổ tay bị uốn cong ra sau. Việc bắt đầu với một mức tạ có thể kiểm soát được và luôn có người hỗ trợ (spotter) để đảm bảo an toàn cũng là điều rất quan trọng.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 750
+  },
+  {
+    "id": "qa-755",
+    "stt": 754,
+    "question": "Tôi có nên tập luyện tiếp nếu vẫn còn cảm thấy đau nhức không?",
+    "answer": "Có. Sự đau nhức chỉ đơn thuần là một dấu hiệu cho thấy cơ thể bạn chưa quen với những gì bạn đã làm. Điều này vẫn phù hợp. Bạn vẫn nên tập luyện vào ngày hôm nay, và đảm bảo khởi động đúng cách. Bạn có thể sẽ cảm thấy bớt đau hơn sau khi tập nhờ vào hiệu ứng của những đợt tập luyện lặp đi lặp lại (repeated bout effect), và bạn sẽ nhận thấy rằng cường độ của các cơn đau nhức sẽ giảm dần khi bạn tiếp tục duy trì việc tập luyện một cách kiên trì.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 755
+  },
+  {
+    "id": "qa-775",
+    "stt": 774,
+    "question": "Tôi nên xả cơ (bulk) hay siết cơ (cut)?",
+    "answer": "Quyết định xả cơ hay siết cơ thường là một quyết định rất khó khăn đối với các học viên. Lời khuyên cho rằng dù cấu trúc cơ thể hiện tại của bạn là gì, bạn không hài lòng với nó và muốn thay đổi. Lựa chọn gần như sẽ luôn mang lại cho bạn những kết quả tốt nhất trong quá trình rèn luyện, và về mặt thẩm mỹ ưu tiên hàng đầu của bạn sẽ là tập trung vào việc cố gắng tăng cơ.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 775
+  },
+  {
+    "id": "qa-780",
+    "stt": 779,
+    "question": "Trở nên khỏe mạnh về mặt thể chất (physically fit) có nghĩa là gì?",
+    "answer": "Nhìn chung, thể lực có ý nghĩa khác nhau đối với những người khác nhau. Thông điệp quan trọng là việc bắt tay vào thực hiện bất kỳ hoạt động thể dục thường xuyên nào cũng sẽ mang lại lợi ích cho sức khỏe của một người. Họ càng tập thể dục nhiều, họ sẽ càng trông rạng rỡ và cảm thấy khỏe mạnh hơn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 780
+  },
+  {
+    "id": "qa-785",
+    "stt": 784,
+    "question": "Việc tập luyện cơ bắp có quan trọng không?",
+    "answer": "Có. Các chuyên gia y tế khuyến nghị việc tập thể dục để phát triển sức mạnh cơ bắp. Việc duy trì sức mạnh của cơ bắp đóng vai trò quan trọng đối với các yếu tố khác nhau, bao gồm sự thăng bằng, độ linh hoạt và sức khỏe của xương khớp.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 785
+  },
+  {
+    "id": "qa-786",
+    "stt": 785,
+    "question": "Sự khác biệt giữa bài tập aerobic và anaerobic (kỵ khí) là gì?",
+    "answer": "Bài tập aerobic là các bài tập thuộc dạng sức bền (endurance-type) giúp làm tăng nhịp tim và nhịp thở của một người trong một khoảng thời gian được duy trì liên tục. Các bài tập anaerobic bao gồm những đợt hoạt động thể chất cường độ cao, diễn ra trong một khoảng thời gian ngắn. Cả hai loại hình tập thể dục này đều có lợi cho sức khỏe tim mạch của con người. Chúng cũng mang lại những lợi ích đối với sức khỏe tinh thần.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 786
+  },
+  {
+    "id": "qa-792",
+    "stt": 791,
+    "question": "Những lợi ích của việc bơi lội là gì?",
+    "answer": "Bơi lội tiêu hao năng lượng và có thể giúp mọi người quản lý cân nặng của họ, làm săn chắc cơ bắp, cũng như cải thiện sức khỏe và thể trạng tổng thể. Hoạt động này kích hoạt một vài nhóm cơ khác nhau và hệ thống tim mạch, và nó có thể mang lại một bài tập xuất sắc cho nhiều đối tượng khác nhau. Việc bơi lội có thể giúp một số người thúc đẩy tâm trạng, thư giãn và làm giảm mức độ căng thẳng của họ.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 792
+  },
+  {
+    "id": "qa-801",
+    "stt": 800,
+    "question": "Những bài tập nào phù hợp cho người bị đau lưng dưới?",
+    "answer": "Các bài tập thường được sử dụng gồm đi bộ ở tư thế squat, cầu hông một chân ở tư thế nằm ngửa, bài tập con sò nằm nghiêng, bài tập siêu nhân và plank.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 801
+  },
+  {
+    "id": "qa-802",
+    "stt": 801,
+    "question": "Chỉ số BMI có hữu ích không?",
+    "answer": "BMI là một công cụ hữu ích nhằm cung cấp một ý niệm chung về việc cân nặng của một người có lành mạnh đối với họ hay không. Nó là một công cụ đơn giản nhưng không thể nói lên toàn bộ câu chuyện về các rủi ro sức khỏe cũng như cân nặng cá nhân của từng người. Bất kỳ ai lo ngại về cân nặng của mình nên trao đổi với bác sĩ, người cũng có thể xem xét đến việc phân bổ lượng mỡ trên cơ thể của họ.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 802
+  },
+  {
+    "id": "qa-805",
+    "stt": 804,
+    "question": "Làm thế nào để tránh bị chuột rút khi đang chạy bộ?",
+    "answer": "Để phòng ngừa chuột rút, nên uống nước lọc hoặc một loại thức uống thể thao cứ mỗi 15 đến 30 phút trong khi chạy bộ, tránh các thực phẩm chứa nhiều chất xơ vào đêm trước và vào buổi sáng trước khi chạy.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 805
+  },
+  {
+    "id": "qa-808",
+    "stt": 807,
+    "question": "Tập luyện chức năng (functional training) có thể mang lại lợi ích cho các hoạt động trong đời sống hàng ngày như thế nào?",
+    "answer": "Bằng cách rèn luyện các chuyển động có liên quan đến những công việc hàng ngày, chẳng hạn như đứng lên từ một chiếc ghế hoặc nâng nhấc các đồ vật, việc tập luyện chức năng có thể cải thiện chức năng thể chất tổng thể và làm cho các hoạt động thường ngày trở nên dễ dàng thực hiện hơn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 808
+  },
+  {
+    "id": "qa-821",
+    "stt": 820,
+    "question": "Những điều cần biết về chứng đau nhức cơ bắp?",
+    "answer": "Hoạt động thể chất đôi khi có thể dẫn đến chứng đau nhức cơ bắp trì hoãn (DOMS). Các triệu chứng của DOMS thường xuất hiện vài giờ sau khi hoạt động thể chất và có thể kéo dài lên đến 72 giờ. Mặc dù DOMS có thể gây khó chịu, nhưng nó không cần đến sự chăm sóc y tế. Mọi người đôi khi khuyên dùng các phương pháp khắc phục tại nhà để làm giảm nhẹ các triệu chứng. Có rất ít bằng chứng khoa học ủng hộ cho điều này.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 821
+  },
+  {
+    "id": "qa-824",
+    "stt": 823,
+    "question": "Những điều cần biết về chứng đau đầu sau khi tập thể dục?",
+    "answer": "Mất nước trong lúc tập thể dục là một con đường rất dễ dẫn đến tình trạng khử nước, vốn có thể gây ra những cơn đau đầu. Việc giãn cơ đúng cách trước và sau khi tập thể dục có thể giúp phòng ngừa hiện tượng này. Đau đầu sau khi tập thể dục là do một tình trạng bệnh lý tiềm ẩn. Những ai gặp phải chứng đau đầu do tập thể dục mà không có lý do rõ ràng, hoặc có một bệnh lý về tim mạch hay những triệu chứng khác, nên đến gặp bác sĩ của họ.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 824
+  },
+  {
+    "id": "qa-830",
+    "stt": 829,
+    "question": "Những lợi ích của Calisthenics là gì?",
+    "answer": "Calisthenics có thể cải thiện sức khỏe tim mạch bằng cách duy trì nhịp tim ở mức cao trong suốt buổi tập. Việc thực hiện các bài tập một cách nhanh chóng mà không có những khoảng nghỉ kéo dài giữa các hiệp tạo ra những thử thách cho hệ tim mạch, biến calisthenics trở thành một bài tập rèn luyện tim mạch hiệu quả.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 830
+  },
+  {
+    "id": "qa-835",
+    "stt": 834,
+    "question": "Nhịp tim lý tưởng khi chạy bộ là bao nhiêu?",
+    "answer": "Nhịp tim lý tưởng khi chạy bộ thay đổi tùy thuộc vào độ tuổi, mức độ thể lực hiện tại và các yếu tố khác của một người. Nhịp tim của một người trong quá trình tập luyện nên ở mức từ 50 đến 85% nhịp tim tối đa của họ. Việc theo dõi nhịp tim trong khi chạy có thể đặc biệt hữu ích đối với các bài rèn luyện sức bền và việc tập luyện trong những điều kiện thời tiết khác nhau.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 835
+  },
+  {
+    "id": "qa-842",
+    "stt": 841,
+    "question": "Plyometrics có thể giúp giảm cân không?",
+    "answer": "Khi được bổ sung vào một chương trình dinh dưỡng và thể hình tổng quát, plyometrics có thể đóng một vai trò nhất định trong việc giảm cân. Mặc dù vậy, chỉ riêng plyometrics thì khó có thể trở thành một phương pháp giảm cân hiệu quả nhất. Các buổi tập plyometric rất ngắn và có thể không mang lại khả năng tiêu hao năng lượng tương đương với các hoạt động cardio và sức mạnh khác.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 842
+  },
+  {
+    "id": "qa-846",
+    "stt": 845,
+    "question": "Đi bộ mang lại lợi ích cho sức khỏe của tôi như thế nào?",
+    "answer": "Đi bộ có thể giúp bạn sống một cuộc đời thọ hơn. Đi bộ với một nhịp độ vừa phải có thể giúp làm giảm rủi ro mắc bệnh về tim mạch, giảm rủi ro gặp phải các vấn đề về cholesterol cao, huyết áp cao, và tiểu đường, cũng như cải thiện chứng đau lưng mạn tính và sức khỏe tinh thần.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 846
+  },
+  {
+    "id": "qa-847",
+    "stt": 846,
+    "question": "Đi bộ có tốt hơn chạy bộ không?",
+    "answer": "Đi bộ và chạy bộ cùng chia sẻ một số lợi ích sức khỏe giống nhau - mặc dù đối với đi bộ thì sẽ phải mất nhiều thời gian hơn, tùy thuộc vào nhịp độ (pace) của bạn. Các nghiên cứu đã phát hiện ra rằng một chuyến đi bộ nhanh có thể làm giảm rủi ro về cholesterol cao, huyết áp cao và tiểu đường nhiều tương đương với việc chạy bộ.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 847
+  },
+  {
+    "id": "qa-855",
+    "stt": 854,
+    "question": "LISS cardio là gì?",
+    "answer": "LISS cardio là viết tắt của Low Intensity Steady-State cardio (Bài tập tim mạch cường độ thấp trạng thái ổn định). Nó bao gồm các hoạt động aerobic chậm rãi như đi bộ, chạy bộ chậm (jogging), hoặc đạp xe ở một nhịp độ thoải mái trong một khoảng thời gian kéo dài.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 855
+  },
+  {
+    "id": "qa-867",
+    "stt": 866,
+    "question": "Những nhóm cơ nào được vận động khi tập barre?",
+    "answer": "Barre là bài tập toàn thân, chủ yếu tác động vào ngực, vai, cơ bụng, cơ mông, cơ tứ đầu, cơ gân kheo, bắp chân và bàn chân.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 867
+  },
+  {
+    "id": "qa-877",
+    "stt": 876,
+    "question": "Bạn nên thực hiện một buổi tập chèo thuyền trong bao lâu?",
+    "answer": "Các mục tiêu cá nhân và mức độ kinh nghiệm của bạn đối với việc tập thể dục nói chung và môn chèo thuyền nói riêng sẽ quyết định thời lượng buổi tập chèo thuyền của nên kéo dài bao lâu. Những người mới bắt đầu nên khởi động với năm phút và tăng dần từ đó. Những người có nhiều kinh nghiệm hơn có thể thử sức với một phiên chèo thuyền từ 30 đến 45 phút.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 877
+  },
+  {
+    "id": "qa-878",
+    "stt": 877,
+    "question": "Bài tập Tabata là gì?",
+    "answer": "Tabata bao gồm việc thực hiện một bài tập với cường độ dốc toàn lực trong 20 giây, nghỉ ngơi 10 giây, sau đó lặp lại trong tám hiệp (tổng cộng bốn phút).",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 878
+  },
+  {
+    "id": "qa-880",
+    "stt": 879,
+    "question": "Tabata có tốt cho việc giảm cân không?",
+    "answer": "Nghiên cứu cho thấy HIIT nói chung có thể là một phương pháp rèn luyện hiệu quả cho việc giảm cân. Tuy nhiên, các bài tập Tabata nói riêng có thể là quá ngắn để đốt cháy đủ lượng calo cần thiết nhằm thúc đẩy quá trình giảm cân.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 880
+  },
+  {
+    "id": "qa-886",
+    "stt": 885,
+    "question": "Làm thế nào để tôi bắt đầu rèn luyện sức mạnh chức năng (functional strength training)?",
+    "answer": "Các chương trình rèn luyện sức mạnh chức năng sẽ mang lại hiệu quả cao nhất khi chúng được cá nhân hóa nhằm giải quyết các mục tiêu và khả năng vận động của bạn. Một huấn luyện viên cá nhân có chứng chỉ có thể tạo ra một chương trình mang tính thử thách nhưng vẫn nằm trong khả năng thực hiện dành cho bạn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 886
+  },
+  {
+    "id": "qa-889",
+    "stt": 888,
+    "question": "Leo vách đá có giúp giảm mỡ bụng không?",
+    "answer": "Chưa có bằng chứng cho thấy leo vách đá giúp giảm mỡ riêng ở vùng bụng. Tuy nhiên, hoạt động này có thể tiêu hao mức năng lượng tương đương chạy bộ ở nhịp độ vừa và góp phần tăng khối lượng cơ, qua đó hỗ trợ tạo mức thâm hụt năng lượng cần thiết để giảm cân.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 889
+  },
+  {
+    "id": "qa-893",
+    "stt": 892,
+    "question": "Nhảy dây có thực sự là một bài tập tốt không?",
+    "answer": "Nhảy dây là một trong những bài tập cardio mang lại hiệu quả cao nhất, giúp tăng nhịp tim và kích hoạt nhiều nhóm cơ cùng một lúc. Đó là một bài tập toàn thân kích hoạt cánh tay, nhóm cơ trung tâm, cơ bụng, ngực, chân, mông, và thậm chí cả tim và não bộ của bạn. Sự tập trung về mặt thần kinh cơ mang lại lợi ích cho tốc độ, sự nhanh nhẹn, tính linh hoạt và khả năng phối hợp.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 893
+  },
+  {
+    "id": "qa-894",
+    "stt": 893,
+    "question": "Một buổi tập nhảy dây tốt nên kéo dài trong bao lâu?",
+    "answer": "Bạn có thể bắt đầu với thời lượng chỉ 10 phút nhảy dây. Khi sức bền được tăng cường, bạn có thể gia tăng thời gian của mình. Hầu hết các lớp học nhảy dây không bao gồm việc nhảy liên tục mà không có thời gian nghỉ. Rất nhiều lớp có xen kẽ các khoảng thời gian nghỉ ngơi cũng như những hoạt động khác như squat, hít đất và gập bụng (sit ups).",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 894
+  },
+  {
+    "id": "qa-897",
+    "stt": 896,
+    "question": "Nhảy dây tiêu hao bao nhiêu calo?",
+    "answer": "Tùy theo khối lượng cơ thể, cường độ và tốc độ, nhảy dây có thể tiêu hao khoảng 400–1.000 calo mỗi giờ.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 897
+  },
+  {
+    "id": "qa-904",
+    "stt": 903,
+    "question": "Sự khác biệt giữa bài tập ít tác động (low-impact) và bài tập tác động mạnh (high-impact) là gì?",
+    "answer": "Trong khi các bài tập ít tác động (chẳng hạn như đi bộ, tập với máy toàn thân elliptical và đạp xe) liên quan đến việc giữ ít nhất một bàn chân trên mặt đất, thì các bài tập tác động mạnh (ví dụ như chạy bộ và tập nhảy) lại đòi hỏi cả hai bàn chân phải rời khỏi mặt đất. Khi cả hai bàn chân đều rời khỏi mặt đất, trọng lực và lực từ cơ thể bạn sẽ làm tăng áp lực lên các khớp khi bạn tiếp đất.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 904
+  },
+  {
+    "id": "qa-909",
+    "stt": 908,
+    "question": "Chạy bộ mỗi ngày có phải là một thói quen lành mạnh không?",
+    "answer": "Việc chạy bộ một cách kiên trì là điều quan trọng để xây dựng sức bền, nhưng nếu bạn chỉ mới bắt đầu, tốt hơn hết là nên thận trọng và không nên chạy quá nhiều hoặc quá gắng sức một cách nhanh chóng. Qua thời gian, bạn có thể bắt đầu tăng tốc độ, quãng đường và tần suất các buổi chạy một cách an toàn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 909
+  },
+  {
+    "id": "qa-923",
+    "stt": 922,
+    "question": "Chạy bộ lên cầu thang có phải là một bài tập tốt không?",
+    "answer": "Có, việc leo cầu thang mang lại vô số lợi ích sức khỏe, bao gồm việc tăng cường sức mạnh cho tim, phổi và tiêu hao năng lượng.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 923
+  },
+  {
+    "id": "qa-929",
+    "stt": 928,
+    "question": "Quyền anh là loại hình tập thể dục nào?",
+    "answer": "Quyền anh chủ yếu là một bài tập cardio, nhưng nó cũng đồng thời tăng cường sức mạnh cho các cơ ở nhóm cơ trung tâm (core) và phần thân dưới.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 929
+  },
+  {
+    "id": "qa-930",
+    "stt": 929,
+    "question": "Quyền anh tác động lên những cơ bắp nào?",
+    "answer": "Khi được thực hiện đúng cách, quyền anh sẽ vận động toàn bộ cơ thể. Tuy nhiên, nó chủ yếu tác động vào các cơ bắp ở nhóm cơ trung tâm và phần thân dưới.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 930
+  },
+  {
+    "id": "qa-942",
+    "stt": 941,
+    "question": "Khiêu vũ (dancing) có phải là một bài tập tốt không?",
+    "answer": "Có, nếu bạn khiêu vũ đủ mạnh để làm tăng nhịp tim và làm cho nhịp thở nhanh hơn, bạn đang nhận được một bài tập cường độ vừa phải, giúp thúc đẩy sức khỏe tim mạch và thể lực tổng thể. Bởi vì khiêu vũ kích hoạt rất nhiều nhóm cơ khác nhau, nó thường được coi là một bài tập toàn thân.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 942
+  },
+  {
+    "id": "qa-945",
+    "stt": 944,
+    "question": "Khiêu vũ đốt cháy bao nhiêu calo?",
+    "answer": "Lượng calo bạn đốt cháy khi khiêu vũ phụ thuộc vào cường độ thể chất của bài khiêu vũ và khoảng thời gian bạn thực hiện nó. Ba mươi phút khiêu vũ đốt cháy ước tính khoảng 90 đến 252 calo, tùy thuộc vào phong cách khiêu vũ và trọng lượng cơ thể của bạn.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 945
+  },
+  {
+    "id": "qa-951",
+    "stt": 950,
+    "question": "Có thể nêu một ví dụ về bài giãn cơ soma không?",
+    "answer": "Một bài giãn cơ soma đơn giản là nhận biết cơ thể ở tư thế đứng. Đứng thẳng, đặt vững hai bàn chân trên sàn, chú ý cảm giác tiếp xúc của bàn chân với mặt sàn, quan sát chuyển động nhẹ của vùng bụng theo nhịp thở và nhận biết các vùng đang căng cứng.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 951
+  },
+  {
+    "id": "qa-958",
+    "stt": 957,
+    "question": "Bơi lội có thể giúp giảm cân không?",
+    "answer": "Giảm cân phụ thuộc vào nhiều yếu tố. Bơi lội có thể là một phần của kế hoạch giảm cân vì giúp tiêu hao năng lượng. Mức năng lượng tiêu hao phụ thuộc vào thời lượng, cường độ bơi, khối lượng cơ thể và nhiều yếu tố khác.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 958
+  },
+  {
+    "id": "qa-964",
+    "stt": 963,
+    "question": "Có cách giãn cơ nào là sai không?",
+    "answer": "Giãn cơ đến mức đau, cố ép biên độ hoặc nhún nảy khi giãn có thể gây chấn thương, theo Harvard Health. Ngoài ra, giãn cơ thụ động hoặc giãn cơ tĩnh trước buổi tập có thể làm giảm sức mạnh và công suất cơ.",
+    "source": "data.xlsx",
+    "sheet": "Translated Data",
+    "excel_row": 964
+  }
+]

@@ -1,7 +1,8 @@
 import re
 from functools import lru_cache
 
-from app.services.knowledge import load_qa_json, normalize
+from app.services.dataset import load_train_json
+from app.services.knowledge import normalize
 
 
 FITNESS_TERMS = {
@@ -28,7 +29,7 @@ def mentioned_muscles(question: str) -> list[str]:
 
 @lru_cache(maxsize=1)
 def known_questions() -> set[str]:
-    return {normalize(row["question"]).strip() for row in load_qa_json()}
+    return {normalize(row["question"]).strip() for row in load_train_json()}
 
 
 def in_scope(question: str, has_context: bool = False) -> bool:
