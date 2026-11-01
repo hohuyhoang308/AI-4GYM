@@ -27,6 +27,7 @@ Vào [http://127.0.0.1:5173](http://127.0.0.1:5173). Trạng thái hệ thống 
 ## Tính năng
 
 - Hỏi đáp nhiều lượt về bài tập, kỹ thuật và các lỗi cần tránh.
+- Mỗi câu hỏi dùng tối đa 3 lượt hỏi–đáp gần nhất làm ngữ cảnh; câu hỏi nối tiếp được tìm tài liệu theo mạch hội thoại.
 - Gợi ý bài tập theo nhóm cơ và lịch tập 1–6 buổi/tuần.
 - Hiển thị nguồn dữ liệu được RAG truy xuất; từ chối câu hỏi ngoài Gym/Fitness.
 - Tài khoản lưu lịch sử trong MySQL, có thể mở lại, đổi tên hoặc xóa hội thoại.

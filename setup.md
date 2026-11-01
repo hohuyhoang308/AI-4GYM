@@ -85,6 +85,7 @@ Trong file `.env`, đổi `DATABASE_PASSWORD=change_me` thành `DATABASE_PASSWOR
 OLLAMA_BASE_URL=http://127.0.0.1:11434
 CHAT_MODEL=qwen3:4b-instruct
 EMBED_MODEL=qwen3-embedding:0.6b
+CHAT_CONTEXT_TURNS=3
 DATABASE_HOST=127.0.0.1
 DATABASE_PORT=3306
 DATABASE_NAME=ai_4gym
@@ -138,6 +139,12 @@ npm run dev
 ```
 
 Mở [http://127.0.0.1:5173](http://127.0.0.1:5173). Vite tự chuyển `/api` sang backend cổng 8000. Thử hỏi “Gợi ý lịch tập 3 buổi/tuần” khi chưa đăng nhập. F5 sẽ xóa cuộc chat khách. Sau đó đăng ký tài khoản, gửi câu hỏi và F5: hội thoại phải xuất hiện lại từ MySQL.
+
+### Ngữ cảnh hội thoại
+
+Mỗi câu hỏi mới lấy tối đa **3 lượt hỏi–đáp trước đó** (6 tin nhắn) trong cùng cuộc trò chuyện. LangChain gửi các tin này theo đúng vai trò người dùng/trợ lý cho model. Với câu hỏi nối tiếp, backend dùng các lượt gần đây để truy xuất RAG; nếu người dùng nói “bài đầu tiên” hoặc “bài đó”, backend xác định bài tập được nhắc tới trước khi tìm tài liệu. Lịch sử cũ vẫn hiển thị đầy đủ cho tài khoản, nhưng model chỉ nhận 3 lượt gần nhất để giữ ngữ cảnh gọn.
+
+Khách giữ ngữ cảnh tạm trong RAM của backend bằng `session_id`, tối đa khoảng 1 giờ không hoạt động; F5 làm trang quên `session_id` nên bắt đầu cuộc chat mới. Tài khoản lấy 3 lượt gần nhất từ MySQL, kể cả sau khi khởi động lại backend. Có thể đổi số lượt bằng `CHAT_CONTEXT_TURNS` trong `BE/.env` (1–10), sau đó khởi động lại backend.
 
 ## 9. Những lần chạy tiếp theo
 
