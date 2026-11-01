@@ -123,7 +123,13 @@ Sau khi `ingest` đầy đủ đã tạo chỉ mục Chroma, vẫn trong `BE/`, 
 .\.venv\Scripts\python.exe -m app.scripts.export_report
 ```
 
-File được tạo tại `../reports/AI-4GYM_train_test_report.xlsx`. Báo cáo gồm 4 sheet: `Tong quan` (số liệu 80/20 và kiểm tra dữ liệu), `Train 80` (772 câu), `Test 20` (193 câu) và `Danh gia Test` (bảng chấm 193 câu). Trong bảng chấm, điền câu trả lời chatbot vào cột D, nhập `1` nếu đạt hoặc `0` nếu không đạt vào cột E; tỷ lệ trên các câu đã chấm tự tính ở `Tong quan`. Nếu Excel chưa tính công thức ngay, mở file bằng Microsoft Excel hoặc LibreOffice Calc và cho phép tính lại công thức. Phép chia 80/20 không phải độ chính xác của chatbot; chưa có điểm đánh giá cho các ô chưa chấm.
+File được tạo tại `../reports/AI-4GYM_train_test_report.xlsx`. Báo cáo gồm 4 sheet: `Tong quan` (số liệu 80/20, kết quả đánh giá, kiểm tra dữ liệu), `Train 80` (772 câu), `Test 20` (193 câu) và `Danh gia Test` (câu trả lời chatbot và điểm trên từng câu). Để **chạy chatbot thật trên toàn bộ 193 câu test và chấm tự động bằng Qwen local**, dùng:
+
+```powershell
+.\.venv\Scripts\python.exe -m app.scripts.evaluate_chatbot
+```
+
+Mỗi câu test được hỏi như một phiên chat mới, không lấy lịch sử từ câu trước. Script ghi từng kết quả vào `../reports/evaluation_results.jsonl` nên nếu quá trình dài bị dừng, chạy lại cùng lệnh để tiếp tục. Khi hoàn tất, Excel được cập nhật. Điểm AI: `2` = đạt đủ ý chính, `1` = đúng một phần, `0` = sai hoặc từ chối. Cột `Duyệt tay (1/0)` ở sheet `Danh gia Test` dành cho người kiểm tra độc lập; nhập `1` hoặc `0`, tỷ lệ duyệt tay sẽ tự tính ở `Tong quan` khi mở bằng Excel. Token F1 và ROUGE-L F1 là chỉ số trùng từ, không phải tỷ lệ đúng. Điểm AI do chính model Qwen chấm nên cần xem lại trước khi dùng làm kết luận học thuật. Nếu thay dữ liệu test hoặc model, lưu trữ/xóa file JSONL cũ rồi đánh giá lại từ đầu để tránh trộn kết quả.
 
 ## 7. Chạy backend
 

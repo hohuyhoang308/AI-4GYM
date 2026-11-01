@@ -9,3 +9,4 @@ FE/node_modules/
 FE/dist/
 FE/.env.local
 FE/*.tsbuildinfo
+~$*.xlsx

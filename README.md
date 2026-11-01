@@ -43,7 +43,7 @@ AI-4GYM/
 │   │   ├── core/              # cấu hình
 │   │   ├── db/                # MySQL: model, session
 │   │   ├── services/          # RAG, dữ liệu, lịch tập, kiểm tra phạm vi
-│   │   ├── scripts/           # init_db, ingest và xuất báo cáo Excel
+│   │   ├── scripts/           # init_db, ingest, đánh giá chatbot, xuất Excel
 │   │   └── main.py            # FastAPI và phục vụ FE/dist
 │   ├── data/
 │   │   ├── raw/data.xlsx
@@ -62,7 +62,8 @@ AI-4GYM/
 │   ├── src/App.tsx
 │   └── package.json
 ├── reports/
-│   └── AI-4GYM_train_test_report.xlsx
+│   ├── AI-4GYM_train_test_report.xlsx
+│   └── evaluation_results.jsonl
 ├── setup.md
 └── README.md
 ```
@@ -86,7 +87,15 @@ Chất lượng từng câu trả lời trong Excel chưa được xác minh th�
 
 ### Báo cáo Excel
 
-[Mở báo cáo train/test](reports/AI-4GYM_train_test_report.xlsx) để xem tổng quan, danh sách 772 câu train, 193 câu test và bảng chấm 193 câu test. Sheet `Danh gia Test` có cột để điền câu trả lời chatbot và đánh dấu `1` (đạt) hoặc `0` (không đạt). Tỷ lệ đạt ở sheet `Tong quan` chỉ hiện sau khi có câu được chấm; đây là tỷ lệ trên **các câu đã chấm**, không phải số đo đã được đánh giá sẵn.
+[Mở báo cáo train/test](reports/AI-4GYM_train_test_report.xlsx) để xem tổng quan, danh sách 772 câu train, 193 câu test và kết quả chatbot trên từng câu test. Sheet `Danh gia Test` ghi câu trả lời thực tế, điểm Qwen local (0–2), lý do chấm, Token F1, ROUGE-L F1, nguồn RAG và thời gian trả lời. Điểm 2 là đạt, 1 là đúng một phần, 0 là sai hoặc từ chối. Tỷ lệ đạt tự động = số câu điểm 2 / số câu đã chạy; chỉ khi chạy đủ 193 câu mới là kết quả toàn bộ tập test. Có thêm cột `Duyệt tay (1/0)` để kiểm tra độc lập.
+
+**Cách chạy đánh giá đầy đủ** tại `BE/`:
+
+```powershell
+.\.venv\Scripts\python.exe -m app.scripts.evaluate_chatbot
+```
+
+Lệnh gọi đúng `ChatService` đang phục vụ web trên từng câu test độc lập, sau đó dùng Qwen local chấm theo đáp án tham chiếu và xuất Excel. Kết quả từng câu được lưu vào `reports/evaluation_results.jsonl`; chạy lại sẽ tiếp tục từ câu chưa hoàn tất. Không dùng API AI bên ngoài. Điểm AI là đánh giá tự động bởi chính họ model đang trả lời, vì vậy nên rà soát thủ công trước khi trình bày như một tỷ lệ chính xác được xác minh. Token F1 và ROUGE-L chỉ đo trùng từ, không tự chứng minh đúng sai.
 
 Để tạo lại file sau khi chạy `ingest` với dữ liệu mới, đứng tại `BE/` và chạy:
 
@@ -94,7 +103,7 @@ Chất lượng từng câu trả lời trong Excel chưa được xác minh th�
 .\.venv\Scripts\python.exe -m app.scripts.export_report
 ```
 
-Lệnh kiểm tra dữ liệu gốc, phép chia train/test và chỉ mục Chroma trước khi xuất báo cáo. Nếu chỉ mục chưa có hoặc đã cũ, chạy `python -m app.scripts.ingest` trước.
+Lệnh xuất Excel từ kết quả đã lưu mà không chạy lại chatbot. Cả hai lệnh kiểm tra dữ liệu gốc, phép chia train/test và chỉ mục Chroma. Nếu chỉ mục chưa có hoặc đã cũ, chạy `python -m app.scripts.ingest` trước.
 
 ## Kiểm tra
 

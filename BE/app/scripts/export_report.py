@@ -7,7 +7,7 @@ from hashlib import sha256
 import json
 from pathlib import Path
 
-from openpyxl import Workbook
+from openpyxl import Workbook, load_workbook
 from openpyxl.chart import BarChart, Reference
 from openpyxl.formatting.rule import FormulaRule
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
@@ -19,6 +19,7 @@ from app.services.knowledge import load_exercises, normalize
 
 
 DEFAULT_OUTPUT = ROOT.parent / "reports" / "AI-4GYM_train_test_report.xlsx"
+DEFAULT_RESULTS = ROOT.parent / "reports" / "evaluation_results.jsonl"
 DARK = "173B2A"
 GREEN = "6B9F45"
 PALE = "EAF3E7"
@@ -62,6 +63,25 @@ def load_verified_data() -> tuple[list[dict], list[dict], list[dict], dict, int,
     return all_rows, train_rows, test_rows, manifest, len(exercises), duplicate_groups
 
 
+def load_evaluation_results(test_rows: list[dict], results_path: Path = DEFAULT_RESULTS) -> dict[str, dict]:
+    if not results_path.exists():
+        return {}
+    expected_hash = sha256(settings.test_json_path.read_bytes()).hexdigest()
+    expected_source_hash = sha256(settings.excel_path.read_bytes()).hexdigest()
+    test_ids = {row["id"] for row in test_rows}
+    results = {}
+    for line_number, line in enumerate(results_path.read_text(encoding="utf-8").splitlines(), 1):
+        if not line.strip():
+            continue
+        result = json.loads(line)
+        if result.get("id") not in test_ids or result.get("test_sha256") != expected_hash or result.get("chat_model") != settings.chat_model or result.get("embed_model") != settings.embed_model or result.get("source_sha256") != expected_source_hash:
+            raise ValueError(f"Kết quả đánh giá không khớp tập test/model ở dòng {line_number}")
+        if result.get("judge_score") not in (0, 1, 2):
+            raise ValueError(f"Điểm chấm không hợp lệ ở dòng {line_number}")
+        results[result["id"]] = result
+    return results
+
+
 def style_header(cell) -> None:
     cell.fill = PatternFill("solid", fgColor=DARK)
     cell.font = Font(name="Aptos", size=11, bold=True, color=WHITE)
@@ -95,35 +115,69 @@ def add_data_sheet(workbook: Workbook, title: str, rows: list[dict]) -> None:
     sheet.page_setup.orientation = "landscape"
 
 
-def add_evaluation_sheet(workbook: Workbook, rows: list[dict]) -> None:
+def load_manual_reviews(output: Path, test_rows: list[dict]) -> dict[str, tuple[int | None, str | None]]:
+    if not output.exists():
+        return {}
+    previous = load_workbook(output, read_only=True)
+    try:
+        if "Danh gia Test" not in previous:
+            return {}
+        sheet = previous["Danh gia Test"]
+        if sheet["M1"].value != "Duyệt tay (1/0)":
+            return {}
+        test_ids = {row["id"] for row in test_rows}
+        reviews = {}
+        for row in sheet.iter_rows(min_row=2, values_only=True):
+            if row[0] not in test_ids:
+                continue
+            manual_score = row[12]
+            manual_note = row[13]
+            if (type(manual_score) is int and manual_score in (0, 1)) or manual_note:
+                reviews[row[0]] = (manual_score if type(manual_score) is int and manual_score in (0, 1) else None, manual_note)
+        return reviews
+    finally:
+        previous.close()
+
+
+def add_evaluation_sheet(workbook: Workbook, rows: list[dict], results: dict[str, dict], manual_reviews: dict[str, tuple[int | None, str | None]]) -> None:
     sheet = workbook.create_sheet("Danh gia Test")
-    sheet.append(["ID", "Câu hỏi", "Đáp án tham chiếu", "Câu trả lời chatbot", "Đạt? (1/0)", "Ghi chú", "Dòng Excel"])
+    sheet.append(["ID", "Câu hỏi", "Đáp án tham chiếu", "Câu trả lời chatbot", "Điểm AI (0-2)", "Lý do chấm AI", "Token F1", "ROUGE-L F1", "Số nguồn", "ID nguồn RAG", "Thời gian (giây)", "Dòng Excel", "Duyệt tay (1/0)", "Ghi chú duyệt tay"])
     for cell in sheet[1]:
         style_header(cell)
     sheet.row_dimensions[1].height = 30
     for row in rows:
-        sheet.append([row["id"], row["question"], row["answer"], None, None, None, row["excel_row"]])
-    widths = {"A": 15, "B": 60, "C": 88, "D": 88, "E": 15, "F": 42, "G": 13}
+        result = results.get(row["id"], {})
+        sources = result.get("sources", [])
+        manual_score, manual_note = manual_reviews.get(row["id"], (None, None))
+        sheet.append([
+            row["id"], row["question"], row["answer"], result.get("answer"), result.get("judge_score"),
+            result.get("judge_reason"), result.get("token_f1"), result.get("rouge_l_f1"), len(sources) if result else None,
+            ", ".join(source["id"] for source in sources) if result else None, result.get("seconds"), row["excel_row"], manual_score, manual_note,
+        ])
+    widths = {"A": 15, "B": 60, "C": 88, "D": 88, "E": 16, "F": 58, "G": 15, "H": 17, "I": 13, "J": 48, "K": 18, "L": 13, "M": 19, "N": 44}
     for column, width in widths.items():
         sheet.column_dimensions[column].width = width
     for row in sheet.iter_rows(min_row=2):
         for cell in row:
-            cell.alignment = Alignment(vertical="top", wrap_text=cell.column in (2, 3, 4, 6))
+            cell.alignment = Alignment(vertical="top", wrap_text=cell.column in (2, 3, 4, 6, 10, 14))
         sheet.row_dimensions[row[0].row].height = 52
+    for row in sheet.iter_rows(min_row=2):
+        for column in (7, 8):
+            row[column - 1].number_format = "0.0%"
     validation = DataValidation(type="whole", operator="between", formula1="0", formula2="1", allow_blank=True)
     validation.error = "Chỉ nhập 1 (đạt) hoặc 0 (không đạt)."
     validation.errorTitle = "Giá trị không hợp lệ"
     validation.showErrorMessage = True
     sheet.add_data_validation(validation)
-    validation.add(f"E2:E{len(rows) + 1}")
-    sheet.conditional_formatting.add(f"E2:E{len(rows) + 1}", FormulaRule(formula=["AND(ISNUMBER($E2),$E2=1)"], fill=PatternFill("solid", fgColor="DDF2D4")))
+    validation.add(f"M2:M{len(rows) + 1}")
+    sheet.conditional_formatting.add(f"E2:E{len(rows) + 1}", FormulaRule(formula=["AND(ISNUMBER($E2),$E2=2)"], fill=PatternFill("solid", fgColor="DDF2D4")))
     sheet.conditional_formatting.add(f"E2:E{len(rows) + 1}", FormulaRule(formula=["AND(ISNUMBER($E2),$E2=0)"], fill=PatternFill("solid", fgColor="FBE0DA")))
     sheet.freeze_panes = "D2"
     sheet.auto_filter.ref = sheet.dimensions
     sheet.print_title_rows = "1:1"
 
 
-def add_overview(workbook: Workbook, manifest: dict, exercise_count: int, duplicate_groups: int) -> None:
+def add_overview(workbook: Workbook, manifest: dict, exercise_count: int, duplicate_groups: int, results: dict[str, dict]) -> None:
     sheet = workbook.active
     sheet.title = "Tong quan"
     sheet.sheet_view.showGridLines = False
@@ -187,25 +241,48 @@ def add_overview(workbook: Workbook, manifest: dict, exercise_count: int, duplic
         sheet[f"B{number}"].font = Font(name="Aptos", size=11, color=DARK)
         sheet.row_dimensions[number].height = 25
 
+    completed = len(results)
+    passed = sum(result["judge_score"] == 2 for result in results.values())
+    partial = sum(result["judge_score"] == 1 for result in results.values())
+    failed = sum(result["judge_score"] == 0 for result in results.values())
+    summary = [
+        (16, "Đã chạy test", f"{completed}/{manifest['test_rows']}"),
+        (17, "Đạt tự động (2/2)", passed),
+        (18, "Đúng một phần (1/2)", partial),
+        (19, "Sai/từ chối (0/2)", failed),
+        (20, "Tỷ lệ đạt tự động", passed / completed if completed else "Chưa chạy"),
+        (21, "Token F1 trung bình", sum(result["token_f1"] for result in results.values()) / completed if completed else "Chưa chạy"),
+        (22, "ROUGE-L F1 trung bình", sum(result["rouge_l_f1"] for result in results.values()) / completed if completed else "Chưa chạy"),
+        (23, "Thời gian TB (giây)", sum(result["seconds"] for result in results.values()) / completed if completed else "Chưa chạy"),
+    ]
+    for number, label, value in summary:
+        sheet[f"A{number}"] = label
+        sheet[f"B{number}"] = value
+        sheet[f"A{number}"].font = Font(name="Aptos", size=11, bold=True, color=DARK)
+        sheet[f"B{number}"].font = Font(name="Aptos", size=11, bold=number == 20, color=GREEN if number == 20 else DARK)
+        sheet.row_dimensions[number].height = 24
+    for number in (20, 21, 22):
+        sheet[f"B{number}"].number_format = "0.0%"
+    sheet["B23"].number_format = "0.0"
+    sheet["A25"] = "Tỷ lệ duyệt tay"
+    sheet["A25"].font = Font(name="Aptos", size=11, bold=True, color=DARK)
     test_end = manifest["test_rows"] + 1
-    sheet["A16"] = "Độ chính xác sau chấm"
-    sheet["A16"].font = Font(name="Aptos", size=11, bold=True, color=DARK)
-    sheet["B16"] = f'=IF(COUNT(\'Danh gia Test\'!E2:E{test_end})=0,"Chưa chấm",SUM(\'Danh gia Test\'!E2:E{test_end})/COUNT(\'Danh gia Test\'!E2:E{test_end}))'
-    sheet["B16"].number_format = "0.0%"
-    sheet["B16"].font = Font(name="Aptos", size=12, bold=True, color=GREEN)
-    sheet.merge_cells("A18:H19")
-    sheet["A18"] = "Cách chấm: mở sheet 'Danh gia Test', điền câu trả lời AI và đánh dấu 1 nếu đạt, 0 nếu không đạt. Ô độ chính xác sẽ tự tính khi mở bằng Excel. Tỷ lệ 80/20 là tỷ lệ chia dữ liệu, chưa phải độ chính xác của chatbot."
-    sheet["A18"].alignment = Alignment(wrap_text=True, vertical="center")
-    sheet["A18"].fill = PatternFill("solid", fgColor=PALE)
-    sheet["A18"].font = Font(name="Aptos", size=10, color=DARK)
-    sheet.row_dimensions[18].height = 30
-    sheet.row_dimensions[19].height = 30
+    sheet["B25"] = f'=IF(COUNT(\'Danh gia Test\'!M2:M{test_end})=0,"Chưa chấm",SUM(\'Danh gia Test\'!M2:M{test_end})/COUNT(\'Danh gia Test\'!M2:M{test_end}))'
+    sheet["B25"].number_format = "0.0%"
+    sheet["B25"].font = Font(name="Aptos", size=11, color=GREEN)
+    sheet.merge_cells("A27:H28")
+    sheet["A27"] = "Điểm 0/1/2 do Qwen local chấm theo đáp án tham chiếu, không phải đánh giá độc lập của con người. Tỷ lệ đạt = số câu điểm 2 / số câu đã chạy; khi đủ 193 câu mới là kết quả toàn bộ test. Token F1 và ROUGE-L chỉ đo mức trùng từ, không chứng minh câu trả lời đúng. Có thể duyệt tay ở sheet 'Danh gia Test'."
+    sheet["A27"].alignment = Alignment(wrap_text=True, vertical="center")
+    sheet["A27"].fill = PatternFill("solid", fgColor=PALE)
+    sheet["A27"].font = Font(name="Aptos", size=10, color=DARK)
+    sheet.row_dimensions[27].height = 34
+    sheet.row_dimensions[28].height = 34
 
     checks = [
-        (22, "Tổng train + test", f"{manifest['train_rows']} + {manifest['test_rows']} = {manifest['total_rows']}", "ĐẠT"),
-        (23, "Câu hỏi trùng giữa 2 tập", 0, "ĐẠT"),
-        (24, "ID test trong Chroma", 0, "ĐẠT"),
-        (25, "Số tài liệu Chroma", manifest["train_rows"] + exercise_count, "ĐẠT"),
+        (31, "Tổng train + test", f"{manifest['train_rows']} + {manifest['test_rows']} = {manifest['total_rows']}", "ĐẠT"),
+        (32, "Câu hỏi trùng giữa 2 tập", 0, "ĐẠT"),
+        (33, "ID test trong Chroma", 0, "ĐẠT"),
+        (34, "Số tài liệu Chroma", manifest["train_rows"] + exercise_count, "ĐẠT"),
     ]
     for number, label, value, result in checks:
         sheet[f"A{number}"] = label
@@ -213,25 +290,33 @@ def add_overview(workbook: Workbook, manifest: dict, exercise_count: int, duplic
         sheet[f"C{number}"] = result
         sheet[f"C{number}"].font = Font(name="Aptos", size=10, bold=True, color=GREEN)
         sheet.row_dimensions[number].height = 23
-    sheet["A21"] = "KIỂM TRA TÍNH TOÀN VẸN"
-    sheet["A21"].font = Font(name="Aptos", size=11, bold=True, color=DARK)
-    sheet["A27"] = "SHA-256 Excel gốc"
-    sheet["A27"].font = Font(name="Aptos", size=10, bold=True, color=GRAY)
-    sheet.merge_cells("B27:H27")
-    sheet["B27"] = manifest["source_sha256"]
-    sheet["B27"].font = Font(name="Consolas", size=9, color=GRAY)
+    sheet["A30"] = "KIỂM TRA TÍNH TOÀN VẸN"
+    sheet["A30"].font = Font(name="Aptos", size=11, bold=True, color=DARK)
+    sheet["A36"] = "SHA-256 Excel gốc"
+    sheet["A36"].font = Font(name="Aptos", size=10, bold=True, color=GRAY)
+    sheet.merge_cells("B36:H36")
+    sheet["B36"] = manifest["source_sha256"]
+    sheet["B36"].font = Font(name="Consolas", size=9, color=GRAY)
+    sheet["A38"] = "Model trả lời/chấm"
+    sheet["B38"] = settings.chat_model
+    sheet["A39"] = "Model embedding"
+    sheet["B39"] = settings.embed_model
+    sheet["A40"] = "Quy tắc chấm tự động"
+    sheet["B40"] = "Qwen judge v2: 0/1/2 theo đáp án tham chiếu"
     sheet.sheet_properties.pageSetUpPr.fitToPage = True
     sheet.page_setup.fitToWidth = 1
     sheet.page_setup.orientation = "landscape"
 
 
-def export_report(output: Path = DEFAULT_OUTPUT) -> Path:
+def export_report(output: Path = DEFAULT_OUTPUT, results_path: Path = DEFAULT_RESULTS) -> Path:
     _, train_rows, test_rows, manifest, exercise_count, duplicate_groups = load_verified_data()
+    results = load_evaluation_results(test_rows, results_path)
+    manual_reviews = load_manual_reviews(output, test_rows)
     workbook = Workbook()
-    add_overview(workbook, manifest, exercise_count, duplicate_groups)
+    add_overview(workbook, manifest, exercise_count, duplicate_groups, results)
     add_data_sheet(workbook, "Train 80", train_rows)
     add_data_sheet(workbook, "Test 20", test_rows)
-    add_evaluation_sheet(workbook, test_rows)
+    add_evaluation_sheet(workbook, test_rows, results, manual_reviews)
     output.parent.mkdir(parents=True, exist_ok=True)
     workbook.save(output)
     return output
