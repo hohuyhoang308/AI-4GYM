@@ -1,0 +1,80 @@
+================================================================================
+                    BÁO CÁO TIẾN ĐỘ & HƯỚNG DẪN BÀN GIAO AI-4GYM
+================================================================================
+Dự án: AI-4GYM (Chatbot RAG hỗ trợ tập Gym tiếng Việt cho người mới)
+Ngày cập nhật: 02/11/2026
+Người thực hiện Phần 1: Đã hoàn thành (20 câu đầu)
+Người nhận bàn giao Phần 2: Bạn tiếp quản (173 câu còn lại)
+================================================================================
+
+1. TÓM TẮT TRẠNG THÁI HIỆN TẠI
+--------------------------------------------------------------------------------
+- Dự án đã được tối ưu hoàn chỉnh để chạy LOCAL siêu nhẹ:
+  + Cơ sở dữ liệu: Dùng SQLite (tệp BE/data/ai_4gym.db), KHÔNG CẦN CÀI XAMPP/MySQL.
+  + Thư viện Vector RAG: Đã lập chỉ mục 782 tài liệu vào ChromaDB.
+  + Model AI (Ollama): Đã lưu gọn gàng trên ổ F (F:\ollama_models), không tốn ổ C.
+- Đã chia việc đánh giá tập Test (193 câu) làm 2 Phần:
+  + PHẦN 1 (ĐÃ XONG): 20 câu đầu tiên (ID: qa-2 đến qa-133). Đã chạy AI trả lời,
+    chấm điểm tự động và ĐÃ DUYỆT TAY 100% kèm ghi chú nhận xét chi tiết trong Excel.
+  + PHẦN 2 (BẠN LÀM TIẾP): 173 câu còn lại (ID: qa-137 đến qa-965).
+
+--------------------------------------------------------------------------------
+2. KẾT QUẢ ĐÃ LÀM Ở PHẦN 1 (ĐỂ BẠN THAM KHẢO)
+--------------------------------------------------------------------------------
+File kết quả: reports/AI-4GYM_train_test_report.xlsx (Sheet "Danh gia Test")
+- Số câu đã chạy: 20/193 câu.
+- Điểm AI tự động (thang 0-2): 12 Đạt (2đ), 6 Đúng 1 phần (1đ), 2 Sai/Từ chối (0đ).
+- Duyệt tay độc lập (Cột M: 1/0 và Cột N: Ghi chú):
+  + Tỷ lệ duyệt tay đạt: 18/20 câu (90.0%).
+  + Bạn có thể mở 20 dòng đầu trong Excel để xem mẫu nhận xét chuyên môn.
+    (Ví dụ: qa-2 duyệt 1, qa-22 duyệt 1, qa-61 duyệt 0 do vướng từ khóa, qa-73 duyệt 1...).
+
+--------------------------------------------------------------------------------
+3. NHIỆM VỤ CỦA BẠN (PHẦN 2: TỪ CÂU 21 ĐẾN 193)
+--------------------------------------------------------------------------------
+Bạn chỉ cần thực hiện 3 bước đơn giản dưới đây:
+
+BƯỚC 1: BẬT OLLAMA (ĐÃ CÓ FILE CHẠY SẴN)
+- Vào thư mục gốc AI-4GYM, nhấp đúp vào file:
+    run_ollama.bat
+- Giữ nguyên cửa sổ đó thu nhỏ xuống thanh tác vụ để nó chạy ngầm.
+
+BƯỚC 2: CHẠY TIẾP ĐÁNH GIÁ TỰ ĐỘNG
+- Đảm bảo file Excel đang đóng.
+- Mở PowerShell tại thư mục BE:
+    cd F:\download\baitap\AI\AI-4GYM\BE
+    .\.venv\Scripts\python.exe -m app.scripts.evaluate_chatbot
+
+* LƯU Ý QUAN TRỌNG:
+- Script đã có tính năng tự động ghi nhớ (resumable): Nó sẽ TỰ BỎ QUA 20 câu cũ,
+  GIỮ NGUYÊN kết quả duyệt tay cũ và tự động chạy tiếp từ câu 21 trở đi.
+- Mỗi câu mất khoảng 25-35 giây. Nếu bạn muốn tạm dừng giữa chừng, cứ bấm Ctrl+C,
+  lần sau gõ lại lệnh trên nó sẽ chạy tiếp đúng chỗ vừa dừng.
+
+BƯỚC 3: DUYỆT TAY TIẾP VÀO FILE EXCEL
+- Mở file: reports/AI-4GYM_train_test_report.xlsx
+- Vào sheet: "Danh gia Test"
+- Kéo xuống từ DÒNG 22 (tương ứng câu thứ 21) trở đi:
+  + Cột M [Duyệt tay (1/0)]:
+    * Điền 1 nếu câu trả lời của Chatbot đúng, an toàn, hữu ích cho người tập Gym.
+    * Điền 0 nếu Chatbot từ chối nhầm hoặc đưa thông tin sai kỹ thuật.
+  + Cột N [Ghi chú duyệt tay]: Ghi ngắn gọn 1 câu lý do (tham khảo 20 dòng trên).
+- Sau khi điền xong trên Excel, vào lại PowerShell tại BE và chạy lệnh này để cập nhật:
+    .\.venv\Scripts\python.exe -m app.scripts.export_report
+
+===> Xem sheet "Tong quan" để thấy biểu đồ và Tỷ lệ duyệt tay cuối cùng tự động tính!
+
+--------------------------------------------------------------------------------
+4. CÁCH CHẠY THỬ WEB CHATBOT NẾU BẠN MUỐN TEST TRỰC TIẾP
+--------------------------------------------------------------------------------
+- Bật Backend (PowerShell 1):
+    cd F:\download\baitap\AI\AI-4GYM\BE
+    .\.venv\Scripts\python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
+
+- Bật Frontend (PowerShell 2):
+    cd F:\download\baitap\AI\AI-4GYM\FE
+    npm.cmd run dev
+
+- Mở trình duyệt vào: http://127.0.0.1:5173
+  (Đăng ký tài khoản, chat thử, lịch sử lưu trực tiếp vào SQLite).
+================================================================================

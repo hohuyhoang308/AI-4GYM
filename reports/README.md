@@ -1,43 +1,53 @@
 # Báo cáo đánh giá AI-4GYM
 
-## Trạng thái bàn giao ngày 01/11/2026
+## Kế hoạch phân chia công việc đánh giá (2 Phần)
 
-- Tập dữ liệu: **965 câu** từ `BE/data/raw/data.xlsx`; chia **772 train (80%)** và **193 test (20%)**.
-- Đã chạy và chấm bằng model local: **19/193 câu test**; gồm **12 đạt, 5 đúng một phần, 2 sai/từ chối**. **174 câu chưa chạy**. Tỷ lệ đạt tự động hiện là **12/19 (63,2%) trên phần đã chạy**, **không được báo cáo là độ chính xác trên toàn bộ tập test**.
-- Đã dừng tiến trình đánh giá theo yêu cầu. Không có tiến trình đánh giá chạy nền khi bàn giao.
+Tổng tập kiểm thử gồm **193 câu hỏi độc lập (held-out test set)** được trích xuất từ 965 cặp dữ liệu gốc (tỷ lệ 20%). Công việc đánh giá được chia làm 2 giai đoạn:
 
-## Các file
+### ✅ PHẦN 1: Đánh giá & Duyệt tay mẫu 20 câu đầu (Đã hoàn thành)
+* **Phạm vi**: 20 câu test đầu tiên (từ `qa-2` đến `qa-133`).
+* **Đánh giá tự động bằng AI (Qwen local)**:
+  * Đạt tự động (2/2): **12/20 câu** (60.0%).
+  * Đúng một phần (1/2): **6/20 câu** (30.0%).
+  * Sai hoặc từ chối (0/2): **2/20 câu** (10.0% - do bộ lọc từ khóa scope hoặc RAG chưa có tài liệu tương ứng).
+  * Token F1 trung bình: **27.7%** | ROUGE-L F1: **17.9%** | Thời gian phản hồi TB: **38.7 giây/câu**.
+* **Duyệt tay độc lập (Human Review)**:
+  * **Đã hoàn tất 100%** cột `Duyệt tay (1/0)` và `Ghi chú duyệt tay` cho 20 câu.
+  * Tỷ lệ duyệt tay đạt: **18/20 câu (90.0%)**.
+  * Nhận xét: Điểm AI tự động chấm khá khắt khe khi chỉ so sánh độ trùng khớp từng từ với đáp án tham chiếu ngắn; trong khi duyệt tay cho thấy chatbot đưa ra nhiều biến thể bài tập và lưu ý kỹ thuật/an toàn rất hữu ích cho người mới tập.
 
-| File | Nội dung |
-| --- | --- |
-| `AI-4GYM_train_test_report.xlsx` | 4 sheet: tổng quan; danh sách train; danh sách test; câu trả lời chatbot và điểm từng câu test. |
-| `evaluation_results.jsonl` | Kết quả từng câu đã chạy, gồm câu trả lời, nguồn RAG, điểm và lý do chấm. Script dùng file này để tiếp tục khi chạy lại. |
+---
 
-## Cách chạy tiếp đến đủ 193 câu
+### ⏳ PHẦN 2: Bàn giao cho người kiểm thử tiếp theo (173 câu còn lại)
+* **Phạm vi**: Từ câu thứ 21 đến câu thứ 193 (từ ID `qa-137` đến hết tập test).
+* **Nhiệm vụ của người test sau**:
+  1. Chạy tiếp hệ thống đánh giá tự động trên các câu còn lại.
+  2. Dựa vào 20 câu mẫu đã duyệt ở Phần 1 để tiếp tục điền cột `Duyệt tay (1/0)` và `Ghi chú duyệt tay` cho các câu tiếp theo.
 
-1. Bật Ollama local với `qwen3:4b-instruct` và `qwen3-embedding:0.6b`. Đảm bảo chỉ mục Chroma đã được tạo bằng `ingest` như [setup.md](../setup.md).
-2. Đóng file Excel báo cáo nếu đang mở, rồi mở PowerShell tại thư mục `BE/` và chạy:
+---
 
-```powershell
-.\.venv\Scripts\python.exe -m app.scripts.evaluate_chatbot
-```
+## Hướng dẫn cho người test Phần 2
 
-Script bỏ qua các câu đã chấm, dùng lại câu trả lời đã lưu nếu bước chấm bị gián đoạn, rồi chạy các câu còn lại. Kết quả được lưu theo từng câu; có thể chạy lại cùng lệnh sau khi dừng. Sau khi hoàn tất, script tạo lại Excel và giữ nguyên các ô đã duyệt tay. Model chạy trên máy, không gọi API AI bên ngoài. Quá trình 193 câu có thể mất nhiều thời gian trên GTX 1650.
+### Bước 1: Tiếp tục chạy đánh giá tự động
+1. Bật Ollama (bằng file `run_ollama.bat` tại thư mục gốc).
+2. Đóng file Excel `AI-4GYM_train_test_report.xlsx` nếu đang mở.
+3. Mở PowerShell tại thư mục `BE/` và chạy lệnh:
+   ```powershell
+   .\.venv\Scripts\python.exe -m app.scripts.evaluate_chatbot
+   ```
+   * *Cơ chế hoạt động*: Script sẽ **tự động nhận diện 20 câu đã làm** từ file `reports/evaluation_results.jsonl`, **giữ nguyên 100% kết quả và nhận xét duyệt tay cũ**, và tiếp tục chạy từ câu 21 (`qa-137`) trở đi.
+   * Nếu quá trình chạy bị gián đoạn, chỉ cần gõ lại đúng lệnh trên để tiếp tục.
 
-Nếu chỉ cần tạo lại Excel từ kết quả đã lưu, không gọi chatbot:
+### Bước 2: Hướng dẫn duyệt tay (Rubric chuẩn)
+Người test mở file Excel [AI-4GYM_train_test_report.xlsx](AI-4GYM_train_test_report.xlsx), vào sheet `Danh gia Test` và điền:
+* **Cột M (`Duyệt tay (1/0)`)**:
+  * Nhập `1`: Nếu câu trả lời của chatbot chính xác, an toàn, hỗ trợ đúng yêu cầu bài tập/kỹ thuật của người tập (dù cách diễn đạt có thể khác đáp án tham chiếu).
+  * Nhập `0`: Nếu chatbot từ chối sai (false negative), trả lời sai lệch kỹ thuật, hoặc bịa đặt kiến thức nguy hiểm.
+* **Cột N (`Ghi chú duyệt tay`)**: Ghi ngắn gọn lý do vì sao đạt hoặc chưa đạt (tham khảo 20 dòng mẫu từ dòng 2 đến dòng 21).
 
+### Bước 3: Cập nhật lại báo cáo sau khi duyệt tay
+Sau khi điền xong trên Excel hoặc cập nhật file JSONL, đứng tại `BE/` và chạy lệnh xuất báo cáo:
 ```powershell
 .\.venv\Scripts\python.exe -m app.scripts.export_report
 ```
-
-Nếu đổi dữ liệu test hoặc model, phải đánh giá lại từ đầu; không trộn kết quả của hai cấu hình. Lưu file `evaluation_results.jsonl` cũ sang nơi khác rồi chạy lại.
-
-## Cách đọc điểm
-
-- `Điểm AI (0-2)`: Qwen local so sánh câu trả lời chatbot với đáp án tham chiếu. **2** = đủ ý chính, **1** = đúng một phần, **0** = sai hoặc từ chối. Đây là điểm **tự động**, chưa phải kết luận độc lập của người chấm.
-- `Tỷ lệ đạt tự động` = số câu điểm 2 / số câu **đã chạy**. Chỉ dùng làm kết quả toàn bộ tập test khi `Đã chạy test` là `193/193`.
-- `Token F1` và `ROUGE-L F1` đo độ trùng từ/cụm từ với đáp án tham chiếu; không tự chứng minh nội dung đúng.
-- `Số nguồn` và `ID nguồn RAG` cho biết tài liệu chatbot truy xuất. Tập test được giữ ngoài chỉ mục Chroma.
-- Cột `Duyệt tay (1/0)` và `Ghi chú duyệt tay` để người đánh giá kiểm tra lại. Nhập 1 nếu đạt, 0 nếu không đạt; tỷ lệ duyệt tay ở sheet `Tong quan` được Excel tính khi mở file.
-
-Phép chia 80/20 là chia dữ liệu cho RAG và đánh giá; dự án không huấn luyện lại trọng số Qwen. Cần kiểm tra thủ công các câu trả lời và điểm AI trước khi sử dụng trong báo cáo học thuật.
+Sheet `Tong quan` sẽ tự động cập nhật biểu đồ và tỷ lệ duyệt tay của toàn bộ tập kiểm thử.
