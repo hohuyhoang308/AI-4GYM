@@ -13,6 +13,7 @@ Xem [phương pháp và kiểm tra dự án](KIEM_TRA_DU_AN.md) trước khi dù
 | `AI-4GYM_train_test_report.xlsx` | 4 sheet: tổng quan; 772 câu train/corpus; 193 câu test; câu trả lời, điểm và ghi chú từng câu test. |
 | `evaluation_results.jsonl` | Câu trả lời chatbot, nguồn RAG, điểm Qwen, chỉ số trùng từ và thời gian; dùng làm checkpoint khi chạy tiếp. |
 | `KIEM_TRA_DU_AN.md` | Phương pháp, kiểm tra tính toàn vẹn, giới hạn và những việc cần làm trước khi nộp. |
+| `MOI_TRUONG_CHAY.md` | Phiên bản phần mềm, digest model và hash mã nguồn dùng cho lần đánh giá local. |
 | `report.txt` | Hướng dẫn ngắn bằng văn bản thuần cho người được giao phần test tiếp theo. |
 
 ## Kết quả 20 câu đầu do nhóm bàn giao ngày 02/11/2026

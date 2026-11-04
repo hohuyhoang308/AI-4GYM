@@ -2,6 +2,8 @@
 
 Ngày rà soát: **04/11/2026**. Trạng thái số câu đã chấm có thể thay đổi khi chạy tiếp; dùng lệnh ở cuối để xem số liệu mới nhất.
 
+Phiên bản phần mềm, digest model và hash mã nguồn của lần chạy được ghi trong [môi trường chạy](MOI_TRUONG_CHAY.md).
+
 ## Kết luận sử dụng
 
 Dự án đã có backend FastAPI, LangChain + Chroma + Ollama local, frontend React, MySQL cho tài khoản và lịch sử, bộ dữ liệu JSON, phép chia train/test cố định và báo cáo Excel. **Chưa nên trình bày đây là mô hình đã được chứng minh đạt một tỷ lệ chính xác trên toàn bộ tập test** cho tới khi chấm đủ 193 câu và rà soát độc lập. Người cùng nhóm đã điền nhận xét tay cho 20 câu đầu; file Excel được kiểm tra là khớp với các kết quả đã lưu. Lệnh kiểm toán không đánh giá độ đúng về thể hình.
