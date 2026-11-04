@@ -1,8 +1,8 @@
 from contextlib import asynccontextmanager
 import logging
 
-from fastapi import FastAPI, HTTPException
-from fastapi.responses import FileResponse
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import FileResponse, JSONResponse
 from sqlalchemy.exc import SQLAlchemyError
 
 from app.api.routes import auth, catalog, chat, conversations, health
@@ -14,12 +14,20 @@ from app.db.session import init_schema
 async def lifespan(_app: FastAPI):
     try:
         init_schema()
-    except SQLAlchemyError:
-        logging.exception("MySQL chưa sẵn sàng; chat khách vẫn có thể sử dụng")
+    except SQLAlchemyError as exc:
+        logging.warning("MySQL chưa sẵn sàng; chat khách vẫn có thể sử dụng (%s)", type(exc).__name__)
     yield
 
 
 app = FastAPI(title="AI-4GYM Local RAG API", version="0.2.0", lifespan=lifespan)
+
+
+@app.exception_handler(SQLAlchemyError)
+async def database_error(_request: Request, _error: SQLAlchemyError) -> JSONResponse:
+    logging.warning("MySQL unavailable while handling request: %s", type(_error).__name__)
+    return JSONResponse(status_code=503, content={"detail": "MySQL chưa sẵn sàng. Bật MySQL trong Serbay và kiểm tra BE/.env."})
+
+
 for router in (auth.router, conversations.router, health.router, catalog.router, chat.router):
     app.include_router(router)
 
