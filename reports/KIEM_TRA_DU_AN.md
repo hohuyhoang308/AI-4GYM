@@ -23,6 +23,7 @@ Dự án đã có backend FastAPI, LangChain + Chroma + Ollama local, frontend R
 | Chroma local | 782 tài liệu, không chứa ID test (test tự động đã đạt) |
 | Báo cáo Excel ↔ JSONL | Khớp số câu, điểm và câu trả lời đã lưu (lệnh `audit_report`) |
 | Frontend | `npm run build` đạt |
+| Giao diện | Đã xem bản build ở desktop và khung 500px bằng Edge headless; ô chat, thẻ gợi ý và nút đăng nhập hiển thị trong khung |
 | Gói frontend production | `npm audit --omit=dev --audit-level=high` không báo lỗ hổng tại thời điểm rà soát |
 | Backend | 11/11 test đạt, gồm bài tích hợp đăng ký, phân quyền lịch sử và chat khách với MySQL/Ollama/Chroma local |
 
@@ -33,7 +34,7 @@ Dự án đã có backend FastAPI, LangChain + Chroma + Ollama local, frontend R
 - **Điểm AI và duyệt tay:** cùng model Qwen tạo câu trả lời và chấm câu trả lời, nên điểm tự động có thể thiên lệch. Có 20 nhãn duyệt tay do người cùng nhóm điền, nhưng dữ liệu chưa ghi trình độ chuyên môn, người chấm thứ hai hoặc độ đồng thuận giữa người chấm. Tiêu chí 1/0 của nhóm cũng khác tiêu chí điểm AI 2/2. Không gọi các tỷ lệ này là độ chính xác đã được chuyên gia xác minh.
 - **Phân chia dữ liệu:** đã ngăn trùng câu hỏi theo chữ sau chuẩn hóa. Phép so Jaccard trên tập từ của câu hỏi phát hiện **4 câu test** có độ tương đồng từ vựng ít nhất 0,8 với một câu train; ví dụ câu về chuỗi bài tập tạ chỉ khác cụm tiếng Anh trong ngoặc. Đây là dấu hiệu cần rà soát rò rỉ ngữ nghĩa, chưa phải kết luận cả 4 câu là bản sao. Chưa kiểm tra toàn bộ nội dung đáp án trùng nhau giữa hai tập. Mười bài tập ACE nằm trong corpus ở cả lúc đánh giá, nên một số câu test liên quan trực tiếp có thể được hỗ trợ bởi chúng.
 - **Phạm vi:** kiểm tra tĩnh cho thấy bộ lọc từ khóa đánh dấu 14/193 câu test là ngoài phạm vi khi không có lịch sử, dù một số câu có thể liên quan đến hoạt động thể chất. Đây là kết quả đo trên tập test đã giữ riêng; tránh sửa bộ lọc dựa vào từng câu test rồi dùng chính tập này để công bố kết quả mới. Nếu sửa phạm vi hoặc dữ liệu, cần tạo bộ test mới và đánh giá lại.
-- **Kiểm thử triển khai:** bài test tích hợp backend đã đạt khi MySQL/Ollama/Chroma sẵn sàng. Chưa có bài kiểm tra trình duyệt tự động cho trạng thái sau F5, khả năng hiển thị trên thiết bị nhỏ và thao tác bàn phím.
+- **Kiểm thử triển khai:** bài test tích hợp backend đã đạt khi MySQL/Ollama/Chroma sẵn sàng. Đã xem ảnh giao diện desktop và khung 500px; chưa có bài kiểm tra trình duyệt tự động cho trạng thái sau F5, kích thước 390px thực trên điện thoại và thao tác bàn phím.
 - **Phạm vi đánh giá:** tập 193 câu chỉ kiểm tra hỏi đáp đơn lượt từ Excel. Chưa có bộ đánh giá riêng cho hội thoại nhiều lượt, từ chối câu ngoài Gym, tính đúng của lịch 1–6 buổi, tính an toàn khi có đau/chấn thương hoặc trải nghiệm người dùng.
 
 ## Việc còn cần làm trước khi nộp kết quả cuối

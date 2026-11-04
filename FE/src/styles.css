@@ -239,7 +239,7 @@ a.source-item:hover { background: #e4f0df; }
   .composer-note { font-size: 9px; }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   .suggestion-grid { grid-template-columns: 1fr; }
   .suggestion-card { min-height: 64px; }
   .welcome-screen { padding-top: 25px; }
