@@ -186,13 +186,16 @@ Tại `FE/`, chạy `npm run build`. Sau đó chỉ cần backend đang chạy; 
 
 ### Số liệu train/test để báo cáo
 
-Từ 965 cặp hỏi đáp: **772 câu (80%)** dùng làm corpus để lập chỉ mục RAG, **193 câu (20%)** nằm trong file test độc lập. Có 10 bài tập biên soạn thêm ngoài phép chia 965 câu; chúng luôn được lập chỉ mục. Đây là cách chia dữ liệu cho **truy xuất và đánh giá**, không phải huấn luyện lại trọng số của Ollama/Qwen. Có thể mở `BE/data/processed/test.json` để xem từng câu hỏi và câu trả lời tham chiếu. Chưa có kết quả độ chính xác mô hình từ phép chia này; cần chạy đánh giá và chấm câu trả lời trên tập test để báo cáo một tỷ lệ chính xác.
+Từ 965 cặp hỏi đáp: **772 câu (80%)** dùng làm corpus để lập chỉ mục RAG, **193 câu (20%)** nằm trong file test độc lập. Có 10 bài tập biên soạn thêm ngoài phép chia 965 câu; chúng luôn được lập chỉ mục. Đây là cách chia dữ liệu cho **truy xuất và đánh giá**, không phải huấn luyện lại trọng số của Ollama/Qwen. Có thể mở `BE/data/processed/test.json` để xem từng câu hỏi và câu trả lời tham chiếu. Báo cáo hiện có điểm tự động trên một phần tập test; chỉ được gọi là kết quả toàn bộ test khi đã chấm đủ 193 câu và có kiểm tra thủ công phù hợp.
 
 Tại `BE/`:
 
 ```powershell
+.\.venv\Scripts\python.exe -m app.scripts.audit_report
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
+
+Lệnh `audit_report` kiểm tra Excel gốc, JSON, train/test và nội dung báo cáo mà không cần MySQL/Ollama. Trường `evaluation_complete` chỉ là `true` khi có đủ 193 điểm; `report_synced: false` nghĩa là JSONL đã có câu mới nhưng Excel chưa được xuất lại. Bài test tích hợp đăng ký/chat sẽ được bỏ qua nếu MySQL hoặc Ollama chưa chạy; các bài test còn lại vẫn chạy.
 
 Tại `FE/`:
 

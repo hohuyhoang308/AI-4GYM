@@ -87,7 +87,7 @@ Chất lượng từng câu trả lời trong Excel chưa được xác minh th�
 
 ### Báo cáo Excel
 
-[Hướng dẫn và trạng thái đánh giá hiện tại](reports/README.md): đã chạy 19/193 câu test; 174 câu còn lại có thể tiếp tục bằng lệnh bên dưới.
+[Hướng dẫn và trạng thái đánh giá hiện tại](reports/README.md) ghi số câu đã chấm, cách đọc điểm và những giới hạn của báo cáo. Chạy lệnh kiểm toán bên dưới để xem trạng thái mới nhất trực tiếp từ file.
 
 [Mở báo cáo train/test](reports/AI-4GYM_train_test_report.xlsx) để xem tổng quan, danh sách 772 câu train, 193 câu test và kết quả chatbot trên từng câu test. Sheet `Danh gia Test` ghi câu trả lời thực tế, điểm Qwen local (0–2), lý do chấm, Token F1, ROUGE-L F1, nguồn RAG và thời gian trả lời. Điểm 2 là đạt, 1 là đúng một phần, 0 là sai hoặc từ chối. Tỷ lệ đạt tự động = số câu điểm 2 / số câu đã chạy; chỉ khi chạy đủ 193 câu mới là kết quả toàn bộ tập test. Có thêm cột `Duyệt tay (1/0)` để kiểm tra độc lập.
 
@@ -112,6 +112,9 @@ Lệnh xuất Excel từ kết quả đã lưu mà không chạy lại chatbot. 
 ```powershell
 # Tại BE/, khi MySQL và Ollama đang chạy
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
+
+# Kiểm tra Excel gốc, JSON, phép chia và báo cáo; không cần MySQL/Ollama
+.\.venv\Scripts\python.exe -m app.scripts.audit_report
 
 # Tại FE/
 npm run build

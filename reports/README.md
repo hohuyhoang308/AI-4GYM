@@ -1,5 +1,7 @@
 # Báo cáo đánh giá AI-4GYM
 
+Xem [kiểm tra dự án và phương pháp báo cáo](KIEM_TRA_DU_AN.md) trước khi dùng số liệu để thuyết trình. Tại `BE/`, chạy `.\.venv\Scripts\python.exe -m app.scripts.audit_report` để xem số câu đã chấm mới nhất; lệnh này không cần MySQL hoặc Ollama.
+
 ## Kế hoạch phân chia công việc đánh giá (2 Phần)
 
 Tổng tập kiểm thử gồm **193 câu hỏi độc lập (held-out test set)** được trích xuất từ 965 cặp dữ liệu gốc (tỷ lệ 20%). Công việc đánh giá được chia làm 2 giai đoạn:

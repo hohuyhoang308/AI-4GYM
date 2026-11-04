@@ -243,7 +243,7 @@ function App() {
                     </button>
                   ))}
                 </div>
-                <div className="welcome-assurance"><ShieldCheck size={16} /> Câu trả lời dựa trên kho kiến thức bài tập và nguồn tham khảo rõ ràng.</div>
+                <div className="welcome-assurance"><ShieldCheck size={16} /> Câu trả lời dựa trên dữ liệu Gym local; hãy kiểm tra kỹ thuật và chọn mức tập phù hợp.</div>
               </div>
             </div>
           ) : (

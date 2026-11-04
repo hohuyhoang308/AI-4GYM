@@ -9,9 +9,16 @@ from app.api.routes.chat import chat_service
 from app.db.models import User
 from app.db.session import SessionLocal
 from app.main import app
+from app.api.routes.health import health
 
 
 class AuthFlowTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        status = health()
+        if not status["database_running"] or status["status"] != "ready":
+            raise unittest.SkipTest("Integration test cần MySQL, Ollama và chỉ mục RAG đang chạy")
+
     def test_accounts_own_history_and_guests_do_not_persist(self) -> None:
         first_email = f"test-{uuid4().hex}@example.com"
         second_email = f"test-{uuid4().hex}@example.com"
