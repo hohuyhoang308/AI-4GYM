@@ -4,7 +4,7 @@ Ngày rà soát: **04/11/2026**. Trạng thái số câu đã chấm có thể t
 
 ## Kết luận sử dụng
 
-Dự án đã có backend FastAPI, LangChain + Chroma + Ollama local, frontend React, MySQL cho tài khoản và lịch sử, bộ dữ liệu JSON, phép chia train/test cố định và báo cáo Excel. **Chưa nên trình bày đây là mô hình đã được chứng minh đạt một tỷ lệ chính xác trên toàn bộ tập test** cho tới khi chấm đủ 193 câu và rà soát độc lập. File Excel hiện được kiểm tra là khớp với các kết quả đã lưu; lệnh kiểm toán không đánh giá độ đúng về thể hình.
+Dự án đã có backend FastAPI, LangChain + Chroma + Ollama local, frontend React, MySQL cho tài khoản và lịch sử, bộ dữ liệu JSON, phép chia train/test cố định và báo cáo Excel. **Chưa nên trình bày đây là mô hình đã được chứng minh đạt một tỷ lệ chính xác trên toàn bộ tập test** cho tới khi chấm đủ 193 câu và rà soát độc lập. Người cùng nhóm đã điền nhận xét tay cho 20 câu đầu; file Excel được kiểm tra là khớp với các kết quả đã lưu. Lệnh kiểm toán không đánh giá độ đúng về thể hình.
 
 ## Phương pháp có thể ghi trong báo cáo học thuật
 
@@ -24,24 +24,24 @@ Dự án đã có backend FastAPI, LangChain + Chroma + Ollama local, frontend R
 | Báo cáo Excel ↔ JSONL | Khớp số câu, điểm và câu trả lời đã lưu (lệnh `audit_report`) |
 | Frontend | `npm run build` đạt |
 | Gói frontend production | `npm audit --omit=dev --audit-level=high` không báo lỗ hổng tại thời điểm rà soát |
-| Backend unit test | 10 bài đạt; 1 bài tích hợp chỉ chạy khi MySQL, Ollama và Chroma sẵn sàng |
+| Backend | 11/11 test đạt, gồm bài tích hợp đăng ký, phân quyền lịch sử và chat khách với MySQL/Ollama/Chroma local |
 
 ## Giới hạn cần nêu thẳng
 
 - **Nguồn 965 câu:** file Excel chỉ ghi `data.xlsx`, không có URL/tác giả/ngày truy cập cho từng câu. Không thể khẳng định toàn bộ 965 câu đã được đối chiếu với nguồn chuyên môn. Mười bài tập bổ sung có URL ACE; nguồn ACSM chỉ hỗ trợ định hướng tập sức mạnh chung, còn các lịch 1–6 buổi là mẫu do dự án biên soạn. Xem [ACE Exercise Library](https://www.acefitness.org/resources/everyone/exercise-library/) và [ACSM 2026 resistance training guidance](https://acsm.org/resistance-training-guidelines-update-2026/).
 - **Mức độ người mới:** danh sách tự biên soạn có bài `front-plank`, nhưng [ACE đánh dấu Front Plank là mức Intermediate](https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/). Vì vậy không nên khẳng định cả 10 bài tập đều được ACE phân loại Beginner; cần xem lại biến thể plank và mức tập trước khi coi lịch là phù hợp cho mọi người mới.
-- **Điểm AI:** cùng họ model Qwen tạo câu trả lời và chấm câu trả lời, nên điểm tự động có thể thiên lệch. Chưa có người chấm độc lập hoặc độ đồng thuận giữa người chấm. Không gọi điểm này là độ chính xác đã xác minh.
+- **Điểm AI và duyệt tay:** cùng model Qwen tạo câu trả lời và chấm câu trả lời, nên điểm tự động có thể thiên lệch. Có 20 nhãn duyệt tay do người cùng nhóm điền, nhưng dữ liệu chưa ghi trình độ chuyên môn, người chấm thứ hai hoặc độ đồng thuận giữa người chấm. Tiêu chí 1/0 của nhóm cũng khác tiêu chí điểm AI 2/2. Không gọi các tỷ lệ này là độ chính xác đã được chuyên gia xác minh.
 - **Phân chia dữ liệu:** đã ngăn trùng câu hỏi theo chữ sau chuẩn hóa. Phép so Jaccard trên tập từ của câu hỏi phát hiện **4 câu test** có độ tương đồng từ vựng ít nhất 0,8 với một câu train; ví dụ câu về chuỗi bài tập tạ chỉ khác cụm tiếng Anh trong ngoặc. Đây là dấu hiệu cần rà soát rò rỉ ngữ nghĩa, chưa phải kết luận cả 4 câu là bản sao. Chưa kiểm tra toàn bộ nội dung đáp án trùng nhau giữa hai tập. Mười bài tập ACE nằm trong corpus ở cả lúc đánh giá, nên một số câu test liên quan trực tiếp có thể được hỗ trợ bởi chúng.
 - **Phạm vi:** kiểm tra tĩnh cho thấy bộ lọc từ khóa đánh dấu 14/193 câu test là ngoài phạm vi khi không có lịch sử, dù một số câu có thể liên quan đến hoạt động thể chất. Đây là kết quả đo trên tập test đã giữ riêng; tránh sửa bộ lọc dựa vào từng câu test rồi dùng chính tập này để công bố kết quả mới. Nếu sửa phạm vi hoặc dữ liệu, cần tạo bộ test mới và đánh giá lại.
-- **Kiểm thử triển khai:** MySQL Serbay chưa chạy tại thời điểm rà soát, nên luồng đăng ký, lưu lịch sử và khôi phục sau F5 chưa được xác nhận lại bằng test tích hợp ở lượt rà soát này. Test sẽ chạy khi dịch vụ sẵn sàng.
+- **Kiểm thử triển khai:** bài test tích hợp backend đã đạt khi MySQL/Ollama/Chroma sẵn sàng. Chưa có bài kiểm tra trình duyệt tự động cho trạng thái sau F5, khả năng hiển thị trên thiết bị nhỏ và thao tác bàn phím.
 - **Phạm vi đánh giá:** tập 193 câu chỉ kiểm tra hỏi đáp đơn lượt từ Excel. Chưa có bộ đánh giá riêng cho hội thoại nhiều lượt, từ chối câu ngoài Gym, tính đúng của lịch 1–6 buổi, tính an toàn khi có đau/chấn thương hoặc trải nghiệm người dùng.
 
 ## Việc còn cần làm trước khi nộp kết quả cuối
 
 1. Chạy `python -m app.scripts.evaluate_chatbot` đến khi `evaluation_complete` là `true`; xuất lại Excel.
-2. Có người am hiểu thể hình rà soát câu trả lời, nhất là kỹ thuật, an toàn và các câu điểm 0/1; điền cột `Duyệt tay (1/0)` và ghi chú. Giữ nguyên đáp án gốc khi đánh giá.
+2. Có người am hiểu thể hình rà soát 20 nhãn tay đã có và các câu trả lời còn lại, nhất là kỹ thuật, an toàn và các câu điểm 0/1; điền cột `Duyệt tay (1/0)` và ghi chú. Giữ nguyên đáp án gốc khi đánh giá.
 3. Bổ sung nguồn gốc từng câu của Excel hoặc ghi rõ đây là bộ dữ liệu được cung cấp, chưa truy vết nguồn; không gán chung nguồn ACE/ACSM cho 965 câu.
-4. Bật MySQL Serbay rồi chạy bài test tích hợp và thử thực tế: đăng ký, đăng nhập, chat khách, lưu/mở/xóa hội thoại, F5, logout.
+4. Thử thủ công trên trình duyệt: đăng ký, đăng nhập, chat khách, lưu/mở/xóa hội thoại, F5, logout và giao diện trên điện thoại. Bài test tích hợp backend đã đạt, nhưng chưa bao phủ trình duyệt.
 5. Trước khi công bố số liệu của phiên bản mới, chốt phiên bản dữ liệu, model, prompt và mã nguồn; nếu thay đổi hành vi chatbot sau khi xem test, tạo tập đánh giá mới.
 
 ## Tự kiểm tra số liệu

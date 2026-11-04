@@ -77,7 +77,7 @@ AI-4GYM/
 | Train/corpus | `BE/data/processed/train.json` | 772 | 80% | Lập chỉ mục RAG trong Chroma |
 | Test | `BE/data/processed/test.json` | 193 | 20% | Giữ riêng để kiểm tra, không lập chỉ mục |
 
-`BE/data/processed/split_manifest.json` ghi seed, số lượng và tỷ lệ. Các câu hỏi trùng sau chuẩn hóa nằm cùng một tập. Thêm 10 bài tập có nguồn từ [ACE Exercise Library](https://www.acefitness.org/resources/everyone/exercise-library/experience/beginner/) vào corpus, nên Chroma có **782 tài liệu**. Excel không có cột nguồn riêng nên các mục hỏi đáp ghi nguồn `data.xlsx`.
+`BE/data/processed/split_manifest.json` ghi seed, số lượng và tỷ lệ. Các câu hỏi trùng sau chuẩn hóa nằm cùng một tập. Thêm 10 bài tập có liên kết đến [ACE Exercise Library](https://www.acefitness.org/resources/everyone/exercise-library/) vào corpus, nên Chroma có **782 tài liệu**. Không phải cả 10 bài đều được ACE xếp mức Beginner; xem [kiểm tra nguồn](reports/KIEM_TRA_DU_AN.md). Excel không có cột nguồn riêng nên các mục hỏi đáp ghi nguồn `data.xlsx`.
 
 Phép chia ngăn câu hỏi trùng sau chuẩn hóa xuất hiện ở cả hai tập; các câu diễn đạt khác nhau nhưng cùng ý chưa được nhóm tự động.
 
