@@ -22,7 +22,7 @@ Trong 20 câu đầu, Qwen local chấm **12 câu điểm 2, 6 câu điểm 1, 2
 
 Hai tỷ lệ **12/20** và **18/20** dùng *hai tiêu chí khác nhau*: điểm AI 2/2 yêu cầu đủ ý chính so với đáp án tham chiếu; duyệt tay 1/0 chấp nhận câu trả lời đúng và hữu ích dù có thể thiếu ý. Vì vậy không lấy chênh lệch giữa hai tỷ lệ làm độ chính xác của bộ chấm AI. Điểm AI do chính Qwen chấm theo nội dung, còn Token F1/ROUGE-L chỉ đo trùng từ. Trình độ chuyên môn của người điền cột duyệt tay chưa được ghi lại trong dữ liệu, nên không gọi tỷ lệ 18/20 là đánh giá chuyên gia đã xác minh.
 
-Đã giữ nguyên câu trả lời của `qa-133` từ bản bàn giao khi hợp nhất, vì nhận xét tay của câu đó gắn với chính câu trả lời này. Những câu test còn lại trong JSONL là kết quả của các lần chạy tiếp trên máy local.
+Đã giữ nguyên câu trả lời của `qa-133` từ bản bàn giao khi hợp nhất, vì nhận xét tay của câu đó gắn với chính câu trả lời này. Theo yêu cầu hiện tại, đợt chấm AI bổ sung đã dừng và file được đưa về **20/193 câu**; **173 câu chưa chạy**. Không dùng 12/20 hoặc 18/20 làm tỷ lệ cho toàn bộ tập test.
 
 ## Chạy tiếp đến đủ 193 câu
 

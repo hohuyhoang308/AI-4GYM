@@ -1,6 +1,6 @@
-# Môi trường của lần đánh giá local
+# Môi trường được kiểm tra khi rà soát dự án
 
-Ghi nhận ngày 04/11/2026 trên Windows, GPU **NVIDIA GeForce GTX 1650 4 GB**. Các câu đã có trong `evaluation_results.jsonl` được tạo bằng các model và mã xử lý dưới đây. Việc ghi hash giúp nhận biết khi người khác thay model hoặc thay luồng chatbot trước khi chạy lại.
+Ghi nhận ngày 04/11/2026 trên Windows, GPU **NVIDIA GeForce GTX 1650 4 GB**. Đây là môi trường được kiểm tra khi rà soát và có thể dùng làm mốc nếu nhóm chạy đánh giá tiếp. **Không thể dùng bảng này để khẳng định chính xác môi trường tạo ra từng câu trong 20 kết quả đã bàn giao**, vì JSONL chỉ lưu tên model, chưa lưu digest/phiên bản runtime cho từng câu. Câu `qa-133` được giữ từ bản bàn giao của người cùng nhóm.
 
 | Thành phần | Phiên bản / định danh |
 | --- | --- |
@@ -25,4 +25,4 @@ Git blob của các file quyết định hành vi đánh giá:
 | `BE/app/services/index.py` | `bf34d4bad098637388c29b3e1c67233b5c223a83` |
 | `BE/app/services/plans.py` | `f08a1a0ddd878b2916ed99c78452185e6c8dcf10` |
 
-`split_manifest.json` lưu seed 42 và hash Excel gốc. Mỗi kết quả trong JSONL lưu hash tập test, tên model và hash nguồn. **Tên model chưa thay thế được digest** nếu Ollama tải lại một bản model khác cùng tên; khi tái chạy, kiểm tra digest bằng `ollama list` hoặc API `/api/tags`. Báo cáo này mô tả môi trường của lần chạy, không cam kết kết quả giống từng chữ vì phần sinh văn bản có thể thay đổi theo môi trường và phiên bản runtime.
+`split_manifest.json` lưu seed 42 và hash Excel gốc. Mỗi kết quả trong JSONL lưu hash tập test, tên model và hash nguồn. **Tên model chưa thay thế được digest** nếu Ollama tải lại một bản model khác cùng tên; khi tái chạy, kiểm tra digest qua API `/api/tags` (`ollama list` chỉ hiện tên/ID rút gọn). Báo cáo này là ảnh chụp môi trường, không cam kết kết quả giống từng chữ vì phần sinh văn bản có thể thay đổi theo runtime.
