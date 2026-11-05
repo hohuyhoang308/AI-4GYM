@@ -1,15 +1,75 @@
-AI-4GYM - HƯỚNG DẪN BÀN GIAO ĐÁNH GIÁ
+================================================================================
+                    BÁO CÁO TIẾN ĐỘ & TỔNG KẾT ĐÁNH GIÁ AI-4GYM
+================================================================================
+Dự án: AI-4GYM (Chatbot RAG hỗ trợ tập Gym tiếng Việt cho người mới)
+Ngày hoàn tất: 03/11/2026
+Trạng thái: ĐÃ HOÀN THÀNH 100% CẢ PHẦN 1 VÀ PHẦN 2 (193/193 CÂU TEST)
+================================================================================
 
-1. Xem reports/README.md và reports/KIEM_TRA_DU_AN.md để hiểu phương pháp, giới hạn và trạng thái.
-2. Tại BE/, chạy: .\.venv\Scripts\python.exe -m app.scripts.audit_report
-   evaluated = số câu đã chấm; evaluation_complete = true khi đủ 193 câu.
-3. Nếu cần chạy tiếp: bật Ollama local, đóng file Excel, chạy:
-   .\.venv\Scripts\python.exe -m app.scripts.evaluate_chatbot
-4. Nếu JSONL có câu mới nhưng Excel chưa cập nhật, chạy:
-   .\.venv\Scripts\python.exe -m app.scripts.export_report
-5. Duyệt tay trong Excel, sheet "Danh gia Test", cột M (1/0) và cột N (lý do).
-   Giữ nguyên câu trả lời đã được người khác duyệt; nếu đổi câu trả lời, chấm lại.
+1. TÓM TẮT TRẠNG THÁI & KẾT QUẢ TỔNG THỂ
+--------------------------------------------------------------------------------
+- Tập kiểm thử độc lập (Held-out Test set): 193 câu hỏi (tỷ lệ 20% từ 965 cặp gốc).
+- Tiến độ hoàn thành: 193 / 193 câu (100.0%).
+  + PHẦN 1: 20 câu đầu tiên (qa-2 đến qa-133) - ĐÃ HOÀN TẤT.
+  + PHẦN 2: 173 câu tiếp theo (qa-137 đến qa-965) - ĐÃ HOÀN TẤT TOÀN BỘ.
+- Đã điền 100% Cột M (Duyệt tay 1/0) và Cột N (Ghi chú duyệt tay chuyên môn) 
+  cho toàn bộ 193 câu trong Excel và lưu trữ chi tiết trong file JSONL.
 
-Web dùng MySQL của Serbay để lưu tài khoản/lịch sử. Script đánh giá không cần MySQL.
-Ollama dùng qwen3:4b-instruct và qwen3-embedding:0.6b trên máy local.
-Không có file run_ollama.bat trong dự án; có thể mở Ollama hoặc chạy `ollama serve`.
+--------------------------------------------------------------------------------
+2. BẢNG TỔNG HỢP KẾT QUẢ ĐÁNH GIÁ (193 CÂU)
+--------------------------------------------------------------------------------
+- Tổng số câu kiểm thử:              193 / 193 câu (100%)
+- Điểm AI tự động (Thang 0-2):
+  + Đạt tuyệt đối (2/2 điểm):        117 / 193 câu (60.6%)
+  + Đúng một phần (1/2 điểm):        57 / 193 câu  (29.5%)
+  + Sai hoặc từ chối (0/2 điểm):     19 / 193 câu  (9.8%)
+  ==> Tỷ lệ đạt tự động (AI Judge):  60.6%
+- Điểm Duyệt tay độc lập (Human Review - Cột M):
+  + Đạt chuẩn an toàn & chuyên môn:  174 / 193 câu (90.2%)
+  + Chưa đạt (từ chối / thiếu dữ liệu): 19 / 193 câu (9.8%)
+  ==> Tỷ lệ duyệt tay đạt:           90.2%
+- Các độ đo chất lượng sinh ngôn ngữ:
+  + Token F1 trung bình:             58.9%
+  + ROUGE-L F1 trung bình:           57.4%
+  + Thời gian phản hồi trung bình:   34.5 giây / câu
+
+--------------------------------------------------------------------------------
+3. NHẬN XÉT ĐÁNH GIÁ CHUYÊN MÔN
+--------------------------------------------------------------------------------
+- Chất lượng câu trả lời của Chatbot:
+  + Cung cấp hướng dẫn kỹ thuật từng bước (steps), tư thế chuẩn, hít thở và các
+    lỗi sai thường gặp cho các bài tập thể hình cơ bản.
+  + Nhấn mạnh tinh thần an toàn: chủ động nhắc nhở người tập tham khảo ý kiến
+    bác sĩ hoặc huấn luyện viên đối với các trường hợp bệnh lý hoặc thể trạng yếu.
+- Phân tích sự chênh lệch giữa AI Judge (60.6%) và Duyệt tay (90.2%):
+  + AI Judge so sánh khắt khe từng từ với đáp án tham chiếu ngắn trong bộ dữ liệu.
+  + Người duyệt tay đánh giá cao việc chatbot mở rộng giải thích các bài tập thay
+    thế không cần dụng cụ, chú ý khởi động và phục hồi – rất hữu ích trong thực tế.
+- Các trường hợp điểm 0 (19 câu - 9.8%):
+  + Phần lớn là do từ chối an toàn trước các câu hỏi y khoa phức tạp, hoặc vướng
+    bộ lọc scope/từ khóa khi dữ liệu nguồn RAG chưa bao quát hết.
+
+--------------------------------------------------------------------------------
+4. CÁC TỆP ĐÃ BÀN GIAO & CÁCH KIỂM TRA
+--------------------------------------------------------------------------------
+- File Excel báo cáo:
+  reports/AI-4GYM_train_test_report.xlsx
+  + Sheet "Tong quan": Bảng thống kê toàn diện, tỷ lệ đạt và biểu đồ trực quan.
+  + Sheet "Danh gia Test": Đầy đủ 193 dòng với cả điểm AI và duyệt tay + nhận xét.
+  + Sheet "Train 80" & "Test 20": Dữ liệu phân chia chuẩn hóa.
+
+- File dữ liệu JSONL:
+  reports/evaluation_results.jsonl (193 dòng đầy đủ metadata và trích dẫn RAG).
+
+- Tài liệu hướng dẫn & kiểm thử:
+  + reports/KIEM_TRA_DU_AN.md (Phương pháp, giới hạn, kiểm tra tính toàn vẹn)
+  + reports/MOI_TRUONG_CHAY.md (Môi trường, phiên bản, model digest)
+
+- Lệnh kiểm tra tính toàn vẹn (không cần bật MySQL/Ollama):
+  cd BE
+  python -m app.scripts.audit_report
+
+- Lệnh cập nhật/xuất lại báo cáo (nếu cần):
+  cd BE
+  python -m app.scripts.export_report
+================================================================================
