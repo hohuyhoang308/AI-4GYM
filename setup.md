@@ -105,7 +105,7 @@ Vẫn trong `BE/`, khi MySQL và Ollama đều đã chạy:
 .\.venv\Scripts\python.exe -m app.scripts.ingest
 ```
 
-`init_db` tạo database `ai_4gym` và bảng tài khoản, phiên đăng nhập, hội thoại, tin nhắn. `ingest` đọc `data/raw/data.xlsx`, chuyển **toàn bộ 965 cặp hỏi đáp** sang `data/processed/qa.json`, rồi chia thành `data/processed/train.json` (**772 câu, 80%**) và `data/processed/test.json` (**193 câu, 20%**). Chroma chỉ lập chỉ mục 772 câu train và 10 bài tập trong `data/curated/exercises.json`, tổng cộng **782 tài liệu**. Tập test không nằm trong chỉ mục. Lần đầu có thể mất vài phút vì phải tạo embedding local.
+`init_db` tạo database `ai_4gym` và bảng tài khoản, phiên đăng nhập, hội thoại, tin nhắn, cùng bảng `chat_request_records` chống lưu lặp request chat. `ingest` đọc `data/raw/data.xlsx`, chuyển **toàn bộ 965 cặp hỏi đáp** sang `data/processed/qa.json`, rồi chia thành `data/processed/train.json` (**772 câu, 80%**) và `data/processed/test.json` (**193 câu, 20%**). Chroma chỉ lập chỉ mục 772 câu train và 10 bài tập trong `data/curated/exercises.json`, tổng cộng **782 tài liệu**. Tập test không nằm trong chỉ mục. Lần đầu có thể mất vài phút vì phải tạo embedding local.
 
 Nếu chỉ muốn xem JSON mà chưa tải model, dùng:
 

@@ -41,10 +41,11 @@ class ContextTest(unittest.TestCase):
 
     def test_guest_uses_three_previous_turns_for_follow_up(self) -> None:
         service, store, chain = self.make_service()
+        guest_id = None
         for turn in range(1, 5):
-            service.ask(f"Cách tập tạ lượt {turn}", session_id="guest")
+            guest_id = service.ask(f"Cách tập tạ lượt {turn}", session_id=guest_id)["session_id"]
 
-        response = service.ask("Nó tác động cơ nào?", session_id="guest")
+        response = service.ask("Nó tác động cơ nào?", session_id=guest_id)
 
         self.assertFalse(response["refused"])
         self.assertEqual(len(chain.calls[-1]["history"]), 6)
@@ -58,6 +59,15 @@ class ContextTest(unittest.TestCase):
         self.assertIsInstance(messages[1], HumanMessage)
         self.assertIsInstance(messages[2], AIMessage)
         self.assertIsInstance(messages[-1], HumanMessage)
+
+    def test_expired_guest_session_rotates_id_and_drops_history(self) -> None:
+        service, _, chain = self.make_service()
+        first = service.ask("Cách tập squat?", session_id="attacker-chosen")
+        self.assertNotEqual(first["session_id"], "attacker-chosen")
+        service.sessions[first["session_id"]]["updated"] = 0
+        second = service.ask("Cách tập squat?", session_id=first["session_id"])
+        self.assertNotEqual(second["session_id"], first["session_id"])
+        self.assertEqual(chain.calls[-1]["history"], [])
 
     def test_saved_history_is_trimmed_before_model_call(self) -> None:
         service, _, chain = self.make_service()

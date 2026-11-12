@@ -8,8 +8,21 @@ from app.services.knowledge import normalize
 FITNESS_TERMS = {
     "gym", "fitness", "the hinh", "the chat", "the luc", "hoat dong the chat", "bai tap", "tap luyen", "buoi tap", "phong tap", "lich tap", "co bap", "nhom co", "co nguc", "co lung", "co tay", "co chan", "co bung", "co vai", "co mong",
     "tang co", "giam mo", "giam can", "squat", "deadlift", "bench press", "plank", "push up", "hit dat", "lunge", "burpee", "superset", "hiit", "aerobic", "cardio", "workout", "split", "push pull legs", "upper lower",
-    "nang ta", "ta don", "ta tay", "tap ta", "phong gym", "khoi dong", "phuc hoi", "gian co", "do linh hoat", "tu the", "hiep tap", "khang luc", "qua tai tien trien", "protein", "calo", "dinh duong", "van dong", "the duc", "yoga", "pilates", "chay bo", "di bo", "boi loi", "dap xe", "kickboxing", "tim mach", "can nang", "suc ben", "suc manh", "chan thuong",
+    "nang ta", "ta don", "ta tay", "tap ta", "phong gym", "chong day", "day nguc", "keo xo", "cuon tay", "khoi dong", "phuc hoi", "gian co", "do linh hoat", "tu the", "hiep tap", "khang luc", "qua tai tien trien", "protein", "calo", "dinh duong", "van dong", "the duc", "yoga", "pilates", "chay bo", "di bo", "boi loi", "dap xe", "kickboxing", "tim mach", "can nang", "suc ben", "suc manh", "chan thuong",
 }
+
+INJECTION_PATTERN = re.compile(
+    r"\b(?:system prompt|developer prompt|chi dan he thong|lenh he thong|"
+    r"bo qua (?:moi |tat ca )?(?:chi dan|quy tac|gioi han)|"
+    r"ignore (?:all )?(?:previous|prior|system) instructions|"
+    r"reveal (?:your |the )?(?:system|developer) prompt|"
+    r"injected_ok|lay cap (?:mat khau|cookie)|tiet lo (?:prompt|cau hinh))\b"
+    r"|\[(?:system|developer)\]"
+)
+
+
+def is_prompt_injection(question: str) -> bool:
+    return bool(INJECTION_PATTERN.search(normalize(question)))
 
 MUSCLE_NAMES = ("nguc", "lung", "chan", "tay", "vai", "bung", "mong")
 MUSCLE_PATTERN = "(?:" + "|".join(MUSCLE_NAMES) + ")"

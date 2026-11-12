@@ -86,5 +86,5 @@ export const api = {
   renameConversation: (id: string, title: string) => request<Conversation>(`/conversations/${encodeURIComponent(id)}`, { method: 'PATCH', body: JSON.stringify({ title }) }),
   deleteConversation: (id: string) => request<void>(`/conversations/${encodeURIComponent(id)}`, { method: 'DELETE' }),
   chat: (message: string, session_id?: string | null, conversation_id?: string | null) =>
-    request<ChatReply>('/chat', { method: 'POST', body: JSON.stringify({ message, session_id, conversation_id }) }),
+    request<ChatReply>('/chat', { method: 'POST', body: JSON.stringify({ message, session_id, conversation_id, request_id: crypto.randomUUID() }) }),
 }

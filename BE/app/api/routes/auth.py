@@ -62,12 +62,15 @@ def optional_user(
         return None
     login_session = db.get(LoginSession, sha256(token.encode()).hexdigest())
     if login_session is None:
-        return None
+        raise HTTPException(status_code=401, detail="Phiên đăng nhập không hợp lệ. Vui lòng đăng nhập lại")
     if login_session.expires_at <= utc_now():
         db.delete(login_session)
         db.commit()
-        return None
-    return db.get(User, login_session.user_id)
+        raise HTTPException(status_code=401, detail="Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại")
+    user = db.get(User, login_session.user_id)
+    if user is None:
+        raise HTTPException(status_code=401, detail="Phiên đăng nhập không hợp lệ. Vui lòng đăng nhập lại")
+    return user
 
 
 def current_user(user: User | None = Depends(optional_user)) -> User:
