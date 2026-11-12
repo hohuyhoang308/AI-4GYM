@@ -83,7 +83,7 @@ Phép chia ngăn câu hỏi trùng sau chuẩn hóa xuất hiện ở cả hai t
 
 **Lưu ý cho báo cáo:** “80% train” ở đây là dữ liệu dùng để xây dựng kho truy xuất; dự án **không fine-tune/huấn luyện lại** model Qwen hay model embedding. RAG lấy tài liệu khi trả lời, theo [mô tả của LangChain](https://docs.langchain.com/oss/python/deepagents/retrieval). Tập test 20% chưa đồng nghĩa độ chính xác 20% hay bất kỳ chỉ số chất lượng nào.
 
-Trong 20 câu đã chạy, đồng đội đã ghi duyệt tay 18 đạt/2 không đạt theo tiêu chí riêng; chưa có xác minh chuyên môn độc lập cho toàn bộ 193 câu. Chatbot hỗ trợ tham khảo khi tập luyện, không thay thế đánh giá chuyên môn khi có chấn thương hoặc bệnh lý.
+Đã có 193/193 câu test được chấm tự động và 193 nhãn duyệt tay do nhóm điền (174 đạt/19 không đạt theo tiêu chí riêng); chưa có xác minh chuyên môn độc lập. Năm câu được chấm lại bằng judge v3, 188 câu còn dùng v2; xem [báo cáo hiện tại](reports/README.md). Chatbot hỗ trợ tham khảo khi tập luyện, không thay thế đánh giá chuyên môn khi có chấn thương hoặc bệnh lý.
 
 ### Báo cáo Excel
 
@@ -99,7 +99,7 @@ Trong 20 câu đã chạy, đồng đội đã ghi duyệt tay 18 đạt/2 khôn
 .\.venv\Scripts\python.exe -m app.scripts.evaluate_chatbot
 ```
 
-Lệnh gọi đúng `ChatService` đang phục vụ web trên từng câu test độc lập, sau đó dùng Qwen local chấm theo đáp án tham chiếu và xuất Excel. Kết quả từng câu được lưu vào `reports/evaluation_results.jsonl`; chạy lại sẽ tiếp tục từ câu chưa hoàn tất. Không dùng API AI bên ngoài. Điểm AI là đánh giá tự động bởi chính họ model đang trả lời, vì vậy nên rà soát thủ công trước khi trình bày như một tỷ lệ chính xác được xác minh. Token F1 và ROUGE-L chỉ đo trùng từ, không tự chứng minh đúng sai.
+Lệnh gọi đúng `ChatService` đang phục vụ web trên từng câu test độc lập, sau đó dùng Qwen local chấm theo đáp án tham chiếu và xuất Excel. Kết quả từng câu được lưu vào `reports/evaluation_results.jsonl`. Hiện 193 câu đã có điểm; chạy lại lệnh này sẽ **chấm lại 188 dòng judge v2 bằng judge v3** trên câu trả lời đã lưu, làm thay đổi thống kê. Dùng `--ids` nếu chỉ muốn kiểm tra vài câu. Không dùng API AI bên ngoài. Điểm AI là đánh giá tự động bởi cùng họ model đang trả lời, vì vậy nên rà soát độc lập trước khi trình bày như một tỷ lệ chính xác được xác minh. Token F1 và ROUGE-L chỉ đo trùng từ, không tự chứng minh đúng sai.
 
 Để tạo lại file sau khi chạy `ingest` với dữ liệu mới, đứng tại `BE/` và chạy:
 

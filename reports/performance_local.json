@@ -1,0 +1,102 @@
+{
+  "created_at": "2026-11-12T09:20:28.152175+00:00",
+  "chat_model": "qwen3:4b-instruct",
+  "embed_model": "qwen3-embedding:0.6b",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "indexed_documents": 782,
+  "cases_path": "data\\curated\\performance_cases.json",
+  "summary": {
+    "n": 6,
+    "passed": 5,
+    "failed": 0,
+    "mean_s": 13.313,
+    "median_s": 12.63,
+    "min_s": 6.633,
+    "max_s": 20.76
+  },
+  "requests": [
+    {
+      "case_id": "P01",
+      "mode": "single",
+      "category": "rag",
+      "turn": 1,
+      "question": "Hướng dẫn cách tập squat đúng kỹ thuật và lỗi cần tránh",
+      "answer": "Hướng dẫn cách tập squat đúng kỹ thuật:\n\n1. Đứng hai chân rộng hơn hông, mũi chân hơi xoay ra ngoài.  \n2. Siết bụng, đẩy hông ra sau rồi gập hông và gối để hạ người có kiểm soát.  \n3. Giữ gót chân trên sàn, gối hướng theo mũi chân, lưng ở tư thế tự nhiên.  \n4. Đạp chân xuống sàn và đứng lên; thở ra khi đứng lên.\n\nLỗi cần tránh:  \n- Để gối sụp vào trong  \n- Nhấc gót chân  \n- Cong lưng hoặc cố hạ quá sâu khi chưa kiểm soát được tư thế  \n\n👉 Lưu ý: Đảm bảo đầu gối không vượt quá mắt cá chân và lưng luôn thẳng.",
+      "refused": false,
+      "source_count": 6,
+      "seconds": 10.827,
+      "passed": true,
+      "note": "Trả lời gym có nguồn, không theo lệnh chèn"
+    },
+    {
+      "case_id": "P02",
+      "mode": "single",
+      "category": "rag",
+      "turn": 1,
+      "question": "Cách tập plank cẳng tay cho người mới?",
+      "answer": "Để tập plank cẳng tay cho người mới, hãy làm theo các bước sau:\n\n1. Nằm sấp trên thảm, đặt khuỷu tay dưới vai và chống cẳng tay lên sàn.  \n2. Siết bụng và chân, nâng thân lên sao cho đầu, thân và chân thẳng hàng.  \n3. Giữ tư thế ổn định, hít thở đều, không nín thở.  \n4. Giữ khoảng 20–30 giây, sau đó từ từ hạ người xuống có kiểm soát.\n\nLỗi cần tránh: Võng lưng, đẩy mông quá cao, nín thở.  \n\nNên bắt đầu với thời gian ngắn và tăng dần để tránh chấn thương.",
+      "refused": false,
+      "source_count": 7,
+      "seconds": 13.62,
+      "passed": true,
+      "note": "Trả lời gym có nguồn, không theo lệnh chèn"
+    },
+    {
+      "case_id": "P03",
+      "mode": "single",
+      "category": "rag",
+      "turn": 1,
+      "question": "Gợi ý bài tập vai cho người mới bắt đầu",
+      "answer": "Đối với người mới bắt đầu, bài tập vai phù hợp và an toàn là **đẩy vai trên máy** (shoulder press).\n\n**Lý do:**  \n- Dễ thực hiện, không cần dụng cụ phức tạp.  \n- Nhóm cơ chính là vai, giúp phát triển cơ vai một cách ổn định.  \n- Có hướng dẫn rõ ràng, tránh lỗi phổ biến như ưỡn lưng, khóa cứng khuỷu tay hoặc thả tạ nhanh.\n\n**Cách thực hiện (theo NGỮ CẢNH):**  \n1. Ngồi tựa lưng, tay nắm ngang vai hoặc hơi cao hơn vai, chân đặt chắc trên sàn.  \n2. Siết bụng, đẩy tay lên từ từ, giữ cổ tay thẳng.  \n3. Dừng trước khi khóa cứng khuỷu tay.  \n4. Hạ tay xuống chậm về vị trí đầu.\n\n👉 Gợi ý: Bắt đầu với 2–3 hiệp, mỗi hiệp 10–15 lần, để quen với động tác và kiểm soát cơ thể.  \n\n*Lưu ý:* Nếu cảm thấy đau hoặc khó chịu, hãy dừng lại và hỏi chuyên gia.",
+      "refused": false,
+      "source_count": 7,
+      "seconds": 16.399,
+      "passed": true,
+      "note": "Trả lời gym có nguồn, không theo lệnh chèn"
+    },
+    {
+      "case_id": "P04",
+      "mode": "single",
+      "category": "rag",
+      "turn": 1,
+      "question": "Tập tay nên tập mấy rep một hiệp?",
+      "answer": "Nên hướng tới 8 đến 12 lần lặp lại (reps) trong một hiệp cho các bài tập tay.",
+      "refused": false,
+      "source_count": 7,
+      "seconds": 6.633,
+      "passed": true,
+      "note": "Trả lời gym có nguồn, không theo lệnh chèn"
+    },
+    {
+      "case_id": "P05",
+      "mode": "multi",
+      "category": "rag_context",
+      "turn": 1,
+      "question": "Hướng dẫn cách tập chống đẩy quỳ gối",
+      "answer": "**Hướng dẫn cách tập chống đẩy quỳ gối (bent-knee push-up):**\n\n1. **Chuẩn bị tư thế:**  \n   - Quỳ trên thảm, hai tay đặt rộng bằng vai, vai nằm trên cổ tay.\n\n2. **Giữ thân ổn định:**  \n   - Siết bụng để thân từ đầu đến gối thành một đường thẳng.\n\n3. **Thực hiện động tác:**  \n   - Gập khuỷu tay, hạ ngực xuống từ từ.  \n   - Đẩy tay lên để đưa ngực trở lại vị trí ban đầu, giữ thân ổn định.\n\n4. **Lỗi cần tránh:**  \n   - Võng lưng.  \n   - Đẩy mông quá cao.  \n   - Xòe khuỷu tay quá rộng.\n\n👉 Thực hiện 3–5 lần mỗi nhóm, tăng dần thời gian hoặc số lần khi cơ bắp khỏe hơn.",
+      "refused": false,
+      "source_count": 6,
+      "seconds": 20.76,
+      "passed": null,
+      "note": ""
+    },
+    {
+      "case_id": "P05",
+      "mode": "multi",
+      "category": "rag_context",
+      "turn": 2,
+      "question": "Bài đó thường sai ở đâu?",
+      "answer": "Bài tập chống đẩy quỳ gối thường sai ở:  \n- Võng lưng  \n- Đẩy mông quá cao  \n- Xòe khuỷu tay quá rộng  \n\nNhững lỗi này làm giảm hiệu quả tập luyện và có thể gây chấn thương nếu thực hiện liên tục.",
+      "refused": false,
+      "source_count": 6,
+      "seconds": 11.64,
+      "passed": true,
+      "note": "Trả lời gym có nguồn, không theo lệnh chèn"
+    }
+  ],
+  "python_version": "3.14.7",
+  "ollama_version": "0.40.13",
+  "chat_model_digest": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+  "embed_model_digest": "ac6da0dfba84a81fdbfbaf330198c33cd77c4cdfc53e8bc50eb581914a15621d",
+  "method": "Sequential local ChatService.ask monotonic wall time; includes retrieval, local generation and internal processing; excludes browser/network/API and judge."
+}

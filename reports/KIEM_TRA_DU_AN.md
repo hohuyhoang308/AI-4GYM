@@ -2,6 +2,8 @@
 
 Ngày rà soát: **04/11/2026**. Trạng thái số câu đã chấm có thể thay đổi khi chạy tiếp; dùng lệnh ở cuối để xem số liệu mới nhất.
 
+**Cập nhật 12/11/2026:** nhóm đã đưa đủ 193 câu trả lời/điểm và 193 nhãn duyệt tay lên remote. Phần số liệu 20 câu và mục “việc còn cần làm” dưới đây là ảnh chụp của lần rà soát ngày 04/11; xem [báo cáo hiện tại](README.md) và [bàn giao kỹ thuật 2](SECURITY_PERFORMANCE.md) trước khi trích số liệu. Chất lượng duyệt tay vẫn chưa được chuyên gia độc lập xác minh.
+
 Phiên bản phần mềm, digest model và hash mã nguồn của lần chạy được ghi trong [môi trường chạy](MOI_TRUONG_CHAY.md).
 
 ## Kết luận sử dụng
@@ -41,7 +43,7 @@ Dự án đã có backend FastAPI, LangChain + Chroma + Ollama local, frontend R
 
 ## Việc còn cần làm trước khi nộp kết quả cuối
 
-1. Chạy `python -m app.scripts.evaluate_chatbot` đến khi `evaluation_complete` là `true`; xuất lại Excel.
+1. Đã chạy đủ 193/193 câu theo bản nhóm bàn giao. Trước khi nộp, dùng `audit_report` xác nhận `evaluation_complete: true` và `report_synced: true`; không chấm lại toàn bộ chỉ để kiểm tra số liệu.
 2. Có người am hiểu thể hình rà soát 20 nhãn tay đã có và các câu trả lời còn lại, nhất là kỹ thuật, an toàn và các câu điểm 0/1; điền cột `Duyệt tay (1/0)` và ghi chú. Giữ nguyên đáp án gốc khi đánh giá.
 3. Bổ sung nguồn gốc từng câu của Excel hoặc ghi rõ đây là bộ dữ liệu được cung cấp, chưa truy vết nguồn; không gán chung nguồn ACE/ACSM cho 965 câu.
 4. Thử thủ công trên trình duyệt: đăng ký, đăng nhập, chat khách, lưu/mở/xóa hội thoại, F5, logout và giao diện trên điện thoại. Bài test tích hợp backend đã đạt, nhưng chưa bao phủ trình duyệt.
