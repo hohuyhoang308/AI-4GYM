@@ -83,13 +83,15 @@ Phép chia ngăn câu hỏi trùng sau chuẩn hóa xuất hiện ở cả hai t
 
 **Lưu ý cho báo cáo:** “80% train” ở đây là dữ liệu dùng để xây dựng kho truy xuất; dự án **không fine-tune/huấn luyện lại** model Qwen hay model embedding. RAG lấy tài liệu khi trả lời, theo [mô tả của LangChain](https://docs.langchain.com/oss/python/deepagents/retrieval). Tập test 20% chưa đồng nghĩa độ chính xác 20% hay bất kỳ chỉ số chất lượng nào.
 
-Chất lượng từng câu trả lời trong Excel chưa được xác minh thủ công. Chatbot hỗ trợ tham khảo khi tập luyện, không thay thế đánh giá chuyên môn khi có chấn thương hoặc bệnh lý.
+Trong 20 câu đã chạy, đồng đội đã ghi duyệt tay 18 đạt/2 không đạt theo tiêu chí riêng; chưa có xác minh chuyên môn độc lập cho toàn bộ 193 câu. Chatbot hỗ trợ tham khảo khi tập luyện, không thay thế đánh giá chuyên môn khi có chấn thương hoặc bệnh lý.
 
 ### Báo cáo Excel
 
 [Hướng dẫn và trạng thái đánh giá hiện tại](reports/README.md) ghi số câu đã chấm, cách đọc điểm và những giới hạn của báo cáo. Chạy lệnh kiểm toán bên dưới để xem trạng thái mới nhất trực tiếp từ file.
 
-[Mở báo cáo train/test](reports/AI-4GYM_train_test_report.xlsx) để xem tổng quan, danh sách 772 câu train, 193 câu test và kết quả chatbot trên từng câu test. Sheet `Danh gia Test` ghi câu trả lời thực tế, điểm Qwen local (0–2), lý do chấm, Token F1, ROUGE-L F1, nguồn RAG và thời gian trả lời. Điểm 2 là đạt, 1 là đúng một phần, 0 là sai hoặc từ chối. Tỷ lệ đạt tự động = số câu điểm 2 / số câu đã chạy; chỉ khi chạy đủ 193 câu mới là kết quả toàn bộ tập test. Có thêm cột `Duyệt tay (1/0)` để kiểm tra độc lập.
+[Bàn giao Security, Evaluation & Performance](reports/SECURITY_PERFORMANCE.md) ghi test prompt injection, session/replay, chấm lại câu 20 và phép đo độ trễ local.
+
+[Mở báo cáo train/test](reports/AI-4GYM_train_test_report.xlsx) để xem tổng quan, danh sách 772 câu train, 193 câu test và kết quả chatbot trên từng câu test. Sheet `Danh gia Test` ghi câu trả lời thực tế, điểm Qwen local (0–2), lý do chấm, Token F1, ROUGE-L F1, nguồn RAG và thời gian ghi cũ. Trường thời gian cũ có thể gồm cả judge, không dùng làm độ trễ chatbot. Điểm 2 là đạt, 1 là đúng một phần, 0 là sai hoặc từ chối. Tỷ lệ đạt tự động = số câu điểm 2 / số câu đã chạy; chỉ khi chạy đủ 193 câu mới là kết quả toàn bộ tập test. Có thêm cột `Duyệt tay (1/0)` để kiểm tra độc lập.
 
 **Cách chạy đánh giá đầy đủ** tại `BE/`:
 

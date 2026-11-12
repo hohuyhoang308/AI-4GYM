@@ -257,7 +257,7 @@ def add_overview(workbook: Workbook, manifest: dict, exercise_count: int, duplic
         (20, "Tỷ lệ đạt tự động", passed / completed if completed else "Chưa chạy"),
         (21, "Token F1 trung bình", sum(result["token_f1"] for result in results.values()) / completed if completed else "Chưa chạy"),
         (22, "ROUGE-L F1 trung bình", sum(result["rouge_l_f1"] for result in results.values()) / completed if completed else "Chưa chạy"),
-        (23, "Thời gian TB (giây)", sum(result["seconds"] for result in results.values()) / completed if completed else "Chưa chạy"),
+        (23, "TG ghi cũ TB (giây)", sum(result["seconds"] for result in results.values()) / completed if completed else "Chưa chạy"),
     ]
     for number, label, value in summary:
         sheet[f"A{number}"] = label
@@ -275,7 +275,7 @@ def add_overview(workbook: Workbook, manifest: dict, exercise_count: int, duplic
     sheet["B25"].number_format = "0.0%"
     sheet["B25"].font = Font(name="Aptos", size=11, color=GREEN)
     sheet.merge_cells("A27:H28")
-    sheet["A27"] = "Điểm 0/1/2 do Qwen local chấm theo đáp án tham chiếu, không phải đánh giá độc lập của con người. Tỷ lệ đạt = số câu điểm 2 / số câu đã chạy; khi đủ 193 câu mới là kết quả toàn bộ test. Token F1 và ROUGE-L chỉ đo mức trùng từ, không chứng minh câu trả lời đúng. Có thể duyệt tay ở sheet 'Danh gia Test'."
+    sheet["A27"] = "Điểm 0/1/2 do Qwen local chấm theo đáp án tham chiếu, không phải đánh giá độc lập. Các dòng có thể dùng judge v2/v3 khác nhau; xem JSONL. Thời gian cũ có thể gồm cả chấm AI, không dùng làm latency chatbot. Token F1/ROUGE-L chỉ đo trùng từ."
     sheet["A27"].alignment = Alignment(wrap_text=True, vertical="center")
     sheet["A27"].fill = PatternFill("solid", fgColor=PALE)
     sheet["A27"].font = Font(name="Aptos", size=10, color=DARK)
@@ -306,7 +306,7 @@ def add_overview(workbook: Workbook, manifest: dict, exercise_count: int, duplic
     sheet["A39"] = "Model embedding"
     sheet["B39"] = settings.embed_model
     sheet["A40"] = "Quy tắc chấm tự động"
-    sheet["B40"] = "Qwen judge v2: 0/1/2 theo đáp án tham chiếu"
+    sheet["B40"] = "Qwen judge v2/v3; v3 có cổng kiểm tra 150 phút/tuần"
     sheet.sheet_properties.pageSetUpPr.fitToPage = True
     sheet.page_setup.fitToWidth = 1
     sheet.page_setup.orientation = "landscape"

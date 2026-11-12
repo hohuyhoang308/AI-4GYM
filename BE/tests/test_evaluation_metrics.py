@@ -5,10 +5,38 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from app.scripts.evaluate_chatbot import compact_results, read_results, rouge_l_f1, token_f1
+from app.scripts.evaluate_chatbot import compact_results, grade, read_results, required_condition_cap, rouge_l_f1, token_f1
 
 
 class EvaluationMetricsTest(unittest.TestCase):
+    def test_cardio_target_is_mandatory_for_full_credit(self) -> None:
+        reference = "Tối thiểu 150 phút cardio cường độ vừa phải mỗi tuần và 2-3 buổi tập sức mạnh."
+        cases = [
+            ("Cardio 3–5 buổi/tuần, mỗi buổi 20–30 phút.", 1),
+            ("Cardio 5 buổi/tuần, mỗi buổi 30 phút.", 2),
+            ("Cardio ít nhất 150 phút mỗi tuần.", 2),
+            ("Cardio 3 buổi/tuần, mỗi buổi 50 phút.", 2),
+            ("Cardio 4 buổi/tuần, mỗi buổi 30 phút.", 1),
+        ]
+        for answer, expected in cases:
+            with self.subTest(answer=answer):
+                self.assertEqual(required_condition_cap(reference, answer)[0], expected)
+        self.assertEqual(required_condition_cap(
+            "Lịch này tương đương 150 phút hoạt động aerobic mỗi tuần.",
+            "Đi bộ 5–10 phút mỗi ngày rồi tăng dần sau 2 tuần."
+        )[0], 1)
+
+    def test_judge_cannot_override_mandatory_numeric_condition(self) -> None:
+        class OvergenerousJudge:
+            def invoke(self, messages):
+                return type("Reply", (), {"content": '{"score": 2, "reason": "Đủ ý"}'})()
+
+        score, reason = grade(OvergenerousJudge(), "Cân bằng cardio và tạ?",
+                              "Tối thiểu 150 phút cardio mỗi tuần và tập tạ 2 buổi.",
+                              "Cardio 3–5 buổi/tuần, mỗi buổi 20–30 phút; tập tạ 2 buổi.")
+        self.assertEqual(score, 1)
+        self.assertIn("150 phút", reason)
+
     def test_overlap_metrics_reward_matching_words_and_order(self) -> None:
         self.assertEqual(token_f1("plank tăng sức mạnh", "plank tăng sức mạnh"), 1.0)
         self.assertEqual(rouge_l_f1("plank tăng sức mạnh", "plank tăng sức mạnh"), 1.0)
