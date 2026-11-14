@@ -48,6 +48,16 @@ export type Health = {
   database_running: boolean
 }
 
+export function safeUUID(): string {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+    return crypto.randomUUID()
+  }
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+    const r = (Math.random() * 16) | 0
+    return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16)
+  })
+}
+
 const API_PREFIX = import.meta.env.DEV ? '/api' : ''
 
 async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
@@ -60,6 +70,9 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
     },
   })
   if (!response.ok) {
+    if (response.status === 401) {
+      document.cookie = 'ai4gym_session=; Max-Age=0; path=/;'
+    }
     let detail = `Có lỗi xảy ra (${response.status})`
     try {
       const body = await response.json()
@@ -86,5 +99,5 @@ export const api = {
   renameConversation: (id: string, title: string) => request<Conversation>(`/conversations/${encodeURIComponent(id)}`, { method: 'PATCH', body: JSON.stringify({ title }) }),
   deleteConversation: (id: string) => request<void>(`/conversations/${encodeURIComponent(id)}`, { method: 'DELETE' }),
   chat: (message: string, session_id?: string | null, conversation_id?: string | null) =>
-    request<ChatReply>('/chat', { method: 'POST', body: JSON.stringify({ message, session_id, conversation_id, request_id: crypto.randomUUID() }) }),
+    request<ChatReply>('/chat', { method: 'POST', body: JSON.stringify({ message, session_id, conversation_id, request_id: safeUUID() }) }),
 }

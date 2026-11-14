@@ -1,0 +1,278 @@
+{
+  "before_after_fixes": [
+    {
+      "id": "qa-214",
+      "question": "Làm thế nào để thực hiện bài tập chèo thuyền gập người (bent-over row)?",
+      "before": "Đứng với tạ ở tay trái, đặt ghế dài hoặc ghế tựa ở bên phải. Đặt tay và đầu gối phải lên ghế.\nLưu ý: Luôn khởi động kỹ trước khi tập và duy trì mức tạ vừa phải để đảm bảo an toàn.",
+      "before_issue": "Chỉ mô tả tư thế chuẩn bị, thiếu pha kéo, co bả vai, hạ tạ và lỗi sai (Điểm 1/2).",
+      "after": "Để thực hiện bài tập **chèo thuyền gập người (bent-over row)**, bạn cần thực hiện theo các bước chi tiết dưới đây để đảm bảo an toàn và hiệu quả kích thích nhóm cơ lưng:\n\n---\n\n### **1. Tư thế chuẩn bị (Setup)**  \n- Đứng thẳng, hai chân rộng bằng vai, đặt một chân (ví dụ chân phải) lên ghế dài hoặc ghế tựa đặt ở bên phải.  \n- Đặt **đầu gối phải** và **tay phải** lên ghế, giữ lưng phẳng tự nhiên, song song hoặc hơi dốc nhẹ so với sàn.  \n- **Cánh tay trái** cầm tạ đơn (dụng cụ) buông thõng trực tiếp dưới vai trái, tay phải giữ cố định trên ghế.  \n- Đảm bảo lưng không cong, không vặn người, hai bả vai được ép chặt vào nhau.\n\n---\n\n### **2. Các bước chuyển động chi tiết**  \n- **Bước kéo (kéo tạ về phía trước):**  \n  - Siết cơ bụng, giữ lưng thẳng.  \n  - Gập khuỷu tay (không xòe quá xa), kéo tạ về phía **xương sườn** (gần ngực), đồng thời giữ thân người ổn định.  \n  - **Thở ra** khi kéo tạ (thở ra khi cơ lưng hoạt động mạnh).  \n\n- **Điểm dừng (đỉnh chuyển động):**  \n  - Dừng lại **1 nhịp** ở vị trí tạ gần ngực, giữ lưng phẳng, siết cơ lưng để kích thích tối đa.  \n\n- **Bước hạ tạ (hạ tạ trở lại):**  \n  - Hít vào từ từ, kéo tạ về vị trí ban đầu (giữ tạ buông thõng dưới vai), **không dùng lực giật** hay thả tạ rơi tự do.  \n  - Hạ tạ một cách **có kiểm soát**, giữ lưng thẳng, không cong lưng.  \n\n---\n\n### **3. Lỗi sai thường gặp cần tránh**  \n- ❌ **Cong lưng hoặc vặn người** khi kéo tạ → gây chấn thương lưng.  \n- ❌ **Dùng lực giật của thân người** thay vì dùng cơ lưng → không kích thích đúng nhóm cơ.  \n- ❌ **Xòe khuỷu tay quá xa thân người** → làm mất cân bằng và tăng nguy cơ chấn thương.  \n- ❌ **Thả tạ rơi tự do** → không kiểm soát chuyển động, dễ gây đau lưng hoặc tổn thương cơ.\n\n---\n\n### **4. Lưu ý an toàn và đổi bên**  \n- Mỗi lần thực hiện, tập **một bên** (ví dụ: tay trái → tay phải),",
+      "sources": [
+        "exercise-bent-over-row",
+        "qa-769",
+        "qa-487",
+        "qa-212",
+        "qa-731",
+        "qa-455"
+      ],
+      "refused": false,
+      "seconds": 49.95
+    },
+    {
+      "id": "qa-90",
+      "question": "Trẻ em và thanh thiếu niên nên vận động thể chất ở mức độ như thế nào?",
+      "before": "Theo Hướng dẫn Hoạt động Thể chất cho người Mỹ, trẻ em và thanh thiếu niên nên hướng tới ít nhất 150 phút hoạt động aerobic cường độ vừa phải hoặc 75 phút hoạt động aerobic cường độ mạnh mỗi tuần.",
+      "before_issue": "Trả lời sai sang khuyến nghị 150 phút/tuần của người lớn; trẻ em cần ít nhất 60 phút mỗi ngày (Điểm 1/2).",
+      "after": "Trẻ em và thanh thiếu niên nên dành ít nhất **60 phút hoạt động thể chất từ vừa đến mạnh mỗi ngày**.\n\nMức độ này bao gồm các hoạt động như:\n\n- Đi bộ nhanh, chạy, nhảy, chơi thể thao, đạp xe, bơi lội, hoặc các hoạt động vận động khác.\n- Hoạt động thể chất giúp cải thiện:\n  - Thể lực và sức khỏe tim mạch.\n  - Sức khỏe xương khớp.\n  - Kết quả học tập và nhận thức.\n  - Sức khỏe tinh thần, giúp giảm trầm cảm và lo âu.\n  - Giảm lượng mỡ thừa trong cơ thể.\n\nLưu ý:  \n- Trẻ em và thanh thiếu niên nên **tránh ngồi lâu trước màn hình** (như điện thoại, máy tính, TV).  \n- Các hoạt động nên được thực hiện **từng ngày**, không cần tập trung vào thời gian dài trong một buổi.  \n- Có thể chia nhỏ thành các buổi ngắn (ví dụ: 15–20 phút mỗi buổi) trong ngày, miễn là tổng cộng đạt 60 phút.\n\n👉 Gợi ý: Duy trì thói quen vận động mỗi ngày bằng cách đi bộ đến trường, chơi thể thao cùng bạn bè, hoặc tham gia các hoạt động ngoài trời.",
+      "sources": [
+        "qa-311",
+        "qa-66",
+        "qa-170",
+        "qa-155",
+        "qa-177",
+        "qa-4"
+      ],
+      "refused": false,
+      "seconds": 17.11
+    },
+    {
+      "id": "qa-371",
+      "question": "Tôi có thể tập thể dục trong thời gian nhịn ăn (ví dụ: tháng Ramadan) không?",
+      "before": "Mình chỉ hỗ trợ tra cứu bài tập, nhóm cơ và gợi ý lịch tập Gym/Fitness. Bạn hãy hỏi về chủ đề này nhé.",
+      "before_issue": "Bị chặn ngoài phạm vi (Refusal), từ chối trả lời (Điểm 0/2).",
+      "after": "Với việc nhịn ăn như trong tháng Ramadan, bạn **có thể tập thể dục**, nhưng cần lưu ý các yếu tố sau để đảm bảo an toàn và hiệu quả:\n\n### 1. **Tư thế chuẩn bị và mức độ tập luyện**\n- **Nên tập ở mức độ nhẹ đến vừa phải** (mức độ nhẹ – vừa), tránh các bài tập cường độ cao, đặc biệt khi đang nhịn ăn kéo dài.\n- Tập luyện nên được thực hiện **trong thời gian có thể duy trì năng lượng**, ví dụ: buổi sáng sau khi ăn cơm, hoặc buổi chiều khi đã ăn nhẹ (nếu có).\n- Tránh tập khi cảm thấy quá mệt, chóng mặt hoặc mất nước.\n\n### 2. **Các bước thực hiện (ví dụ với bài tập đi bộ nhẹ)**\n- **Tư thế chuẩn bị**: Đứng thẳng, hai chân cách nhau rộng bằng vai, vai thả lỏng, lưng thẳng, mắt nhìn về trước.\n- **Các bước chuyển động**:\n  - Bắt đầu với bước đi đều, nhịp nhàng, mỗi bước chân kéo dài khoảng 2–3 giây.\n  - Hít vào khi bước chân ra, thở ra khi bước chân vào (nhịp thở đồng bộ với bước đi).\n  - Duy trì nhịp đi bộ đều, không nhanh, không vội.\n- **Thời lượng**: 15–30 phút là phù hợp với người nhịn ăn, tùy theo cảm giác cơ thể.\n- **Lỗi sai thường gặp cần tránh**: Bắt đầu quá nhanh, chạy hoặc đạp xe mạnh, hoặc tập khi cảm thấy chóng mặt.\n\n### 3. **Lưu ý an toàn**\n- **Chú ý bổ sung đủ nước** khi ăn uống (dù chỉ ăn nhẹ), vì cơ thể mất nước nhiều khi nhịn ăn.\n- **Ngừng tập nếu cảm thấy chóng mặt, buồn nôn, hoặc đau đầu** – đây là dấu hiệu của mất nước hoặc thiếu năng lượng.\n- **Không tập quá lâu hoặc quá cường độ** nếu bạn cảm thấy mệt mỏi hoặc kiệt sức.\n\n### 4. **Đổi bên (nếu tập từng bên)**\n- Nếu tập các bài tập như kéo tạ, nâng tạ, hoặc bài tập cơ (ví dụ: tập tay, chân), nên **đổi bên sau mỗi 10–15 phút** để cơ thể được nghỉ ngơi và cân bằng.\n\n### 5. **Lưu ý đặc biệt**\n- Nếu bạn đang **cảm thấy mệt mỏi hoặc kiệt sức**, hãy chuyển sang các hoạt động nhẹ như **giãn cơ, yoga thư giãn, hoặc đi bộ thong thả** thay vì tập cường độ cao.\n- Tập thể dục thường xuyên **có thể giúp cải thiện cảm giác năng lượng",
+      "sources": [
+        "qa-595",
+        "qa-639",
+        "qa-347",
+        "qa-323",
+        "qa-422",
+        "qa-60"
+      ],
+      "refused": false,
+      "seconds": 33.87
+    }
+  ],
+  "multi_turn_convo": [
+    {
+      "turn": 1,
+      "user": "Tôi muốn tập chân tại nhà.",
+      "bot": "Lịch 3 buổi/tuần — Toàn thân (Tại nhà - Không dụng cụ):\n- Thứ Hai: Toàn thân A (Chân) — Squat trọng lượng cơ thể, Nâng hông.\n- Thứ Tư: Toàn thân B (Chân) — Squat trọng lượng cơ thể, Nâng hông.\n- Thứ Sáu: Toàn thân A (Chân) — Squat trọng lượng cơ thể, Nâng hông.\n\nChọn mức tập dễ kiểm soát, ưu tiên kỹ thuật và tăng dần theo khả năng. Khởi động trước buổi tập và dừng nếu đau bất thường. Các bài tập được thiết kế hoàn toàn bằng trọng lượng cơ thể (Bodyweight), không cần tạ hay máy tập.\nNgười mới nên bắt đầu 2–3 buổi sức mạnh mỗi tuần, tập các nhóm cơ lớn và tăng dần theo khả năng.",
+      "sources": [
+        "plan-3"
+      ]
+    },
+    {
+      "turn": 2,
+      "user": "Tôi không có dụng cụ.",
+      "bot": "Mình đã điều chỉnh lịch tập theo yêu cầu của bạn (100% sử dụng trọng lượng cơ thể Bodyweight tại nhà):\nLịch 3 buổi/tuần — Toàn thân (Tại nhà - Không dụng cụ):\n- Thứ Hai: Toàn thân A (Chân) — Squat trọng lượng cơ thể, Nâng hông.\n- Thứ Tư: Toàn thân B (Chân) — Squat trọng lượng cơ thể, Nâng hông.\n- Thứ Sáu: Toàn thân A (Chân) — Squat trọng lượng cơ thể, Nâng hông.\n\nChọn mức tập dễ kiểm soát, ưu tiên kỹ thuật và tăng dần theo khả năng. Khởi động trước buổi tập và dừng nếu đau bất thường. Các bài tập được thiết kế hoàn toàn bằng trọng lượng cơ thể (Bodyweight), không cần tạ hay máy tập.\nNgười mới nên bắt đầu 2–3 buổi sức mạnh mỗi tuần, tập các nhóm cơ lớn và tăng dần theo khả năng.",
+      "sources": [
+        "plan-3"
+      ]
+    },
+    {
+      "turn": 3,
+      "user": "Tôi bị đau khớp gối thì sao?",
+      "bot": "Mình đã ghi nhận tình trạng đau khớp gối của bạn và điều chỉnh các bài tập an toàn (giảm áp lực lên gối, ưu tiên Nâng hông và Plank):\nLịch 3 buổi/tuần — Toàn thân (Tại nhà - Không dụng cụ):\n- Thứ Hai: Toàn thân A (Chân) — Nâng hông.\n- Thứ Tư: Toàn thân B (Chân) — Nâng hông.\n- Thứ Sáu: Toàn thân A (Chân) — Nâng hông.\n\nChọn mức tập dễ kiểm soát, ưu tiên kỹ thuật và tăng dần theo khả năng. Khởi động trước buổi tập và dừng nếu đau bất thường. Các bài tập được thiết kế hoàn toàn bằng trọng lượng cơ thể (Bodyweight), không cần tạ hay máy tập. Lưu ý khớp gối: Đã ưu tiên các động tác an toàn cho gối (như Glute Bridge, Plank); tránh gập gối quá sâu.\nNgười mới nên bắt đầu 2–3 buổi sức mạnh mỗi tuần, tập các nhóm cơ lớn và tăng dần theo khả năng.",
+      "sources": [
+        "plan-3"
+      ]
+    }
+  ],
+  "proactive_clarification": {
+    "user": "Tư vấn lịch tập cho tôi",
+    "bot": "Để mình thiết kế lịch tập phù hợp và cá nhân hóa nhất cho bạn, bạn vui lòng chia sẻ thêm một số thông tin nhé:\n1. **Thời gian**: Bạn dự định tập mấy buổi/tuần (và mỗi buổi khoảng bao nhiêu phút)?\n2. **Địa điểm & Dụng cụ**: Bạn tập ở phòng gym (đầy đủ máy) hay tại nhà (không dụng cụ hoặc có tạ đơn)?\n3. **Mục tiêu chính**: Bạn muốn giảm mỡ, tăng cơ bắp hay rèn luyện sức khỏe, sức bền?\n4. **Hạn chế thể chất**: Bạn có chấn thương hay tiền sử đau khớp (gối, lưng...) không?\n\n💡 *Nếu bạn là người mới bắt đầu và chưa chọn được, bạn có thể nói 'Gợi ý lịch 3 buổi' để mình tạo ngay lịch Toàn thân chuẩn ACSM cho bạn nhé!*"
+  },
+  "personalized_profiles": {
+    "profile_A_home_fatloss": {
+      "days_per_week": 3,
+      "split": "Toàn thân (Tại nhà - Không dụng cụ)",
+      "schedule": [
+        {
+          "weekday": 1,
+          "focus": "Toàn thân A",
+          "exercises": [
+            {
+              "id": "bodyweight-squat",
+              "name": "Squat trọng lượng cơ thể"
+            },
+            {
+              "id": "bent-knee-push-up",
+              "name": "Chống đẩy quỳ gối"
+            },
+            {
+              "id": "glute-bridge",
+              "name": "Nâng hông"
+            }
+          ]
+        },
+        {
+          "weekday": 3,
+          "focus": "Toàn thân B",
+          "exercises": [
+            {
+              "id": "bodyweight-squat",
+              "name": "Squat trọng lượng cơ thể"
+            },
+            {
+              "id": "bent-knee-push-up",
+              "name": "Chống đẩy quỳ gối"
+            },
+            {
+              "id": "front-plank",
+              "name": "Plank cẳng tay"
+            }
+          ]
+        },
+        {
+          "weekday": 5,
+          "focus": "Toàn thân A",
+          "exercises": [
+            {
+              "id": "bodyweight-squat",
+              "name": "Squat trọng lượng cơ thể"
+            },
+            {
+              "id": "bent-knee-push-up",
+              "name": "Chống đẩy quỳ gối"
+            },
+            {
+              "id": "glute-bridge",
+              "name": "Nâng hông"
+            }
+          ]
+        }
+      ],
+      "guidance": "Chọn mức tập dễ kiểm soát, ưu tiên kỹ thuật và tăng dần theo khả năng. Khởi động trước buổi tập và dừng nếu đau bất thường. Các bài tập được thiết kế hoàn toàn bằng trọng lượng cơ thể (Bodyweight), không cần tạ hay máy tập. Mục tiêu giảm mỡ: Kết hợp các bài sức mạnh này với tối thiểu 150 phút vận động thể chất/aerobic vừa phải mỗi tuần.",
+      "note": "Người mới nên bắt đầu 2–3 buổi sức mạnh mỗi tuần, tập các nhóm cơ lớn và tăng dần theo khả năng.",
+      "source": "https://acsm.org/resistance-training-guidelines-update-2026/"
+    },
+    "profile_B_gym_hypertrophy": {
+      "days_per_week": 4,
+      "split": "Upper/Lower",
+      "schedule": [
+        {
+          "weekday": 1,
+          "focus": "Thân trên A",
+          "exercises": [
+            {
+              "id": "bent-knee-push-up",
+              "name": "Chống đẩy quỳ gối"
+            },
+            {
+              "id": "seated-row",
+              "name": "Kéo cáp ngồi"
+            },
+            {
+              "id": "shoulder-press",
+              "name": "Đẩy vai trên máy"
+            },
+            {
+              "id": "bicep-curl",
+              "name": "Cuốn tay trước với dây kháng lực"
+            }
+          ]
+        },
+        {
+          "weekday": 2,
+          "focus": "Thân dưới A",
+          "exercises": [
+            {
+              "id": "bodyweight-squat",
+              "name": "Squat trọng lượng cơ thể"
+            },
+            {
+              "id": "glute-bridge",
+              "name": "Nâng hông"
+            },
+            {
+              "id": "front-plank",
+              "name": "Plank cẳng tay"
+            }
+          ]
+        },
+        {
+          "weekday": 4,
+          "focus": "Thân trên B",
+          "exercises": [
+            {
+              "id": "chest-press",
+              "name": "Đẩy ngực với tạ đòn"
+            },
+            {
+              "id": "lat-pulldown",
+              "name": "Kéo xô trước ngực"
+            },
+            {
+              "id": "shoulder-press",
+              "name": "Đẩy vai trên máy"
+            },
+            {
+              "id": "bicep-curl",
+              "name": "Cuốn tay trước với dây kháng lực"
+            }
+          ]
+        },
+        {
+          "weekday": 5,
+          "focus": "Thân dưới B",
+          "exercises": [
+            {
+              "id": "leg-press",
+              "name": "Đạp chân trên máy"
+            },
+            {
+              "id": "glute-bridge",
+              "name": "Nâng hông"
+            },
+            {
+              "id": "front-plank",
+              "name": "Plank cẳng tay"
+            }
+          ]
+        }
+      ],
+      "guidance": "Chọn mức tập dễ kiểm soát, ưu tiên kỹ thuật và tăng dần theo khả năng. Khởi động trước buổi tập và dừng nếu đau bất thường. Mục tiêu tăng cơ: Áp dụng nguyên tắc quá tải tiến triển và bổ sung đủ dinh dưỡng protein.",
+      "note": "Người mới nên bắt đầu 2–3 buổi sức mạnh mỗi tuần, tập các nhóm cơ lớn và tăng dần theo khả năng.",
+      "source": "https://acsm.org/resistance-training-guidelines-update-2026/"
+    },
+    "profile_C_knee_friendly": {
+      "days_per_week": 3,
+      "split": "Toàn thân (Tại nhà - Không dụng cụ)",
+      "schedule": [
+        {
+          "weekday": 1,
+          "focus": "Toàn thân A (Chân)",
+          "exercises": [
+            {
+              "id": "glute-bridge",
+              "name": "Nâng hông"
+            }
+          ]
+        },
+        {
+          "weekday": 3,
+          "focus": "Toàn thân B (Chân)",
+          "exercises": [
+            {
+              "id": "glute-bridge",
+              "name": "Nâng hông"
+            }
+          ]
+        },
+        {
+          "weekday": 5,
+          "focus": "Toàn thân A (Chân)",
+          "exercises": [
+            {
+              "id": "glute-bridge",
+              "name": "Nâng hông"
+            }
+          ]
+        }
+      ],
+      "guidance": "Chọn mức tập dễ kiểm soát, ưu tiên kỹ thuật và tăng dần theo khả năng. Khởi động trước buổi tập và dừng nếu đau bất thường. Các bài tập được thiết kế hoàn toàn bằng trọng lượng cơ thể (Bodyweight), không cần tạ hay máy tập. Lưu ý khớp gối: Đã ưu tiên các động tác an toàn cho gối (như Glute Bridge, Plank); tránh gập gối quá sâu.",
+      "note": "Người mới nên bắt đầu 2–3 buổi sức mạnh mỗi tuần, tập các nhóm cơ lớn và tăng dần theo khả năng.",
+      "source": "https://acsm.org/resistance-training-guidelines-update-2026/"
+    }
+  }
+}

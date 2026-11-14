@@ -4,7 +4,7 @@ import AuthModal, { type AuthMode } from './components/AuthModal'
 import Composer from './components/Composer'
 import MessageBubble from './components/MessageBubble'
 import Sidebar from './components/Sidebar'
-import { api, type ChatMessage, type Conversation, type Health, type User } from './lib/api'
+import { api, safeUUID, type ChatMessage, type Conversation, type Health, type User } from './lib/api'
 
 const suggestions = [
   { icon: Dumbbell, label: 'Kỹ thuật bài tập', prompt: 'Hướng dẫn squat đúng kỹ thuật và những lỗi cần tránh', tone: 'orange' },
@@ -166,13 +166,13 @@ function App() {
   async function sendMessage(value = input) {
     const message = value.trim()
     if (!message || pending || booting || loadingConversation) return
-    const optimisticId = crypto.randomUUID()
+    const optimisticId = safeUUID()
     setMessages((items) => [...items, { id: optimisticId, role: 'user', content: message, sources: [] }])
     setInput('')
     setPending(true)
     try {
       const reply = await api.chat(message, user ? null : guestSessionId, user ? activeId : null)
-      setMessages((items) => [...items, { id: crypto.randomUUID(), role: 'assistant', content: reply.answer, sources: reply.sources }])
+      setMessages((items) => [...items, { id: safeUUID(), role: 'assistant', content: reply.answer, sources: reply.sources }])
       if (user && reply.conversation_id) {
         setActiveId(reply.conversation_id)
         try {

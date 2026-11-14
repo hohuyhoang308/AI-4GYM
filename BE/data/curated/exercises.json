@@ -68,5 +68,24 @@
     "steps": ["Ngồi tựa lưng, chỉnh tay nắm ngang vai hoặc hơi cao hơn vai, đặt chân chắc trên sàn.", "Siết bụng và đẩy tay nắm lên từ từ, giữ cổ tay thẳng.", "Dừng trước khi khóa cứng khuỷu tay.", "Hạ tay nắm xuống chậm về vị trí đầu."],
     "common_mistakes": ["Ưỡn lưng dưới", "Khóa cứng khuỷu tay", "Thả tạ rơi nhanh"],
     "source": "https://www.acefitness.org/resources/everyone/exercise-library/187/seated-machine-close-grip-shoulder-press/"
+  },
+  {
+    "id": "bent-over-row", "name": "Chèo thuyền gập người với tạ đơn", "aliases": ["bent-over row", "bent over row", "chèo thuyền gập người", "one arm dumbbell row", "chèo thuyền một tay", "kéo tạ một tay"],
+    "primary_muscles": ["lưng"], "secondary_muscles": ["tay", "vai"], "equipment": "Ghế tập và tạ đơn",
+    "steps": [
+      "Đứng với tạ ở tay trái, đặt ghế dài hoặc ghế tựa ở bên phải.",
+      "Đặt tay phải và đầu gối phải lên ghế, giữ lưng phẳng tự nhiên song song hoặc hơi dốc so với sàn.",
+      "Cánh tay trái cầm tạ buông thõng trực tiếp dưới vai trái.",
+      "Siết cơ bụng, ép chặt hai bả vai vào nhau, gập khuỷu tay để kéo tạ về phía xương sườn; thở ra khi kéo.",
+      "Dừng lại 1 nhịp ở đỉnh chuyển động để siết cơ lưng, sau đó hít vào và từ từ hạ tạ quay trở lại tư thế ban đầu.",
+      "Lặp lại đủ số lần rồi đổi sang cánh tay và chân đối diện."
+    ],
+    "common_mistakes": [
+      "Cong lưng hoặc vặn người khi kéo tạ",
+      "Dùng lực giật của thân người thay vì dùng cơ lưng",
+      "Xòe khuỷu tay quá xa thân người",
+      "Thả tạ rơi tự do không kiểm soát"
+    ],
+    "source": "https://www.acefitness.org/resources/everyone/exercise-library/48/one-arm-dumbbell-row/"
   }
 ]
