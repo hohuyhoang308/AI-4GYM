@@ -1,15 +1,29 @@
 {
   "Tieu_luan_AI_4GYM_CT07PM": {
-    "pages": 31,
-    "text_characters": 48875,
+    "pages": 41,
+    "text_characters": 52514,
     "blank_pages": [],
-    "required_evidence_text": "PASS"
+    "required_evidence_text": "PASS",
+    "school_format": "PASS",
+    "word_pdf_content": "PASS",
+    "preserved_source_parts": 8,
+    "body_numbering": "1–32 in centered header",
+    "navigation_lists": 3,
+    "table_and_figure_captions": 22,
+    "source_document_unchanged": true,
+    "visual_review": "PASS: all 41 PDF pages inspected"
   },
   "Bao_cao_kiem_thu_AI_4GYM": {
     "pages": 12,
-    "text_characters": 19683,
+    "text_characters": 19436,
     "blank_pages": [],
-    "required_evidence_text": "PASS"
+    "required_evidence_text": "PASS",
+    "references": "PASS",
+    "word_pdf_content": "PASS",
+    "original_images_preserved": true,
+    "visual_review": "PASS: all 12 PDF pages inspected",
+    "running_header_removed": true,
+    "body_and_page_numbers_unchanged": true
   },
   "workbook": {
     "Tong quan": {
@@ -46,5 +60,47 @@
     }
   },
   "source_hashes": "PASS",
-  "historical_artifacts_unchanged": true
+  "historical_artifacts_unchanged": true,
+  "review_date": "2026-11-25",
+  "documentation": {
+    "current_markdown_files": 7,
+    "local_links_checked": 50,
+    "broken_links": [],
+    "dataset_and_saved_evidence": "PASS",
+    "application_source_hashes": "PASS",
+    "thesis_and_saved_results_unchanged": "PASS",
+    "report_tool_syntax": "PASS",
+    "powershell_examples": "PASS: syntax parsed without executing examples",
+    "software_tests_rerun": false
+  },
+  "final_audit": {
+    "date": "2026-11-25",
+    "pdf_pages_visually_reviewed": 53,
+    "automatic_navigation_fields": 4,
+    "toc_page_numbers_checked": 74,
+    "toc_page_mismatches": [],
+    "broken_toc_anchors": [],
+    "unmatched_word_body_paragraphs": [],
+    "unresolved_comments_or_tracked_changes": false,
+    "current_markdown_files": 7,
+    "local_links_checked": 50,
+    "broken_links": [],
+    "tested_application_hashes_checked": 6,
+    "historical_scores_2_1_0": [
+      132,
+      56,
+      5
+    ],
+    "manual_review_pass_fail": [
+      187,
+      6
+    ],
+    "excel_error_cells": [],
+    "archive_entries": 58,
+    "manifest_file_hashes_checked": 57,
+    "archive_integrity": "PASS",
+    "report_tools_syntax": "PASS",
+    "software_tests_rerun": false,
+    "remaining_required_document_fixes": []
+  }
 }

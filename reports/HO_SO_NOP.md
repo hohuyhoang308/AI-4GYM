@@ -1,6 +1,6 @@
 # Hồ sơ báo cáo và kiểm thử AI-4GYM
 
-Cập nhật **25/11/2026**, sau khi pull remote từ `ba4fd9a` lên `9863d6531784`. Các sửa lỗi mới nằm trong thư mục làm việc sau commit nền; hash tệp đã kiểm tra được lưu trong kết quả.
+Cập nhật **25/11/2026**. Log kiểm thử cùng ngày ghi commit nền `9863d6531784` và hash các mô-đun sau sửa; dùng hash trong bằng chứng để nhận diện bản đã kiểm tra. Ngày cập nhật Word/PDF hoặc commit xuất bản tài liệu không phải thời điểm chạy lại kiểm thử.
 
 ## Tệp chính để nộp
 
@@ -8,12 +8,12 @@ Bản ZIP đầy đủ: [releases/AI_4GYM_HO_SO_NOP_CT07PM.zip](releases/AI_4GYM
 
 | Tệp | Nội dung |
 | --- | --- |
-| [Tieu_luan_AI_4GYM_CT07PM.docx](Tieu_luan_AI_4GYM_CT07PM.docx) / [PDF](Tieu_luan_AI_4GYM_CT07PM.pdf) | Tiểu luận viết lại theo mã nguồn, dữ liệu và kiểm thử hiện hành; mục lục đã cập nhật. |
+| [Tieu_luan_AI_4GYM_CT07PM.docx](Tieu_luan_AI_4GYM_CT07PM.docx) / [PDF](Tieu_luan_AI_4GYM_CT07PM.pdf) | Tiểu luận của nhóm được chỉnh sửa, bổ sung theo biểu mẫu nhà trường và hồ sơ hiện hành; giữ bố cục bốn chương, bỏ dòng Khóa ở bìa và cập nhật mục lục. |
 | [Bao_cao_kiem_thu_AI_4GYM.docx](Bao_cao_kiem_thu_AI_4GYM.docx) / [PDF](Bao_cao_kiem_thu_AI_4GYM.pdf) | Báo cáo kiểm thử riêng, lỗi trước/sau và rà soát AI. |
 | [Bo_kiem_thu_AI_4GYM.xlsx](Bo_kiem_thu_AI_4GYM.xlsx) | Ma trận ca có điều kiện/đầu vào/kỳ vọng/thực tế; phản hồi mới, 193 bản ghi cũ và nhận xét AI. |
 | [AI_REVIEW_NHAN_XET.md](results/AI_REVIEW_NHAN_XET.md) | Đọc lại phản hồi thực tế, nêu các vấn đề nội dung và hạn chế của bộ chấm. |
 
-Hồ sơ mới **không có phần hướng dẫn quy trình kiểm thử**. Mã kiểm thử và log được giữ để đối chiếu. Word ban đầu được sao lưu tại `.local/backups/Tieu_luan_AI_4GYM_CT07PM_truoc_chinh_sua.docx` (ở gốc workspace, không đưa lên Git).
+Mã kiểm thử và log được giữ để đối chiếu. Tiểu luận hiện hành dựa trên bản của nhóm, đã chỉnh theo biểu mẫu trường; bản Word/PDF là cặp tài liệu cần cập nhật cùng nhau. Bản sao local, nếu có, không thuộc gói nộp và không được bảo đảm có sẵn sau khi clone. [Biên bản rà soát](../docs/report-review.md) ghi các hạng mục đã đối chiếu.
 
 ## Kết quả thực thi mới
 
@@ -46,6 +46,6 @@ Kết luận: các luồng phần mềm đạt trong phạm vi thử nghiệm; n
 
 Excel hiện hành có nguồn theo câu; dữ liệu gồm 965 cặp hỏi–đáp, 772 train/corpus, 193 test và 11 bài tập bổ sung. Có 1 câu test gần trùng từ vựng với train theo Jaccard ≥0,8; không trùng ID hoặc câu hỏi chuẩn hóa giữa hai tập. “Train” là corpus RAG, không phải fine-tune Qwen.
 
-154 trường thời gian cũ không ghi kiểu đo, 5 trường ghi legacy có thể gồm judge, 34 trường ghi chatbot_only. Không tính latency chung từ chúng. Số liệu cũ 115/59/19, nhãn tay 174/19 và 782 tài liệu trong một số báo cáo lịch sử không thay số liệu hiện hành.
+154 trường thời gian cũ không ghi kiểu đo, 5 trường ghi legacy có thể gồm judge, 34 trường ghi chatbot_only. Không tính latency chung từ chúng. Các phân bố cũ như 115/59/19 hoặc 117/57/19, nhãn tay 174/19 và 782 tài liệu trong hồ sơ lịch sử không thay số liệu hiện hành.
 
 Các tài liệu trong `history/` được giữ làm hồ sơ lịch sử theo ngày ghi trong tệp. Ưu tiên báo cáo mới và JSON khi trích kết quả 25/11/2026.

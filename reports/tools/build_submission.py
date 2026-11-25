@@ -148,10 +148,6 @@ def make_document(title, subtitle):
     doc.styles["Caption"].font.color.rgb = RGBColor.from_string("333333")
     doc.styles["Caption"].paragraph_format.space_after = Pt(8)
     sec.different_first_page_header_footer = True
-    header = sec.header.paragraphs[0]
-    header.text = "AI-4GYM  |  CT07PM — Các ứng dụng trong AI"
-    header.runs[0].font.size = Pt(9)
-    header.runs[0].font.color.rgb = RGBColor.from_string(GRAY)
     footer = sec.footer.paragraphs[0]
     footer.alignment = WD_ALIGN_PARAGRAPH.CENTER
     field(footer, "PAGE")
@@ -314,7 +310,7 @@ def software_sections(doc, software, browser, before, after, number="4"):
     """)
 
 
-def ai_sections(doc, ai, history, manual, number="5"):
+def ai_sections(doc, ai, history, manual, number="5", rouge_reference="[9]"):
     scores = Counter(r['judge_score'] for r in history)
     versions = Counter(r.get('judge_version') for r in history)
     sm = ai['summary']
@@ -335,7 +331,7 @@ def ai_sections(doc, ai, history, manual, number="5"):
     image(doc, "historical_scores.png", f"Hình {number}.1. Phân bố điểm trên 193 bản ghi từ remote")
     token = sum(r['token_f1'] for r in history)/len(history)
     rouge = sum(r['rouge_l_f1'] for r in history)/len(history)
-    prose(doc, f"Token F1 trung bình của hồ sơ là {token:.4f}, ROUGE-L F1 trung bình là {rouge:.4f}. Các chỉ số chỉ phản ánh trùng từ và thứ tự từ sau chuẩn hóa. Một câu trả lời đủ ý nhưng diễn đạt khác có thể có F1 thấp; một câu lặp nhiều từ tham chiếu vẫn có thể sai hoặc thiếu điều kiện. Không dùng chúng thay cho đánh giá nội dung. Theo định nghĩa ROUGE-L, dãy con chung dài nhất là cơ sở đánh giá mức trùng thứ tự [9].")
+    prose(doc, f"Token F1 trung bình của hồ sơ là {token:.4f}, ROUGE-L F1 trung bình là {rouge:.4f}. Các chỉ số chỉ phản ánh trùng từ và thứ tự từ sau chuẩn hóa. Một câu trả lời đủ ý nhưng diễn đạt khác có thể có F1 thấp; một câu lặp nhiều từ tham chiếu vẫn có thể sai hoặc thiếu điều kiện. Không dùng chúng thay cho đánh giá nội dung. Theo định nghĩa ROUGE-L, dãy con chung dài nhất là cơ sở đánh giá mức trùng thứ tự {rouge_reference}.")
     prose(doc, "154 dòng cũ không ghi loại phép đo thời gian; 5 dòng ghi thời gian cũ có thể gồm cả judge; 34 dòng ghi chatbot_only. Vì điều kiện không đồng nhất, báo cáo này không tính một độ trễ chatbot chung từ trường seconds của toàn bộ 193 dòng. Hồ sơ cũ cũng không lưu đầy đủ hash mã nguồn cho từng câu, nên không dùng nó chứng minh chất lượng của các thay đổi vừa thực hiện.")
     doc.add_heading(f"{number}.3. Bộ tình huống hỏi mới và AI chấm lại", 2)
     prose(doc, f"Bộ mới có {sm['scenarios']} tình huống, {sm['user_turns']} lượt người dùng, sử dụng ChatService thật với Chroma {ai['indexed_documents']} tài liệu và hai mô hình local. Mô hình chấm là {ai['chat_model']} qua rubric v3, thang 0–2: 2 là đúng và đủ ý chính; 1 là thiếu ý hoặc điều kiện quan trọng; 0 là sai, không trả lời hoặc từ chối sai. Kiểm tra điều kiện xác định được thực hiện riêng với điểm judge.")
@@ -692,9 +688,12 @@ def main():
     chapter(doc, '1. KẾT QUẢ KIỂM THỬ PHẦN MỀM')
     software_sections(doc,software,browser,before,after,number='1')
     chapter(doc, '2. ĐÁNH GIÁ CHATBOT')
-    ai_sections(doc,ai,history,manual,number='2')
+    ai_sections(doc,ai,history,manual,number='2',rouge_reference='[1]')
     chapter(doc, '3. HỒ SƠ BÀN GIAO')
     prose(doc,'Bảng ca kiểm thử và phản hồi đầy đủ nằm trong Bo_kiem_thu_AI_4GYM.xlsx. Các tệp JSON/TXT trong reports/results/ lưu kết quả chạy thực tế, thời điểm, ID ca và định danh phiên bản. Tieu_luan_AI_4GYM_CT07PM.docx trình bày cơ sở lý thuyết, thiết kế, triển khai và kết quả kiểm thử trong một báo cáo học phần hoàn chỉnh. Báo cáo này tổng hợp kết quả và lỗi đã xử lý; không chứa phần hướng dẫn quy trình kiểm thử.')
+    heading = doc.add_heading('4. TÀI LIỆU THAM KHẢO', 1)
+    heading.paragraph_format.page_break_before = False
+    paragraph(doc, '[1] Lin, C.-Y. (2004), “ROUGE: A Package for Automatic Evaluation of Summaries”, Text Summarization Branches Out, tr. 74–81, Association for Computational Linguistics. https://aclanthology.org/W04-1013/.')
     doc.save(REPORTS/'Bao_cao_kiem_thu_AI_4GYM.docx')
     workbook(software,browser,before,after,ai,history)
     print('Created main report, software test report and test workbook.')

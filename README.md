@@ -1,8 +1,8 @@
 # AI-4GYM
 
-Chatbot Gym tiếng Việt cho người mới: tra cứu bài tập, hỏi kỹ thuật, gợi ý nhóm cơ và lịch tập. Web có đăng ký/đăng nhập để lưu lịch sử hội thoại; khách vẫn chat được nhưng lịch sử sẽ mất khi tải lại trang. AI chạy local bằng **LangChain + RAG + Chroma + Ollama**, không dùng API AI bên ngoài. Tài khoản và hội thoại được lưu trong MySQL của Serbay.
+Chatbot Gym tiếng Việt cho người mới: tra cứu bài tập, hỏi kỹ thuật, gợi ý nhóm cơ và lịch tập. Web có đăng ký/đăng nhập để lưu lịch sử hội thoại; khách vẫn chat được nhưng lịch sử sẽ mất khi tải lại trang. AI chạy local bằng **LangChain + RAG + Chroma + Ollama**, không dùng API AI bên ngoài. Tài khoản và hội thoại được lưu trong MySQL local, có thể chạy bằng ServBay.
 
-**Cài từ đầu:** xem [hướng dẫn cài đặt](docs/setup.md). Tài liệu này hướng dẫn phần mềm cần cài, cấu hình Serbay/MySQL, tải model Ollama, tạo chỉ mục và chạy web trên Windows.
+**Cài từ đầu:** xem [hướng dẫn cài đặt](docs/setup.md). Tài liệu này hướng dẫn phần mềm cần cài, cấu hình ServBay/MySQL, tải model Ollama, tạo chỉ mục và chạy web trên Windows.
 
 ## Chạy nhanh sau khi đã cài
 
@@ -29,14 +29,14 @@ Vào [http://127.0.0.1:5173](http://127.0.0.1:5173). Trạng thái hệ thống 
 - Hỏi đáp nhiều lượt về bài tập, kỹ thuật và các lỗi cần tránh.
 - Mỗi câu hỏi dùng tối đa 3 lượt hỏi–đáp gần nhất làm ngữ cảnh; câu hỏi nối tiếp được tìm tài liệu theo mạch hội thoại.
 - Gợi ý bài tập theo nhóm cơ và lịch tập 1–6 buổi/tuần.
-- Điều chỉnh mẫu lịch theo dụng cụ/mục tiêu gần nhất trong hội thoại; yêu cầu có đau vai được khuyên đánh giá y tế trước khi lập lịch.
+- Điều chỉnh danh sách bài theo dụng cụ, nhóm cơ và một số hạn chế thể chất; mục tiêu gần nhất bổ sung hướng dẫn chung. Yêu cầu lịch có đau vai được giới hạn và khuyên đánh giá y tế.
 - Hiển thị nguồn dữ liệu được RAG truy xuất; từ chối câu hỏi ngoài Gym/Fitness.
 - Tài khoản lưu lịch sử trong MySQL, có thể mở lại, đổi tên hoặc xóa hội thoại.
 - Chế độ khách không ghi lịch sử vào MySQL và xóa cuộc chat khi F5.
 
 ## Cấu trúc
 
-Xem [phân chia thư mục và quy tắc giữ file](docs/project-structure.md). [Hồ sơ nộp](reports/HO_SO_NOP.md) và [báo cáo hiện hành](reports/README.md) nằm riêng với bằng chứng/hồ sơ cũ.
+Xem [phân chia thư mục và quy tắc giữ file](docs/project-structure.md). [Hồ sơ nộp](reports/HO_SO_NOP.md) và [báo cáo hiện hành](reports/README.md) nằm riêng với bằng chứng/hồ sơ cũ. [Biên bản rà soát báo cáo và docs](docs/report-review.md) ghi phạm vi, kết quả đối chiếu và bàn giao theo phân công.
 
 ```text
 AI-4GYM/
@@ -95,6 +95,8 @@ Phép chia ngăn câu hỏi trùng sau chuẩn hóa xuất hiện ở cả hai t
 **Lưu ý cho báo cáo:** “80% train” ở đây là dữ liệu dùng để xây dựng kho truy xuất; dự án **không fine-tune/huấn luyện lại** model Qwen hay model embedding. RAG lấy tài liệu khi trả lời, theo [mô tả của LangChain](https://docs.langchain.com/oss/python/deepagents/retrieval). Tập test 20% chưa đồng nghĩa độ chính xác 20% hay bất kỳ chỉ số chất lượng nào.
 
 Hồ sơ bàn giao có 193/193 câu được chấm: **132 câu 2/2, 56 câu 1/2, 5 câu 0/2**; 154 dòng dùng judge v2, 39 dòng dùng v3. Excel có 187 nhãn tay đạt/6 không đạt, chưa được chuyên gia độc lập xác minh. Đây là số liệu trước đợt sửa lỗi 25/11/2026, không phải kết quả đo lại toàn bộ phiên bản mới. Xem [bộ báo cáo hiện tại](reports/README.md) để đọc kiểm thử mới và giới hạn. Chatbot hỗ trợ tham khảo, không thay thế đánh giá chuyên môn khi có chấn thương hoặc bệnh lý.
+
+Log ngày 25/11/2026 ghi **53/53 phương thức backend và 10/10 kịch bản Edge đạt**. Bộ hỏi mới gồm 12 tình huống/16 lượt, đạt điều kiện chức năng nhưng còn 6 cờ rà soát nội dung. Năm lượt RAG có thời gian ChatService trung bình **85,205 giây**, không gồm judge; mẫu này được tách khỏi 193 bản ghi cũ. Đây là kết quả đã lưu, không phải một lần chạy lại khi cập nhật tài liệu.
 
 ### Báo cáo Excel
 

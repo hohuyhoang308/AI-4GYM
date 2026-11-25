@@ -11,7 +11,7 @@
 | `BE/data/processed/` | Corpus/test JSON và manifest phép chia. |
 | `BE/data/curated/` | Bài tập biên soạn, các tình huống đánh giá. |
 | `FE/src/` | Giao diện React/TypeScript, thành phần và HTTP client. |
-| `docs/` | Tài liệu cài đặt và sơ đồ tổ chức repository. |
+| `docs/` | Hướng dẫn cài đặt, tổ chức repository và biên bản rà soát báo cáo/docs. |
 | `reports/` | Word/PDF/Excel hoàn chỉnh, danh mục hồ sơ. |
 | `reports/results/` | Bằng chứng thực thi mới, log kiểm thử và nhận xét AI. |
 | `reports/evidence/` | Ảnh giao diện, sơ đồ, biểu đồ, môi trường. |
@@ -21,13 +21,26 @@
 
 ## Những gì không đưa lên Git
 
-- `BE/.env`, `FE/.env.local`: cấu hình riêng; dùng `.env.example` làm mẫu.
+- `BE/.env`, `FE/.env.local`: cấu hình riêng; backend dùng `BE/.env.example` làm mẫu. Frontend hiện dùng địa chỉ API theo chế độ dev/build trong `FE/src/lib/api.ts`, chưa đọc `.env.local` để đổi backend.
 - `BE/.venv/`, `FE/node_modules/`: thư viện cài trên từng máy.
 - `BE/data/index/chroma/`: chỉ mục RAG tạo từ dữ liệu; không xóa lúc dọn vì đang dùng.
 - `FE/dist/`: bản build để backend phục vụ web, có thể tạo lại.
 - `__pycache__/`, `*.pyc`, `*.log`, `*.tsbuildinfo`, file khóa Office: cache/nhật ký local.
-- `.local/`: bản sao Word gốc và ảnh xem thử tài liệu, không dùng làm mã nguồn.
+- `.local/`: nơi dành cho bản sao và ảnh xem thử local; không phải hiện vật bắt buộc có sẵn sau khi clone.
 
-Không chuyển `BE/` hoặc `FE/` để giữ nguyên import Python, lệnh npm và cách backend tìm frontend. Hai tệp train/test tại gốc `reports/` được giữ nguyên vị trí vì các lệnh audit/export/evaluate đang dùng chúng. Kết quả kiểm thử mới được tách riêng, không trộn vào 193 bản ghi đánh giá bàn giao.
+Không chuyển `BE/` hoặc `FE/` để giữ nguyên import Python, lệnh npm và cách backend tìm frontend. Hai tập dữ liệu nằm tại `BE/data/processed/train.json` và `test.json`. Hai hiện vật tại gốc `reports/` là `evaluation_results.jsonl` và `AI-4GYM_train_test_report.xlsx`; giữ vị trí vì audit/export/evaluate đang dùng chúng. Kết quả kiểm thử mới nằm riêng trong `reports/results/`, không trộn vào 193 bản ghi bàn giao.
 
-Tài liệu khởi chạy: [setup.md](setup.md). Hồ sơ nộp: [reports/README.md](../reports/README.md).
+## Chỉnh sửa và đóng gói tài liệu
+
+Word/PDF hiện hành được chỉnh trực tiếp từ bản tiểu luận của nhóm; cập nhật mục lục và xuất PDF cùng lần lưu. `reports/tools/build_submission.py` là công cụ tạo lại toàn bộ Word/Excel theo cấu trúc riêng của script, nên không dùng để cập nhật bản Word đã chỉnh theo form trường. `finalize_word.ps1` cập nhật trường Word và PDF; cần Microsoft Word trên Windows. `package_submission.py` kiểm tra hiện vật, cập nhật manifest và ZIP, không chạy lại kiểm thử phần mềm.
+
+Từ gốc dự án, khi đã có Python trong `BE/.venv` và thư viện báo cáo:
+
+```powershell
+.\BE\.venv\Scripts\python.exe -m pip install -r reports/requirements-report.txt
+.\BE\.venv\Scripts\python.exe reports/tools/package_submission.py
+```
+
+Gói ZIP là hồ sơ báo cáo kèm bằng chứng và mã kiểm thử được tham chiếu, không phải toàn bộ ứng dụng có thể chạy sau khi giải nén. Mã nguồn đầy đủ lấy từ repository; môi trường và chỉ mục được tạo theo hướng dẫn cài đặt.
+
+Tài liệu khởi chạy: [setup.md](setup.md). Hồ sơ nộp: [reports/README.md](../reports/README.md). Phạm vi và kết quả rà soát: [report-review.md](report-review.md).

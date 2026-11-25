@@ -1,25 +1,25 @@
 # Cài đặt và chạy AI-4GYM từ A đến Z (Windows)
 
-Hướng dẫn này dành cho máy Windows dùng PowerShell, Serbay/MySQL và Ollama local. Không cần khóa API AI. Làm lần lượt từ bước 1 đến bước 8; những lần sau chỉ cần xem bước 9.
+Hướng dẫn này dành cho máy Windows dùng PowerShell, ServBay/MySQL và Ollama local. Không cần khóa API AI. Làm lần lượt từ bước 1 đến bước 8; những lần sau chỉ cần xem bước 9. Số liệu được đối chiếu với dữ liệu và mã nguồn ngày 25/11/2026.
 
 ## 1. Cài phần mềm cần thiết
 
 | Phần mềm | Dùng để làm gì | Cách kiểm tra |
 | --- | --- | --- |
 | [Python](https://www.python.org/downloads/windows/) 3.11 trở lên | Chạy backend FastAPI và LangChain | `python --version` |
-| [Node.js](https://nodejs.org/en/download) tương thích Vite (20.19+ hoặc 22.12+) và npm | Chạy, build frontend React | `node --version`, `npm --version` |
+| [Node.js](https://nodejs.org/en/download) nhánh 20 từ 20.19, hoặc phiên bản từ 22.12 trở lên, và npm | Chạy, build frontend React | `node --version`, `npm --version` |
 | [Ollama](https://ollama.com/download/windows) | Chạy model chat và embedding trên máy | `ollama --version` |
-| Serbay với MySQL đang chạy | Lưu tài khoản và lịch sử chat | `Test-NetConnection 127.0.0.1 -Port 3306` |
+| ServBay hoặc MySQL local đang chạy | Lưu tài khoản và lịch sử chat | `Test-NetConnection 127.0.0.1 -Port 3306` |
 | Git (tùy chọn) | Tải/cập nhật mã nguồn | `git --version` |
 
-Sau khi cài Python, Node.js hoặc Ollama, mở **cửa sổ PowerShell mới** để cập nhật `PATH`. Khi cài Python, chọn tùy chọn thêm Python vào `PATH` nếu trình cài đặt có hỏi. Dự án đã chạy thử với Python 3.14.7 và Node.js 23.11.1 trên máy phát triển.
+Sau khi cài Python, Node.js hoặc Ollama, mở **cửa sổ PowerShell mới** để cập nhật `PATH`. Khi cài Python, chọn tùy chọn thêm Python vào `PATH` nếu trình cài đặt có hỏi. Môi trường đã lưu trong [environment.json](../reports/evidence/environment.json) ghi Python 3.14.7; yêu cầu Node.js ở bảng trên khớp trường `engines` của các gói Vite trong `FE/package-lock.json`.
 
 ## 2. Mở dự án
 
-Nếu đã có thư mục trên Desktop như máy hiện tại:
+Với thư mục của bản đang làm việc:
 
 ```powershell
-Set-Location 'C:\Users\xnovh\Desktop\AI-4GYM'
+Set-Location 'D:\AI-4GYM-main\AI-4GYM-main'
 ```
 
 Nếu tải từ GitHub trên máy khác:
@@ -35,18 +35,18 @@ Kiểm tra có hai thư mục `BE` và `FE`:
 Get-ChildItem -Name
 ```
 
-> Các lệnh ở các bước tiếp theo giả định bạn đang ở thư mục gốc `AI-4GYM`, trừ khi có dòng `Set-Location` khác.
+> Nếu đặt dự án ở vị trí khác, thay đường dẫn trên bằng thư mục chứa `BE`, `FE`, `docs` và `reports`. Các lệnh tiếp theo chạy từ thư mục đó, trừ khi có dòng `Set-Location` khác.
 
-## 3. Bật MySQL trong Serbay
+## 3. Bật MySQL trong ServBay
 
-1. Mở Serbay và khởi động dịch vụ **MySQL**.
+1. Mở ServBay và khởi động dịch vụ **MySQL**; cũng có thể dùng MySQL local đã cài riêng.
 2. Kiểm tra MySQL nghe cổng `3306`:
 
 ```powershell
 Test-NetConnection 127.0.0.1 -Port 3306
 ```
 
-`TcpTestSucceeded` cần là `True`. Trên máy của dự án, tài khoản MySQL là `root`, mật khẩu là `root`. Nếu bạn đã đổi mật khẩu/cổng trong Serbay, ghi nhớ để điền vào `BE/.env` ở bước 5. **Không cần tạo database bằng tay**: lệnh `init_db` sẽ tạo `ai_4gym` và các bảng.
+`TcpTestSucceeded` cần là `True`. Dùng đúng tài khoản, mật khẩu và cổng của MySQL trên máy bạn để điền vào `BE/.env` ở bước 5. Tài khoản này cần quyền tạo database và bảng. **Không cần tạo database bằng tay**: lệnh `init_db` sẽ tạo `ai_4gym` và các bảng.
 
 ## 4. Bật Ollama và tải model local
 
@@ -75,11 +75,11 @@ Set-Location BE
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install --upgrade pip
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
-Copy-Item .env.example .env
+if (-not (Test-Path -LiteralPath .env)) { Copy-Item .env.example .env }
 notepad .env
 ```
 
-Trong file `.env`, đổi `DATABASE_PASSWORD=change_me` thành `DATABASE_PASSWORD=root` nếu Serbay dùng `root/root`. Các giá trị mặc định khác:
+Trong file `.env`, thay `DATABASE_PASSWORD=change_me` bằng mật khẩu MySQL thật; sửa `DATABASE_USER`, host và port nếu cần. Ví dụ cấu hình local theo tệp mẫu:
 
 ```dotenv
 OLLAMA_BASE_URL=http://127.0.0.1:11434
@@ -90,11 +90,11 @@ DATABASE_HOST=127.0.0.1
 DATABASE_PORT=3306
 DATABASE_NAME=ai_4gym
 DATABASE_USER=root
-DATABASE_PASSWORD=root
+DATABASE_PASSWORD=change_me
 COOKIE_SECURE=false
 ```
 
-Đây chỉ là ví dụ cho **máy local**. Nếu mật khẩu/port khác, sửa theo Serbay của bạn. `COOKIE_SECURE=false` phù hợp khi chạy HTTP ở `127.0.0.1`; nếu sau này phục vụ qua HTTPS, đổi thành `true`. File `.env` và thư mục `.venv` được Git bỏ qua.
+`change_me` là giá trị cần thay, không phải mật khẩu mặc định của MySQL. `COOKIE_SECURE=false` dùng khi chạy HTTP ở `127.0.0.1`; nếu phục vụ qua HTTPS, đổi thành `true`. File `.env` và thư mục `.venv` được Git bỏ qua. Ollama chỉ được cấu hình bằng HTTP tới `localhost`, `127.0.0.1` hoặc `::1`; ứng dụng từ chối model có hậu tố `:cloud`.
 
 ## 6. Tạo database và chỉ mục RAG
 
@@ -105,7 +105,7 @@ Vẫn trong `BE/`, khi MySQL và Ollama đều đã chạy:
 .\.venv\Scripts\python.exe -m app.scripts.ingest
 ```
 
-`init_db` tạo database `ai_4gym` và bảng tài khoản, phiên đăng nhập, hội thoại, tin nhắn, cùng bảng `chat_request_records` chống lưu lặp request chat. `ingest` đọc `data/raw/data.xlsx`, chuyển **toàn bộ 965 cặp hỏi đáp** sang `data/processed/qa.json`, rồi chia thành `data/processed/train.json` (**772 câu, 80%**) và `data/processed/test.json` (**193 câu, 20%**). Chroma chỉ lập chỉ mục 772 câu train và 10 bài tập trong `data/curated/exercises.json`, tổng cộng **783 tài liệu**. Tập test không nằm trong chỉ mục. Lần đầu có thể mất vài phút vì phải tạo embedding local.
+`init_db` tạo database `ai_4gym` và năm bảng chính: `users`, `login_sessions`, `conversations`, `chat_messages`, `chat_request_records`. Bảng cuối hỗ trợ tránh lưu lặp khi gửi lại `request_id`. `ingest` đọc `data/raw/data.xlsx`, chuyển **965 cặp hỏi đáp** sang `data/processed/qa.json`, rồi chia thành `train.json` (**772 câu, 80%**) và `test.json` (**193 câu, 20%**). Chroma chỉ lập chỉ mục 772 câu train và **11 bài tập** trong `data/curated/exercises.json`, tổng cộng **783 tài liệu**. Tập test không nằm trong chỉ mục. Lần đầu có thể mất vài phút vì phải tạo embedding local.
 
 Nếu chỉ muốn xem JSON mà chưa tải model, dùng:
 
@@ -141,7 +141,7 @@ Trong cửa sổ PowerShell đang ở `BE/`:
 
 Giữ cửa sổ này mở. Kiểm tra:
 
-- [http://127.0.0.1:8000/health](http://127.0.0.1:8000/health): `status` là `ready`, `database_running` là `true`, `indexed_documents` là `783`; `dataset_split` hiển thị số câu và tỷ lệ.
+- [http://127.0.0.1:8000/health](http://127.0.0.1:8000/health): khi sẵn sàng, `status` là `ready`, `database_running` là `true`, `indexed_documents` và `expected_documents` đều là `783`; `dataset_split` hiển thị số câu và tỷ lệ. Kiểm tra riêng `database_running`: trường `status` chỉ xét model/chỉ mục, nên vẫn có thể là `ready` khi MySQL chưa hoạt động.
 - [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs): tài liệu và giao diện thử API.
 
 ## 8. Cài và chạy frontend
@@ -150,7 +150,7 @@ Mở **PowerShell thứ hai** tại thư mục gốc `AI-4GYM`:
 
 ```powershell
 Set-Location FE
-npm install
+npm ci
 npm run dev
 ```
 
@@ -164,7 +164,7 @@ Khách giữ ngữ cảnh tạm trong RAM của backend bằng `session_id`, t�
 
 ## 9. Những lần chạy tiếp theo
 
-Mỗi lần sử dụng, bật **MySQL trong Serbay** và **Ollama** trước. Sau đó mở hai PowerShell:
+Mỗi lần sử dụng đầy đủ tài khoản và chat, bật **MySQL trong ServBay** và **Ollama** trước. Sau đó mở hai PowerShell:
 
 ```powershell
 # Cửa sổ 1, tại AI-4GYM/BE
@@ -186,7 +186,7 @@ Tại `FE/`, chạy `npm run build`. Sau đó chỉ cần backend đang chạy; 
 
 ### Số liệu train/test để báo cáo
 
-Từ 965 cặp hỏi đáp: **772 câu (80%)** dùng làm corpus để lập chỉ mục RAG, **193 câu (20%)** nằm trong file test độc lập. Có 10 bài tập biên soạn thêm ngoài phép chia 965 câu; chúng luôn được lập chỉ mục. Đây là cách chia dữ liệu cho **truy xuất và đánh giá**, không phải huấn luyện lại trọng số của Ollama/Qwen. Có thể mở `BE/data/processed/test.json` để xem từng câu hỏi và câu trả lời tham chiếu. Báo cáo hiện có điểm tự động trên một phần tập test; chỉ được gọi là kết quả toàn bộ test khi đã chấm đủ 193 câu và có kiểm tra thủ công phù hợp.
+Từ 965 cặp hỏi đáp: **772 câu (80%)** dùng làm corpus RAG, **193 câu (20%)** được giữ riêng để đánh giá. Có **11 bài tập** bổ sung ngoài phép chia, được đưa vào chỉ mục. Đây không phải huấn luyện lại trọng số Ollama/Qwen. Hồ sơ bàn giao hiện đủ **193/193 điểm**, phân bố **132/56/5** theo mức **2/1/0**, gồm 154 dòng judge v2 và 39 dòng v3. Excel có **187 nhãn tay đạt/6 không đạt**, chưa có xác minh chuyên gia độc lập. Xem [hồ sơ nộp](../reports/HO_SO_NOP.md) để phân biệt bộ 193 câu cũ với các tình huống hỏi mới sau sửa lỗi.
 
 Tại `BE/`:
 
@@ -195,7 +195,7 @@ Tại `BE/`:
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-Lệnh `audit_report` kiểm tra Excel gốc, JSON, train/test và nội dung báo cáo mà không cần MySQL/Ollama. Trường `evaluation_complete` chỉ là `true` khi có đủ 193 điểm; `report_synced: false` nghĩa là JSONL đã có câu mới nhưng Excel chưa được xuất lại. Bài test tích hợp đăng ký/chat sẽ được bỏ qua nếu MySQL hoặc Ollama chưa chạy; các bài test còn lại vẫn chạy.
+Lệnh `audit_report` kiểm tra Excel gốc, JSON, train/test và báo cáo mà không cần MySQL/Ollama, nhưng vẫn cần cài dependency backend. `evaluation_complete: true` nghĩa là đủ điểm cho tập test; `report_synced: false` nghĩa là số kết quả Excel chưa đồng bộ JSONL. Ca tài khoản trong `test_auth_flow.py` tự bỏ qua nếu thiếu dịch vụ. Một số ca khác, như `test_multiturn_flow.py`, tạo `ChatService` thật nên vẫn cần Ollama và chỉ mục; không coi một lần chạy thiếu dịch vụ hoặc có skip là toàn bộ kiểm thử đã đạt.
 
 Tại `FE/`:
 
@@ -207,8 +207,8 @@ npm run build
 | --- | --- |
 | `python` không nhận | Mở PowerShell mới; thử `py -m venv .venv`; kiểm tra Python đã được thêm vào `PATH`. |
 | Không chạy được `Activate.ps1` | Không cần kích hoạt venv; dùng trực tiếp `.\.venv\Scripts\python.exe` như hướng dẫn. |
-| `Access denied for user 'root'` | Kiểm tra `DATABASE_USER`/`DATABASE_PASSWORD` trong `BE/.env` và mật khẩu thực tế của Serbay. |
-| Không kết nối được MySQL | Bật MySQL trong Serbay; kiểm tra cổng bằng `Test-NetConnection 127.0.0.1 -Port 3306`; sửa `DATABASE_PORT` nếu Serbay dùng cổng khác. |
+| `Access denied for user 'root'` | Kiểm tra `DATABASE_USER`/`DATABASE_PASSWORD` trong `BE/.env` và mật khẩu MySQL thực tế. |
+| Không kết nối được MySQL | Bật MySQL; kiểm tra cổng bằng `Test-NetConnection 127.0.0.1 -Port 3306`; sửa `DATABASE_PORT` nếu dùng cổng khác. |
 | `/health` báo thiếu Ollama/model | Mở Ollama, chạy `ollama list`, tải model thiếu bằng `ollama pull ...`. |
 | `/health` có `indexed_documents: 0` | Chạy lại `python -m app.scripts.ingest` từ `BE/`. |
 | Frontend báo không kết nối | Kiểm tra backend ở cổng 8000, frontend ở 5173; xem `/health`. |
@@ -220,4 +220,4 @@ npm run build
 - `BE/.env`, `BE/.venv`, `BE/data/index/chroma`, `FE/node_modules` và `FE/dist` không được đưa lên Git.
 - Mật khẩu tài khoản được băm; cookie phiên đăng nhập đặt cờ `HttpOnly`, và lịch sử tài khoản nằm trong MySQL local.
 - Khách không ghi lịch sử vào MySQL; hội thoại khách trong trình duyệt mất khi tải lại trang. Backend có thể giữ ngữ cảnh khách tạm trong RAM khi phiên chat đang mở.
-- Kho Excel không có cột nguồn cho từng câu hỏi; câu trả lời nên được kiểm tra trước khi áp dụng vào tập luyện thực tế. Chatbot không thay thế tư vấn chuyên môn khi có chấn thương hoặc bệnh lý.
+- Kho Excel hiện có cột `Source`; nguồn được giữ trong JSON và metadata truy xuất. Liên kết giúp truy vết, chưa chứng minh nội dung đã được chuyên gia thẩm định. Chatbot không thay thế tư vấn chuyên môn khi có chấn thương hoặc bệnh lý.

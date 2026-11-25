@@ -1,19 +1,33 @@
 {
-  "created_at": "2026-11-25T08:58:57.888904+00:00",
+  "created_at": "2026-11-25T16:14:20.911082+00:00",
   "test_base_commit": "9863d6531784714a904f877647d42167f8435c6d",
-  "version_note": "Test evidence predates the cleanup commit. Source hashes bind the tested fixes; result files were moved without rewriting outcomes. Refer to Git history for the publication commit.",
+  "version_note": "Student thesis retained from the university-form revision; documentation and standalone test-report citations reviewed on 2026-11-25. Existing application test evidence and the 193-row dataset/evaluation artifacts are unchanged. No application tests were rerun for this documentation revision. The test-report running header was removed; its body text and page numbering are unchanged. Final document audit rechecked 74 navigation page numbers, 50 Markdown links, all 53 PDF pages, historical evaluation statistics and all archive hashes; no additional document corrections were found.",
   "validation": {
     "Tieu_luan_AI_4GYM_CT07PM": {
-      "pages": 31,
-      "text_characters": 48875,
+      "pages": 41,
+      "text_characters": 52514,
       "blank_pages": [],
-      "required_evidence_text": "PASS"
+      "required_evidence_text": "PASS",
+      "school_format": "PASS",
+      "word_pdf_content": "PASS",
+      "preserved_source_parts": 8,
+      "body_numbering": "1–32 in centered header",
+      "navigation_lists": 3,
+      "table_and_figure_captions": 22,
+      "source_document_unchanged": true,
+      "visual_review": "PASS: all 41 PDF pages inspected"
     },
     "Bao_cao_kiem_thu_AI_4GYM": {
       "pages": 12,
-      "text_characters": 19683,
+      "text_characters": 19436,
       "blank_pages": [],
-      "required_evidence_text": "PASS"
+      "required_evidence_text": "PASS",
+      "references": "PASS",
+      "word_pdf_content": "PASS",
+      "original_images_preserved": true,
+      "visual_review": "PASS: all 12 PDF pages inspected",
+      "running_header_removed": true,
+      "body_and_page_numbers_unchanged": true
     },
     "workbook": {
       "Tong quan": {
@@ -50,7 +64,49 @@
       }
     },
     "source_hashes": "PASS",
-    "historical_artifacts_unchanged": true
+    "historical_artifacts_unchanged": true,
+    "review_date": "2026-11-25",
+    "documentation": {
+      "current_markdown_files": 7,
+      "local_links_checked": 50,
+      "broken_links": [],
+      "dataset_and_saved_evidence": "PASS",
+      "application_source_hashes": "PASS",
+      "thesis_and_saved_results_unchanged": "PASS",
+      "report_tool_syntax": "PASS",
+      "powershell_examples": "PASS: syntax parsed without executing examples",
+      "software_tests_rerun": false
+    },
+    "final_audit": {
+      "date": "2026-11-25",
+      "pdf_pages_visually_reviewed": 53,
+      "automatic_navigation_fields": 4,
+      "toc_page_numbers_checked": 74,
+      "toc_page_mismatches": [],
+      "broken_toc_anchors": [],
+      "unmatched_word_body_paragraphs": [],
+      "unresolved_comments_or_tracked_changes": false,
+      "current_markdown_files": 7,
+      "local_links_checked": 50,
+      "broken_links": [],
+      "tested_application_hashes_checked": 6,
+      "historical_scores_2_1_0": [
+        132,
+        56,
+        5
+      ],
+      "manual_review_pass_fail": [
+        187,
+        6
+      ],
+      "excel_error_cells": [],
+      "archive_entries": 58,
+      "manifest_file_hashes_checked": 57,
+      "archive_integrity": "PASS",
+      "report_tools_syntax": "PASS",
+      "software_tests_rerun": false,
+      "remaining_required_document_fixes": []
+    }
   },
   "files": {
     "BE/app/scripts/export_report.py": {
@@ -80,6 +136,10 @@
     "BE/data/curated/submission_cases.json": {
       "sha256": "0cec7ef6fa5dfffd774cc8a301729f464a1f6a7c16042919495cb98257ec3fa1",
       "bytes": 5382
+    },
+    "BE/data/processed/split_manifest.json": {
+      "sha256": "5a6fd407f146cfab5b9f9d637e9e9a1fb7d6adbd8daf4a117babeed05dfcdacb",
+      "bytes": 355
     },
     "BE/tests/test_auth_flow.py": {
       "sha256": "87fb3493972d123ee1a40a2a2eec93d2208cc8dbef211e0c7cf3fb1b171e24d8",
@@ -117,21 +177,53 @@
       "sha256": "a5d34fadca37916bdc9fc738af9ecc851ecc9368b91c2aef584ba46a16edfac4",
       "bytes": 4083
     },
+    "README.md": {
+      "sha256": "b4f5f7dc70d54996e5922524b596c2b2fdd314280633274b719e78148d7c24fa",
+      "bytes": 10706
+    },
+    "docs/project-structure.md": {
+      "sha256": "93ed77a402b3dae25ef0aa55c5406024d1047359a4428a6bf667b2d8ffb9e1ec",
+      "bytes": 4065
+    },
+    "docs/report-review.md": {
+      "sha256": "0e350969aadc36da088bfacec8566559eec816b35ead764b82232178555d05ca",
+      "bytes": 5804
+    },
+    "docs/setup.md": {
+      "sha256": "efbe45f55ff975f7d814d240df4999d41cd2cc64dc967a9e688350f187d3b0c8",
+      "bytes": 15144
+    },
     "reports/AI-4GYM_train_test_report.xlsx": {
       "sha256": "ebcf960caae62354ed910bd4c5b2611772ff72d954b8287fbff9b9d76b0bf44e",
       "bytes": 269893
     },
     "reports/Bao_cao_kiem_thu_AI_4GYM.docx": {
-      "sha256": "a0b0631584695277708e48a0b4c13600155adea9257ebe4c984280b861053390",
-      "bytes": 191168
+      "sha256": "4e34f03a329400c1edd1e80356db9028256216ecfb6a519d0079aa04bc9b62a4",
+      "bytes": 190921
     },
     "reports/Bao_cao_kiem_thu_AI_4GYM.pdf": {
-      "sha256": "79a75227b648e79383be46be827feddb4fdc49a5eaaeb01a975ca4a5ef458164",
-      "bytes": 437825
+      "sha256": "cac38a4a7ae69102d54aa689c0f93e754c88a3757d20352111bdd1e4ed82a72f",
+      "bytes": 437823
     },
     "reports/Bo_kiem_thu_AI_4GYM.xlsx": {
       "sha256": "41456d702edd8641dcc2373c5e281b2c47843e0c68a8741b07c6d9ae43cc50ef",
       "bytes": 128871
+    },
+    "reports/HO_SO_NOP.md": {
+      "sha256": "07ce5896aeb378e3774e8f6baf4dbdbe4f06b7cdb848cbc394ef65dc8434e217",
+      "bytes": 5577
+    },
+    "reports/README.md": {
+      "sha256": "8b3e394ff1a89f3294c1606b71833b8bf90bdbd56172571c837fbccdec4a160c",
+      "bytes": 3386
+    },
+    "reports/Tieu_luan_AI_4GYM_CT07PM.docx": {
+      "sha256": "08f155d7f120c877c699c739c3f8683c80121ec924c6dbe9e47d62eda4d3d614",
+      "bytes": 379864
+    },
+    "reports/Tieu_luan_AI_4GYM_CT07PM.pdf": {
+      "sha256": "27f46cf6c9856075958803bf30e8ad4839d756a2e3db13c3d190a706cec13e3b",
+      "bytes": 777386
     },
     "reports/evaluation_results.jsonl": {
       "sha256": "1f7cdfa529efca7cdd3d7c0a12f114b050688a774d52be4e672bc4e750878472",
@@ -146,8 +238,8 @@
       "bytes": 72824
     },
     "reports/evidence/document_validation.json": {
-      "sha256": "f4533f7be5d984fe173576c6d0404632a1fbe5f674082f5bdb855341f242eb37",
-      "bytes": 926
+      "sha256": "58a92282054bb74fd0a1c8d4c8af7accb2f5afe36e315d1768899877562e7ddd",
+      "bytes": 2711
     },
     "reports/evidence/environment.json": {
       "sha256": "a19ff0348369e83050c3c31b20ca834063d6ed4fd34d5045dc2cfc9324e776de",
@@ -173,13 +265,13 @@
       "sha256": "317b396fb3c94ccefa7edb8baebf48de974fdfe1132febe1fd8c1e16ddf5a0de",
       "bytes": 99022
     },
-    "reports/HO_SO_NOP.md": {
-      "sha256": "d880779d5a849d37cd06c247e0c524f069669648cc76f29290f296afb71535ee",
-      "bytes": 5225
+    "reports/history/SECURITY_PERFORMANCE.md": {
+      "sha256": "172511fcb798f0ff8569b74d2b975d4298d2ffe08a19544606b3e96c4999b5f8",
+      "bytes": 6660
     },
-    "reports/README.md": {
-      "sha256": "3a8a6c736ea8ce24d55359939e5e0e37ccb1931a44fe570fb9bc82c7940dc75f",
-      "bytes": 2780
+    "reports/releases/README.md": {
+      "sha256": "d18cbc76cc8eb3c9ada07f25b85f493ddb26023771fd4b0a555ed25a7aac4a3f",
+      "bytes": 820
     },
     "reports/requirements-report.txt": {
       "sha256": "300b6b5bd9f875de543c96f720ead5d43e5d188a55ffe813d4551e147a5d2d4e",
@@ -225,21 +317,13 @@
       "sha256": "d87bc65a71b891fc0396f03c5422a541d48d5e85b8461a122fd8a79590d519e5",
       "bytes": 9762
     },
-    "reports/Tieu_luan_AI_4GYM_CT07PM.docx": {
-      "sha256": "d74d63ccb60c150b5aa42684b8f2b10a1c14ce84171ab0f89c8813e25888b208",
-      "bytes": 1036467
-    },
-    "reports/Tieu_luan_AI_4GYM_CT07PM.pdf": {
-      "sha256": "32084e6b1af641b507b48e616fb231275a2511e3c91f958471d63466e3e2f3f0",
-      "bytes": 874529
-    },
     "reports/tools/browser_checks.py": {
       "sha256": "c0c5dc95cc88f98298d98c4f225d8c46e982d8b6a0da6b65061c234f73c15923",
       "bytes": 11325
     },
     "reports/tools/build_submission.py": {
-      "sha256": "e19b2f2c1e8565c4b0a355da542f382db294224a28dc40a909b67b910a3a4ce1",
-      "bytes": 72418
+      "sha256": "316d50aee9b7cadc64727d55aa7ec338738814ea2591811a7431bdab56d4c023",
+      "bytes": 72619
     },
     "reports/tools/case_catalog.py": {
       "sha256": "a150ce2f191d8bd24330dec4252d71992f6c2ce8443c305605a7bb8deccfa3f0",
@@ -250,8 +334,8 @@
       "bytes": 1268
     },
     "reports/tools/package_submission.py": {
-      "sha256": "a2bb93d8fc3be94bcb34c737ad3fb4020742b5d56e6d530f706719642a3300dc",
-      "bytes": 6307
+      "sha256": "48a62f2c296c028cabf58614fac8e0d25b0ed272939b037592fe625216c361a4",
+      "bytes": 6602
     }
   }
 }
