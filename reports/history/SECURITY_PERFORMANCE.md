@@ -1,6 +1,6 @@
 # Bàn giao kỹ thuật 2 — Security, Evaluation & Performance
 
-Kiểm tra ngày 12/11/2026. Bằng chứng: `security_performance.json/.xlsx`, `performance_local.json/.xlsx`, `evaluation_results.jsonl` và `AI-4GYM_train_test_report.xlsx`. Đây là phép đo local trên máy hiện tại, không phải tỷ lệ an toàn hay hiệu năng trên mọi máy.
+Kiểm tra ngày 12/11/2026. Bằng chứng: `security_performance.json/.xlsx`, `performance_local.json/.xlsx`, `../evaluation_results.jsonl` và `../AI-4GYM_train_test_report.xlsx`. Đây là phép đo local trên máy hiện tại, không phải tỷ lệ an toàn hay hiệu năng trên mọi máy.
 
 ## Prompt injection và giới hạn nhiệm vụ
 
@@ -51,7 +51,7 @@ Tại `BE/`, khi Ollama và chỉ mục RAG sẵn sàng:
 ```powershell
 .\.venv\Scripts\python.exe -m unittest discover -s tests -p 'test_*.py'
 .\.venv\Scripts\python.exe -m app.scripts.security_performance
-.\.venv\Scripts\python.exe -m app.scripts.security_performance --cases data/curated/performance_cases.json --output ../reports/performance_local.json
+.\.venv\Scripts\python.exe -m app.scripts.security_performance --cases data/curated/performance_cases.json --output ../reports/results/performance_local.json
 .\.venv\Scripts\python.exe -m app.scripts.evaluate_chatbot --ids qa-20,qa-91,qa-115,qa-132,qa-133
 ```
 

@@ -1,0 +1,19 @@
+test_dumbbell_plan_does_not_require_machines_or_bands (test_submission_regressions.SubmissionRegressionTest.test_dumbbell_plan_does_not_require_machines_or_bands)
+RG-01: Chỉ có tạ đơn không được gợi ý máy tập hoặc dây kháng lực. ... ok
+test_equipment_refinement_rebuilds_previous_plan (test_submission_regressions.SubmissionRegressionTest.test_equipment_refinement_rebuilds_previous_plan)
+RG-04: Đổi dụng cụ sau lịch 3 buổi phải tạo lại lịch 3 buổi. ... ok
+test_export_rejects_stale_index_instead_of_claiming_pass (test_submission_regressions.SubmissionRegressionTest.test_export_rejects_stale_index_instead_of_claiming_pass)
+RG-06: Xuất báo cáo phải báo lỗi nếu Chroma không khớp dữ liệu train. ... ok
+test_gym_location_takes_precedence_over_equipment_mention (test_submission_regressions.SubmissionRegressionTest.test_gym_location_takes_precedence_over_equipment_mention)
+RG-02: Phòng gym có tạ đơn vẫn được nhận diện là phòng gym. ... ok
+test_latest_equipment_persists_across_next_turn (test_submission_regressions.SubmissionRegressionTest.test_latest_equipment_persists_across_next_turn)
+RG-03: Điều kiện dụng cụ mới nhất phải được giữ ở lượt kế tiếp. ... ok
+test_latest_goal_persists_across_next_turn (test_submission_regressions.SubmissionRegressionTest.test_latest_goal_persists_across_next_turn)
+RG-05: Đổi từ giảm mỡ sang tăng cơ không dùng lại mục tiêu cũ. ... ok
+test_shoulder_pain_does_not_generate_an_overhead_press_plan (test_submission_regressions.SubmissionRegressionTest.test_shoulder_pain_does_not_generate_an_overhead_press_plan)
+RG-07: Đau vai không tự động cấp lịch có đẩy vai; cần đánh giá y tế. ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.045s
+
+OK

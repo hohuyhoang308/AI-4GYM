@@ -1,0 +1,74 @@
+{
+  "created_at": "2026-11-25T07:58:12.803725+00:00",
+  "git_commit": "9863d6531784714a904f877647d42167f8435c6d",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.14.7",
+  "scope": "Regression tests only",
+  "summary": {
+    "tests_run": 7,
+    "passed": 7,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 0.145
+  },
+  "cases": [
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_dumbbell_plan_does_not_require_machines_or_bands",
+      "description": "RG-01: Chỉ có tạ đơn không được gợi ý máy tập hoặc dây kháng lực.",
+      "status": "PASS",
+      "details": [],
+      "seconds": 0.0017
+    },
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_equipment_refinement_rebuilds_previous_plan",
+      "description": "RG-04: Đổi dụng cụ sau lịch 3 buổi phải tạo lại lịch 3 buổi.",
+      "status": "PASS",
+      "details": [],
+      "seconds": 0.0076
+    },
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_export_rejects_stale_index_instead_of_claiming_pass",
+      "description": "RG-06: Xuất báo cáo phải báo lỗi nếu Chroma không khớp dữ liệu train.",
+      "status": "PASS",
+      "details": [],
+      "seconds": 0.0286
+    },
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_gym_location_takes_precedence_over_equipment_mention",
+      "description": "RG-02: Phòng gym có tạ đơn vẫn được nhận diện là phòng gym.",
+      "status": "PASS",
+      "details": [],
+      "seconds": 0.0001
+    },
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_latest_equipment_persists_across_next_turn",
+      "description": "RG-03: Điều kiện dụng cụ mới nhất phải được giữ ở lượt kế tiếp.",
+      "status": "PASS",
+      "details": [],
+      "seconds": 0.0028
+    },
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_latest_goal_persists_across_next_turn",
+      "description": "RG-05: Đổi từ giảm mỡ sang tăng cơ không dùng lại mục tiêu cũ.",
+      "status": "PASS",
+      "details": [],
+      "seconds": 0.0031
+    },
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_shoulder_pain_does_not_generate_an_overhead_press_plan",
+      "description": "RG-07: Đau vai không tự động cấp lịch có đẩy vai; cần đánh giá y tế.",
+      "status": "PASS",
+      "details": [],
+      "seconds": 0.0012
+    }
+  ],
+  "file_sha256": {
+    "app/services/chat.py": "2660160d2516f28ad38bc5e99d389e466ba047afa7094473606d9d9afd028cc6",
+    "app/services/plans.py": "39cec0b063debc31df3b187a475a6517f15a466ddd7f6be2812fa30232f48c3c",
+    "app/services/scope.py": "23356dffdaf0d7b8597a4ad80a25f52ace9e27d7f1fa7be0f2931139a56611b7",
+    "app/scripts/export_report.py": "88304d0cac48410e23a9a4dcd2fbcdf06e43f1b9f9f13a38f4700a58b0cadbc7",
+    "tests/test_software.py": "0adf63c27724414d63b8c770567207f81df531eadb5f83bb6643092190c89023",
+    "tests/test_submission_regressions.py": "a5d34fadca37916bdc9fc738af9ecc851ecc9368b91c2aef584ba46a16edfac4"
+  }
+}

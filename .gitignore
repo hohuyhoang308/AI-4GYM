@@ -10,3 +10,9 @@ FE/dist/
 FE/.env.local
 FE/*.tsbuildinfo
 ~$*.xlsx
+~$*.docx
+*.tmp
+.local/
+reports/releases/*.zip
+reports/evidence/*_preview_*.png
+reports/evidence/*_extracted.txt

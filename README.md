@@ -2,7 +2,7 @@
 
 Chatbot Gym tiếng Việt cho người mới: tra cứu bài tập, hỏi kỹ thuật, gợi ý nhóm cơ và lịch tập. Web có đăng ký/đăng nhập để lưu lịch sử hội thoại; khách vẫn chat được nhưng lịch sử sẽ mất khi tải lại trang. AI chạy local bằng **LangChain + RAG + Chroma + Ollama**, không dùng API AI bên ngoài. Tài khoản và hội thoại được lưu trong MySQL của Serbay.
 
-**Cài từ đầu:** xem [setup.md](setup.md). Tài liệu này hướng dẫn phần mềm cần cài, cấu hình Serbay/MySQL, tải model Ollama, tạo chỉ mục và chạy web trên Windows.
+**Cài từ đầu:** xem [hướng dẫn cài đặt](docs/setup.md). Tài liệu này hướng dẫn phần mềm cần cài, cấu hình Serbay/MySQL, tải model Ollama, tạo chỉ mục và chạy web trên Windows.
 
 ## Chạy nhanh sau khi đã cài
 
@@ -29,11 +29,14 @@ Vào [http://127.0.0.1:5173](http://127.0.0.1:5173). Trạng thái hệ thống 
 - Hỏi đáp nhiều lượt về bài tập, kỹ thuật và các lỗi cần tránh.
 - Mỗi câu hỏi dùng tối đa 3 lượt hỏi–đáp gần nhất làm ngữ cảnh; câu hỏi nối tiếp được tìm tài liệu theo mạch hội thoại.
 - Gợi ý bài tập theo nhóm cơ và lịch tập 1–6 buổi/tuần.
+- Điều chỉnh mẫu lịch theo dụng cụ/mục tiêu gần nhất trong hội thoại; yêu cầu có đau vai được khuyên đánh giá y tế trước khi lập lịch.
 - Hiển thị nguồn dữ liệu được RAG truy xuất; từ chối câu hỏi ngoài Gym/Fitness.
 - Tài khoản lưu lịch sử trong MySQL, có thể mở lại, đổi tên hoặc xóa hội thoại.
 - Chế độ khách không ghi lịch sử vào MySQL và xóa cuộc chat khi F5.
 
 ## Cấu trúc
+
+Xem [phân chia thư mục và quy tắc giữ file](docs/project-structure.md). [Hồ sơ nộp](reports/HO_SO_NOP.md) và [báo cáo hiện hành](reports/README.md) nằm riêng với bằng chứng/hồ sơ cũ.
 
 ```text
 AI-4GYM/
@@ -62,9 +65,17 @@ AI-4GYM/
 │   ├── src/App.tsx
 │   └── package.json
 ├── reports/
-│   ├── AI-4GYM_train_test_report.xlsx
+│   ├── Tieu_luan_AI_4GYM_CT07PM.docx / .pdf  # tiểu luận hoàn chỉnh
+│   ├── Bao_cao_kiem_thu_AI_4GYM.docx / .pdf   # báo cáo kiểm thử
+│   ├── Bo_kiem_thu_AI_4GYM.xlsx              # ma trận ca và kết quả
+│   ├── results/                            # JSON/TXT kiểm thử mới, rà soát AI
+│   ├── evidence/                           # ảnh thật, sơ đồ, môi trường
+│   ├── history/                            # hồ sơ kỹ thuật cũ
+│   ├── tools/                              # tạo/kiểm tra/đóng gói báo cáo
+│   ├── releases/                           # ZIP nộp tạo local, không track
+│   ├── AI-4GYM_train_test_report.xlsx       # train/test 193 câu bàn giao
 │   └── evaluation_results.jsonl
-├── setup.md
+├── docs/setup.md                           # cài đặt và chạy ứng dụng
 └── README.md
 ```
 
@@ -77,19 +88,19 @@ AI-4GYM/
 | Train/corpus | `BE/data/processed/train.json` | 772 | 80% | Lập chỉ mục RAG trong Chroma |
 | Test | `BE/data/processed/test.json` | 193 | 20% | Giữ riêng để kiểm tra, không lập chỉ mục |
 
-`BE/data/processed/split_manifest.json` ghi seed, số lượng và tỷ lệ. Các câu hỏi trùng sau chuẩn hóa nằm cùng một tập. Thêm 10 bài tập có liên kết đến [ACE Exercise Library](https://www.acefitness.org/resources/everyone/exercise-library/) vào corpus, nên Chroma có **782 tài liệu**. Không phải cả 10 bài đều được ACE xếp mức Beginner; xem [kiểm tra nguồn](reports/KIEM_TRA_DU_AN.md). Excel không có cột nguồn riêng nên các mục hỏi đáp ghi nguồn `data.xlsx`.
+`BE/data/processed/split_manifest.json` ghi seed, số lượng và tỷ lệ. Các câu hỏi trùng sau chuẩn hóa nằm cùng một tập. Thêm 11 bài tập có liên kết đến [ACE Exercise Library](https://www.acefitness.org/resources/everyone/exercise-library/) vào corpus, nên Chroma có **783 tài liệu**. Không phải mọi bài đều được ACE xếp mức Beginner. Excel hiện hành đã có nguồn theo từng câu (676/965 câu dẫn tới bộ dữ liệu fitness-question-answers trên Hugging Face); URL nguồn giúp truy vết, chưa đồng nghĩa mọi nội dung đã được chuyên gia thẩm định.
 
 Phép chia ngăn câu hỏi trùng sau chuẩn hóa xuất hiện ở cả hai tập; các câu diễn đạt khác nhau nhưng cùng ý chưa được nhóm tự động.
 
 **Lưu ý cho báo cáo:** “80% train” ở đây là dữ liệu dùng để xây dựng kho truy xuất; dự án **không fine-tune/huấn luyện lại** model Qwen hay model embedding. RAG lấy tài liệu khi trả lời, theo [mô tả của LangChain](https://docs.langchain.com/oss/python/deepagents/retrieval). Tập test 20% chưa đồng nghĩa độ chính xác 20% hay bất kỳ chỉ số chất lượng nào.
 
-Đã có 193/193 câu test được chấm tự động và 193 nhãn duyệt tay do nhóm điền (174 đạt/19 không đạt theo tiêu chí riêng); chưa có xác minh chuyên môn độc lập. Năm câu được chấm lại bằng judge v3, 188 câu còn dùng v2; xem [báo cáo hiện tại](reports/README.md). Chatbot hỗ trợ tham khảo khi tập luyện, không thay thế đánh giá chuyên môn khi có chấn thương hoặc bệnh lý.
+Hồ sơ bàn giao có 193/193 câu được chấm: **132 câu 2/2, 56 câu 1/2, 5 câu 0/2**; 154 dòng dùng judge v2, 39 dòng dùng v3. Excel có 187 nhãn tay đạt/6 không đạt, chưa được chuyên gia độc lập xác minh. Đây là số liệu trước đợt sửa lỗi 25/11/2026, không phải kết quả đo lại toàn bộ phiên bản mới. Xem [bộ báo cáo hiện tại](reports/README.md) để đọc kiểm thử mới và giới hạn. Chatbot hỗ trợ tham khảo, không thay thế đánh giá chuyên môn khi có chấn thương hoặc bệnh lý.
 
 ### Báo cáo Excel
 
-[Hướng dẫn và trạng thái đánh giá hiện tại](reports/README.md) ghi số câu đã chấm, cách đọc điểm và những giới hạn của báo cáo. Chạy lệnh kiểm toán bên dưới để xem trạng thái mới nhất trực tiếp từ file.
+[Báo cáo và bộ kiểm thử hiện tại](reports/README.md) ghi kết quả thực thi, số liệu đánh giá và giới hạn. Chạy lệnh kiểm toán bên dưới để xem trạng thái mới nhất trực tiếp từ file.
 
-[Bàn giao Security, Evaluation & Performance](reports/SECURITY_PERFORMANCE.md) ghi test prompt injection, session/replay, chấm lại câu 20 và phép đo độ trễ local.
+[Bàn giao Security, Evaluation & Performance](reports/history/SECURITY_PERFORMANCE.md) ghi test prompt injection, session/replay, chấm lại câu 20 và phép đo độ trễ local.
 
 [Mở báo cáo train/test](reports/AI-4GYM_train_test_report.xlsx) để xem tổng quan, danh sách 772 câu train, 193 câu test và kết quả chatbot trên từng câu test. Sheet `Danh gia Test` ghi câu trả lời thực tế, điểm Qwen local (0–2), lý do chấm, Token F1, ROUGE-L F1, nguồn RAG và thời gian ghi cũ. Trường thời gian cũ có thể gồm cả judge, không dùng làm độ trễ chatbot. Điểm 2 là đạt, 1 là đúng một phần, 0 là sai hoặc từ chối. Tỷ lệ đạt tự động = số câu điểm 2 / số câu đã chạy; chỉ khi chạy đủ 193 câu mới là kết quả toàn bộ tập test. Có thêm cột `Duyệt tay (1/0)` để kiểm tra độc lập.
 
@@ -99,7 +110,7 @@ Phép chia ngăn câu hỏi trùng sau chuẩn hóa xuất hiện ở cả hai t
 .\.venv\Scripts\python.exe -m app.scripts.evaluate_chatbot
 ```
 
-Lệnh gọi đúng `ChatService` đang phục vụ web trên từng câu test độc lập, sau đó dùng Qwen local chấm theo đáp án tham chiếu và xuất Excel. Kết quả từng câu được lưu vào `reports/evaluation_results.jsonl`. Hiện 193 câu đã có điểm; chạy lại lệnh này sẽ **chấm lại 188 dòng judge v2 bằng judge v3** trên câu trả lời đã lưu, làm thay đổi thống kê. Dùng `--ids` nếu chỉ muốn kiểm tra vài câu. Không dùng API AI bên ngoài. Điểm AI là đánh giá tự động bởi cùng họ model đang trả lời, vì vậy nên rà soát độc lập trước khi trình bày như một tỷ lệ chính xác được xác minh. Token F1 và ROUGE-L chỉ đo trùng từ, không tự chứng minh đúng sai.
+Lệnh gọi đúng `ChatService` đang phục vụ web trên từng câu test độc lập, sau đó dùng Qwen local chấm theo đáp án tham chiếu và xuất Excel. Kết quả từng câu được lưu vào `reports/evaluation_results.jsonl`. Hiện 193 câu đã có điểm; chạy lại lệnh này sẽ **chấm lại 154 dòng judge v2 bằng judge v3** trên câu trả lời đã lưu, làm thay đổi thống kê. Dùng `--ids` nếu chỉ muốn kiểm tra vài câu. Không dùng API AI bên ngoài. Điểm AI là đánh giá tự động bởi cùng họ model đang trả lời, vì vậy nên rà soát độc lập trước khi trình bày như một tỷ lệ chính xác được xác minh. Token F1 và ROUGE-L chỉ đo trùng từ, không tự chứng minh đúng sai. Bộ hỏi mới sau sửa lỗi được lưu riêng trong `reports/results/chatbot_ai_review.json`.
 
 Để tạo lại file sau khi chạy `ingest` với dữ liệu mới, đứng tại `BE/` và chạy:
 
@@ -122,4 +133,4 @@ Lệnh xuất Excel từ kết quả đã lưu mà không chạy lại chatbot. 
 npm run build
 ```
 
-Xem [setup.md](setup.md) nếu cần cài mới hoặc xử lý lỗi khi chạy.
+Xem [hướng dẫn cài đặt](docs/setup.md) nếu cần cài mới hoặc xử lý lỗi khi chạy.

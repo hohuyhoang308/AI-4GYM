@@ -40,6 +40,8 @@ EQUIPMENT_DUMBBELL_MAP = {
     "seated-row": "bent-over-row",
     "leg-press": "bodyweight-squat",
     "chest-press": "bent-knee-push-up",
+    "shoulder-press": "bent-knee-push-up",
+    "bicep-curl": "bent-over-row",
 }
 
 
@@ -104,7 +106,7 @@ def make_plan(
         guidance_parts.append("Các bài tập được thiết kế hoàn toàn bằng trọng lượng cơ thể (Bodyweight), không cần tạ hay máy tập.")
     elif equipment == "home_dumbbell":
         name = f"{name} (Tại nhà - Tạ đơn)"
-        guidance_parts.append("Lịch tập tận dụng tạ đơn và dây kháng lực tại nhà.")
+        guidance_parts.append("Lịch tập kết hợp tạ đơn, ghế tựa chắc chắn và các bài trọng lượng cơ thể; không yêu cầu máy tập hoặc dây kháng lực.")
 
     if goal == "giam_mo":
         guidance_parts.append("Mục tiêu giảm mỡ: Kết hợp các bài sức mạnh này với tối thiểu 150 phút vận động thể chất/aerobic vừa phải mỗi tuần.")
@@ -112,9 +114,9 @@ def make_plan(
         guidance_parts.append("Mục tiêu tăng cơ: Áp dụng nguyên tắc quá tải tiến triển và bổ sung đủ dinh dưỡng protein.")
 
     if "knee" in limitations:
-        guidance_parts.append("Lưu ý khớp gối: Đã ưu tiên các động tác an toàn cho gối (như Glute Bridge, Plank); tránh gập gối quá sâu.")
+        guidance_parts.append("Lưu ý khớp gối: Mẫu đã loại squat và đạp chân, nhưng không bảo đảm phù hợp với mọi chấn thương. Dừng động tác gây đau và tham khảo bác sĩ hoặc chuyên gia y tế trước khi tập tiếp.")
     if "lower_back" in limitations:
-        guidance_parts.append("Lưu ý lưng dưới: Luôn siết bụng giữ thẳng lưng, tránh các chuyển động vặn gập lưng nặng.")
+        guidance_parts.append("Lưu ý lưng dưới: Tránh các chuyển động vặn gập lưng nặng. Dừng động tác gây đau và tham khảo bác sĩ hoặc chuyên gia y tế; đây không phải lịch phục hồi chấn thương.")
 
     note = "Người mới nên bắt đầu 2–3 buổi sức mạnh mỗi tuần, tập các nhóm cơ lớn và tăng dần theo khả năng."
     if days == 1:

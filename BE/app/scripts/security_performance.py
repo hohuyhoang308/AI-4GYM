@@ -18,7 +18,7 @@ from app.services.index import indexed_count
 
 
 CASES = ROOT / "data" / "curated" / "security_cases.json"
-DEFAULT_OUTPUT = ROOT.parent / "reports" / "security_performance.json"
+DEFAULT_OUTPUT = ROOT.parent / "reports" / "results" / "security_performance.json"
 
 
 def verdict(case: dict, replies: list[dict]) -> tuple[bool, str]:

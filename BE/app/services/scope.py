@@ -74,12 +74,14 @@ def detect_equipment(text: str) -> str | None:
     normalized = normalize(text)
     if any(k in normalized for k in ("khong co dung cu", "khong dung cu", "chua co dung cu", "khong can dung cu", "bodyweight", "trong luong co the")):
         return "home_bodyweight"
+    if any(k in normalized for k in ("phong gym", "phong tap", "may tap", "barbell", "ta don lon", "day cap")):
+        return "gym"
     if any(k in normalized for k in ("co dung cu", "day du dung cu", "co ta", "dung cu tai nha")):
         return "home_dumbbell"
     if any(k in normalized for k in ("ta don", "ta tay", "dumbbell", "day khang luc", "resistance band")):
         return "home_dumbbell"
-    if any(k in normalized for k in ("phong gym", "phong tap", "may tap", "barbell", "ta don lon", "day cap")):
-        return "gym"
+    if any(k in normalized for k in ("tai nha", "o nha")):
+        return "home_bodyweight"
     return None
 
 

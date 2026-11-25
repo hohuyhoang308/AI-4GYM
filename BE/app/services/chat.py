@@ -182,22 +182,31 @@ class ChatService:
         limitations = detect_limitations(message)
         muscles = mentioned_muscles(message)
 
-        recent_user_texts = [item["text"] for item in history if item["role"] == "user"]
-        combined_history_user = " ".join(recent_user_texts)
-        combined_history_user_norm = normalize(combined_history_user)
+        current_equipment, current_goal = equipment, goal
+        current_limitations = list(limitations)
+        # Resolve each field from the most recent user turn that specifies it.
+        # Joining the turns lets old negations/keywords override newer choices.
+        for item in reversed(history):
+            if item["role"] != "user":
+                continue
+            text = item["text"]
+            if equipment is None:
+                equipment = detect_equipment(text)
+            if goal is None:
+                goal = detect_goal(text)
+            # Retain all reported injuries within the context window.
+            limitations = list(dict.fromkeys([*limitations, *detect_limitations(text)]))
+            if not muscles:
+                muscles = mentioned_muscles(text)
+            if days is None:
+                days = requested_days(text)
 
-        if equipment is None:
-            equipment = detect_equipment(combined_history_user)
-        if goal is None:
-            goal = detect_goal(combined_history_user)
-        if not limitations:
-            limitations = detect_limitations(combined_history_user)
-        if not muscles:
-            muscles = mentioned_muscles(combined_history_user)
-        if days is None:
-            days = requested_days(combined_history_user)
-
-        previous_had_plan = any("lich" in item["text"].lower() or "buoi" in item["text"].lower() for item in history)
+        previous_had_plan = any(item["role"] == "assistant" and item["text"].startswith("Lịch ") for item in history)
+        if days is None and previous_had_plan:
+            for item in reversed(history):
+                if item["role"] == "assistant" and item["text"].startswith("Lịch "):
+                    days = requested_days(item["text"])
+                    break
         is_generic_plan_request = any(term in normalized for term in ("len lich tap", "tu van lich tap", "thiet ke lich tap", "lap lich tap", "goi y lich tap", "muon lich tap", "xay dung lich tap"))
 
         if not referenced_exercise:
@@ -225,9 +234,19 @@ class ChatService:
                     or any(item["role"] == "assistant" and item["text"].startswith("Lịch ") for item in history)
                 )
             )
-            if current_days and plan_intent:
+            refining_plan = previous_had_plan and bool(current_equipment or current_goal or current_limitations)
+            if "shoulder" in limitations and (plan_intent or refining_plan):
+                answer = (
+                    "Bạn đã đề cập đau vai. Mình chưa có mẫu lịch được kiểm chứng cho tình trạng này, "
+                    "nên chưa thể lập lịch cá nhân hóa có các bài đẩy/kéo vai. "
+                    "Hãy dừng động tác gây đau và tham khảo bác sĩ hoặc chuyên gia y tế trước khi tập tiếp. "
+                    "Không cố tập xuyên đau; chatbot không chẩn đoán hoặc thay thế đánh giá chấn thương."
+                )
+                self._remember(session_id, history, message, answer)
+                return {"session_id": session_id, "answer": answer, "sources": [], "refused": False}
+            if days and (current_days and plan_intent or refining_plan):
                 target_m = muscles[0] if (muscles and muscles[0] in ("chan", "lung", "nguc")) else None
-                return self._plan_response(current_days, session_id, history, message, equipment=equipment, goal=goal, limitations=limitations, target_muscle=target_m)
+                return self._plan_response(days, session_id, history, message, equipment=equipment, goal=goal, limitations=limitations, target_muscle=target_m)
 
         retrieval_query = message
         if referenced_exercise:

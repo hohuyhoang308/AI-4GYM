@@ -87,7 +87,8 @@ def main() -> None:
         "profile_C_knee_friendly": make_plan(days=3, equipment="home_bodyweight", limitations=["knee"], target_muscle="chan"),
     }
 
-    output_path = Path("../reports/ky_thuat_1_evidence.json")
+    output_path = Path(__file__).resolve().parents[3] / "reports" / "results" / "ky_thuat_1_evidence.json"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\nĐã lưu toàn bộ bằng chứng kiểm thử vào {output_path.resolve()}")
 

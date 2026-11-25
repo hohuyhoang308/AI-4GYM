@@ -1,0 +1,8 @@
+# Optional dependencies for report generation and real-browser checks.
+# Backend runtime dependencies remain in BE/requirements.txt.
+python-docx>=1.2,<2
+matplotlib>=3.10,<4
+pillow>=12,<14
+playwright>=1.55,<2
+openpyxl>=3.1,<4
+PyMuPDF>=1.26,<2

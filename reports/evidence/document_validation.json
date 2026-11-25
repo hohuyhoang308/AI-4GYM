@@ -1,0 +1,50 @@
+{
+  "Tieu_luan_AI_4GYM_CT07PM": {
+    "pages": 31,
+    "text_characters": 48875,
+    "blank_pages": [],
+    "required_evidence_text": "PASS"
+  },
+  "Bao_cao_kiem_thu_AI_4GYM": {
+    "pages": 12,
+    "text_characters": 19683,
+    "blank_pages": [],
+    "required_evidence_text": "PASS"
+  },
+  "workbook": {
+    "Tong quan": {
+      "rows": 20,
+      "columns": 2
+    },
+    "Ca phan mem": {
+      "rows": 54,
+      "columns": 10
+    },
+    "Ca trinh duyet": {
+      "rows": 11,
+      "columns": 5
+    },
+    "Loi va hoi quy": {
+      "rows": 8,
+      "columns": 6
+    },
+    "Chatbot AI moi": {
+      "rows": 13,
+      "columns": 9
+    },
+    "Tung luot chatbot": {
+      "rows": 17,
+      "columns": 8
+    },
+    "193 cau ban giao": {
+      "rows": 194,
+      "columns": 9
+    },
+    "Ra soat AI bo sung": {
+      "rows": 13,
+      "columns": 3
+    }
+  },
+  "source_hashes": "PASS",
+  "historical_artifacts_unchanged": true
+}

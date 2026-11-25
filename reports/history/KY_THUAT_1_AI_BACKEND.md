@@ -3,7 +3,7 @@
 **Dự án:** AI-4GYM — Chatbot hỗ trợ người mới tập Gym / Fitness  
 **Vai trò phụ trách:** Kỹ thuật 1 — AI Chatbot & Backend (Logic trả lời, Ngữ cảnh hội thoại, Cá nhân hóa & Tích hợp tri thức)  
 **Thời gian hoàn thành:** 13/11/2026  
-**File bằng chứng thực nghiệm:** [ky_thuat_1_evidence.json](file:///f:/download/baitap/AI/AI-4GYM/reports/ky_thuat_1_evidence.json)  
+**File bằng chứng thực nghiệm:** [ky_thuat_1_evidence.json](ky_thuat_1_evidence.json)
 
 ---
 

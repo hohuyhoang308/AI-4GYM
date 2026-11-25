@@ -14,6 +14,7 @@ from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.worksheet.datavalidation import DataValidation
 
 from app.core.config import ROOT, settings
+from app.services.index import vector_store
 from app.services.knowledge import load_exercises, normalize
 
 
@@ -54,12 +55,9 @@ def load_verified_data() -> tuple[list[dict], list[dict], list[dict], dict, int,
 
     exercises = load_exercises()
     expected_index_ids = train_ids | {f"exercise-{exercise['id']}" for exercise in exercises}
-    try:
-        indexed_ids = set(vector_store().get(include=[])["ids"])
-        if indexed_ids != expected_index_ids:
-            raise ValueError("Chỉ mục Chroma không khớp tập train. Chạy lại python -m app.scripts.ingest")
-    except Exception:
-        pass
+    indexed_ids = set(vector_store().get(include=[])["ids"])
+    if indexed_ids != expected_index_ids:
+        raise ValueError("Chỉ mục Chroma không khớp tập train. Chạy lại python -m app.scripts.ingest")
 
     duplicate_groups = sum(count > 1 for count in Counter(normalize(row["question"]).strip() for row in all_rows).values())
     return all_rows, train_rows, test_rows, manifest, len(exercises), duplicate_groups
