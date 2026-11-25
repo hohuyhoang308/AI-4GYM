@@ -4,7 +4,7 @@ Cập nhật **25/11/2026**, sau khi pull remote từ `ba4fd9a` lên `9863d65317
 
 ## Tệp chính để nộp
 
-Bản ZIP local sau khi đóng gói: `releases/AI_4GYM_HO_SO_NOP_CT07PM.zip` (không track để tránh trùng toàn bộ nội dung). Các tài liệu bên dưới và bằng chứng đều được quản lý trên Git.
+Bản ZIP đầy đủ: [releases/AI_4GYM_HO_SO_NOP_CT07PM.zip](releases/AI_4GYM_HO_SO_NOP_CT07PM.zip). Cả ZIP, các tài liệu bên dưới và bằng chứng đều được quản lý trên Git.
 
 | Tệp | Nội dung |
 | --- | --- |

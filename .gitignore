@@ -13,6 +13,5 @@ FE/*.tsbuildinfo
 ~$*.docx
 *.tmp
 .local/
-reports/releases/*.zip
 reports/evidence/*_preview_*.png
 reports/evidence/*_extracted.txt

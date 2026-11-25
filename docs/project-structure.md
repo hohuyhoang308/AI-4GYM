@@ -17,6 +17,7 @@
 | `reports/evidence/` | Ảnh giao diện, sơ đồ, biểu đồ, môi trường. |
 | `reports/history/` | Hồ sơ kỹ thuật cũ, ghi rõ ngày và giới hạn. |
 | `reports/tools/` | Công cụ tạo, hoàn thiện và đóng gói báo cáo. |
+| `reports/releases/` | ZIP hồ sơ nộp đầy đủ, quản lý trên Git để tải trọn bộ. |
 
 ## Những gì không đưa lên Git
 
@@ -26,7 +27,6 @@
 - `FE/dist/`: bản build để backend phục vụ web, có thể tạo lại.
 - `__pycache__/`, `*.pyc`, `*.log`, `*.tsbuildinfo`, file khóa Office: cache/nhật ký local.
 - `.local/`: bản sao Word gốc và ảnh xem thử tài liệu, không dùng làm mã nguồn.
-- `reports/releases/*.zip`: gói nộp được sinh từ các tệp đã quản lý, tránh lưu trùng.
 
 Không chuyển `BE/` hoặc `FE/` để giữ nguyên import Python, lệnh npm và cách backend tìm frontend. Hai tệp train/test tại gốc `reports/` được giữ nguyên vị trí vì các lệnh audit/export/evaluate đang dùng chúng. Kết quả kiểm thử mới được tách riêng, không trộn vào 193 bản ghi đánh giá bàn giao.
 

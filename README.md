@@ -72,7 +72,7 @@ AI-4GYM/
 │   ├── evidence/                           # ảnh thật, sơ đồ, môi trường
 │   ├── history/                            # hồ sơ kỹ thuật cũ
 │   ├── tools/                              # tạo/kiểm tra/đóng gói báo cáo
-│   ├── releases/                           # ZIP nộp tạo local, không track
+│   ├── releases/                           # ZIP hồ sơ nộp đầy đủ
 │   ├── AI-4GYM_train_test_report.xlsx       # train/test 193 câu bàn giao
 │   └── evaluation_results.jsonl
 ├── docs/setup.md                           # cài đặt và chạy ứng dụng

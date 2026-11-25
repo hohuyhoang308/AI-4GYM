@@ -19,7 +19,7 @@
 | `evidence/` | Ảnh giao diện thật, sơ đồ, biểu đồ, môi trường, kiểm tra tài liệu. |
 | `history/` | Hồ sơ kỹ thuật và phép đo cũ, không thay kết quả hiện hành. |
 | `tools/` | Mã tạo tài liệu, kiểm tra giao diện, hoàn thiện Word và đóng gói. |
-| `releases/` | ZIP nộp được tạo local; không commit bản ZIP trùng nội dung. |
+| `releases/` | [ZIP hồ sơ nộp đầy đủ](releases/AI_4GYM_HO_SO_NOP_CT07PM.zip), đã quản lý trên Git cùng các tài liệu riêng lẻ. |
 | `evaluation_results.jsonl` | 193 bản ghi đánh giá được bàn giao từ remote, giữ nguyên nội dung. |
 | `AI-4GYM_train_test_report.xlsx` | Excel train/test gắn với 193 bản ghi; giữ vị trí để tương thích các script đánh giá. |
 | `submission_manifest.json` | SHA-256 các tệp trong bộ hồ sơ đóng gói. |
@@ -28,4 +28,4 @@ Các tên bằng chứng được ghi ngắn trong Word/PDF nằm tại `results
 
 File xem thử PDF, cache và bản sao Word ban đầu không phải bằng chứng kiểm thử cần nộp. Bản gốc được giữ riêng ở `.local/backups/` tại gốc workspace, không đưa lên Git. Môi trường `.venv`, `node_modules`, `.env`, chỉ mục Chroma và build frontend cũng không track.
 
-Sau khi clone, ZIP chưa có sẵn. Công cụ `tools/package_submission.py` tạo lại từ các hiện vật đã lưu (cần thêm thư viện trong `requirements-report.txt`). Bản ZIP không chứa `.env`, tài khoản thật, môi trường Python/Node hoặc chỉ mục local.
+Có thể tải ZIP trực tiếp trong `releases/` hoặc tạo lại bằng `tools/package_submission.py` từ các hiện vật đã lưu (cần thêm thư viện trong `requirements-report.txt`). Bản ZIP không chứa `.env`, tài khoản thật, môi trường Python/Node hoặc chỉ mục local.
