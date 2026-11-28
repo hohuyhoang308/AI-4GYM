@@ -5,7 +5,7 @@ from hashlib import sha256
 import json
 
 from app.core.config import settings
-from app.services.knowledge import load_qa_json, normalize
+from app.services.knowledge import load_qa_json, normalize, write_json
 
 
 SPLIT_SEED = 42
@@ -41,9 +41,8 @@ def split_qa_rows(rows: list[dict]) -> tuple[list[dict], list[dict]]:
 def export_qa_splits(rows: list[dict] | None = None) -> dict:
     all_rows = rows if rows is not None else load_qa_json()
     train_rows, test_rows = split_qa_rows(all_rows)
-    settings.train_json_path.parent.mkdir(parents=True, exist_ok=True)
     for path, split_rows in ((settings.train_json_path, train_rows), (settings.test_json_path, test_rows)):
-        path.write_text(json.dumps(split_rows, ensure_ascii=False, indent=2), encoding="utf-8")
+        write_json(path, split_rows)
 
     manifest = {
         "seed": SPLIT_SEED,
@@ -56,7 +55,7 @@ def export_qa_splits(rows: list[dict] | None = None) -> dict:
         "train_percent": round(len(train_rows) / len(all_rows) * 100, 2),
         "test_percent": round(len(test_rows) / len(all_rows) * 100, 2),
     }
-    settings.split_manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+    write_json(settings.split_manifest_path, manifest)
     return manifest
 
 

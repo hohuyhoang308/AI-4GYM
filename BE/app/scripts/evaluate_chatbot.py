@@ -14,7 +14,7 @@ from langchain_ollama import ChatOllama
 from app.core.config import ROOT, settings
 from app.scripts.export_report import export_report, load_verified_data
 from app.services.chat import ChatService
-from app.services.knowledge import normalize
+from app.services.knowledge import normalize, text_sha256
 
 
 DEFAULT_RESULTS = ROOT.parent / "reports" / "evaluation_results.jsonl"
@@ -113,7 +113,7 @@ def read_results(path: Path) -> dict[str, dict]:
 
 def compact_results(path: Path, ordered_rows: list[dict], results: dict[str, dict]) -> None:
     temporary = path.with_suffix(path.suffix + ".tmp")
-    with temporary.open("w", encoding="utf-8") as output:
+    with temporary.open("w", encoding="utf-8", newline="\r\n") as output:
         for row in ordered_rows:
             output.write(json.dumps(results[row["id"]], ensure_ascii=False) + "\n")
     os.replace(temporary, path)
@@ -121,7 +121,7 @@ def compact_results(path: Path, ordered_rows: list[dict], results: dict[str, dic
 
 def run(results_path: Path, limit: int | None = None, ids: set[str] | None = None) -> None:
     _, _, test_rows, manifest, _, _ = load_verified_data()
-    test_hash = sha256(settings.test_json_path.read_bytes()).hexdigest()
+    test_hash = text_sha256(settings.test_json_path)
     existing = read_results(results_path)
     if set(existing) - {row["id"] for row in test_rows}:
         raise ValueError("File kết quả có ID ngoài tập test")
@@ -169,7 +169,7 @@ def run(results_path: Path, limit: int | None = None, ids: set[str] | None = Non
                 "seconds": answer_seconds,
                 "seconds_measurement": seconds_measurement,
             }
-            with results_path.open("a", encoding="utf-8") as output:
+            with results_path.open("a", encoding="utf-8", newline="\r\n") as output:
                 output.write(json.dumps(checkpoint, ensure_ascii=False) + "\n")
                 output.flush()
         for attempt in range(3):
@@ -197,7 +197,7 @@ def run(results_path: Path, limit: int | None = None, ids: set[str] | None = Non
             "seconds": answer_seconds,
             "seconds_measurement": seconds_measurement,
         }
-        with results_path.open("a", encoding="utf-8") as output:
+        with results_path.open("a", encoding="utf-8", newline="\r\n") as output:
             output.write(json.dumps(result, ensure_ascii=False) + "\n")
             output.flush()
         existing[row["id"]] = result

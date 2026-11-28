@@ -16,6 +16,7 @@ from app.api.routes.auth import optional_user
 from app.api.routes.chat import _request_hash, _replayed
 from app.db.models import ChatRequestRecord, LoginSession, User
 from app.db.session import Base, get_db, utc_now
+from app.core.rate_limit import limiter
 from app.main import app
 from app.services.chat import SYSTEM_PROMPT
 from app.services.scope import in_scope, is_prompt_injection
@@ -86,7 +87,7 @@ class SecurityTest(unittest.TestCase):
         fake = FakeChat()
         app.dependency_overrides[get_db] = local_db
         try:
-            with patch("app.main.init_schema"), patch("app.api.routes.chat.indexed_count", return_value=782), patch("app.api.routes.chat.chat_service", return_value=fake):
+            with patch("app.main.init_schema"), patch("app.api.routes.chat.indexed_count", return_value=782), patch("app.api.routes.chat.chat_service", return_value=fake), patch.object(limiter, "enabled", False):
                 with TestClient(app) as client:
                     registered = client.post("/auth/register", json={"display_name": "Tester", "email": "replay@example.com", "password": "password123"})
                     self.assertEqual(registered.status_code, 201, registered.text)

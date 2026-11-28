@@ -156,6 +156,9 @@ a.source-item:hover { background: #e4f0df; }
 .source-item-copy strong { white-space: nowrap; text-overflow: ellipsis; overflow: hidden; font-size: 10px; font-weight: 700; }
 .source-item-copy small { color: #8ba78b; font-size: 9px; }
 .thinking-indicator { display: flex; gap: 12px; align-items: center; color: #869b89; padding: 10px 0; font-size: 11px; }
+.thinking-indicator { flex-wrap: wrap; }
+.thinking-elapsed { font-variant-numeric: tabular-nums; opacity: 0.8; }
+.thinking-hint { flex-basis: 100%; font-size: 11px; opacity: 0.85; }
 .typing-dots { display: inline-flex; gap: 3px; }
 .typing-dots i { width: 5px; height: 5px; border-radius: 50%; background: #88aa75; animation: blink 1.2s infinite; }
 .typing-dots i:nth-child(2) { animation-delay: .2s; }

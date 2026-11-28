@@ -24,6 +24,7 @@ class Settings:
     database_user: str = os.getenv("DATABASE_USER", "root")
     database_password: str = os.getenv("DATABASE_PASSWORD", "")
     cookie_secure: bool = os.getenv("COOKIE_SECURE", "false").strip().lower() == "true"
+    rate_limit_enabled: bool = os.getenv("RATE_LIMIT_ENABLED", "true").strip().lower() != "false"
     excel_path: Path = ROOT / "data" / "raw" / "data.xlsx"
     qa_json_path: Path = ROOT / "data" / "processed" / "qa.json"
     train_json_path: Path = ROOT / "data" / "processed" / "train.json"

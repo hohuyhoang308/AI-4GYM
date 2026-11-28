@@ -48,6 +48,5 @@ Desktop.ini
 *.docx
 *.doc
 
-# Generated archives and local test output
+# Generated archives
 *.zip
-reports/results/

@@ -14,6 +14,7 @@ from sqlalchemy.pool import StaticPool
 
 from app.db.models import ChatMessage, Conversation, User
 from app.db.session import Base, get_db
+from app.core.rate_limit import limiter
 from app.main import app
 from app.services.chat import ChatService, NO_EVIDENCE, REFUSAL
 from app.services.knowledge import build_documents, load_exercises
@@ -46,7 +47,9 @@ class SoftwareHTTPTest(unittest.TestCase):
         self.bot = StubChat()
         self.patches = [patch("app.main.init_schema"),
                         patch("app.api.routes.chat.indexed_count", return_value=783),
-                        patch("app.api.routes.chat.chat_service", return_value=self.bot)]
+                        patch("app.api.routes.chat.chat_service", return_value=self.bot),
+                        # Kiểm thử chức năng gọi đăng ký/đăng nhập nhiều lần; giới hạn tần suất có test riêng.
+                        patch.object(limiter, "enabled", False)]
         for item in self.patches:
             item.start()
         self.client = TestClient(app)

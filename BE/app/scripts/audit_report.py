@@ -8,7 +8,7 @@ from pathlib import Path
 from openpyxl import load_workbook
 
 from app.core.config import ROOT, settings
-from app.services.knowledge import normalize, read_qa_excel
+from app.services.knowledge import normalize, read_qa_excel, text_sha256
 
 
 REPORT = ROOT.parent / "reports" / "AI-4GYM_train_test_report.xlsx"
@@ -48,7 +48,7 @@ def audit(report_path: Path = REPORT, results_path: Path = RESULTS) -> dict:
             near_duplicate_pairs += 1
 
     results = {}
-    test_hash = sha256(settings.test_json_path.read_bytes()).hexdigest()
+    test_hash = text_sha256(settings.test_json_path)
     if results_path.exists():
         for line_number, line in enumerate(results_path.read_text(encoding="utf-8").splitlines(), 1):
             if not line.strip():

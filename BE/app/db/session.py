@@ -1,11 +1,18 @@
 from collections.abc import Generator
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
+import logging
 
-from sqlalchemy import create_engine
-from sqlalchemy.engine import URL
+from sqlalchemy import create_engine, delete, inspect, text
+from sqlalchemy.engine import URL, Engine
 from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 
 from app.core.config import settings
+
+
+logger = logging.getLogger(__name__)
+
+# Bản ghi chống gửi lặp (request_id) chỉ cần giữ trong thời gian người dùng có thể bấm gửi lại.
+CHAT_REQUEST_RETENTION = timedelta(hours=24)
 
 
 def utc_now() -> datetime:
@@ -34,7 +41,51 @@ def get_db() -> Generator[Session, None, None]:
         yield session
 
 
-def init_schema() -> None:
+# Các cột thời gian cần nâng lên DATETIME(6) với database đã tạo bằng phiên bản cũ.
+_DATETIME_COLUMNS = {
+    "users": ("created_at",),
+    "login_sessions": ("created_at", "expires_at"),
+    "conversations": ("created_at", "updated_at"),
+    "chat_messages": ("created_at",),
+    "chat_request_records": ("created_at",),
+}
+
+
+def upgrade_datetime_precision(bind: Engine) -> list[str]:
+    """Nâng cột DATETIME(0) cũ lên DATETIME(6) trên MySQL; trả về danh sách cột đã đổi."""
+    if bind.dialect.name != "mysql":
+        return []
+    changed = []
+    with bind.begin() as connection:
+        rows = connection.execute(text(
+            "SELECT TABLE_NAME, COLUMN_NAME, DATETIME_PRECISION FROM information_schema.COLUMNS "
+            "WHERE TABLE_SCHEMA = DATABASE() AND DATA_TYPE = 'datetime'"
+        )).all()
+        for table, column, precision in rows:
+            if column in _DATETIME_COLUMNS.get(table, ()) and (precision or 0) < 6:
+                connection.execute(text(f"ALTER TABLE `{table}` MODIFY `{column}` DATETIME(6) NOT NULL"))
+                changed.append(f"{table}.{column}")
+    if changed:
+        logger.info("Đã nâng độ chính xác thời gian: %s", ", ".join(changed))
+    return changed
+
+
+def purge_stale_records(db: Session) -> None:
+    """Dọn phiên đăng nhập hết hạn và bản ghi request_id quá hạn lưu giữ."""
+    from app.db.models import ChatRequestRecord, LoginSession
+
+    now = utc_now()
+    db.execute(delete(LoginSession).where(LoginSession.expires_at <= now))
+    db.execute(delete(ChatRequestRecord).where(ChatRequestRecord.created_at < now - CHAT_REQUEST_RETENTION))
+    db.commit()
+
+
+def init_schema(bind: Engine | None = None) -> None:
     from app.db import models  # noqa: F401  # register ORM tables
 
-    Base.metadata.create_all(bind=engine)
+    bind = bind or engine
+    Base.metadata.create_all(bind=bind)
+    if inspect(bind).has_table("chat_messages"):
+        upgrade_datetime_precision(bind)
+    with Session(bind) as db:
+        purge_stale_records(db)

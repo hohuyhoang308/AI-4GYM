@@ -1,3 +1,4 @@
+from functools import lru_cache
 import hashlib
 import json
 
@@ -16,7 +17,9 @@ def collection_name() -> str:
     return f"gym_knowledge_{model_hash}"
 
 
+@lru_cache(maxsize=1)
 def vector_store() -> Chroma:
+    """Một Chroma client dùng chung cho cả tiến trình (tạo client mới ở mỗi request rất tốn kém)."""
     settings.chroma_path.mkdir(parents=True, exist_ok=True)
     client = chromadb.PersistentClient(
         path=str(settings.chroma_path),
@@ -31,6 +34,7 @@ def vector_store() -> Chroma:
 
 
 def indexed_count() -> int:
+    """Số tài liệu đang có trong chỉ mục; đọc lại từ đĩa ở mỗi lần gọi nên vẫn thấy kết quả ingest mới."""
     return vector_store()._collection.count()
 
 
@@ -62,5 +66,6 @@ def build_index(batch_size: int = 32) -> int:
         print(f"Updated {min(start + batch_size, len(changed_documents))}/{len(changed_documents)} documents", flush=True)
     print(f"Index synchronized: {len(documents)} documents; {len(changed_documents)} embedded, {len(stale_ids)} removed", flush=True)
     manifest = {"qa_rows": len(all_rows), "train_rows": split["train_rows"], "test_rows": split["test_rows"], "documents": len(documents), "embed_model": settings.embed_model}
-    (settings.chroma_path / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+    with (settings.chroma_path / "manifest.json").open("w", encoding="utf-8", newline="\r\n") as output:
+        output.write(json.dumps(manifest, ensure_ascii=False, indent=2))
     return len(documents)

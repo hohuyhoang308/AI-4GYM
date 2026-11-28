@@ -2,7 +2,7 @@ from datetime import timedelta
 from hashlib import sha256
 import secrets
 
-from fastapi import APIRouter, Cookie, Depends, HTTPException, Response, status
+from fastapi import APIRouter, Cookie, Depends, HTTPException, Request, Response, status
 from pydantic import BaseModel, EmailStr, Field
 from pwdlib import PasswordHash
 from sqlalchemy import select
@@ -11,7 +11,8 @@ from sqlalchemy.orm import Session
 
 from app.core.config import settings
 from app.db.models import LoginSession, User
-from app.db.session import get_db, utc_now
+from app.core.rate_limit import LOGIN_LIMIT, REGISTER_LIMIT, client_key, limiter
+from app.db.session import get_db, purge_stale_records, utc_now
 
 
 router = APIRouter(prefix="/auth", tags=["auth"])
@@ -28,7 +29,8 @@ class RegisterPayload(BaseModel):
 
 class LoginPayload(BaseModel):
     email: EmailStr
-    password: str
+    # Cùng giới hạn với lúc đăng ký để không băm Argon2 chuỗi quá dài.
+    password: str = Field(min_length=1, max_length=128)
 
 
 def public_user(user: User) -> dict:
@@ -54,6 +56,19 @@ def _issue_session(response: Response, db: Session, user: User) -> None:
     )
 
 
+def _clear_cookie_header() -> str:
+    """Header Set-Cookie xóa cookie phiên; cookie HttpOnly chỉ backend mới xóa được."""
+    response = Response()
+    response.delete_cookie(key=COOKIE_NAME, path="/", secure=settings.cookie_secure, httponly=True, samesite="lax")
+    return response.headers["set-cookie"]
+
+
+def _invalid_session(detail: str) -> HTTPException:
+    # Trả 401 kèm lệnh xóa cookie: request kế tiếp của trình duyệt sẽ ở chế độ khách,
+    # nên cookie cũ không còn chặn chat khách.
+    return HTTPException(status_code=401, detail=detail, headers={"set-cookie": _clear_cookie_header()})
+
+
 def optional_user(
     token: str | None = Cookie(default=None, alias=COOKIE_NAME),
     db: Session = Depends(get_db),
@@ -62,14 +77,14 @@ def optional_user(
         return None
     login_session = db.get(LoginSession, sha256(token.encode()).hexdigest())
     if login_session is None:
-        raise HTTPException(status_code=401, detail="Phiên đăng nhập không hợp lệ. Vui lòng đăng nhập lại")
+        raise _invalid_session("Phiên đăng nhập không hợp lệ. Vui lòng đăng nhập lại")
     if login_session.expires_at <= utc_now():
         db.delete(login_session)
         db.commit()
-        raise HTTPException(status_code=401, detail="Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại")
+        raise _invalid_session("Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại")
     user = db.get(User, login_session.user_id)
     if user is None:
-        raise HTTPException(status_code=401, detail="Phiên đăng nhập không hợp lệ. Vui lòng đăng nhập lại")
+        raise _invalid_session("Phiên đăng nhập không hợp lệ. Vui lòng đăng nhập lại")
     return user
 
 
@@ -80,7 +95,8 @@ def current_user(user: User | None = Depends(optional_user)) -> User:
 
 
 @router.post("/register", status_code=201)
-def register(payload: RegisterPayload, response: Response, db: Session = Depends(get_db)) -> dict:
+def register(payload: RegisterPayload, request: Request, response: Response, db: Session = Depends(get_db)) -> dict:
+    limiter.check(client_key(request, "register"), REGISTER_LIMIT)
     email = str(payload.email).strip().lower()
     name = payload.display_name.strip()
     if len(name) < 2:
@@ -100,11 +116,13 @@ def register(payload: RegisterPayload, response: Response, db: Session = Depends
 
 
 @router.post("/login")
-def login(payload: LoginPayload, response: Response, db: Session = Depends(get_db)) -> dict:
+def login(payload: LoginPayload, request: Request, response: Response, db: Session = Depends(get_db)) -> dict:
     email = str(payload.email).strip().lower()
+    limiter.check(client_key(request, "login", email), LOGIN_LIMIT)
     user = db.scalar(select(User).where(User.email == email))
     if user is None or not password_hash.verify(payload.password, user.password_hash):
         raise HTTPException(status_code=401, detail="Email hoặc mật khẩu không đúng")
+    purge_stale_records(db)
     _issue_session(response, db, user)
     return public_user(user)
 
@@ -125,5 +143,5 @@ def logout(
         if login_session:
             db.delete(login_session)
             db.commit()
-    response.delete_cookie(key=COOKIE_NAME, path="/", secure=settings.cookie_secure, samesite="lax")
+    response.delete_cookie(key=COOKIE_NAME, path="/", secure=settings.cookie_secure, httponly=True, samesite="lax")
     return {"ok": True}

@@ -15,7 +15,7 @@ from openpyxl.worksheet.datavalidation import DataValidation
 
 from app.core.config import ROOT, settings
 from app.services.index import vector_store
-from app.services.knowledge import load_exercises, normalize
+from app.services.knowledge import load_exercises, normalize, text_sha256
 
 
 DEFAULT_OUTPUT = ROOT.parent / "reports" / "AI-4GYM_train_test_report.xlsx"
@@ -66,7 +66,7 @@ def load_verified_data() -> tuple[list[dict], list[dict], list[dict], dict, int,
 def load_evaluation_results(test_rows: list[dict], results_path: Path = DEFAULT_RESULTS) -> dict[str, dict]:
     if not results_path.exists():
         return {}
-    expected_hash = sha256(settings.test_json_path.read_bytes()).hexdigest()
+    expected_hash = text_sha256(settings.test_json_path)
     expected_source_hash = sha256(settings.excel_path.read_bytes()).hexdigest()
     test_ids = {row["id"] for row in test_rows}
     results = {}

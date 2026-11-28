@@ -1,3 +1,4 @@
+import hashlib
 import json
 import unicodedata
 from pathlib import Path
@@ -6,6 +7,23 @@ from langchain_core.documents import Document
 from openpyxl import load_workbook
 
 from app.core.config import settings
+
+
+def write_json(path: Path, data) -> None:
+    """Ghi JSON với dòng CRLF cố định (khớp .gitattributes) để hash giống nhau trên mọi hệ điều hành."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="\r\n") as output:
+        output.write(json.dumps(data, ensure_ascii=False, indent=2))
+
+
+def text_sha256(path: Path) -> str:
+    """SHA-256 của tệp văn bản sau khi chuẩn hóa xuống dòng về CRLF.
+
+    Git có thể checkout tệp với LF hoặc CRLF tùy cấu hình; chuẩn hóa giúp kết quả
+    kiểm toán không phụ thuộc hệ điều hành.
+    """
+    data = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")
+    return hashlib.sha256(data).hexdigest()
 
 
 def normalize(text: str) -> str:
@@ -58,8 +76,7 @@ def read_qa_excel(path: Path | None = None) -> list[dict]:
 
 def export_qa_json() -> list[dict]:
     rows = read_qa_excel()
-    settings.qa_json_path.parent.mkdir(parents=True, exist_ok=True)
-    settings.qa_json_path.write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8")
+    write_json(settings.qa_json_path, rows)
     return rows
 
 

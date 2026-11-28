@@ -60,19 +60,43 @@ export function safeUUID(): string {
 
 const API_PREFIX = import.meta.env.DEV ? '/api' : ''
 
-async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
-  const response = await fetch(`${API_PREFIX}${path}`, {
-    credentials: 'include',
-    ...init,
-    headers: {
-      'Content-Type': 'application/json',
-      ...init.headers,
-    },
-  })
+// Mô hình local có thể mất 1–2 phút cho một câu RAG; quá thời gian này coi như lỗi mạng.
+export const CHAT_TIMEOUT_MS = 5 * 60 * 1000
+const DEFAULT_TIMEOUT_MS = 30 * 1000
+
+export class ApiError extends Error {
+  status: number
+
+  constructor(message: string, status: number) {
+    super(message)
+    this.name = 'ApiError'
+    this.status = status
+  }
+}
+
+async function request<T>(path: string, init: RequestInit = {}, timeoutMs = DEFAULT_TIMEOUT_MS): Promise<T> {
+  const controller = new AbortController()
+  const timer = window.setTimeout(() => controller.abort(), timeoutMs)
+  let response: Response
+  try {
+    response = await fetch(`${API_PREFIX}${path}`, {
+      credentials: 'include',
+      ...init,
+      signal: controller.signal,
+      headers: {
+        'Content-Type': 'application/json',
+        ...init.headers,
+      },
+    })
+  } catch (cause) {
+    // status 0: lỗi mạng hoặc quá thời gian chờ, có thể gửi lại cùng request_id.
+    const timedOut = cause instanceof DOMException && cause.name === 'AbortError'
+    throw new ApiError(timedOut ? 'Máy chủ phản hồi quá lâu. Bạn có thể gửi lại câu hỏi.' : 'Không kết nối được máy chủ. Kiểm tra backend rồi gửi lại.', 0)
+  } finally {
+    window.clearTimeout(timer)
+  }
   if (!response.ok) {
-    if (response.status === 401) {
-      document.cookie = 'ai4gym_session=; Max-Age=0; path=/;'
-    }
+    // Cookie phiên là HttpOnly nên JavaScript không xóa được; backend tự gửi lệnh xóa kèm 401.
     let detail = `Có lỗi xảy ra (${response.status})`
     try {
       const body = await response.json()
@@ -80,7 +104,7 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
     } catch {
       // Keep the HTTP status if the response body is not JSON.
     }
-    throw new Error(detail)
+    throw new ApiError(detail, response.status)
   }
   if (response.status === 204) return undefined as T
   return response.json() as Promise<T>
@@ -98,6 +122,8 @@ export const api = {
   conversation: (id: string) => request<ConversationDetail>(`/conversations/${encodeURIComponent(id)}`),
   renameConversation: (id: string, title: string) => request<Conversation>(`/conversations/${encodeURIComponent(id)}`, { method: 'PATCH', body: JSON.stringify({ title }) }),
   deleteConversation: (id: string) => request<void>(`/conversations/${encodeURIComponent(id)}`, { method: 'DELETE' }),
-  chat: (message: string, session_id?: string | null, conversation_id?: string | null) =>
-    request<ChatReply>('/chat', { method: 'POST', body: JSON.stringify({ message, session_id, conversation_id, request_id: safeUUID() }) }),
+  // request_id do nơi gọi giữ lại: gửi lại cùng câu hỏi sau lỗi mạng sẽ dùng lại id cũ,
+  // backend trả kết quả đã lưu thay vì tạo thêm tin nhắn.
+  chat: (message: string, request_id: string, session_id?: string | null, conversation_id?: string | null) =>
+    request<ChatReply>('/chat', { method: 'POST', body: JSON.stringify({ message, session_id, conversation_id, request_id }) }, CHAT_TIMEOUT_MS),
 }

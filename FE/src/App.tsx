@@ -4,7 +4,7 @@ import AuthModal, { type AuthMode } from './components/AuthModal'
 import Composer from './components/Composer'
 import MessageBubble from './components/MessageBubble'
 import Sidebar from './components/Sidebar'
-import { api, safeUUID, type ChatMessage, type Conversation, type Health, type User } from './lib/api'
+import { api, ApiError, safeUUID, type ChatMessage, type Conversation, type Health, type User } from './lib/api'
 
 const suggestions = [
   { icon: Dumbbell, label: 'Kỹ thuật bài tập', prompt: 'Hướng dẫn squat đúng kỹ thuật và những lỗi cần tránh', tone: 'orange' },
@@ -28,6 +28,9 @@ function App() {
   const [authOpen, setAuthOpen] = useState(false)
   const [authMode, setAuthMode] = useState<AuthMode>('login')
   const [toast, setToast] = useState('')
+  const [elapsed, setElapsed] = useState(0)
+  // Câu hỏi gửi lỗi do mạng/timeout: gửi lại đúng câu đó sẽ dùng lại request_id cũ.
+  const retryRef = useRef<{ message: string, conversationId: string | null, requestId: string } | null>(null)
   const bottomRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -67,6 +70,16 @@ function App() {
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
   }, [messages, pending])
+
+  useEffect(() => {
+    if (!pending) {
+      setElapsed(0)
+      return
+    }
+    const started = Date.now()
+    const timer = window.setInterval(() => setElapsed(Math.floor((Date.now() - started) / 1000)), 1000)
+    return () => window.clearInterval(timer)
+  }, [pending])
 
   useEffect(() => {
     if (!toast) return
@@ -170,8 +183,14 @@ function App() {
     setMessages((items) => [...items, { id: optimisticId, role: 'user', content: message, sources: [] }])
     setInput('')
     setPending(true)
+    const conversationId = user ? activeId : null
+    const previous = retryRef.current
+    const requestId = previous && previous.message === message && previous.conversationId === conversationId
+      ? previous.requestId
+      : safeUUID()
+    retryRef.current = null
     try {
-      const reply = await api.chat(message, user ? null : guestSessionId, user ? activeId : null)
+      const reply = await api.chat(message, requestId, user ? null : guestSessionId, conversationId)
       setMessages((items) => [...items, { id: safeUUID(), role: 'assistant', content: reply.answer, sources: reply.sources }])
       if (user && reply.conversation_id) {
         setActiveId(reply.conversation_id)
@@ -186,7 +205,20 @@ function App() {
     } catch (cause) {
       setMessages((items) => items.filter((item) => item.id !== optimisticId))
       setInput(message)
-      setToast(cause instanceof Error ? cause.message : 'Không thể gửi câu hỏi. Hãy thử lại.')
+      if (cause instanceof ApiError && (cause.status === 0 || cause.status >= 500)) {
+        retryRef.current = { message, conversationId, requestId }
+      }
+      if (cause instanceof ApiError && cause.status === 401 && user) {
+        // Phiên hết hạn: backend đã xóa cookie, chuyển sang chế độ khách để vẫn chat được.
+        setUser(null)
+        setConversations([])
+        setActiveId(null)
+        setMessages([])
+        setGuestSessionId(null)
+        setToast('Phiên đăng nhập đã hết hạn. Bạn đang ở chế độ khách — đăng nhập lại để lưu lịch sử.')
+      } else {
+        setToast(cause instanceof Error ? cause.message : 'Không thể gửi câu hỏi. Hãy thử lại.')
+      }
     } finally {
       setPending(false)
     }
@@ -253,7 +285,7 @@ function App() {
               {pending && (
                 <div className="message-row assistant-row">
                   <div className="assistant-avatar"><Dumbbell size={17} strokeWidth={2.6} /></div>
-                  <div className="thinking-indicator"><span className="typing-dots"><i /><i /><i /></span> Đang tìm thông tin phù hợp...</div>
+                  <div className="thinking-indicator"><span className="typing-dots"><i /><i /><i /></span> Đang tìm thông tin phù hợp... {elapsed > 0 && <span className="thinking-elapsed">{elapsed}s</span>}{elapsed >= 15 && <small className="thinking-hint">Mô hình chạy trên máy local, mỗi câu có thể mất 1–2 phút.</small>}</div>
                 </div>
               )}
               <div ref={bottomRef} />

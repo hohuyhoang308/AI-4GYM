@@ -4,7 +4,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.api.routes.auth import current_user
-from app.db.models import ChatMessage, Conversation, User
+from app.db.models import ChatMessage, Conversation, User, message_order
 from app.db.session import get_db, utc_now
 
 
@@ -54,7 +54,7 @@ def list_conversations(user: User = Depends(current_user), db: Session = Depends
 def conversation_detail(conversation_id: str, user: User = Depends(current_user), db: Session = Depends(get_db)) -> dict:
     conversation = owned_conversation(db, user, conversation_id)
     messages = db.scalars(
-        select(ChatMessage).where(ChatMessage.conversation_id == conversation.id).order_by(ChatMessage.created_at, ChatMessage.id)
+        select(ChatMessage).where(ChatMessage.conversation_id == conversation.id).order_by(*message_order())
     ).all()
     return {**serialize_conversation(conversation), "messages": [serialize_message(item) for item in messages]}
 

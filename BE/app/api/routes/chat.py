@@ -1,8 +1,10 @@
+from datetime import timedelta
 from functools import lru_cache
 from hashlib import sha256
+import logging
 from uuid import UUID, uuid4
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
 from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError, SQLAlchemyError
@@ -11,12 +13,14 @@ from sqlalchemy.orm import Session
 from app.api.routes.auth import optional_user
 from app.api.routes.conversations import owned_conversation
 from app.core.config import settings
-from app.db.models import ChatMessage, ChatRequestRecord, Conversation, User
+from app.core.rate_limit import CHAT_LIMIT, client_key, limiter
+from app.db.models import ChatMessage, ChatRequestRecord, Conversation, User, message_order
 from app.db.session import get_db, utc_now
 from app.services.chat import ChatService
 from app.services.index import indexed_count
 
 
+logger = logging.getLogger(__name__)
 router = APIRouter(tags=["chat"])
 
 
@@ -48,7 +52,8 @@ def chat_service() -> ChatService:
 
 
 @router.post("/chat")
-def chat(request: ChatRequest, user: User | None = Depends(optional_user), db: Session = Depends(get_db)) -> dict:
+def chat(request: ChatRequest, http_request: Request, user: User | None = Depends(optional_user), db: Session = Depends(get_db)) -> dict:
+    limiter.check(client_key(http_request, "chat"), CHAT_LIMIT)
     try:
         if indexed_count() == 0:
             raise HTTPException(status_code=503, detail="Chưa có chỉ mục RAG. Chạy: python -m app.scripts.ingest")
@@ -71,7 +76,7 @@ def chat(request: ChatRequest, user: User | None = Depends(optional_user), db: S
         if conversation:
             history_rows = list(reversed(db.scalars(
                 select(ChatMessage).where(ChatMessage.conversation_id == conversation_id)
-                .order_by(ChatMessage.created_at.desc()).limit(settings.chat_context_turns * 2)
+                .order_by(*message_order(descending=True)).limit(settings.chat_context_turns * 2)
             ).all()))
         history = [{"role": item.role, "text": item.content} for item in history_rows]
         result = chat_service().ask(message, conversation_id, history_override=history)
@@ -80,11 +85,14 @@ def chat(request: ChatRequest, user: User | None = Depends(optional_user), db: S
             conversation = Conversation(id=conversation_id, user_id=user.id, title=title)
             db.add(conversation)
             db.flush()
+        # Gán thời điểm tường minh: câu trả lời luôn sau câu hỏi ít nhất 1 micro giây.
+        asked_at = utc_now()
+        answered_at = asked_at + timedelta(microseconds=1)
         db.add_all([
-            ChatMessage(id=str(uuid4()), conversation_id=conversation_id, role="user", content=message, sources=[]),
-            ChatMessage(id=str(uuid4()), conversation_id=conversation_id, role="assistant", content=result["answer"], sources=result["sources"]),
+            ChatMessage(id=str(uuid4()), conversation_id=conversation_id, role="user", content=message, sources=[], created_at=asked_at),
+            ChatMessage(id=str(uuid4()), conversation_id=conversation_id, role="assistant", content=result["answer"], sources=result["sources"], created_at=answered_at),
         ])
-        conversation.updated_at = utc_now()
+        conversation.updated_at = answered_at
         response = {**result, "conversation_id": conversation_id}
         if request_id:
             db.add(ChatRequestRecord(user_id=user.id, request_id=request_id, message_hash=fingerprint,
@@ -103,6 +111,12 @@ def chat(request: ChatRequest, user: User | None = Depends(optional_user), db: S
         raise
     except SQLAlchemyError as exc:
         db.rollback()
+        logger.exception("Lỗi MySQL khi lưu hội thoại")
         raise HTTPException(status_code=503, detail="Không thể lưu hội thoại vào MySQL") from exc
     except Exception as exc:
-        raise HTTPException(status_code=503, detail=f"Không thể truy vấn model local: {exc}") from exc
+        # Chi tiết lỗi (đường dẫn, cấu hình, thông điệp thư viện) chỉ ghi vào log máy chủ.
+        logger.exception("Lỗi khi truy vấn model local")
+        raise HTTPException(
+            status_code=503,
+            detail="Không thể truy vấn model local. Kiểm tra Ollama đang chạy và đã tải đủ model.",
+        ) from exc

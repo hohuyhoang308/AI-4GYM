@@ -20,6 +20,7 @@ from sqlalchemy.pool import StaticPool
 
 from app.db.models import ChatMessage, Conversation
 from app.db.session import Base, get_db
+from app.core.rate_limit import limiter
 from app.main import app
 from app.services.knowledge import load_exercises
 from app.services.plans import make_plan
@@ -64,6 +65,7 @@ class ExtendedSoftwareAcceptanceTest(unittest.TestCase):
             patch("app.main.init_schema"),
             patch("app.api.routes.chat.indexed_count", return_value=783),
             patch("app.api.routes.chat.chat_service", return_value=self.bot),
+            patch.object(limiter, "enabled", False),
         ]
         for item in self.patches:
             item.start()

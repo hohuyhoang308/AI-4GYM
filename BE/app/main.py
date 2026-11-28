@@ -25,7 +25,7 @@ app = FastAPI(title="AI-4GYM Local RAG API", version="0.2.0", lifespan=lifespan)
 @app.exception_handler(SQLAlchemyError)
 async def database_error(_request: Request, _error: SQLAlchemyError) -> JSONResponse:
     logging.warning("MySQL unavailable while handling request: %s", type(_error).__name__)
-    return JSONResponse(status_code=503, content={"detail": "MySQL chưa sẵn sàng. Bật MySQL trong Serbay và kiểm tra BE/.env."})
+    return JSONResponse(status_code=503, content={"detail": "MySQL chưa sẵn sàng. Bật MySQL trong ServBay và kiểm tra BE/.env."})
 
 
 for router in (auth.router, conversations.router, health.router, catalog.router, chat.router):

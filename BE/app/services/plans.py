@@ -1,7 +1,12 @@
 from app.services.knowledge import load_exercises
 
 
+# Trang tóm tắt Position Stand 2026 của ACSM về tập sức mạnh. Các lịch bên dưới là mẫu do
+# nhóm biên soạn, chỉ THAM KHẢO nguyên tắc chung của ACSM, không phải lịch "chuẩn ACSM".
 ACSM_SOURCE = "https://acsm.org/resistance-training-guidelines-update-2026/"
+
+# Bài có chuyển động kéo (lưng xô, lưng giữa, tay trước).
+PULL_EXERCISES = {"lat-pulldown", "seated-row", "bent-over-row", "bicep-curl"}
 
 TEMPLATES = {
     1: ("Toàn thân", [(1, "Toàn thân A")]),
@@ -76,6 +81,7 @@ def make_plan(
         return res if res in exercises_map else "front-plank"
 
     schedule = []
+    pull_substituted = False
     for weekday, focus in sequence:
         raw_items = GROUPS.get(focus, GROUPS["Toàn thân A"])
         if target_muscle == "chan":
@@ -86,14 +92,23 @@ def make_plan(
             raw_items = ["seated-row", "lat-pulldown", "bent-over-row"]
 
         resolved_ids = []
+        day_lost_pull = False
         for item in raw_items:
             resolved = resolve_exercise_id(item)
+            if item in PULL_EXERCISES and resolved not in PULL_EXERCISES:
+                day_lost_pull = True
             if resolved not in resolved_ids:
                 resolved_ids.append(resolved)
+        pull_substituted = pull_substituted or day_lost_pull
+
+        day_focus = f"{focus} (Chân)" if target_muscle == "chan" else focus
+        if day_lost_pull and not any(item in PULL_EXERCISES for item in resolved_ids) and (focus == "Kéo" or target_muscle == "lung"):
+            # Không còn bài kéo thật: đổi tên buổi cho trung thực thay vì vẫn gọi là "Kéo"/"Lưng".
+            day_focus = f"{day_focus} → Core & chuỗi sau (thiếu dụng cụ kéo)"
 
         schedule.append({
             "weekday": weekday,
-            "focus": f"{focus} (Chân)" if target_muscle == "chan" else focus,
+            "focus": day_focus,
             "exercises": [{"id": item, "name": exercises_map[item]["name"]} for item in resolved_ids],
         })
 
@@ -107,6 +122,12 @@ def make_plan(
     elif equipment == "home_dumbbell":
         name = f"{name} (Tại nhà - Tạ đơn)"
         guidance_parts.append("Lịch tập kết hợp tạ đơn, ghế tựa chắc chắn và các bài trọng lượng cơ thể; không yêu cầu máy tập hoặc dây kháng lực.")
+
+    if pull_substituted:
+        guidance_parts.append(
+            "Thiếu dụng cụ nên một số bài kéo (kéo xô, chèo, cuốn tay) đã được thay bằng bài core/mông; "
+            "lịch vì vậy thiếu cân bằng đẩy–kéo. Nên bổ sung dây kháng lực hoặc tạ đơn để tập chèo (row) cho lưng."
+        )
 
     if goal == "giam_mo":
         guidance_parts.append("Mục tiêu giảm mỡ: Kết hợp các bài sức mạnh này với tối thiểu 150 phút vận động thể chất/aerobic vừa phải mỗi tuần.")
