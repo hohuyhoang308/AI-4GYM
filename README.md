@@ -4,7 +4,7 @@ Chatbot Gym tiếng Việt dùng **FastAPI, React/TypeScript, LangChain, Chroma 
 
 ## Bản nộp
 
-**[Tải AI-4GYM_FINAL.zip](releases/AI-4GYM_FINAL.zip)** — mã nguồn, dữ liệu, báo cáo và kiểm thử trong một gói. Giải nén rồi cài đặt theo hướng dẫn dưới đây.
+Mã nguồn, dữ liệu và kiểm thử nằm trong `BE/`, `FE/`; báo cáo hoàn chỉnh nằm trong `reports/`.
 
 | Tệp | Nội dung |
 | --- | --- |
@@ -23,8 +23,6 @@ AI-4GYM/
 │   └── requirements.txt
 ├── FE/                       # React/TypeScript, Vite
 ├── reports/                  # 2 PDF, 2 Excel và kết quả đánh giá train/test
-├── scripts/package_submission.py
-├── releases/AI-4GYM_FINAL.zip
 └── README.md
 ```
 
@@ -114,13 +112,3 @@ npm run build
 Các ca tích hợp cần MySQL, Ollama và chỉ mục đã khởi tạo. Ca tài khoản tự bỏ qua khi thiếu dịch vụ; ca RAG nhiều lượt vẫn cần Ollama. Xem kết quả thực tế của runner để phân biệt pass, skip và lỗi môi trường.
 
 Để xuất lại Excel từ kết quả đã lưu, chạy `python -m app.scripts.export_report` bằng Python trong `.venv` tại `BE/`. `python -m app.scripts.evaluate_chatbot --ids qa-20,qa-132` giới hạn đánh giá theo ID; chạy không có `--ids` sẽ xử lý cả tập test và chấm lại các dòng judge cũ.
-
-## Đóng gói
-
-Từ gốc Git checkout:
-
-```powershell
-python scripts/package_submission.py
-```
-
-Script dùng thư viện chuẩn Python, tạo một ZIP đầy đủ và kiểm tra SHA-256 từng tệp. Manifest nằm bên trong ZIP. `.gitignore` loại cấu hình riêng, thư viện cài sẵn, chỉ mục AI, build, cache, log, bản Word và file tạm. Máy nhận cài môi trường theo phần Cài đặt.

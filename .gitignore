@@ -48,8 +48,6 @@ Desktop.ini
 *.docx
 *.doc
 
-# Keep one complete submission archive; exclude obsolete/nested packages
+# Generated archives and local test output
 *.zip
-!/releases/AI-4GYM_FINAL.zip
-reports/releases/
 reports/results/
