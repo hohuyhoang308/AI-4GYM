@@ -1,23 +1,23 @@
 {
-  "created_at": "2026-11-28T09:10:17.691612+00:00",
-  "git_commit": "2321490e7f556a9488aa6cdd62d8929d2e855012",
-  "platform": "Linux-6.8.0-149-generic-x86_64-with-glibc2.35",
-  "python": "3.10.12",
+  "created_at": "2026-11-28T10:57:05.539298+00:00",
+  "git_commit": "3d71ba1e780012c0e4b45d259a550d3b79e9d7e1",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.7",
   "scope": "Toàn bộ BE/tests: unit, HTTP với SQLite cô lập, dữ liệu/chỉ mục; ca tích hợp tự bỏ qua khi thiếu MySQL/Ollama",
   "summary": {
-    "tests_run": 84,
-    "passed": 82,
+    "tests_run": 85,
+    "passed": 85,
     "failed": 0,
     "errors": 0,
-    "skipped": 3,
-    "seconds": 9.123
+    "skipped": 0,
+    "seconds": 287.204
   },
   "cases": [
     {
-      "test_id": "setUpClass (test_auth_flow.AuthFlowTest)",
+      "test_id": "test_auth_flow.AuthFlowTest.test_accounts_own_history_and_guests_do_not_persist",
       "description": "",
-      "status": "skipped",
-      "detail": "Integration test cần MySQL, Ollama và chỉ mục RAG đang chạy"
+      "status": "pass",
+      "detail": ""
     },
     {
       "test_id": "test_context.ContextTest.test_expired_guest_session_rotates_id_and_drops_history",
@@ -46,8 +46,8 @@
     {
       "test_id": "test_dataset_split.DatasetSplitTest.test_exported_test_cases_are_absent_from_index",
       "description": "",
-      "status": "skipped",
-      "detail": "Chưa có chỉ mục Chroma"
+      "status": "pass",
+      "detail": ""
     },
     {
       "test_id": "test_dataset_split.DatasetSplitTest.test_split_is_reproducible_and_has_no_question_leakage",
@@ -82,8 +82,8 @@
     {
       "test_id": "test_multiturn_flow.MultiTurnFlowTest.test_multi_turn_home_leg_workout_then_no_equipment",
       "description": "",
-      "status": "skipped",
-      "detail": "Cần Ollama, hai model local và chỉ mục RAG (chạy app.scripts.ingest)"
+      "status": "pass",
+      "detail": ""
     },
     {
       "test_id": "test_multiturn_flow.MultiTurnFlowTest.test_personalized_plan_generation",
