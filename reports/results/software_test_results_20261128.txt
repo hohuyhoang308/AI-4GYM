@@ -1,0 +1,154 @@
+skipped 'Integration test cần MySQL, Ollama và chỉ mục RAG đang chạy'
+test_expired_guest_session_rotates_id_and_drops_history (test_context.ContextTest) ... ok
+test_first_exercise_follow_up_resolves_from_plan (test_context.ContextTest) ... ok
+test_guest_uses_three_previous_turns_for_follow_up (test_context.ContextTest) ... ok
+test_saved_history_is_trimmed_before_model_call (test_context.ContextTest) ... ok
+test_exported_test_cases_are_absent_from_index (test_dataset_split.DatasetSplitTest) ... skipped 'Chưa có chỉ mục Chroma'
+test_split_is_reproducible_and_has_no_question_leakage (test_dataset_split.DatasetSplitTest) ... ok
+test_cardio_target_is_mandatory_for_full_credit (test_evaluation_metrics.EvaluationMetricsTest) ... ok
+test_judge_cannot_override_mandatory_numeric_condition (test_evaluation_metrics.EvaluationMetricsTest) ... ok
+test_overlap_metrics_reward_matching_words_and_order (test_evaluation_metrics.EvaluationMetricsTest) ... ok
+test_resume_uses_latest_grade_and_compacts_in_test_order (test_evaluation_metrics.EvaluationMetricsTest) ... ok
+test_multi_turn_home_leg_workout_then_no_equipment (test_multiturn_flow.MultiTurnFlowTest) ... skipped 'Cần Ollama, hai model local và chỉ mục RAG (chạy app.scripts.ingest)'
+test_personalized_plan_generation (test_multiturn_flow.MultiTurnFlowTest) ... ok
+test_proactive_clarification_on_generic_request (test_multiturn_flow.MultiTurnFlowTest) ... ok
+test_login_is_rate_limited (test_review_fixes.ReviewFixHTTPTest)
+RV-05: Đăng nhập sai liên tục bị chặn 429 kèm Retry-After. ... ok
+test_login_password_has_max_length (test_review_fixes.ReviewFixHTTPTest)
+RV-06: Mật khẩu đăng nhập quá 128 ký tự bị từ chối trước khi băm. ... ok
+test_messages_keep_order_when_timestamps_tie (test_review_fixes.ReviewFixHTTPTest)
+RV-01: Tin nhắn cũ lưu cùng giây vẫn hiện câu hỏi trước câu trả lời sau khi tải lại. ... ok
+test_model_error_details_are_not_exposed (test_review_fixes.ReviewFixHTTPTest)
+RV-03: Lỗi nội bộ của model không bị trả nguyên văn cho client. ... ok
+test_new_messages_are_stored_with_increasing_timestamps (test_review_fixes.ReviewFixHTTPTest)
+RV-02: Câu trả lời được ghi sau câu hỏi; lịch sử nhiều lượt giữ đúng thứ tự. ... ok
+test_retry_with_same_request_id_does_not_duplicate (test_review_fixes.ReviewFixHTTPTest)
+RV-07: Gửi lại cùng request_id (khi mạng lỗi) không tạo thêm tin nhắn hay gọi lại AI. ... ok
+test_stale_cookie_is_cleared_so_guest_chat_continues (test_review_fixes.ReviewFixHTTPTest)
+RV-04: Cookie hết hạn nhận 401 kèm lệnh xóa cookie; request tiếp theo chat khách được. ... ok
+test_bodyweight_pull_day_is_labelled_honestly (test_review_fixes.ReviewFixUnitTest)
+RV-10: Không dụng cụ thì buổi "Kéo" được đổi tên và có hướng dẫn bổ sung bài chèo. ... ok
+test_exercise_source_links_are_unique (test_review_fixes.ReviewFixUnitTest)
+RV-11: Mỗi bài tập trỏ tới một trang ACE riêng. ... ok
+test_plan_wording_does_not_claim_acsm_standard (test_review_fixes.ReviewFixUnitTest)
+RV-09: Không gọi lịch mẫu là "chuẩn ACSM". ... ok
+test_stale_sessions_and_request_records_are_purged (test_review_fixes.ReviewFixUnitTest)
+RV-08: Dọn phiên hết hạn và bản ghi request_id quá 24 giờ. ... ok
+test_text_hash_is_line_ending_independent (test_review_fixes.ReviewFixUnitTest)
+RV-12: Hash tập test không đổi giữa LF (Linux) và CRLF (Windows). ... ok
+test_everyday_gym_questions_are_in_scope (test_scope.ScopeTest) ... ok
+test_muscle_mention_ignores_vai_tro (test_scope.ScopeTest) ... ok
+test_non_gym_questions_stay_out_of_scope (test_scope.ScopeTest) ... ok
+test_expired_unknown_and_revoked_cookies_are_rejected (test_security.SecurityTest) ... ok
+test_http_replay_expiry_and_logout (test_security.SecurityTest) ... ok
+test_prompt_policy_and_scope (test_security.SecurityTest) ... ok
+test_replay_same_request_is_cached_and_changed_payload_conflicts (test_security.SecurityTest) ... ok
+test_bodyweight_plans_never_require_machines (test_software.SoftwareChatLogicTest)
+SW-24: Lịch không dụng cụ 1–6 buổi chỉ dùng bài trọng lượng cơ thể. ... ok
+test_empty_model_output_reports_insufficient_evidence (test_software.SoftwareChatLogicTest)
+SW-23: AI trả chuỗi trắng được thay bằng thông báo thiếu dữ liệu. ... ok
+test_injection_never_calls_retrieval_or_model (test_software.SoftwareChatLogicTest)
+SW-20: Lệnh chèn bị từ chối trước bước RAG và AI. ... ok
+test_knee_limited_plans_remove_squat_and_leg_press (test_software.SoftwareChatLogicTest)
+SW-25: Hạn chế gối loại squat và leg press trong cả 6 mẫu lịch. ... ok
+test_low_relevance_reports_insufficient_evidence (test_software.SoftwareChatLogicTest)
+SW-21: Điểm truy xuất dưới 0,18 báo thiếu dữ liệu, không gọi AI. ... ok
+test_named_exercise_is_prioritized_in_sources (test_software.SoftwareChatLogicTest)
+SW-22: Tên bài cụ thể ưu tiên đúng tài liệu biên soạn. ... ok
+test_all_six_plan_sizes (test_software.SoftwareHTTPTest)
+SW-04: Lịch 1–6 buổi có đúng số ngày và ID bài hợp lệ. ... ok
+test_blank_rename_does_not_change_title (test_software.SoftwareHTTPTest)
+SW-18: Đổi tên trắng hoặc quá 120 ký tự bị từ chối. ... ok
+test_catalog_detail_and_missing_id (test_software.SoftwareHTTPTest)
+SW-02: Chi tiết bài tồn tại trả 200; ID lạ trả 404. ... ok
+test_catalog_has_unique_exercises_and_sources (test_software.SoftwareHTTPTest)
+SW-01: Danh mục đủ bài, ID duy nhất và có nguồn. ... ok
+test_chat_identifier_validation (test_software.SoftwareHTTPTest)
+SW-07: Chặn UUID sai và mã phiên/hội thoại quá dài. ... ok
+test_chat_message_validation (test_software.SoftwareHTTPTest)
+SW-06: Chặn câu rỗng, một ký tự, khoảng trắng, null và quá 1000 ký tự. ... ok
+test_cross_account_access_is_denied (test_software.SoftwareHTTPTest)
+SW-17: Tài khoản B không được xem/sửa/xóa/chat vào hội thoại A. ... ok
+test_duplicate_registration_is_conflict (test_software.SoftwareHTTPTest)
+SW-13: Đăng ký trùng email trả 409. ... ok
+test_empty_index_is_service_unavailable (test_software.SoftwareHTTPTest)
+SW-08: Chưa có chỉ mục trả 503, không gọi AI. ... ok
+test_filter_unknown_muscle_returns_empty (test_software.SoftwareHTTPTest)
+SW-03: Lọc nhóm cơ xác định và nhóm không tồn tại. ... ok
+test_guest_chat_does_not_persist (test_software.SoftwareHTTPTest)
+SW-10: Chat khách có phản hồi nhưng không ghi tài khoản/hội thoại/tin nhắn. ... ok
+test_history_create_reload_rename_delete (test_software.SoftwareHTTPTest)
+SW-16: Tạo, đọc lại, đổi tên và xóa hội thoại; xóa cả tin nhắn. ... ok
+test_history_is_loaded_from_database (test_software.SoftwareHTTPTest)
+SW-19: Câu hỏi tiếp nhận lịch sử từ DB, không lấy session_id khách làm danh tính. ... ok
+test_history_requires_authentication (test_software.SoftwareHTTPTest)
+SW-15: Khách không được đọc, sửa, xóa lịch sử tài khoản. ... ok
+test_login_bad_credentials_and_valid_login (test_software.SoftwareHTTPTest)
+SW-14: Sai email/mật khẩu trả 401; đúng thông tin đăng nhập được. ... ok
+test_model_failure_is_service_unavailable (test_software.SoftwareHTTPTest)
+SW-09: Mô hình lỗi trả 503, không ghi cặp tin nhắn dở dang. ... ok
+test_plan_parameter_boundaries (test_software.SoftwareHTTPTest)
+SW-05: Thiếu days, 0, 7 hoặc chuỗi không phải số trả 422. ... ok
+test_registration_cookie_and_password_storage (test_software.SoftwareHTTPTest)
+SW-11: Đăng ký có cookie HttpOnly/SameSite, mật khẩu không lưu thuần. ... ok
+test_registration_rejects_invalid_fields (test_software.SoftwareHTTPTest)
+SW-12: Email sai, tên trắng và mật khẩu dưới 8 ký tự trả 422. ... ok
+test_bva_chat_message_length_boundaries (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-BVA-03: Biên độ dài message chat: 1 ký tự (422), 2 ký tự (200), 1000 ký tự (200), 1001 ký tự (422). ... ok
+test_bva_plans_invalid_boundaries (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-BVA-02: Biên vượt ngưỡng số ngày days=0, days=7, days=-1, days=100 trả về 422. ... ok
+test_bva_plans_valid_boundaries (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-BVA-01: Biên số ngày tạo lịch days=1 (min) và days=6 (max). ... ok
+test_bva_register_display_name_boundaries (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-BVA-04: Biên độ dài tên hiển thị khi đăng ký: 1 ký tự (422), 2 ký tự (201), 80 ký tự (201), 81 ký tự (422). ... ok
+test_bva_register_password_length_boundaries (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-BVA-05: Biên độ dài mật khẩu: 7 ký tự (422), 8 ký tự (201), 128 ký tự (201), 129 ký tự (422). ... ok
+test_dt_bodyweight_hypertrophy_knee_limitation (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-DT-01: Quyết định: Không dụng cụ + Tăng cơ + Đau gối -> Loại bỏ squat/đạp chân, chỉ dùng bài bodyweight & thêm lời khuyên. ... ok
+test_dt_dumbbell_fatloss (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-DT-02: Quyết định: Tạ đơn + Giảm mỡ -> Thay bài máy bằng tạ đơn (bent-over-row), hướng dẫn 150 phút aerobic. ... ok
+test_dt_equipment_muscle_focus_isolation (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-DT-04: Quyết định: Tập trung nhóm cơ chân + Không dụng cụ -> Mọi ngày tập đều tập trung chân và chỉ dùng bodyweight. ... ok
+test_dt_gym_dual_limitations_knee_and_back (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-DT-03: Quyết định: Phòng Gym + Đa chấn thương (đau gối AND đau lưng dưới) -> Loại bỏ đồng thời cả 4 bài rủi ro. ... ok
+test_dt_plan_push_pull_balance (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-DT-05: Quyết định: Lịch 6 buổi Push/Pull/Legs -> Đảm bảo chu kỳ Đẩy-Kéo-Chân lặp lại 2 lần, đủ 6 ngày. ... ok
+test_ep_exercises_case_insensitive_and_diacritics (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-EP-02: Phân vùng chuẩn hóa: viết hoa, khoảng trắng thừa, không dấu ('  NGỰC  ', 'nguc') đều tìm thấy kết quả. ... ok
+test_ep_exercises_non_existent_muscle (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-EP-03: Phân vùng nhóm cơ không tồn tại ('dau_long', 'tim', '12345') trả về mảng rỗng [] và 200 OK. ... ok
+test_ep_exercises_valid_muscles (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-EP-01: Phân vùng nhóm cơ hợp lệ ('ngực', 'lưng', 'chân', 'vai', 'tay') đều trả danh mục chuẩn. ... ok
+test_ep_register_email_partitions (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-EP-04: Phân vùng định dạng email: hợp lệ (subdomain, dấu cộng) thành công; không hợp lệ bị từ chối 422. ... ok
+test_ep_utf8_and_emoji_support (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-EP-05: Phân vùng ký tự đặc biệt: Hỗ trợ tiếng Việt đầy đủ dấu và Emoji trong tên tài khoản và tin nhắn. ... ok
+test_sec_idor_cross_account_isolation (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-SEC-02: Kiểm soát truy cập ngang (IDOR): Tài khoản B không thể đọc, sửa, xóa hoặc chat ké vào hội thoại của Tài khoản A. ... ok
+test_sec_request_replay_protection (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-SEC-03: Chống replay attack: Gửi lặp cùng request_id trả về bản ghi cũ; đổi payload nhận 409 Conflict. ... ok
+test_sec_xss_sanitization_and_handling (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-SEC-01: An toàn XSS: Nhập payload <script> hoặc <img> vào tên, tin nhắn, tiêu đề -> Không gây lỗi 500, lưu trữ an toàn. ... ok
+test_st_conversation_full_lifecycle (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-ST-01: Chuyển trạng thái hội thoại: Tạo mới -> Chat -> Đổi tên -> Kiểm tra danh sách & chi tiết -> Xóa hội thoại và tin nhắn. ... ok
+test_st_guest_to_registered_transition (test_software_extended.ExtendedSoftwareAcceptanceTest)
+TC-ST-02: Chuyển trạng thái khách sang thành viên: Khách không lưu DB -> Đăng ký lưu DB độc lập, không rò rỉ phiên. ... ok
+test_dumbbell_plan_does_not_require_machines_or_bands (test_submission_regressions.SubmissionRegressionTest)
+RG-01: Chỉ có tạ đơn không được gợi ý máy tập hoặc dây kháng lực. ... ok
+test_equipment_refinement_rebuilds_previous_plan (test_submission_regressions.SubmissionRegressionTest)
+RG-04: Đổi dụng cụ sau lịch 3 buổi phải tạo lại lịch 3 buổi. ... ok
+test_export_rejects_stale_index_instead_of_claiming_pass (test_submission_regressions.SubmissionRegressionTest)
+RG-06: Xuất báo cáo phải báo lỗi nếu Chroma không khớp dữ liệu train. ... ok
+test_gym_location_takes_precedence_over_equipment_mention (test_submission_regressions.SubmissionRegressionTest)
+RG-02: Phòng gym có tạ đơn vẫn được nhận diện là phòng gym. ... ok
+test_latest_equipment_persists_across_next_turn (test_submission_regressions.SubmissionRegressionTest)
+RG-03: Điều kiện dụng cụ mới nhất phải được giữ ở lượt kế tiếp. ... ok
+test_latest_goal_persists_across_next_turn (test_submission_regressions.SubmissionRegressionTest)
+RG-05: Đổi từ giảm mỡ sang tăng cơ không dùng lại mục tiêu cũ. ... ok
+test_shoulder_pain_does_not_generate_an_overhead_press_plan (test_submission_regressions.SubmissionRegressionTest)
+RG-07: Đau vai không tự động cấp lịch có đẩy vai; cần đánh giá y tế. ... ok
+
+----------------------------------------------------------------------
+Ran 84 tests in 9.123s
+
+OK (skipped=3)

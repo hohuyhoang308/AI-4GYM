@@ -1,0 +1,90 @@
+test_accounts_own_history_and_guests_do_not_persist (test_auth_flow.AuthFlowTest.test_accounts_own_history_and_guests_do_not_persist) ... ok
+test_expired_guest_session_rotates_id_and_drops_history (test_context.ContextTest.test_expired_guest_session_rotates_id_and_drops_history) ... ok
+test_first_exercise_follow_up_resolves_from_plan (test_context.ContextTest.test_first_exercise_follow_up_resolves_from_plan) ... ok
+test_guest_uses_three_previous_turns_for_follow_up (test_context.ContextTest.test_guest_uses_three_previous_turns_for_follow_up) ... ok
+test_saved_history_is_trimmed_before_model_call (test_context.ContextTest.test_saved_history_is_trimmed_before_model_call) ... ok
+test_exported_test_cases_are_absent_from_index (test_dataset_split.DatasetSplitTest.test_exported_test_cases_are_absent_from_index) ... ok
+test_split_is_reproducible_and_has_no_question_leakage (test_dataset_split.DatasetSplitTest.test_split_is_reproducible_and_has_no_question_leakage) ... ok
+test_cardio_target_is_mandatory_for_full_credit (test_evaluation_metrics.EvaluationMetricsTest.test_cardio_target_is_mandatory_for_full_credit) ... ok
+test_judge_cannot_override_mandatory_numeric_condition (test_evaluation_metrics.EvaluationMetricsTest.test_judge_cannot_override_mandatory_numeric_condition) ... ok
+test_overlap_metrics_reward_matching_words_and_order (test_evaluation_metrics.EvaluationMetricsTest.test_overlap_metrics_reward_matching_words_and_order) ... ok
+test_resume_uses_latest_grade_and_compacts_in_test_order (test_evaluation_metrics.EvaluationMetricsTest.test_resume_uses_latest_grade_and_compacts_in_test_order) ... ok
+test_multi_turn_home_leg_workout_then_no_equipment (test_multiturn_flow.MultiTurnFlowTest.test_multi_turn_home_leg_workout_then_no_equipment) ... ok
+test_personalized_plan_generation (test_multiturn_flow.MultiTurnFlowTest.test_personalized_plan_generation) ... ok
+test_proactive_clarification_on_generic_request (test_multiturn_flow.MultiTurnFlowTest.test_proactive_clarification_on_generic_request) ... ok
+test_everyday_gym_questions_are_in_scope (test_scope.ScopeTest.test_everyday_gym_questions_are_in_scope) ... ok
+test_muscle_mention_ignores_vai_tro (test_scope.ScopeTest.test_muscle_mention_ignores_vai_tro) ... ok
+test_non_gym_questions_stay_out_of_scope (test_scope.ScopeTest.test_non_gym_questions_stay_out_of_scope) ... ok
+test_expired_unknown_and_revoked_cookies_are_rejected (test_security.SecurityTest.test_expired_unknown_and_revoked_cookies_are_rejected) ... ok
+test_http_replay_expiry_and_logout (test_security.SecurityTest.test_http_replay_expiry_and_logout) ... ok
+test_prompt_policy_and_scope (test_security.SecurityTest.test_prompt_policy_and_scope) ... ok
+test_replay_same_request_is_cached_and_changed_payload_conflicts (test_security.SecurityTest.test_replay_same_request_is_cached_and_changed_payload_conflicts) ... ok
+test_bodyweight_plans_never_require_machines (test_software.SoftwareChatLogicTest.test_bodyweight_plans_never_require_machines)
+SW-24: Lịch không dụng cụ 1–6 buổi chỉ dùng bài trọng lượng cơ thể. ... ok
+test_empty_model_output_reports_insufficient_evidence (test_software.SoftwareChatLogicTest.test_empty_model_output_reports_insufficient_evidence)
+SW-23: AI trả chuỗi trắng được thay bằng thông báo thiếu dữ liệu. ... ok
+test_injection_never_calls_retrieval_or_model (test_software.SoftwareChatLogicTest.test_injection_never_calls_retrieval_or_model)
+SW-20: Lệnh chèn bị từ chối trước bước RAG và AI. ... ok
+test_knee_limited_plans_remove_squat_and_leg_press (test_software.SoftwareChatLogicTest.test_knee_limited_plans_remove_squat_and_leg_press)
+SW-25: Hạn chế gối loại squat và leg press trong cả 6 mẫu lịch. ... ok
+test_low_relevance_reports_insufficient_evidence (test_software.SoftwareChatLogicTest.test_low_relevance_reports_insufficient_evidence)
+SW-21: Điểm truy xuất dưới 0,18 báo thiếu dữ liệu, không gọi AI. ... ok
+test_named_exercise_is_prioritized_in_sources (test_software.SoftwareChatLogicTest.test_named_exercise_is_prioritized_in_sources)
+SW-22: Tên bài cụ thể ưu tiên đúng tài liệu biên soạn. ... ok
+test_all_six_plan_sizes (test_software.SoftwareHTTPTest.test_all_six_plan_sizes)
+SW-04: Lịch 1–6 buổi có đúng số ngày và ID bài hợp lệ. ... ok
+test_blank_rename_does_not_change_title (test_software.SoftwareHTTPTest.test_blank_rename_does_not_change_title)
+SW-18: Đổi tên trắng hoặc quá 120 ký tự bị từ chối. ... ok
+test_catalog_detail_and_missing_id (test_software.SoftwareHTTPTest.test_catalog_detail_and_missing_id)
+SW-02: Chi tiết bài tồn tại trả 200; ID lạ trả 404. ... ok
+test_catalog_has_unique_exercises_and_sources (test_software.SoftwareHTTPTest.test_catalog_has_unique_exercises_and_sources)
+SW-01: Danh mục đủ bài, ID duy nhất và có nguồn. ... ok
+test_chat_identifier_validation (test_software.SoftwareHTTPTest.test_chat_identifier_validation)
+SW-07: Chặn UUID sai và mã phiên/hội thoại quá dài. ... ok
+test_chat_message_validation (test_software.SoftwareHTTPTest.test_chat_message_validation)
+SW-06: Chặn câu rỗng, một ký tự, khoảng trắng, null và quá 1000 ký tự. ... ok
+test_cross_account_access_is_denied (test_software.SoftwareHTTPTest.test_cross_account_access_is_denied)
+SW-17: Tài khoản B không được xem/sửa/xóa/chat vào hội thoại A. ... ok
+test_duplicate_registration_is_conflict (test_software.SoftwareHTTPTest.test_duplicate_registration_is_conflict)
+SW-13: Đăng ký trùng email trả 409. ... ok
+test_empty_index_is_service_unavailable (test_software.SoftwareHTTPTest.test_empty_index_is_service_unavailable)
+SW-08: Chưa có chỉ mục trả 503, không gọi AI. ... ok
+test_filter_unknown_muscle_returns_empty (test_software.SoftwareHTTPTest.test_filter_unknown_muscle_returns_empty)
+SW-03: Lọc nhóm cơ xác định và nhóm không tồn tại. ... ok
+test_guest_chat_does_not_persist (test_software.SoftwareHTTPTest.test_guest_chat_does_not_persist)
+SW-10: Chat khách có phản hồi nhưng không ghi tài khoản/hội thoại/tin nhắn. ... ok
+test_history_create_reload_rename_delete (test_software.SoftwareHTTPTest.test_history_create_reload_rename_delete)
+SW-16: Tạo, đọc lại, đổi tên và xóa hội thoại; xóa cả tin nhắn. ... ok
+test_history_is_loaded_from_database (test_software.SoftwareHTTPTest.test_history_is_loaded_from_database)
+SW-19: Câu hỏi tiếp nhận lịch sử từ DB, không lấy session_id khách làm danh tính. ... ok
+test_history_requires_authentication (test_software.SoftwareHTTPTest.test_history_requires_authentication)
+SW-15: Khách không được đọc, sửa, xóa lịch sử tài khoản. ... ok
+test_login_bad_credentials_and_valid_login (test_software.SoftwareHTTPTest.test_login_bad_credentials_and_valid_login)
+SW-14: Sai email/mật khẩu trả 401; đúng thông tin đăng nhập được. ... ok
+test_model_failure_is_service_unavailable (test_software.SoftwareHTTPTest.test_model_failure_is_service_unavailable)
+SW-09: Mô hình lỗi trả 503, không ghi cặp tin nhắn dở dang. ... ok
+test_plan_parameter_boundaries (test_software.SoftwareHTTPTest.test_plan_parameter_boundaries)
+SW-05: Thiếu days, 0, 7 hoặc chuỗi không phải số trả 422. ... ok
+test_registration_cookie_and_password_storage (test_software.SoftwareHTTPTest.test_registration_cookie_and_password_storage)
+SW-11: Đăng ký có cookie HttpOnly/SameSite, mật khẩu không lưu thuần. ... ok
+test_registration_rejects_invalid_fields (test_software.SoftwareHTTPTest.test_registration_rejects_invalid_fields)
+SW-12: Email sai, tên trắng và mật khẩu dưới 8 ký tự trả 422. ... ok
+test_dumbbell_plan_does_not_require_machines_or_bands (test_submission_regressions.SubmissionRegressionTest.test_dumbbell_plan_does_not_require_machines_or_bands)
+RG-01: Chỉ có tạ đơn không được gợi ý máy tập hoặc dây kháng lực. ... ok
+test_equipment_refinement_rebuilds_previous_plan (test_submission_regressions.SubmissionRegressionTest.test_equipment_refinement_rebuilds_previous_plan)
+RG-04: Đổi dụng cụ sau lịch 3 buổi phải tạo lại lịch 3 buổi. ... ok
+test_export_rejects_stale_index_instead_of_claiming_pass (test_submission_regressions.SubmissionRegressionTest.test_export_rejects_stale_index_instead_of_claiming_pass)
+RG-06: Xuất báo cáo phải báo lỗi nếu Chroma không khớp dữ liệu train. ... ok
+test_gym_location_takes_precedence_over_equipment_mention (test_submission_regressions.SubmissionRegressionTest.test_gym_location_takes_precedence_over_equipment_mention)
+RG-02: Phòng gym có tạ đơn vẫn được nhận diện là phòng gym. ... ok
+test_latest_equipment_persists_across_next_turn (test_submission_regressions.SubmissionRegressionTest.test_latest_equipment_persists_across_next_turn)
+RG-03: Điều kiện dụng cụ mới nhất phải được giữ ở lượt kế tiếp. ... ok
+test_latest_goal_persists_across_next_turn (test_submission_regressions.SubmissionRegressionTest.test_latest_goal_persists_across_next_turn)
+RG-05: Đổi từ giảm mỡ sang tăng cơ không dùng lại mục tiêu cũ. ... ok
+test_shoulder_pain_does_not_generate_an_overhead_press_plan (test_submission_regressions.SubmissionRegressionTest.test_shoulder_pain_does_not_generate_an_overhead_press_plan)
+RG-07: Đau vai không tự động cấp lịch có đẩy vai; cần đánh giá y tế. ... ok
+
+----------------------------------------------------------------------
+Ran 53 tests in 482.472s
+
+OK

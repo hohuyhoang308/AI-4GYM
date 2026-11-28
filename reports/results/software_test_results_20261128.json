@@ -1,0 +1,527 @@
+{
+  "created_at": "2026-11-28T09:10:17.691612+00:00",
+  "git_commit": "2321490e7f556a9488aa6cdd62d8929d2e855012",
+  "platform": "Linux-6.8.0-149-generic-x86_64-with-glibc2.35",
+  "python": "3.10.12",
+  "scope": "Toàn bộ BE/tests: unit, HTTP với SQLite cô lập, dữ liệu/chỉ mục; ca tích hợp tự bỏ qua khi thiếu MySQL/Ollama",
+  "summary": {
+    "tests_run": 84,
+    "passed": 82,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 3,
+    "seconds": 9.123
+  },
+  "cases": [
+    {
+      "test_id": "setUpClass (test_auth_flow.AuthFlowTest)",
+      "description": "",
+      "status": "skipped",
+      "detail": "Integration test cần MySQL, Ollama và chỉ mục RAG đang chạy"
+    },
+    {
+      "test_id": "test_context.ContextTest.test_expired_guest_session_rotates_id_and_drops_history",
+      "description": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_context.ContextTest.test_first_exercise_follow_up_resolves_from_plan",
+      "description": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_context.ContextTest.test_guest_uses_three_previous_turns_for_follow_up",
+      "description": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_context.ContextTest.test_saved_history_is_trimmed_before_model_call",
+      "description": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_dataset_split.DatasetSplitTest.test_exported_test_cases_are_absent_from_index",
+      "description": "",
+      "status": "skipped",
+      "detail": "Chưa có chỉ mục Chroma"
+    },
+    {
+      "test_id": "test_dataset_split.DatasetSplitTest.test_split_is_reproducible_and_has_no_question_leakage",
+      "description": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_evaluation_metrics.EvaluationMetricsTest.test_cardio_target_is_mandatory_for_full_credit",
+      "description": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_evaluation_metrics.EvaluationMetricsTest.test_judge_cannot_override_mandatory_numeric_condition",
+      "description": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_evaluation_metrics.EvaluationMetricsTest.test_overlap_metrics_reward_matching_words_and_order",
+      "description": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_evaluation_metrics.EvaluationMetricsTest.test_resume_uses_latest_grade_and_compacts_in_test_order",
+      "description": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_multiturn_flow.MultiTurnFlowTest.test_multi_turn_home_leg_workout_then_no_equipment",
+      "description": "",
+      "status": "skipped",
+      "detail": "Cần Ollama, hai model local và chỉ mục RAG (chạy app.scripts.ingest)"
+    },
+    {
+      "test_id": "test_multiturn_flow.MultiTurnFlowTest.test_personalized_plan_generation",
+      "description": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_multiturn_flow.MultiTurnFlowTest.test_proactive_clarification_on_generic_request",
+      "description": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_review_fixes.ReviewFixHTTPTest.test_login_is_rate_limited",
+      "description": "RV-05: Đăng nhập sai liên tục bị chặn 429 kèm Retry-After.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_review_fixes.ReviewFixHTTPTest.test_login_password_has_max_length",
+      "description": "RV-06: Mật khẩu đăng nhập quá 128 ký tự bị từ chối trước khi băm.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_review_fixes.ReviewFixHTTPTest.test_messages_keep_order_when_timestamps_tie",
+      "description": "RV-01: Tin nhắn cũ lưu cùng giây vẫn hiện câu hỏi trước câu trả lời sau khi tải lại.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_review_fixes.ReviewFixHTTPTest.test_model_error_details_are_not_exposed",
+      "description": "RV-03: Lỗi nội bộ của model không bị trả nguyên văn cho client.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_review_fixes.ReviewFixHTTPTest.test_new_messages_are_stored_with_increasing_timestamps",
+      "description": "RV-02: Câu trả lời được ghi sau câu hỏi; lịch sử nhiều lượt giữ đúng thứ tự.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_review_fixes.ReviewFixHTTPTest.test_retry_with_same_request_id_does_not_duplicate",
+      "description": "RV-07: Gửi lại cùng request_id (khi mạng lỗi) không tạo thêm tin nhắn hay gọi lại AI.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_review_fixes.ReviewFixHTTPTest.test_stale_cookie_is_cleared_so_guest_chat_continues",
+      "description": "RV-04: Cookie hết hạn nhận 401 kèm lệnh xóa cookie; request tiếp theo chat khách được.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_review_fixes.ReviewFixUnitTest.test_bodyweight_pull_day_is_labelled_honestly",
+      "description": "RV-10: Không dụng cụ thì buổi \"Kéo\" được đổi tên và có hướng dẫn bổ sung bài chèo.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_review_fixes.ReviewFixUnitTest.test_exercise_source_links_are_unique",
+      "description": "RV-11: Mỗi bài tập trỏ tới một trang ACE riêng.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_review_fixes.ReviewFixUnitTest.test_plan_wording_does_not_claim_acsm_standard",
+      "description": "RV-09: Không gọi lịch mẫu là \"chuẩn ACSM\".",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_review_fixes.ReviewFixUnitTest.test_stale_sessions_and_request_records_are_purged",
+      "description": "RV-08: Dọn phiên hết hạn và bản ghi request_id quá 24 giờ.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_review_fixes.ReviewFixUnitTest.test_text_hash_is_line_ending_independent",
+      "description": "RV-12: Hash tập test không đổi giữa LF (Linux) và CRLF (Windows).",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_scope.ScopeTest.test_everyday_gym_questions_are_in_scope",
+      "description": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_scope.ScopeTest.test_muscle_mention_ignores_vai_tro",
+      "description": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_scope.ScopeTest.test_non_gym_questions_stay_out_of_scope",
+      "description": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_security.SecurityTest.test_expired_unknown_and_revoked_cookies_are_rejected",
+      "description": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_security.SecurityTest.test_http_replay_expiry_and_logout",
+      "description": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_security.SecurityTest.test_prompt_policy_and_scope",
+      "description": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_security.SecurityTest.test_replay_same_request_is_cached_and_changed_payload_conflicts",
+      "description": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareChatLogicTest.test_bodyweight_plans_never_require_machines",
+      "description": "SW-24: Lịch không dụng cụ 1–6 buổi chỉ dùng bài trọng lượng cơ thể.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareChatLogicTest.test_empty_model_output_reports_insufficient_evidence",
+      "description": "SW-23: AI trả chuỗi trắng được thay bằng thông báo thiếu dữ liệu.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareChatLogicTest.test_injection_never_calls_retrieval_or_model",
+      "description": "SW-20: Lệnh chèn bị từ chối trước bước RAG và AI.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareChatLogicTest.test_knee_limited_plans_remove_squat_and_leg_press",
+      "description": "SW-25: Hạn chế gối loại squat và leg press trong cả 6 mẫu lịch.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareChatLogicTest.test_low_relevance_reports_insufficient_evidence",
+      "description": "SW-21: Điểm truy xuất dưới 0,18 báo thiếu dữ liệu, không gọi AI.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareChatLogicTest.test_named_exercise_is_prioritized_in_sources",
+      "description": "SW-22: Tên bài cụ thể ưu tiên đúng tài liệu biên soạn.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareHTTPTest.test_all_six_plan_sizes",
+      "description": "SW-04: Lịch 1–6 buổi có đúng số ngày và ID bài hợp lệ.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareHTTPTest.test_blank_rename_does_not_change_title",
+      "description": "SW-18: Đổi tên trắng hoặc quá 120 ký tự bị từ chối.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareHTTPTest.test_catalog_detail_and_missing_id",
+      "description": "SW-02: Chi tiết bài tồn tại trả 200; ID lạ trả 404.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareHTTPTest.test_catalog_has_unique_exercises_and_sources",
+      "description": "SW-01: Danh mục đủ bài, ID duy nhất và có nguồn.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareHTTPTest.test_chat_identifier_validation",
+      "description": "SW-07: Chặn UUID sai và mã phiên/hội thoại quá dài.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareHTTPTest.test_chat_message_validation",
+      "description": "SW-06: Chặn câu rỗng, một ký tự, khoảng trắng, null và quá 1000 ký tự.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareHTTPTest.test_cross_account_access_is_denied",
+      "description": "SW-17: Tài khoản B không được xem/sửa/xóa/chat vào hội thoại A.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareHTTPTest.test_duplicate_registration_is_conflict",
+      "description": "SW-13: Đăng ký trùng email trả 409.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareHTTPTest.test_empty_index_is_service_unavailable",
+      "description": "SW-08: Chưa có chỉ mục trả 503, không gọi AI.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareHTTPTest.test_filter_unknown_muscle_returns_empty",
+      "description": "SW-03: Lọc nhóm cơ xác định và nhóm không tồn tại.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareHTTPTest.test_guest_chat_does_not_persist",
+      "description": "SW-10: Chat khách có phản hồi nhưng không ghi tài khoản/hội thoại/tin nhắn.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareHTTPTest.test_history_create_reload_rename_delete",
+      "description": "SW-16: Tạo, đọc lại, đổi tên và xóa hội thoại; xóa cả tin nhắn.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareHTTPTest.test_history_is_loaded_from_database",
+      "description": "SW-19: Câu hỏi tiếp nhận lịch sử từ DB, không lấy session_id khách làm danh tính.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareHTTPTest.test_history_requires_authentication",
+      "description": "SW-15: Khách không được đọc, sửa, xóa lịch sử tài khoản.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareHTTPTest.test_login_bad_credentials_and_valid_login",
+      "description": "SW-14: Sai email/mật khẩu trả 401; đúng thông tin đăng nhập được.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareHTTPTest.test_model_failure_is_service_unavailable",
+      "description": "SW-09: Mô hình lỗi trả 503, không ghi cặp tin nhắn dở dang.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareHTTPTest.test_plan_parameter_boundaries",
+      "description": "SW-05: Thiếu days, 0, 7 hoặc chuỗi không phải số trả 422.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareHTTPTest.test_registration_cookie_and_password_storage",
+      "description": "SW-11: Đăng ký có cookie HttpOnly/SameSite, mật khẩu không lưu thuần.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software.SoftwareHTTPTest.test_registration_rejects_invalid_fields",
+      "description": "SW-12: Email sai, tên trắng và mật khẩu dưới 8 ký tự trả 422.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_bva_chat_message_length_boundaries",
+      "description": "TC-BVA-03: Biên độ dài message chat: 1 ký tự (422), 2 ký tự (200), 1000 ký tự (200), 1001 ký tự (422).",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_bva_plans_invalid_boundaries",
+      "description": "TC-BVA-02: Biên vượt ngưỡng số ngày days=0, days=7, days=-1, days=100 trả về 422.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_bva_plans_valid_boundaries",
+      "description": "TC-BVA-01: Biên số ngày tạo lịch days=1 (min) và days=6 (max).",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_bva_register_display_name_boundaries",
+      "description": "TC-BVA-04: Biên độ dài tên hiển thị khi đăng ký: 1 ký tự (422), 2 ký tự (201), 80 ký tự (201), 81 ký tự (422).",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_bva_register_password_length_boundaries",
+      "description": "TC-BVA-05: Biên độ dài mật khẩu: 7 ký tự (422), 8 ký tự (201), 128 ký tự (201), 129 ký tự (422).",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_dt_bodyweight_hypertrophy_knee_limitation",
+      "description": "TC-DT-01: Quyết định: Không dụng cụ + Tăng cơ + Đau gối -> Loại bỏ squat/đạp chân, chỉ dùng bài bodyweight & thêm lời khuyên.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_dt_dumbbell_fatloss",
+      "description": "TC-DT-02: Quyết định: Tạ đơn + Giảm mỡ -> Thay bài máy bằng tạ đơn (bent-over-row), hướng dẫn 150 phút aerobic.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_dt_equipment_muscle_focus_isolation",
+      "description": "TC-DT-04: Quyết định: Tập trung nhóm cơ chân + Không dụng cụ -> Mọi ngày tập đều tập trung chân và chỉ dùng bodyweight.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_dt_gym_dual_limitations_knee_and_back",
+      "description": "TC-DT-03: Quyết định: Phòng Gym + Đa chấn thương (đau gối AND đau lưng dưới) -> Loại bỏ đồng thời cả 4 bài rủi ro.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_dt_plan_push_pull_balance",
+      "description": "TC-DT-05: Quyết định: Lịch 6 buổi Push/Pull/Legs -> Đảm bảo chu kỳ Đẩy-Kéo-Chân lặp lại 2 lần, đủ 6 ngày.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_ep_exercises_case_insensitive_and_diacritics",
+      "description": "TC-EP-02: Phân vùng chuẩn hóa: viết hoa, khoảng trắng thừa, không dấu ('  NGỰC  ', 'nguc') đều tìm thấy kết quả.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_ep_exercises_non_existent_muscle",
+      "description": "TC-EP-03: Phân vùng nhóm cơ không tồn tại ('dau_long', 'tim', '12345') trả về mảng rỗng [] và 200 OK.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_ep_exercises_valid_muscles",
+      "description": "TC-EP-01: Phân vùng nhóm cơ hợp lệ ('ngực', 'lưng', 'chân', 'vai', 'tay') đều trả danh mục chuẩn.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_ep_register_email_partitions",
+      "description": "TC-EP-04: Phân vùng định dạng email: hợp lệ (subdomain, dấu cộng) thành công; không hợp lệ bị từ chối 422.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_ep_utf8_and_emoji_support",
+      "description": "TC-EP-05: Phân vùng ký tự đặc biệt: Hỗ trợ tiếng Việt đầy đủ dấu và Emoji trong tên tài khoản và tin nhắn.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_sec_idor_cross_account_isolation",
+      "description": "TC-SEC-02: Kiểm soát truy cập ngang (IDOR): Tài khoản B không thể đọc, sửa, xóa hoặc chat ké vào hội thoại của Tài khoản A.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_sec_request_replay_protection",
+      "description": "TC-SEC-03: Chống replay attack: Gửi lặp cùng request_id trả về bản ghi cũ; đổi payload nhận 409 Conflict.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_sec_xss_sanitization_and_handling",
+      "description": "TC-SEC-01: An toàn XSS: Nhập payload <script> hoặc <img> vào tên, tin nhắn, tiêu đề -> Không gây lỗi 500, lưu trữ an toàn.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_st_conversation_full_lifecycle",
+      "description": "TC-ST-01: Chuyển trạng thái hội thoại: Tạo mới -> Chat -> Đổi tên -> Kiểm tra danh sách & chi tiết -> Xóa hội thoại và tin nhắn.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_software_extended.ExtendedSoftwareAcceptanceTest.test_st_guest_to_registered_transition",
+      "description": "TC-ST-02: Chuyển trạng thái khách sang thành viên: Khách không lưu DB -> Đăng ký lưu DB độc lập, không rò rỉ phiên.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_dumbbell_plan_does_not_require_machines_or_bands",
+      "description": "RG-01: Chỉ có tạ đơn không được gợi ý máy tập hoặc dây kháng lực.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_equipment_refinement_rebuilds_previous_plan",
+      "description": "RG-04: Đổi dụng cụ sau lịch 3 buổi phải tạo lại lịch 3 buổi.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_export_rejects_stale_index_instead_of_claiming_pass",
+      "description": "RG-06: Xuất báo cáo phải báo lỗi nếu Chroma không khớp dữ liệu train.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_gym_location_takes_precedence_over_equipment_mention",
+      "description": "RG-02: Phòng gym có tạ đơn vẫn được nhận diện là phòng gym.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_latest_equipment_persists_across_next_turn",
+      "description": "RG-03: Điều kiện dụng cụ mới nhất phải được giữ ở lượt kế tiếp.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_latest_goal_persists_across_next_turn",
+      "description": "RG-05: Đổi từ giảm mỡ sang tăng cơ không dùng lại mục tiêu cũ.",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_shoulder_pain_does_not_generate_an_overhead_press_plan",
+      "description": "RG-07: Đau vai không tự động cấp lịch có đẩy vai; cần đánh giá y tế.",
+      "status": "pass",
+      "detail": ""
+    }
+  ]
+}

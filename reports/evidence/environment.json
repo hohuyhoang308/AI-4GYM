@@ -1,0 +1,23 @@
+{
+  "python": "3.14.7",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "packages": {
+    "fastapi": "0.162.0",
+    "langchain": "1.4.7",
+    "langchain-chroma": "1.1.0",
+    "langchain-ollama": "1.1.0",
+    "chromadb": "1.5.9",
+    "sqlalchemy": "2.1.6",
+    "pymysql": "1.2.3",
+    "openpyxl": "3.1.5",
+    "python-docx": "1.2.0",
+    "playwright": "1.65.2",
+    "matplotlib": "3.11.2",
+    "pillow": "13.0.0"
+  },
+  "chat_context_turns": 3,
+  "chat_model": "qwen3:4b-instruct",
+  "embed_model": "qwen3-embedding:0.6b",
+  "mysql_version": "8.4.11",
+  "ollama_version": "0.40.13"
+}

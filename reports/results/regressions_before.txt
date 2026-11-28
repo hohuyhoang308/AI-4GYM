@@ -1,0 +1,118 @@
+test_dumbbell_plan_does_not_require_machines_or_bands (test_submission_regressions.SubmissionRegressionTest.test_dumbbell_plan_does_not_require_machines_or_bands)
+RG-01: Chỉ có tạ đơn không được gợi ý máy tập hoặc dây kháng lực. ... 
+  test_dumbbell_plan_does_not_require_machines_or_bands (test_submission_regressions.SubmissionRegressionTest.test_dumbbell_plan_does_not_require_machines_or_bands) (days=4)
+RG-01: Chỉ có tạ đơn không được gợi ý máy tập hoặc dây kháng lực. ... FAIL
+  test_dumbbell_plan_does_not_require_machines_or_bands (test_submission_regressions.SubmissionRegressionTest.test_dumbbell_plan_does_not_require_machines_or_bands) (days=5)
+RG-01: Chỉ có tạ đơn không được gợi ý máy tập hoặc dây kháng lực. ... FAIL
+  test_dumbbell_plan_does_not_require_machines_or_bands (test_submission_regressions.SubmissionRegressionTest.test_dumbbell_plan_does_not_require_machines_or_bands) (days=6)
+RG-01: Chỉ có tạ đơn không được gợi ý máy tập hoặc dây kháng lực. ... FAIL
+test_equipment_refinement_rebuilds_previous_plan (test_submission_regressions.SubmissionRegressionTest.test_equipment_refinement_rebuilds_previous_plan)
+RG-04: Đổi dụng cụ sau lịch 3 buổi phải tạo lại lịch 3 buổi. ... FAIL
+test_export_rejects_stale_index_instead_of_claiming_pass (test_submission_regressions.SubmissionRegressionTest.test_export_rejects_stale_index_instead_of_claiming_pass)
+RG-06: Xuất báo cáo phải báo lỗi nếu Chroma không khớp dữ liệu train. ... FAIL
+test_gym_location_takes_precedence_over_equipment_mention (test_submission_regressions.SubmissionRegressionTest.test_gym_location_takes_precedence_over_equipment_mention)
+RG-02: Phòng gym có tạ đơn vẫn được nhận diện là phòng gym. ... FAIL
+test_latest_equipment_persists_across_next_turn (test_submission_regressions.SubmissionRegressionTest.test_latest_equipment_persists_across_next_turn)
+RG-03: Điều kiện dụng cụ mới nhất phải được giữ ở lượt kế tiếp. ... FAIL
+test_latest_goal_persists_across_next_turn (test_submission_regressions.SubmissionRegressionTest.test_latest_goal_persists_across_next_turn)
+RG-05: Đổi từ giảm mỡ sang tăng cơ không dùng lại mục tiêu cũ. ... FAIL
+test_shoulder_pain_does_not_generate_an_overhead_press_plan (test_submission_regressions.SubmissionRegressionTest.test_shoulder_pain_does_not_generate_an_overhead_press_plan)
+RG-07: Đau vai không tự động cấp lịch có đẩy vai; cần đánh giá y tế. ... FAIL
+
+======================================================================
+FAIL: test_dumbbell_plan_does_not_require_machines_or_bands (test_submission_regressions.SubmissionRegressionTest.test_dumbbell_plan_does_not_require_machines_or_bands) (days=4)
+RG-01: Chỉ có tạ đơn không được gợi ý máy tập hoặc dây kháng lực.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\xnovh\Desktop\AI-4GYM\BE\tests\test_submission_regressions.py", line 21, in test_dumbbell_plan_does_not_require_machines_or_bands
+    self.assertFalse(any("Máy" in item or "Dây" in item for item in equipment), equipment)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : ['Không cần dụng cụ', 'Ghế tập và tạ đơn', 'Máy đẩy vai', 'Dây kháng lực', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Ghế tập và tạ đơn', 'Máy đẩy vai', 'Dây kháng lực', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Không cần dụng cụ']
+
+======================================================================
+FAIL: test_dumbbell_plan_does_not_require_machines_or_bands (test_submission_regressions.SubmissionRegressionTest.test_dumbbell_plan_does_not_require_machines_or_bands) (days=5)
+RG-01: Chỉ có tạ đơn không được gợi ý máy tập hoặc dây kháng lực.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\xnovh\Desktop\AI-4GYM\BE\tests\test_submission_regressions.py", line 21, in test_dumbbell_plan_does_not_require_machines_or_bands
+    self.assertFalse(any("Máy" in item or "Dây" in item for item in equipment), equipment)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : ['Không cần dụng cụ', 'Ghế tập và tạ đơn', 'Máy đẩy vai', 'Dây kháng lực', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Ghế tập và tạ đơn', 'Máy đẩy vai', 'Dây kháng lực', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Ghế tập và tạ đơn']
+
+======================================================================
+FAIL: test_dumbbell_plan_does_not_require_machines_or_bands (test_submission_regressions.SubmissionRegressionTest.test_dumbbell_plan_does_not_require_machines_or_bands) (days=6)
+RG-01: Chỉ có tạ đơn không được gợi ý máy tập hoặc dây kháng lực.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\xnovh\Desktop\AI-4GYM\BE\tests\test_submission_regressions.py", line 21, in test_dumbbell_plan_does_not_require_machines_or_bands
+    self.assertFalse(any("Máy" in item or "Dây" in item for item in equipment), equipment)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : ['Không cần dụng cụ', 'Máy đẩy vai', 'Ghế tập và tạ đơn', 'Dây kháng lực', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Máy đẩy vai', 'Ghế tập và tạ đơn', 'Dây kháng lực', 'Không cần dụng cụ', 'Không cần dụng cụ']
+
+======================================================================
+FAIL: test_equipment_refinement_rebuilds_previous_plan (test_submission_regressions.SubmissionRegressionTest.test_equipment_refinement_rebuilds_previous_plan)
+RG-04: Đổi dụng cụ sau lịch 3 buổi phải tạo lại lịch 3 buổi.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\xnovh\Desktop\AI-4GYM\BE\tests\test_submission_regressions.py", line 41, in test_equipment_refinement_rebuilds_previous_plan
+    self.assertIn("Lịch 3 buổi/tuần", reply["answer"])
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Lịch 3 buổi/tuần' not found in 'Phản hồi giả lập để kiểm tra luồng xử lý.'
+
+======================================================================
+FAIL: test_export_rejects_stale_index_instead_of_claiming_pass (test_submission_regressions.SubmissionRegressionTest.test_export_rejects_stale_index_instead_of_claiming_pass)
+RG-06: Xuất báo cáo phải báo lỗi nếu Chroma không khớp dữ liệu train.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\xnovh\Desktop\AI-4GYM\BE\tests\test_submission_regressions.py", line 59, in test_export_rejects_stale_index_instead_of_claiming_pass
+    with self.assertRaisesRegex(ValueError, "Chỉ mục Chroma"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_gym_location_takes_precedence_over_equipment_mention (test_submission_regressions.SubmissionRegressionTest.test_gym_location_takes_precedence_over_equipment_mention)
+RG-02: Phòng gym có tạ đơn vẫn được nhận diện là phòng gym.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\xnovh\Desktop\AI-4GYM\BE\tests\test_submission_regressions.py", line 25, in test_gym_location_takes_precedence_over_equipment_mention
+    self.assertEqual(detect_equipment("Tôi tập ở phòng gym có tạ đơn và đầy đủ dụng cụ"), "gym")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'home_dumbbell' != 'gym'
+- home_dumbbell
++ gym
+
+
+======================================================================
+FAIL: test_latest_equipment_persists_across_next_turn (test_submission_regressions.SubmissionRegressionTest.test_latest_equipment_persists_across_next_turn)
+RG-03: Điều kiện dụng cụ mới nhất phải được giữ ở lượt kế tiếp.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\xnovh\Desktop\AI-4GYM\BE\tests\test_submission_regressions.py", line 33, in test_latest_equipment_persists_across_next_turn
+    self.assertIn("Tạ đơn", third["answer"])
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Tạ đơn' not found in 'Lịch 4 buổi/tuần — Upper/Lower (Tại nhà - Không dụng cụ):\n- Thứ Hai: Thân trên A — Chống đẩy quỳ gối, Nâng hông, Plank cẳng tay.\n- Thứ Ba: Thân dưới A — Squat trọng lượng cơ thể, Nâng hông, Plank cẳng tay.\n- Thứ Năm: Thân trên B — Chống đẩy quỳ gối, Plank cẳng tay.\n- Thứ Sáu: Thân dưới B — Squat trọng lượng cơ thể, Nâng hông, Plank cẳng tay.\n\nChọn mức tập dễ kiểm soát, ưu tiên kỹ thuật và tăng dần theo khả năng. Khởi động trước buổi tập và dừng nếu đau bất thường. Các bài tập được thiết kế hoàn toàn bằng trọng lượng cơ thể (Bodyweight), không cần tạ hay máy tập.\nNgười mới nên bắt đầu 2–3 buổi sức mạnh mỗi tuần, tập các nhóm cơ lớn và tăng dần theo khả năng.'
+
+======================================================================
+FAIL: test_latest_goal_persists_across_next_turn (test_submission_regressions.SubmissionRegressionTest.test_latest_goal_persists_across_next_turn)
+RG-05: Đổi từ giảm mỡ sang tăng cơ không dùng lại mục tiêu cũ.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\xnovh\Desktop\AI-4GYM\BE\tests\test_submission_regressions.py", line 51, in test_latest_goal_persists_across_next_turn
+    self.assertIn("Mục tiêu tăng cơ", reply["answer"])
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Mục tiêu tăng cơ' not found in 'Lịch 4 buổi/tuần — Upper/Lower:\n- Thứ Hai: Thân trên A — Chống đẩy quỳ gối, Kéo cáp ngồi, Đẩy vai trên máy, Cuốn tay trước với dây kháng lực.\n- Thứ Ba: Thân dưới A — Squat trọng lượng cơ thể, Nâng hông, Plank cẳng tay.\n- Thứ Năm: Thân trên B — Đẩy ngực với tạ đòn, Kéo xô trước ngực, Đẩy vai trên máy, Cuốn tay trước với dây kháng lực.\n- Thứ Sáu: Thân dưới B — Đạp chân trên máy, Nâng hông, Plank cẳng tay.\n\nChọn mức tập dễ kiểm soát, ưu tiên kỹ thuật và tăng dần theo khả năng. Khởi động trước buổi tập và dừng nếu đau bất thường. Mục tiêu giảm mỡ: Kết hợp các bài sức mạnh này với tối thiểu 150 phút vận động thể chất/aerobic vừa phải mỗi tuần.\nNgười mới nên bắt đầu 2–3 buổi sức mạnh mỗi tuần, tập các nhóm cơ lớn và tăng dần theo khả năng.'
+
+======================================================================
+FAIL: test_shoulder_pain_does_not_generate_an_overhead_press_plan (test_submission_regressions.SubmissionRegressionTest.test_shoulder_pain_does_not_generate_an_overhead_press_plan)
+RG-07: Đau vai không tự động cấp lịch có đẩy vai; cần đánh giá y tế.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\xnovh\Desktop\AI-4GYM\BE\tests\test_submission_regressions.py", line 66, in test_shoulder_pain_does_not_generate_an_overhead_press_plan
+    self.assertNotIn("Đẩy vai trên máy", reply["answer"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Đẩy vai trên máy' unexpectedly found in 'Lịch 4 buổi/tuần — Upper/Lower:\n- Thứ Hai: Thân trên A — Chống đẩy quỳ gối, Kéo cáp ngồi, Đẩy vai trên máy, Cuốn tay trước với dây kháng lực.\n- Thứ Ba: Thân dưới A — Squat trọng lượng cơ thể, Nâng hông, Plank cẳng tay.\n- Thứ Năm: Thân trên B — Đẩy ngực với tạ đòn, Kéo xô trước ngực, Đẩy vai trên máy, Cuốn tay trước với dây kháng lực.\n- Thứ Sáu: Thân dưới B — Đạp chân trên máy, Nâng hông, Plank cẳng tay.\n\nChọn mức tập dễ kiểm soát, ưu tiên kỹ thuật và tăng dần theo khả năng. Khởi động trước buổi tập và dừng nếu đau bất thường.\nNgười mới nên bắt đầu 2–3 buổi sức mạnh mỗi tuần, tập các nhóm cơ lớn và tăng dần theo khả năng.'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.070s
+
+FAILED (failures=9)

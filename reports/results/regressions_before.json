@@ -1,0 +1,90 @@
+{
+  "created_at": "2026-11-25T07:57:23.517917+00:00",
+  "git_commit": "9863d6531784714a904f877647d42167f8435c6d",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.14.7",
+  "scope": "Regression tests only",
+  "summary": {
+    "tests_run": 7,
+    "passed": 0,
+    "failed": 7,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 0.17
+  },
+  "cases": [
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_dumbbell_plan_does_not_require_machines_or_bands",
+      "description": "RG-01: Chỉ có tạ đơn không được gợi ý máy tập hoặc dây kháng lực.",
+      "status": "FAIL",
+      "details": [
+        "test_dumbbell_plan_does_not_require_machines_or_bands (test_submission_regressions.SubmissionRegressionTest.test_dumbbell_plan_does_not_require_machines_or_bands) (days=4)\nTraceback (most recent call last):\n  File \"C:\\Users\\xnovh\\Desktop\\AI-4GYM\\BE\\tests\\test_submission_regressions.py\", line 21, in test_dumbbell_plan_does_not_require_machines_or_bands\n    self.assertFalse(any(\"Máy\" in item or \"Dây\" in item for item in equipment), equipment)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: True is not false : ['Không cần dụng cụ', 'Ghế tập và tạ đơn', 'Máy đẩy vai', 'Dây kháng lực', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Ghế tập và tạ đơn', 'Máy đẩy vai', 'Dây kháng lực', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Không cần dụng cụ']\n",
+        "test_dumbbell_plan_does_not_require_machines_or_bands (test_submission_regressions.SubmissionRegressionTest.test_dumbbell_plan_does_not_require_machines_or_bands) (days=5)\nTraceback (most recent call last):\n  File \"C:\\Users\\xnovh\\Desktop\\AI-4GYM\\BE\\tests\\test_submission_regressions.py\", line 21, in test_dumbbell_plan_does_not_require_machines_or_bands\n    self.assertFalse(any(\"Máy\" in item or \"Dây\" in item for item in equipment), equipment)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: True is not false : ['Không cần dụng cụ', 'Ghế tập và tạ đơn', 'Máy đẩy vai', 'Dây kháng lực', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Ghế tập và tạ đơn', 'Máy đẩy vai', 'Dây kháng lực', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Ghế tập và tạ đơn']\n",
+        "test_dumbbell_plan_does_not_require_machines_or_bands (test_submission_regressions.SubmissionRegressionTest.test_dumbbell_plan_does_not_require_machines_or_bands) (days=6)\nTraceback (most recent call last):\n  File \"C:\\Users\\xnovh\\Desktop\\AI-4GYM\\BE\\tests\\test_submission_regressions.py\", line 21, in test_dumbbell_plan_does_not_require_machines_or_bands\n    self.assertFalse(any(\"Máy\" in item or \"Dây\" in item for item in equipment), equipment)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: True is not false : ['Không cần dụng cụ', 'Máy đẩy vai', 'Ghế tập và tạ đơn', 'Dây kháng lực', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Không cần dụng cụ', 'Máy đẩy vai', 'Ghế tập và tạ đơn', 'Dây kháng lực', 'Không cần dụng cụ', 'Không cần dụng cụ']\n"
+      ],
+      "seconds": 0.0052
+    },
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_equipment_refinement_rebuilds_previous_plan",
+      "description": "RG-04: Đổi dụng cụ sau lịch 3 buổi phải tạo lại lịch 3 buổi.",
+      "status": "FAIL",
+      "details": [
+        "Traceback (most recent call last):\n  File \"C:\\Users\\xnovh\\Desktop\\AI-4GYM\\BE\\tests\\test_submission_regressions.py\", line 41, in test_equipment_refinement_rebuilds_previous_plan\n    self.assertIn(\"Lịch 3 buổi/tuần\", reply[\"answer\"])\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'Lịch 3 buổi/tuần' not found in 'Phản hồi giả lập để kiểm tra luồng xử lý.'\n"
+      ],
+      "seconds": 0.0066
+    },
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_export_rejects_stale_index_instead_of_claiming_pass",
+      "description": "RG-06: Xuất báo cáo phải báo lỗi nếu Chroma không khớp dữ liệu train.",
+      "status": "FAIL",
+      "details": [
+        "Traceback (most recent call last):\n  File \"C:\\Users\\xnovh\\Desktop\\AI-4GYM\\BE\\tests\\test_submission_regressions.py\", line 59, in test_export_rejects_stale_index_instead_of_claiming_pass\n    with self.assertRaisesRegex(ValueError, \"Chỉ mục Chroma\"):\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ValueError not raised\n"
+      ],
+      "seconds": 0.0433
+    },
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_gym_location_takes_precedence_over_equipment_mention",
+      "description": "RG-02: Phòng gym có tạ đơn vẫn được nhận diện là phòng gym.",
+      "status": "FAIL",
+      "details": [
+        "Traceback (most recent call last):\n  File \"C:\\Users\\xnovh\\Desktop\\AI-4GYM\\BE\\tests\\test_submission_regressions.py\", line 25, in test_gym_location_takes_precedence_over_equipment_mention\n    self.assertEqual(detect_equipment(\"Tôi tập ở phòng gym có tạ đơn và đầy đủ dụng cụ\"), \"gym\")\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'home_dumbbell' != 'gym'\n- home_dumbbell\n+ gym\n\n"
+      ],
+      "seconds": 0.0008
+    },
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_latest_equipment_persists_across_next_turn",
+      "description": "RG-03: Điều kiện dụng cụ mới nhất phải được giữ ở lượt kế tiếp.",
+      "status": "FAIL",
+      "details": [
+        "Traceback (most recent call last):\n  File \"C:\\Users\\xnovh\\Desktop\\AI-4GYM\\BE\\tests\\test_submission_regressions.py\", line 33, in test_latest_equipment_persists_across_next_turn\n    self.assertIn(\"Tạ đơn\", third[\"answer\"])\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'Tạ đơn' not found in 'Lịch 4 buổi/tuần — Upper/Lower (Tại nhà - Không dụng cụ):\\n- Thứ Hai: Thân trên A — Chống đẩy quỳ gối, Nâng hông, Plank cẳng tay.\\n- Thứ Ba: Thân dưới A — Squat trọng lượng cơ thể, Nâng hông, Plank cẳng tay.\\n- Thứ Năm: Thân trên B — Chống đẩy quỳ gối, Plank cẳng tay.\\n- Thứ Sáu: Thân dưới B — Squat trọng lượng cơ thể, Nâng hông, Plank cẳng tay.\\n\\nChọn mức tập dễ kiểm soát, ưu tiên kỹ thuật và tăng dần theo khả năng. Khởi động trước buổi tập và dừng nếu đau bất thường. Các bài tập được thiết kế hoàn toàn bằng trọng lượng cơ thể (Bodyweight), không cần tạ hay máy tập.\\nNgười mới nên bắt đầu 2–3 buổi sức mạnh mỗi tuần, tập các nhóm cơ lớn và tăng dần theo khả năng.'\n"
+      ],
+      "seconds": 0.0061
+    },
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_latest_goal_persists_across_next_turn",
+      "description": "RG-05: Đổi từ giảm mỡ sang tăng cơ không dùng lại mục tiêu cũ.",
+      "status": "FAIL",
+      "details": [
+        "Traceback (most recent call last):\n  File \"C:\\Users\\xnovh\\Desktop\\AI-4GYM\\BE\\tests\\test_submission_regressions.py\", line 51, in test_latest_goal_persists_across_next_turn\n    self.assertIn(\"Mục tiêu tăng cơ\", reply[\"answer\"])\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'Mục tiêu tăng cơ' not found in 'Lịch 4 buổi/tuần — Upper/Lower:\\n- Thứ Hai: Thân trên A — Chống đẩy quỳ gối, Kéo cáp ngồi, Đẩy vai trên máy, Cuốn tay trước với dây kháng lực.\\n- Thứ Ba: Thân dưới A — Squat trọng lượng cơ thể, Nâng hông, Plank cẳng tay.\\n- Thứ Năm: Thân trên B — Đẩy ngực với tạ đòn, Kéo xô trước ngực, Đẩy vai trên máy, Cuốn tay trước với dây kháng lực.\\n- Thứ Sáu: Thân dưới B — Đạp chân trên máy, Nâng hông, Plank cẳng tay.\\n\\nChọn mức tập dễ kiểm soát, ưu tiên kỹ thuật và tăng dần theo khả năng. Khởi động trước buổi tập và dừng nếu đau bất thường. Mục tiêu giảm mỡ: Kết hợp các bài sức mạnh này với tối thiểu 150 phút vận động thể chất/aerobic vừa phải mỗi tuần.\\nNgười mới nên bắt đầu 2–3 buổi sức mạnh mỗi tuần, tập các nhóm cơ lớn và tăng dần theo khả năng.'\n"
+      ],
+      "seconds": 0.0054
+    },
+    {
+      "test_id": "test_submission_regressions.SubmissionRegressionTest.test_shoulder_pain_does_not_generate_an_overhead_press_plan",
+      "description": "RG-07: Đau vai không tự động cấp lịch có đẩy vai; cần đánh giá y tế.",
+      "status": "FAIL",
+      "details": [
+        "Traceback (most recent call last):\n  File \"C:\\Users\\xnovh\\Desktop\\AI-4GYM\\BE\\tests\\test_submission_regressions.py\", line 66, in test_shoulder_pain_does_not_generate_an_overhead_press_plan\n    self.assertNotIn(\"Đẩy vai trên máy\", reply[\"answer\"])\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'Đẩy vai trên máy' unexpectedly found in 'Lịch 4 buổi/tuần — Upper/Lower:\\n- Thứ Hai: Thân trên A — Chống đẩy quỳ gối, Kéo cáp ngồi, Đẩy vai trên máy, Cuốn tay trước với dây kháng lực.\\n- Thứ Ba: Thân dưới A — Squat trọng lượng cơ thể, Nâng hông, Plank cẳng tay.\\n- Thứ Năm: Thân trên B — Đẩy ngực với tạ đòn, Kéo xô trước ngực, Đẩy vai trên máy, Cuốn tay trước với dây kháng lực.\\n- Thứ Sáu: Thân dưới B — Đạp chân trên máy, Nâng hông, Plank cẳng tay.\\n\\nChọn mức tập dễ kiểm soát, ưu tiên kỹ thuật và tăng dần theo khả năng. Khởi động trước buổi tập và dừng nếu đau bất thường.\\nNgười mới nên bắt đầu 2–3 buổi sức mạnh mỗi tuần, tập các nhóm cơ lớn và tăng dần theo khả năng.'\n"
+      ],
+      "seconds": 0.0022
+    }
+  ],
+  "file_sha256": {
+    "app/services/chat.py": "f120567a4a761052af0697df0d8f14128d5f91bb0bfede542192d819843205af",
+    "app/services/plans.py": "ccbff4583062f3a7a026a09e29684b41f9bff656a966f75bd08b22cf91ef9ef8",
+    "app/services/scope.py": "0dfe2d8b63a23262d8915ae6b77d793651ff37c85705d8e8889e2dbcab480f7a",
+    "app/scripts/export_report.py": "f14e1c1dd0cc5a956e69fe6994cd394a4069055cb524c97f1ab1ecd906de3886",
+    "tests/test_software.py": "0adf63c27724414d63b8c770567207f81df531eadb5f83bb6643092190c89023",
+    "tests/test_submission_regressions.py": "a5d34fadca37916bdc9fc738af9ecc851ecc9368b91c2aef584ba46a16edfac4"
+  }
+}
