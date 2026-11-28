@@ -1,17 +1,55 @@
-BE/.venv/
+# Local Python environments and caches
+.venv/
+venv/
+env/
 __pycache__/
 *.py[cod]
 .pytest_cache/
-BE/.env
-BE/data/index/chroma/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local configuration and generated RAG index
+.env
+.env.*
+!.env.example
+BE/data/index/
+
+# Node dependencies and build output
+node_modules/
+dist/
+*.tsbuildinfo
+.vite/
+.cache/
+coverage/
+
+# Runtime logs, temporary files and editor/OS leftovers
 *.log
-FE/node_modules/
-FE/dist/
-FE/.env.local
-FE/*.tsbuildinfo
 ~$*.xlsx
 ~$*.docx
+~$*.pptx
 *.tmp
+*.temp
+*.bak
+*.old
+*.orig
+*.rej
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
 .local/
-reports/evidence/*_preview_*.png
-reports/evidence/*_extracted.txt
+*.docx
+*.doc
+
+# Keep one complete submission archive; exclude obsolete/nested packages
+*.zip
+!/releases/AI-4GYM_FINAL.zip
+reports/releases/
+reports/results/

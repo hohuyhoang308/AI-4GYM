@@ -1,138 +1,126 @@
 # AI-4GYM
 
-Chatbot Gym tiếng Việt cho người mới: tra cứu bài tập, hỏi kỹ thuật, gợi ý nhóm cơ và lịch tập. Web có đăng ký/đăng nhập để lưu lịch sử hội thoại; khách vẫn chat được nhưng lịch sử sẽ mất khi tải lại trang. AI chạy local bằng **LangChain + RAG + Chroma + Ollama**, không dùng API AI bên ngoài. Tài khoản và hội thoại được lưu trong MySQL local, có thể chạy bằng ServBay.
+Chatbot Gym tiếng Việt dùng **FastAPI, React/TypeScript, LangChain, Chroma và Ollama**. Hỗ trợ tra cứu kỹ thuật, gợi ý bài tập, lịch tập 1–6 buổi/tuần và hội thoại nhiều lượt. Tài khoản lưu lịch sử trong MySQL; khách chat không cần đăng nhập. Các mô hình AI chạy local.
 
-**Cài từ đầu:** xem [hướng dẫn cài đặt](docs/setup.md). Tài liệu này hướng dẫn phần mềm cần cài, cấu hình ServBay/MySQL, tải model Ollama, tạo chỉ mục và chạy web trên Windows.
+## Bản nộp
 
-## Chạy nhanh sau khi đã cài
+**[Tải AI-4GYM_FINAL.zip](releases/AI-4GYM_FINAL.zip)** — mã nguồn, dữ liệu, báo cáo và kiểm thử trong một gói. Giải nén rồi cài đặt theo hướng dẫn dưới đây.
 
-Mở hai cửa sổ PowerShell tại thư mục dự án.
+| Tệp | Nội dung |
+| --- | --- |
+| [Tiểu luận PDF](reports/Tieu_luan_AI_4GYM_CT07PM.pdf) | Cơ sở lý thuyết, thiết kế, triển khai và đánh giá. |
+| [Báo cáo kiểm thử PDF](reports/Bao_cao_kiem_thu_AI_4GYM.pdf) | Kết quả phần mềm, hồi quy và đánh giá chatbot. |
+| [Bộ kiểm thử Excel](reports/Bo_kiem_thu_AI_4GYM.xlsx) | Ca phần mềm, trình duyệt, hồi quy, đánh giá AI và sheet `20 Ca Kiem Thu Mo Rong` đã gộp. |
+| [Báo cáo train/test Excel](reports/AI-4GYM_train_test_report.xlsx) | 772 câu train, 193 câu test, phản hồi và điểm đánh giá. |
 
-**Cửa sổ backend:**
+```text
+AI-4GYM/
+├── BE/
+│   ├── app/                  # API, MySQL, RAG và xử lý dữ liệu
+│   ├── data/                 # Excel gốc, train/test và bài tập biên soạn
+│   ├── tests/                # Unit, HTTP, hồi quy và 20 ca mở rộng
+│   ├── .env.example
+│   └── requirements.txt
+├── FE/                       # React/TypeScript, Vite
+├── reports/                  # 2 PDF, 2 Excel và kết quả đánh giá train/test
+├── scripts/package_submission.py
+├── releases/AI-4GYM_FINAL.zip
+└── README.md
+```
+
+## Cài đặt
+
+Cần **Python 3.11+**, **Node.js 20.19+ hoặc 22.12+**, **MySQL** và **Ollama**. Các lệnh dưới đây dùng PowerShell, bắt đầu tại thư mục chứa `BE` và `FE`.
+
+Bật MySQL (có thể dùng ServBay), mở Ollama và tải model:
+
+```powershell
+ollama pull qwen3:4b-instruct
+ollama pull qwen3-embedding:0.6b
+```
+
+Tạo môi trường backend:
+
+```powershell
+Set-Location BE
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+if (-not (Test-Path -LiteralPath .env)) { Copy-Item .env.example .env }
+```
+
+Sửa thông tin MySQL trong `BE/.env`, đặc biệt `DATABASE_PASSWORD=change_me` thành mật khẩu thật. Tài khoản MySQL cần quyền tạo database và bảng. Cấu hình mặc định dùng MySQL tại `127.0.0.1:3306`, Ollama tại `127.0.0.1:11434`. Mẫu `.env.example` liệt kê đầy đủ tùy chọn.
+
+Khởi tạo database và chỉ mục RAG, vẫn tại `BE/`:
+
+```powershell
+.\.venv\Scripts\python.exe -m app.scripts.init_db
+.\.venv\Scripts\python.exe -m app.scripts.ingest
+```
+
+Cài frontend:
+
+```powershell
+Set-Location ..\FE
+npm ci
+```
+
+## Chạy ứng dụng
+
+Bật MySQL và Ollama. Mở hai cửa sổ PowerShell tại gốc dự án.
+
+Backend:
 
 ```powershell
 Set-Location BE
 .\.venv\Scripts\python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
-**Cửa sổ frontend:**
+Frontend:
 
 ```powershell
 Set-Location FE
 npm run dev
 ```
 
-Vào [http://127.0.0.1:5173](http://127.0.0.1:5173). Trạng thái hệ thống ở [http://127.0.0.1:8000/health](http://127.0.0.1:8000/health); Swagger API ở [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs). MySQL và Ollama cần đang chạy.
+Mở **http://127.0.0.1:5173**. API: http://127.0.0.1:8000/docs; trạng thái: http://127.0.0.1:8000/health.
 
-## Tính năng
+Để chạy giao diện qua backend, build tại `FE/` bằng `npm run build`, sau đó mở http://127.0.0.1:8000. Mỗi lần sửa frontend cần build lại. Không cần cài thư viện hoặc tạo lại chỉ mục mỗi lần khởi động.
 
-- Hỏi đáp nhiều lượt về bài tập, kỹ thuật và các lỗi cần tránh.
-- Mỗi câu hỏi dùng tối đa 3 lượt hỏi–đáp gần nhất làm ngữ cảnh; câu hỏi nối tiếp được tìm tài liệu theo mạch hội thoại.
-- Gợi ý bài tập theo nhóm cơ và lịch tập 1–6 buổi/tuần.
-- Điều chỉnh danh sách bài theo dụng cụ, nhóm cơ và một số hạn chế thể chất; mục tiêu gần nhất bổ sung hướng dẫn chung. Yêu cầu lịch có đau vai được giới hạn và khuyên đánh giá y tế.
-- Hiển thị nguồn dữ liệu được RAG truy xuất; từ chối câu hỏi ngoài Gym/Fitness.
-- Tài khoản lưu lịch sử trong MySQL, có thể mở lại, đổi tên hoặc xóa hội thoại.
-- Chế độ khách không ghi lịch sử vào MySQL và xóa cuộc chat khi F5.
+## Dữ liệu và đánh giá
 
-## Cấu trúc
+Excel gốc có **965 cặp hỏi đáp**, chia cố định thành **772 train/corpus (80%)** và **193 test (20%)**. Chroma chỉ lập chỉ mục train và **11 bài tập** biên soạn, tổng **783 tài liệu**. Đây là corpus truy xuất RAG; không fine-tune model. Câu hỏi trùng sau chuẩn hóa không nằm ở cả hai tập.
 
-Xem [phân chia thư mục và quy tắc giữ file](docs/project-structure.md). [Hồ sơ nộp](reports/HO_SO_NOP.md) và [báo cáo hiện hành](reports/README.md) nằm riêng với bằng chứng/hồ sơ cũ. [Biên bản rà soát báo cáo và docs](docs/report-review.md) ghi phạm vi, kết quả đối chiếu và bàn giao theo phân công.
+`reports/evaluation_results.jsonl` lưu 193 phản hồi và metadata để các lệnh đánh giá, xuất Excel và kiểm toán hoạt động. Hồ sơ bàn giao có điểm **132/56/5** theo mức **2/1/0**, gồm 154 dòng judge v2 và 39 dòng v3; nhãn tay 187 đạt/6 không đạt. Đây là kết quả đã lưu, chưa được chuyên gia độc lập xác minh. Các kết quả chức năng, trình duyệt và nhận xét AI được trình bày trong PDF/Excel.
 
-```text
-AI-4GYM/
-├── BE/
-│   ├── app/
-│   │   ├── api/routes/        # HTTP API: auth, chat, hội thoại, danh mục, health
-│   │   ├── core/              # cấu hình
-│   │   ├── db/                # MySQL: model, session
-│   │   ├── services/          # RAG, dữ liệu, lịch tập, kiểm tra phạm vi
-│   │   ├── scripts/           # init_db, ingest, đánh giá chatbot, xuất Excel
-│   │   └── main.py            # FastAPI và phục vụ FE/dist
-│   ├── data/
-│   │   ├── raw/data.xlsx
-│   │   ├── processed/qa.json
-│   │   ├── processed/train.json
-│   │   ├── processed/test.json
-│   │   ├── processed/split_manifest.json
-│   │   ├── curated/exercises.json
-│   │   └── index/chroma/      # tạo local, không đưa lên Git
-│   ├── tests/
-│   ├── .env.example
-│   └── requirements.txt
-├── FE/
-│   ├── src/components/
-│   ├── src/lib/api.ts
-│   ├── src/App.tsx
-│   └── package.json
-├── reports/
-│   ├── Tieu_luan_AI_4GYM_CT07PM.docx / .pdf  # tiểu luận hoàn chỉnh
-│   ├── Bao_cao_kiem_thu_AI_4GYM.docx / .pdf   # báo cáo kiểm thử
-│   ├── Bo_kiem_thu_AI_4GYM.xlsx              # ma trận ca và kết quả
-│   ├── results/                            # JSON/TXT kiểm thử mới, rà soát AI
-│   ├── evidence/                           # ảnh thật, sơ đồ, môi trường
-│   ├── history/                            # hồ sơ kỹ thuật cũ
-│   ├── tools/                              # tạo/kiểm tra/đóng gói báo cáo
-│   ├── releases/                           # ZIP hồ sơ nộp đầy đủ
-│   ├── AI-4GYM_train_test_report.xlsx       # train/test 193 câu bàn giao
-│   └── evaluation_results.jsonl
-├── docs/setup.md                           # cài đặt và chạy ứng dụng
-└── README.md
-```
-
-## Dữ liệu
-
-`BE/data/raw/data.xlsx` có **965 cặp hỏi đáp**; `BE/data/processed/qa.json` là bản chuyển đổi đầy đủ sang JSON, có số thứ tự và dòng Excel. Dữ liệu được chia cố định theo câu hỏi đã chuẩn hóa:
-
-| Tập dữ liệu | File | Số câu | Tỷ lệ | Cách dùng |
-| --- | --- | ---: | ---: | --- |
-| Train/corpus | `BE/data/processed/train.json` | 772 | 80% | Lập chỉ mục RAG trong Chroma |
-| Test | `BE/data/processed/test.json` | 193 | 20% | Giữ riêng để kiểm tra, không lập chỉ mục |
-
-`BE/data/processed/split_manifest.json` ghi seed, số lượng và tỷ lệ. Các câu hỏi trùng sau chuẩn hóa nằm cùng một tập. Thêm 11 bài tập có liên kết đến [ACE Exercise Library](https://www.acefitness.org/resources/everyone/exercise-library/) vào corpus, nên Chroma có **783 tài liệu**. Không phải mọi bài đều được ACE xếp mức Beginner. Excel hiện hành đã có nguồn theo từng câu (676/965 câu dẫn tới bộ dữ liệu fitness-question-answers trên Hugging Face); URL nguồn giúp truy vết, chưa đồng nghĩa mọi nội dung đã được chuyên gia thẩm định.
-
-Phép chia ngăn câu hỏi trùng sau chuẩn hóa xuất hiện ở cả hai tập; các câu diễn đạt khác nhau nhưng cùng ý chưa được nhóm tự động.
-
-**Lưu ý cho báo cáo:** “80% train” ở đây là dữ liệu dùng để xây dựng kho truy xuất; dự án **không fine-tune/huấn luyện lại** model Qwen hay model embedding. RAG lấy tài liệu khi trả lời, theo [mô tả của LangChain](https://docs.langchain.com/oss/python/deepagents/retrieval). Tập test 20% chưa đồng nghĩa độ chính xác 20% hay bất kỳ chỉ số chất lượng nào.
-
-Hồ sơ bàn giao có 193/193 câu được chấm: **132 câu 2/2, 56 câu 1/2, 5 câu 0/2**; 154 dòng dùng judge v2, 39 dòng dùng v3. Excel có 187 nhãn tay đạt/6 không đạt, chưa được chuyên gia độc lập xác minh. Đây là số liệu trước đợt sửa lỗi 25/11/2026, không phải kết quả đo lại toàn bộ phiên bản mới. Xem [bộ báo cáo hiện tại](reports/README.md) để đọc kiểm thử mới và giới hạn. Chatbot hỗ trợ tham khảo, không thay thế đánh giá chuyên môn khi có chấn thương hoặc bệnh lý.
-
-Log ngày 25/11/2026 ghi **53/53 phương thức backend và 10/10 kịch bản Edge đạt**. Bộ hỏi mới gồm 12 tình huống/16 lượt, đạt điều kiện chức năng nhưng còn 6 cờ rà soát nội dung. Năm lượt RAG có thời gian ChatService trung bình **85,205 giây**, không gồm judge; mẫu này được tách khỏi 193 bản ghi cũ. Đây là kết quả đã lưu, không phải một lần chạy lại khi cập nhật tài liệu.
-
-### Báo cáo Excel
-
-[Báo cáo và bộ kiểm thử hiện tại](reports/README.md) ghi kết quả thực thi, số liệu đánh giá và giới hạn. Chạy lệnh kiểm toán bên dưới để xem trạng thái mới nhất trực tiếp từ file.
-
-[Bàn giao Security, Evaluation & Performance](reports/history/SECURITY_PERFORMANCE.md) ghi test prompt injection, session/replay, chấm lại câu 20 và phép đo độ trễ local.
-
-[Mở báo cáo train/test](reports/AI-4GYM_train_test_report.xlsx) để xem tổng quan, danh sách 772 câu train, 193 câu test và kết quả chatbot trên từng câu test. Sheet `Danh gia Test` ghi câu trả lời thực tế, điểm Qwen local (0–2), lý do chấm, Token F1, ROUGE-L F1, nguồn RAG và thời gian ghi cũ. Trường thời gian cũ có thể gồm cả judge, không dùng làm độ trễ chatbot. Điểm 2 là đạt, 1 là đúng một phần, 0 là sai hoặc từ chối. Tỷ lệ đạt tự động = số câu điểm 2 / số câu đã chạy; chỉ khi chạy đủ 193 câu mới là kết quả toàn bộ tập test. Có thêm cột `Duyệt tay (1/0)` để kiểm tra độc lập.
-
-**Cách chạy đánh giá đầy đủ** tại `BE/`:
-
-```powershell
-.\.venv\Scripts\python.exe -m app.scripts.evaluate_chatbot
-```
-
-Lệnh gọi đúng `ChatService` đang phục vụ web trên từng câu test độc lập, sau đó dùng Qwen local chấm theo đáp án tham chiếu và xuất Excel. Kết quả từng câu được lưu vào `reports/evaluation_results.jsonl`. Hiện 193 câu đã có điểm; chạy lại lệnh này sẽ **chấm lại 154 dòng judge v2 bằng judge v3** trên câu trả lời đã lưu, làm thay đổi thống kê. Dùng `--ids` nếu chỉ muốn kiểm tra vài câu. Không dùng API AI bên ngoài. Điểm AI là đánh giá tự động bởi cùng họ model đang trả lời, vì vậy nên rà soát độc lập trước khi trình bày như một tỷ lệ chính xác được xác minh. Token F1 và ROUGE-L chỉ đo trùng từ, không tự chứng minh đúng sai. Bộ hỏi mới sau sửa lỗi được lưu riêng trong `reports/results/chatbot_ai_review.json`.
-
-Để tạo lại file sau khi chạy `ingest` với dữ liệu mới, đứng tại `BE/` và chạy:
-
-```powershell
-.\.venv\Scripts\python.exe -m app.scripts.export_report
-```
-
-Lệnh xuất Excel từ kết quả đã lưu mà không chạy lại chatbot. Cả hai lệnh kiểm tra dữ liệu gốc, phép chia train/test và chỉ mục Chroma. Nếu chỉ mục chưa có hoặc đã cũ, chạy `python -m app.scripts.ingest` trước.
+Khi thay dữ liệu, sửa Excel gốc hoặc `BE/data/curated/exercises.json`, chạy lại `ingest` và khởi động lại backend. JSON trong `data/processed/` được sinh từ Excel. `ingest --export-only` chỉ xuất JSON, không cần model.
 
 ## Kiểm tra
 
+Xác nhận ngày **28/11/2026**: **72 test chạy đạt**, một nhóm tích hợp tài khoản bị bỏ qua do thiếu dịch vụ; build frontend và kiểm toán dữ liệu/Excel từ ZIP giải nén đạt. PDF và workbook đã gộp được kiểm tra nội dung, số trang và dữ liệu.
+
+Tại `BE/`:
+
 ```powershell
-# Tại BE/, khi MySQL và Ollama đang chạy
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
-
-# Kiểm tra Excel gốc, JSON, phép chia và báo cáo; không cần MySQL/Ollama
 .\.venv\Scripts\python.exe -m app.scripts.audit_report
+```
 
-# Tại FE/
+Tại `FE/`:
+
+```powershell
 npm run build
 ```
 
-Xem [hướng dẫn cài đặt](docs/setup.md) nếu cần cài mới hoặc xử lý lỗi khi chạy.
+Các ca tích hợp cần MySQL, Ollama và chỉ mục đã khởi tạo. Ca tài khoản tự bỏ qua khi thiếu dịch vụ; ca RAG nhiều lượt vẫn cần Ollama. Xem kết quả thực tế của runner để phân biệt pass, skip và lỗi môi trường.
+
+Để xuất lại Excel từ kết quả đã lưu, chạy `python -m app.scripts.export_report` bằng Python trong `.venv` tại `BE/`. `python -m app.scripts.evaluate_chatbot --ids qa-20,qa-132` giới hạn đánh giá theo ID; chạy không có `--ids` sẽ xử lý cả tập test và chấm lại các dòng judge cũ.
+
+## Đóng gói
+
+Từ gốc Git checkout:
+
+```powershell
+python scripts/package_submission.py
+```
+
+Script dùng thư viện chuẩn Python, tạo một ZIP đầy đủ và kiểm tra SHA-256 từng tệp. Manifest nằm bên trong ZIP. `.gitignore` loại cấu hình riêng, thư viện cài sẵn, chỉ mục AI, build, cache, log, bản Word và file tạm. Máy nhận cài môi trường theo phần Cài đặt.

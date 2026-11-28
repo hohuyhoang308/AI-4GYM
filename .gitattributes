@@ -1,28 +1,14 @@
 * text=auto
-
-# Keep evidence byte-for-byte stable across Windows/Linux checkouts.
-reports/** text eol=lf
-reports/history/** text=auto eol=crlf
-reports/results/*.json -text whitespace=-blank-at-eof,cr-at-eol
-# Preserve the original runner's spacing and line endings in captured logs.
-reports/results/*.txt -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
-reports/evaluation_results.jsonl text eol=crlf
-
-# These source bytes are bound to the saved software-test evidence.
-BE/app/services/chat.py text eol=crlf
-BE/app/services/plans.py text eol=crlf
-BE/app/services/scope.py text eol=crlf
-BE/app/scripts/export_report.py text eol=crlf
-BE/app/scripts/submission_*.py text eol=lf
-BE/data/curated/submission_cases.json text eol=lf
-BE/tests/*.py text eol=crlf
-BE/tests/test_dataset_split.py text eol=lf
-BE/tests/test_scope.py text eol=lf
-BE/tests/test_software.py text eol=lf
-BE/tests/test_submission_regressions.py text eol=lf
-
-*.docx binary
+/.gitattributes text eol=lf
+/.gitignore text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.css text eol=lf
+*.json text eol=crlf
+*.jsonl text eol=crlf
 *.xlsx binary
 *.pdf binary
-*.png binary
 *.zip binary
+*.svg text eol=lf

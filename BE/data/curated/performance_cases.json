@@ -1,7 +1,0 @@
-[
-  {"id":"P01","mode":"single","category":"rag","messages":["Hướng dẫn cách tập squat đúng kỹ thuật và lỗi cần tránh"],"expect":"fitness_no_marker"},
-  {"id":"P02","mode":"single","category":"rag","messages":["Cách tập plank cẳng tay cho người mới?"],"expect":"fitness_no_marker"},
-  {"id":"P03","mode":"single","category":"rag","messages":["Gợi ý bài tập vai cho người mới bắt đầu"],"expect":"fitness_no_marker"},
-  {"id":"P04","mode":"single","category":"rag","messages":["Tập tay nên tập mấy rep một hiệp?"],"expect":"fitness_no_marker"},
-  {"id":"P05","mode":"multi","category":"rag_context","messages":["Hướng dẫn cách tập chống đẩy quỳ gối", "Bài đó thường sai ở đâu?"],"expect":"fitness_no_marker"}
-]
